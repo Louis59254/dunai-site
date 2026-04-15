@@ -605,6 +605,12 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   aspect-ratio: 16/9; position: relative;
   display: flex; align-items: flex-end;
 }
+.blog-featured-img img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+  border-radius: var(--r-xl);
+}
 .blog-featured-img-inner {
   position: absolute; inset: 0;
   background-image: radial-gradient(circle at 70% 30%, rgba(234,88,12,0.25) 0%, transparent 60%);
@@ -1528,8 +1534,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <article class="blog-featured" data-cat="cas-client" aria-label="Article à la une">
         <div class="blog-featured-img" aria-hidden="true">
           <div class="blog-featured-img-inner"></div>
-          <div class="blog-featured-img-dots"></div>
-          <span class="blog-featured-img-label">🔍</span>
+          <img src="Blog/images/dunai-thumb-audit-ia-pme-2-jours-2026-04-15.svg" alt="Audit IA PME 2 jours" loading="lazy">
         </div>
         <div class="blog-featured-body">
           <div class="blog-featured-meta">
