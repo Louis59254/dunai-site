@@ -672,6 +672,11 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 .blog-card-img-inner {
   position: absolute; inset: 0;
 }
+.blog-card-img img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+}
 .blog-card-emoji {
   position: relative; z-index: 2;
   font-size: 2rem; padding: 1rem;
@@ -1536,7 +1541,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           </div>
           <h2 class="blog-featured-title">Audit IA : ce qu'il révèle dans une PME en 2 jours</h2>
           <p class="blog-featured-excerpt">Tâches répétitives, gains cachés, ROI estimé — voici ce qu'un audit terrain de 2 jours révèle concrètement dans une PME du Nord. Méthodologie, cas réels et résultats chiffrés.</p>
-          <a class="blog-read-link" href="Blog/article-audit-ia-pme-2-jours-2026-04-15.html" target="_blank" aria-label="Lire l'article : Audit IA PME en 2 jours">
+          <a class="blog-read-link" href="Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html" target="_blank" aria-label="Lire l'article : Audit IA PME en 2 jours">
             Lire l'article <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -1544,6 +1549,29 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 
       <!-- Grille d'articles -->
       <div class="blog-grid" id="blogGrid">
+
+        <article class="blog-card" data-cat="cas-client">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="Blog/images/dunai-thumb-ia-commerce-2026-04-15.svg" alt="IA dans le commerce : exemples de gains concrets" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Commerce</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-read-time" datetime="2026-04-15">15 avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">IA dans le commerce : exemples de gains concrets</h3>
+            <p class="blog-card-excerpt">Comment les commerçants des Hauts-de-France utilisent l'IA pour gagner du temps, réduire les tâches répétitives et augmenter leur chiffre d'affaires.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="Blog/dunai-article-ia-commerce-2026-04-15.html" target="_blank" style="font-size:13px" aria-label="Lire : IA dans le commerce">Lire →</a>
+          </div>
+        </article>
 
         <article class="blog-card" data-cat="automatisation">
           <div class="blog-card-img" aria-hidden="true">
