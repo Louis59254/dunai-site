@@ -578,6 +578,174 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 @media (min-width: 640px) {
   .page-hero-dark { padding: 5rem 2rem 4rem; }
 }
+
+/* ─── BLOG ─── */
+.blog-filter {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: 2.5rem; margin-top: .5rem;
+}
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  padding: 6px 14px; border-radius: var(--r-full);
+  border: 1px solid var(--border-light);
+  background: var(--blanc); color: var(--brun);
+  cursor: pointer; transition: all .18s;
+}
+.filter-btn:hover { border-color: var(--flamme); color: var(--flamme); }
+.filter-btn.active { background: var(--flamme); color: var(--blanc); border-color: var(--flamme); }
+
+.blog-featured {
+  display: grid; grid-template-columns: 1fr;
+  gap: 1.5rem; margin-bottom: 3rem;
+}
+.blog-featured-img {
+  background: var(--noir);
+  border-radius: var(--r-xl); overflow: hidden;
+  aspect-ratio: 16/9; position: relative;
+  display: flex; align-items: flex-end;
+}
+.blog-featured-img-inner {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 70% 30%, rgba(234,88,12,0.25) 0%, transparent 60%);
+  background-color: var(--anthracite);
+}
+.blog-featured-img-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(234,88,12,0.1) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.blog-featured-img-label {
+  position: relative; z-index: 2;
+  font-size: 3.5rem; padding: 1.5rem;
+}
+.blog-featured-body { display: flex; flex-direction: column; gap: .75rem; }
+.blog-featured-meta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+.blog-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: var(--r-full);
+  background: var(--flamme-pale); color: var(--flamme);
+}
+.blog-tag-dark {
+  background: rgba(234,88,12,0.15); color: var(--flamme2);
+}
+.blog-meta-sep { color: var(--sable); font-size: 12px; }
+.blog-date { font-size: 12px; color: var(--brun); }
+.blog-read-time { font-size: 12px; color: var(--brun); }
+.blog-featured-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 800; color: var(--anthracite);
+  letter-spacing: -0.5px; line-height: 1.15;
+}
+.blog-featured-excerpt {
+  font-size: 15px; color: var(--brun); line-height: 1.75;
+}
+.blog-read-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--flamme); font-weight: 500; font-size: 14px;
+  text-decoration: none; cursor: pointer;
+  transition: gap .18s;
+}
+.blog-read-link:hover { gap: 10px; }
+.blog-read-link:focus-visible {
+  outline: 2px solid var(--flamme); outline-offset: 3px; border-radius: 4px;
+}
+
+.blog-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.blog-card {
+  background: var(--blanc);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-lg); overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+  display: flex; flex-direction: column;
+}
+.blog-card:hover { box-shadow: 0 8px 32px rgba(28,25,23,0.08); transform: translateY(-2px); }
+.blog-card-img {
+  background: var(--anthracite);
+  aspect-ratio: 16/8; position: relative;
+  overflow: hidden; display: flex; align-items: flex-end;
+}
+.blog-card-img-inner {
+  position: absolute; inset: 0;
+}
+.blog-card-emoji {
+  position: relative; z-index: 2;
+  font-size: 2rem; padding: 1rem;
+}
+.blog-card-body {
+  padding: 1.25rem; flex: 1;
+  display: flex; flex-direction: column; gap: .625rem;
+}
+.blog-card-meta { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.blog-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--anthracite); letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+.blog-card-excerpt {
+  font-size: 13px; color: var(--brun); line-height: 1.65;
+  flex: 1;
+}
+.blog-card-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border-light);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.blog-card-author {
+  display: flex; align-items: center; gap: .5rem;
+}
+.author-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--flamme), var(--flamme2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--blanc);
+  flex-shrink: 0;
+}
+.author-name { font-size: 12px; font-weight: 500; color: var(--anthracite); }
+
+.blog-cta-banner {
+  background: var(--noir); border-radius: var(--r-xl);
+  padding: 2.5rem 1.5rem; margin-top: 3rem;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.blog-cta-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(234,88,12,0.1) 1px, transparent 1px);
+  background-size: 24px 24px; pointer-events: none;
+}
+.blog-cta-banner h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  font-weight: 800; color: var(--blanc);
+  letter-spacing: -0.5px; margin-bottom: .5rem;
+  position: relative; z-index: 1;
+}
+.blog-cta-banner p {
+  font-size: 14px; color: rgba(255,255,255,0.5);
+  margin-bottom: 1.5rem; position: relative; z-index: 1;
+}
+.blog-cta-btn {
+  background: var(--flamme); color: var(--blanc);
+  padding: 12px 24px; border-radius: var(--r-md);
+  font-weight: 500; font-size: 14px; border: none;
+  cursor: pointer; transition: background .2s;
+  position: relative; z-index: 1;
+}
+.blog-cta-btn:hover { background: var(--flamme2); }
+
+@media (min-width: 640px) {
+  .blog-featured { grid-template-columns: 1fr 1fr; align-items: center; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(3, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -589,6 +757,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   <a onclick="showPage('roi');closeMenu()">Résultats</a>
   <a onclick="showPage('offres');closeMenu()">Offres</a>
   <a onclick="showPage('tarifs');closeMenu()">Tarifs</a>
+  <a onclick="showPage('blog');closeMenu()">Blog</a>
   <a class="mobile-menu-cta" onclick="showPage('contact');closeMenu()">Audit gratuit →</a>
 </div>
 
@@ -604,6 +773,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <li><a onclick="showPage('roi')">Résultats</a></li>
       <li><a onclick="showPage('offres')">Offres</a></li>
       <li><a onclick="showPage('tarifs')">Tarifs</a></li>
+      <li><a onclick="showPage('blog')">Blog</a></li>
     </ul>
     <button class="nav-cta-btn" onclick="showPage('contact');closeMenu()">Audit gratuit</button>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
@@ -1322,9 +1492,162 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · contact@dunai.fr</div></div></footer>
 </div>
 
+<!-- ══════════════════════ BLOG ══════════════════════ -->
+<div id="page-blog" class="page" role="main">
+
+  <!-- Hero -->
+  <div class="page-hero-dark">
+    <div class="section-inner">
+      <span class="eyebrow">Ressources & Insights</span>
+      <h1 class="h2 h2-white">IA & Automatisation :<br>ce qui marche vraiment.</h1>
+      <p class="lead lead-white" style="max-width:520px;margin-top:.75rem;margin-bottom:0">Cas concrets, guides pratiques et retours terrain pour les PME du Nord.</p>
+    </div>
+  </div>
+
+  <!-- Contenu -->
+  <section class="section" aria-label="Articles du blog">
+    <div class="section-inner">
+
+      <!-- Filtres par catégorie -->
+      <nav aria-label="Filtrer les articles par catégorie">
+        <div class="blog-filter" role="list">
+          <button class="filter-btn active" role="listitem" onclick="filterBlog(this,'tous')" aria-pressed="true">Tous les articles</button>
+          <button class="filter-btn" role="listitem" onclick="filterBlog(this,'automatisation')" aria-pressed="false">Automatisation</button>
+          <button class="filter-btn" role="listitem" onclick="filterBlog(this,'agents-ia')" aria-pressed="false">Agents IA</button>
+          <button class="filter-btn" role="listitem" onclick="filterBlog(this,'roi')" aria-pressed="false">ROI & Chiffres</button>
+          <button class="filter-btn" role="listitem" onclick="filterBlog(this,'cas-client')" aria-pressed="false">Cas clients</button>
+        </div>
+      </nav>
+
+      <!-- Article à la une -->
+      <article class="blog-featured" data-cat="cas-client" aria-label="Article à la une">
+        <div class="blog-featured-img" aria-hidden="true">
+          <div class="blog-featured-img-inner"></div>
+          <div class="blog-featured-img-dots"></div>
+          <span class="blog-featured-img-label">🔍</span>
+        </div>
+        <div class="blog-featured-body">
+          <div class="blog-featured-meta">
+            <span class="blog-tag">Audit IA</span>
+            <span class="blog-meta-sep" aria-hidden="true">·</span>
+            <time class="blog-date" datetime="2026-04-15">15 avril 2026</time>
+            <span class="blog-meta-sep" aria-hidden="true">·</span>
+            <span class="blog-read-time">7 min de lecture</span>
+          </div>
+          <h2 class="blog-featured-title">Audit IA : ce qu'il révèle dans une PME en 2 jours</h2>
+          <p class="blog-featured-excerpt">Tâches répétitives, gains cachés, ROI estimé — voici ce qu'un audit terrain de 2 jours révèle concrètement dans une PME du Nord. Méthodologie, cas réels et résultats chiffrés.</p>
+          <a class="blog-read-link" href="Blog/article-audit-ia-pme-2-jours-2026-04-15.html" target="_blank" aria-label="Lire l'article : Audit IA PME en 2 jours">
+            Lire l'article <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Grille d'articles -->
+      <div class="blog-grid" id="blogGrid">
+
+        <article class="blog-card" data-cat="automatisation">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1C1917 40%,#2d1a0e)"></div>
+            <span class="blog-card-emoji">⚡</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Automatisation</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-read-time" datetime="2026-04">Avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">Automatisation PME à Dunkerque : pourquoi 2026 change tout</h3>
+            <p class="blog-card-excerpt">68% des PME du Nord n'ont rien automatisé. Pendant ce temps, leurs concurrents gagnent 28h par mois. Voici pourquoi attendre coûte plus cher qu'agir.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="Blog/dunai-article-automatisation-pme-dunkerque-2026.html" target="_blank" style="font-size:13px" aria-label="Lire : Automatisation PME Dunkerque 2026">Lire →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-cat="agents-ia">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1C1917 40%,#291c0e)"></div>
+            <span class="blog-card-emoji">🤖</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Agents IA</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-read-time" datetime="2026-04">Avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">Agent IA : automatiser les tâches répétitives en entreprise — ce que ça change vraiment</h3>
+            <p class="blog-card-excerpt">Un agent IA automatise vos tâches répétitives en quelques semaines. Découvrez comment ça marche concrètement, ce que ça rapporte, et par où commencer.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="Blog/dunai-article-1-agents-ia.html" target="_blank" style="font-size:13px" aria-label="Lire : Agent IA automatisation entreprise">Lire →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-cat="roi">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#14290f 40%,#1C1917)"></div>
+            <span class="blog-card-emoji">📊</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">ROI & Chiffres</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-read-time" datetime="2026-04">Avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">ROI de l'automatisation IA : ce qu'on observe vraiment sur 12 mois</h3>
+            <p class="blog-card-excerpt">Combien rapporte vraiment l'automatisation IA dans une PME ? Chiffres réels observés sur 12 mois : heures récupérées, économies, retour sur investissement.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="Blog/dunai-article-2-roi-12-mois.html" target="_blank" style="font-size:13px" aria-label="Lire : ROI automatisation IA 12 mois">Lire →</a>
+          </div>
+        </article>
+
+      </div><!-- /blog-grid -->
+
+      <!-- CTA bannière -->
+      <div class="blog-cta-banner" role="complementary" aria-label="Passer à l'action">
+        <div class="blog-cta-dots" aria-hidden="true"></div>
+        <h3>Vous reconnaissez votre situation dans ces articles ?</h3>
+        <p>Un audit gratuit de 2h suffit pour identifier vos 5 premières automatisations et estimer le gain.</p>
+        <button class="blog-cta-btn" onclick="showPage('contact')">Réserver mon audit gratuit →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home')">Accueil</a></li>
+          <li><a onclick="showPage('agents')">Agents IA</a></li>
+          <li><a onclick="showPage('roi')">Résultats</a></li>
+          <li><a onclick="showPage('offres')">Offres</a></li>
+          <li><a onclick="showPage('tarifs')">Tarifs</a></li>
+          <li><a onclick="showPage('blog')" aria-current="page">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
+    </div>
+  </footer>
+</div>
+
 <script>
 // ── Page navigation ─────────────────────────────────────────────
-const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', offres:'Offres', tarifs:'Tarifs' };
+const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', offres:'Offres', tarifs:'Tarifs', blog:'Blog' };
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1424,7 +1747,7 @@ function startCounters() {
 }
 
 // ── Form submit — Webhook n8n ────────────────────────────────────
-const N8N_WEBHOOK_URL = 'https://n8n.louismagie.fr/webhook-test/dunai-contact';
+const N8N_WEBHOOK_URL = 'https://TON-N8N.app.n8n.cloud/webhook/dunai-contact';
 
 async function handleSubmit(btn) {
   const form = btn.closest('.contact-form');
@@ -1490,6 +1813,36 @@ async function handleSubmit(btn) {
     btn.disabled = false;
     console.error('Webhook error:', err);
   }
+}
+
+// ── Blog filter ──────────────────────────────────────────────────
+function filterBlog(btn, cat) {
+  // Update button states
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
+
+  // Show/hide cards
+  const cards = document.querySelectorAll('#blogGrid .blog-card');
+  cards.forEach(card => {
+    const match = cat === 'tous' || card.dataset.cat === cat;
+    card.style.display = match ? '' : 'none';
+  });
+
+  // Show/hide featured article
+  const featured = document.querySelector('.blog-featured');
+  if (featured) {
+    const featCat = featured.dataset.cat;
+    featured.style.display = (cat === 'tous' || featCat === cat) ? '' : 'none';
+  }
+}
+
+function openArticle(slug) {
+  // Placeholder : redirigera vers la page article individuelle
+  showPage('contact');
 }
 </script>
 </body>

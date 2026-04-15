@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit IA PME : ce qu'il révèle en seulement 2 jours | Dunai</title>
+  <meta name="description" content="Découvrez ce qu'un audit IA révèle dans une PME en 2 jours : tâches répétitives, gains cachés, ROI estimé. Dunai intervient dans les entreprises du Nord.">
+  <meta property="og:title" content="Audit IA PME : ce qu'il révèle en 2 jours | Dunai">
+  <meta property="og:description" content="Découvrez ce qu'un audit IA révèle dans une PME en 2 jours : tâches répétitives, gains cachés, ROI estimé. Dunai intervient dans les entreprises du Nord.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://dunai.fr/blog/audit-ia-pme-2-jours">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'DM Sans',sans-serif; background:var(--creme); color:var(--anthracite); }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:var(--noir); border-bottom:1px solid var(--border-dark);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 1.5rem; height:60px;
+    }
+    .logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.3rem; text-decoration:none; }
+    .logo .dun { color:var(--blanc); }
+    .logo .nai { color:var(--flamme); }
+    .btn-audit {
+      background:var(--flamme); color:var(--blanc);
+      padding:8px 18px; border-radius:var(--r-md);
+      font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:0.85rem;
+      text-decoration:none; transition:background 0.2s;
+    }
+    .btn-audit:hover { background:var(--flamme2); }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar { background:var(--anthracite); padding:12px 1.5rem; margin-top:60px; }
+    .breadcrumb { max-width:860px; margin:0 auto; font-size:13px; color:var(--brun); }
+    .breadcrumb a { color:var(--brun); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--flamme); }
+    .breadcrumb span { color:var(--flamme); margin:0 6px; }
+
+    /* HERO */
+    .hero { background:var(--noir); min-height:92svh; position:relative; display:flex; align-items:center; overflow:hidden; }
+    .hero-dots { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(234,88,12,0.13) 1px,transparent 1px); background-size:28px 28px; }
+    .hero-glow { position:absolute; inset:0; background:radial-gradient(circle at 30% 50%,rgba(234,88,12,0.17) 0%,transparent 70%); }
+    .hero-inner { position:relative; z-index:2; max-width:860px; margin:0 auto; padding:4rem 1.5rem; width:100%; }
+    .kicker {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:13px; font-weight:500; color:var(--flamme2);
+      text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem;
+    }
+    .kicker-dot { width:8px; height:8px; border-radius:50%; background:var(--flamme); animation:pulse 2s infinite; flex-shrink:0; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+    .hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2.2rem,7vw,4.5rem); font-weight:800; color:var(--blanc); letter-spacing:-2px; line-height:1.1; margin-bottom:1.5rem; }
+    .hero h1 .hl { color:var(--flamme); }
+    .hero-meta { font-size:13px; color:var(--brun); margin-bottom:1.25rem; display:flex; gap:16px; flex-wrap:wrap; }
+    .hero-sub { font-size:1.05rem; color:rgba(255,255,255,0.7); line-height:1.75; max-width:640px; margin-bottom:2.5rem; font-weight:300; }
+    .hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; border-top:1px solid var(--border-dark); padding-top:2rem; }
+    .stat-item { text-align:center; }
+    .stat-n { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.6rem; font-weight:800; color:var(--flamme); display:block; }
+    .stat-l { font-size:12px; color:var(--brun); margin-top:4px; line-height:1.4; }
+
+    /* SECTIONS */
+    .section-white  { background:var(--blanc);      padding:5rem 1.25rem; }
+    .section-dark   { background:var(--anthracite); padding:5rem 1.25rem; }
+    .section-cream2 { background:var(--creme2);     padding:5rem 1.25rem; }
+    .section-anth   { background:var(--dark2);      padding:5rem 1.25rem; }
+    .section-inner { max-width:860px; margin:0 auto; }
+
+    .eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--flamme); margin-bottom:0.75rem; }
+    .h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.6rem,4vw,2.25rem); font-weight:800; letter-spacing:-1px; color:var(--anthracite); margin-bottom:1.5rem; }
+    .h2-white { color:var(--blanc) !important; }
+    .prose p { font-size:15px; color:var(--dark3); line-height:1.8; margin-bottom:1.1rem; }
+    .prose p:last-child { margin-bottom:0; }
+
+    /* INFO BOX */
+    .info-box { background:var(--flamme-pale); border-left:4px solid var(--flamme); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+    .info-box p { color:var(--dark3); font-size:15px; line-height:1.75; margin:0; }
+    .info-box strong { color:var(--flamme); }
+    .info-box-dark { background:rgba(234,88,12,0.1); border-left:4px solid var(--flamme); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+    .info-box-dark p { color:rgba(255,255,255,0.8); font-size:15px; line-height:1.75; margin:0; }
+    .info-box-dark strong { color:var(--flamme2); }
+
+    /* BA TABLE */
+    .ba-scroll { overflow-x:auto; margin:2rem 0; border-radius:var(--r-lg); overflow:hidden; }
+    .ba-table { width:100%; border-collapse:collapse; min-width:580px; }
+    .ba-table thead tr { background:var(--anthracite); }
+    .ba-table th { padding:14px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; text-align:left; }
+    .ba-table th:nth-child(1) { color:var(--brun); }
+    .ba-table th:nth-child(2) { color:rgba(255,255,255,0.55); }
+    .ba-table th.th-after { color:var(--flamme); }
+    .ba-table th.th-gain  { color:var(--vert); }
+    .ba-table td { padding:13px 18px; font-size:14px; border-bottom:1px solid var(--border-light); color:var(--dark3); background:var(--blanc); }
+    .ba-table tr:nth-child(even) td { background:var(--creme2); }
+    .ba-table tr:last-child td { border-bottom:none; }
+    .gain { color:var(--vert); font-weight:600; }
+
+    /* PROCESS LIST */
+    .process-list { list-style:none; position:relative; padding-left:0; margin:2rem 0; }
+    .process-list::before { content:''; position:absolute; left:20px; top:40px; bottom:40px; width:2px; background:linear-gradient(to bottom,var(--flamme),transparent); }
+    .process-item { display:flex; gap:1.25rem; margin-bottom:2rem; align-items:flex-start; }
+    .process-num { width:40px; height:40px; border-radius:50%; background:var(--flamme); color:var(--blanc); font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .process-content h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.02rem; font-weight:700; color:var(--anthracite); margin-bottom:0.5rem; }
+    .process-content p { font-size:14px; color:var(--dark3); line-height:1.75; margin:0; }
+
+    /* ROI GRID */
+    .roi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin:2rem 0; }
+    .roi-card { background:var(--dark2); border:1px solid var(--border-dark); border-radius:var(--r-lg); padding:1.5rem; }
+    .roi-card .company { font-size:11px; color:var(--brun); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.5px; }
+    .roi-card h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--blanc); margin-bottom:1rem; line-height:1.4; }
+    .roi-results { background:var(--noir); border-radius:var(--r-sm); padding:0.75rem 1rem; }
+    .roi-result-item { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-dark); }
+    .roi-result-item:last-child { border-bottom:none; }
+    .roi-result-item span:first-child { font-size:13px; color:var(--brun); }
+    .roi-result-item span:last-child { font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:700; color:var(--flamme); }
+
+    /* SIGNAL GRID */
+    .signal-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:2rem 0; }
+    .signal-card { background:var(--dark2); border:1px solid var(--border-dark); border-radius:var(--r-md); padding:1.25rem; }
+    .signal-card h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--blanc); margin-bottom:0.5rem; }
+    .signal-card p { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65; margin:0; }
+
+    /* QUOTE BLOCK */
+    .quote-block { border-left:4px solid var(--flamme); padding:1.5rem 2rem; margin:2.5rem 0; background:var(--creme2); border-radius:0 var(--r-md) var(--r-md) 0; }
+    .quote-block blockquote { font-size:1.05rem; color:var(--anthracite); font-style:italic; line-height:1.75; margin-bottom:0.75rem; }
+    .quote-block cite { font-size:13px; color:var(--brun); font-style:normal; }
+
+    /* INTERNAL LINKS */
+    .internal-links { background:var(--creme2); border-radius:var(--r-lg); padding:1.5rem; margin:2.5rem 0; border:1px solid var(--border-light); }
+    .internal-links h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1rem; color:var(--anthracite); margin-bottom:1rem; }
+    .internal-links ul { list-style:none; }
+    .internal-links li { padding:8px 0; border-bottom:1px solid var(--border-light); }
+    .internal-links li:last-child { border-bottom:none; }
+    .internal-links a { font-size:14px; color:var(--flamme); text-decoration:none; font-weight:500; }
+    .internal-links a:hover { text-decoration:underline; }
+
+    /* FINAL CTA */
+    .final-cta { background:var(--flamme); padding:5rem 1.25rem; text-align:center; }
+    .final-cta h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.8rem,5vw,3rem); color:var(--blanc); letter-spacing:-1px; margin-bottom:1rem; }
+    .final-cta p { font-size:1.05rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.7; }
+    .cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-white { background:var(--blanc); color:var(--flamme); padding:14px 28px; border-radius:var(--r-md); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; text-decoration:none; font-size:0.95rem; }
+    .btn-transparent { background:transparent; color:var(--blanc); padding:14px 28px; border-radius:var(--r-md); border:2px solid rgba(255,255,255,0.5); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; text-decoration:none; font-size:0.95rem; }
+
+    /* FOOTER */
+    footer { background:var(--noir); padding:3rem 1.5rem; text-align:center; border-top:1px solid var(--border-dark); }
+    .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.5rem; font-weight:800; margin-bottom:0.75rem; }
+    .footer-logo .dun { color:var(--blanc); }
+    .footer-logo .nai { color:var(--flamme); }
+    footer p { font-size:13px; color:var(--brun); margin-bottom:0.4rem; }
+    footer a { color:var(--flamme); text-decoration:none; }
+
+    @media (max-width:640px) {
+      .hero-stats { grid-template-columns:repeat(2,1fr); }
+      .roi-grid   { grid-template-columns:1fr; }
+      .signal-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://dunai.fr" class="logo"><span class="dun">Dun</span><span class="nai">ai</span></a>
+  <a href="https://dunai.fr/audit" class="btn-audit">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="https://dunai.fr">Accueil</a><span>›</span>
+    <a href="https://dunai.fr/blog">Blog</a><span>›</span>
+    Audit IA : ce qu'il révèle dans une PME en 2 jours
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="kicker"><span class="kicker-dot"></span> Audit IA · Diagnostic entreprise</div>
+    <h1>Audit IA : ce qu'il révèle<br>dans une <span class="hl">PME en 2 jours</span></h1>
+    <div class="hero-meta">
+      <span>📅 15 avril 2026</span>
+      <span>✍️ Équipe Dunai</span>
+      <span>⏱ 7 min de lecture</span>
+    </div>
+    <p class="hero-sub">
+      En deux jours d'immersion terrain, un audit IA identifie vos points de friction cachés, chiffre les gains accessibles et dessine la feuille de route la plus courte vers le ROI. Voici ce que nous trouvons systématiquement dans les PME des Hauts-de-France.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-n">4,2h</span>
+        <p class="stat-l">perdues par salarié/jour en tâches inutiles</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">68%</span>
+        <p class="stat-l">des PME n'ont encore rien automatisé</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">-73%</span>
+        <p class="stat-l">de tâches répétitives éliminées en moyenne</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">×4</span>
+        <p class="stat-l">ROI constaté sur 12 mois après déploiement</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 : LE CONSTAT -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="eyebrow">Le constat de départ</div>
+    <h2 class="h2">68 % des PME françaises n'ont encore rien automatisé</h2>
+    <div class="prose">
+      <p>
+        Lorsque nous arrivons dans une PME pour un audit IA, la scène est souvent identique : des équipes compétentes, un dirigeant impliqué, et pourtant une masse invisible de temps gaspillé chaque jour dans des ressaisies manuelles, des relances oubliées et des processus qui n'ont pas évolué depuis dix ans.
+      </p>
+      <p>
+        Selon nos observations terrain dans les entreprises du Nord-Pas-de-Calais, <strong>4,2 heures par salarié et par jour</strong> sont consacrées à des tâches qui pourraient être automatisées ou fortement accélérées par l'IA. Sur une équipe de dix personnes, c'est 840 heures gaspillées chaque mois — l'équivalent de cinq salariés à plein temps qui font uniquement de l'administration.
+      </p>
+      <p>
+        L'audit IA Dunai est précisément l'outil qui met un chiffre sur cette réalité. En deux jours d'immersion dans vos équipes, nous dressons un tableau complet de votre organisation : ce qui peut être automatisé, ce qui peut être accéléré par l'IA, et ce qui doit rester humain. Pas de théorie. Des faits, des process, des euros.
+      </p>
+    </div>
+    <div class="info-box">
+      <p><strong>À retenir :</strong> Un audit IA n'est pas un audit informatique. Il ne s'intéresse pas à vos serveurs ni à votre infrastructure technique. Il cartographie vos flux de travail réels, identifie les frictions et calcule le potentiel de gain concret pour votre structure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : LES ZONES DE FRICTION -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--flamme2)">Les 6 zones de friction systématiques</div>
+    <h2 class="h2 h2-white">Ce que l'audit révèle à chaque fois</h2>
+    <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.8;margin-bottom:2rem;">
+      Après des dizaines d'audits dans des PME industrielles, logistiques et commerciales des Hauts-de-France, nous retrouvons systématiquement les mêmes zones de friction. Voici les six que l'on identifie dans presque toutes les organisations.
+    </p>
+    <div class="signal-grid">
+      <div class="signal-card">
+        <h3>📋 Saisie &amp; ressaisie de données</h3>
+        <p>Les mêmes informations sont saisies dans 3 à 5 outils différents. Excel, ERP, logiciel métier, email : chaque transfert est manuel, source d'erreurs et chronophage.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📤 Relances &amp; suivi clients</h3>
+        <p>Les relances de factures, devis ou commandes sont gérées à la main. Résultat : des oublis, des retards de paiement, et un commercial qui passe son temps à relancer au lieu de vendre.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📊 Reporting &amp; tableaux de bord</h3>
+        <p>La consolidation des chiffres se fait chaque semaine par copier-coller depuis plusieurs sources. Cela prend des heures pour un résultat qui a déjà quelques jours de retard.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📞 Gestion des demandes entrantes</h3>
+        <p>Emails, formulaires, appels téléphoniques : les demandes clients arrivent de partout et sont triées manuellement. Une part significative reste sans réponse dans les 24 premières heures.</p>
+      </div>
+      <div class="signal-card">
+        <h3>🏭 Planification &amp; ordonnancement</h3>
+        <p>La planification des équipes, des livraisons ou de la production repose sur l'expérience humaine et des fichiers Excel. Elle ne tient pas compte des aléas en temps réel.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📄 Création de documents</h3>
+        <p>Devis, bons de commande, rapports d'intervention, contrats : chaque document est recréé manuellement depuis un modèle, avec les erreurs de copier-coller que cela implique.</p>
+      </div>
+    </div>
+    <div class="info-box-dark">
+      <p>En moyenne, ces six zones représentent <strong>entre 30 % et 45 % du temps salarié total</strong> d'une PME de 10 à 30 personnes. L'audit les quantifie précisément pour votre structure, avec un chiffrage en heures et en euros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : MÉTHODOLOGIE -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <div class="eyebrow">Méthodologie terrain</div>
+    <h2 class="h2">Comment se déroulent ces 2 jours d'audit ?</h2>
+    <div class="prose">
+      <p>
+        L'audit IA Dunai n'est pas un questionnaire envoyé par email. C'est une immersion dans vos locaux, avec vos équipes. Nous regardons comment vous travaillez vraiment — pas comment vous pensez travailler. Voici le déroulé type d'une intervention.
+      </p>
+    </div>
+    <ul class="process-list">
+      <li class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h3>Entretien dirigeant &amp; cadrage stratégique — Jour 1, matin</h3>
+          <p>Nous commençons par comprendre vos objectifs business, vos contraintes et vos priorités. Quels sont vos goulots d'étranglement ? Où perdez-vous le plus de temps ou d'argent ? Quels projets avez-vous déjà essayés — et pourquoi ont-ils échoué ?</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h3>Observation &amp; cartographie des flux — Jour 1, après-midi</h3>
+          <p>Nous suivons vos opérationnels dans leur travail quotidien. Pas de questionnaire : nous regardons ce qui se passe réellement. Chaque tâche est documentée, chronométrée et évaluée en termes de fréquence et d'automatisabilité.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h3>Analyse des outils &amp; données disponibles — Jour 2, matin</h3>
+          <p>Nous inventorions vos logiciels, vos sources de données et vos APIs disponibles. Cette étape détermine quelles solutions peuvent s'intégrer rapidement à votre SI existant, sans coûts infrastructure démesurés ni refonte technique lourde.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h3>Chiffrage des gains &amp; restitution — Jour 2, après-midi</h3>
+          <p>Vous recevez un rapport structuré : les 3 à 5 cas d'usage prioritaires, le gain estimé en heures et en euros pour chacun, le niveau de faisabilité technique, et une roadmap sur 6 à 12 mois. Sans jargon. Avec des chiffres actionnables.</p>
+        </div>
+      </li>
+    </ul>
+    <div class="quote-block">
+      <blockquote>"On s'attendait à un audit théorique. Dunai est venu voir comment on travaillait vraiment, et deux jours plus tard on avait un plan d'action concret avec des chiffres. C'est ça qui nous a décidé à aller de l'avant."</blockquote>
+      <cite>— Directeur d'une PME logistique, 18 salariés, Dunkerque</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : AVANT/APRÈS -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="eyebrow">Résultats concrets</div>
+    <h2 class="h2">Avant / après : ce qui change dans les 6 semaines qui suivent</h2>
+    <div class="prose">
+      <p>
+        L'audit ne déploie pas lui-même les automatisations — mais il les rend visibles, mesurables et planifiables. Les premières solutions sont souvent opérationnelles en moins de six semaines. Voici les transformations types que nous constatons chez nos clients des Hauts-de-France.
+      </p>
+    </div>
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Processus</th>
+            <th>Avant l'audit</th>
+            <th class="th-after">Après déploiement</th>
+            <th class="th-gain">Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Création de devis</td>
+            <td>45 min par devis, manuel</td>
+            <td>3 min, généré automatiquement</td>
+            <td class="gain">-93 % de temps</td>
+          </tr>
+          <tr>
+            <td>Relances clients</td>
+            <td>2h/semaine, oublis fréquents</td>
+            <td>Automatiques, sans intervention</td>
+            <td class="gain">+100 % fiabilité</td>
+          </tr>
+          <tr>
+            <td>Reporting mensuel</td>
+            <td>6h de consolidation Excel</td>
+            <td>Dashboard temps réel automatique</td>
+            <td class="gain">-100 % de saisie</td>
+          </tr>
+          <tr>
+            <td>Traitement emails entrants</td>
+            <td>Non structuré, délai &gt; 24h</td>
+            <td>Triés &amp; répondus en moins de 2h</td>
+            <td class="gain">-73 % de délai</td>
+          </tr>
+          <tr>
+            <td>Gestion des rendez-vous</td>
+            <td>Appels, emails, agenda papier</td>
+            <td>Booking en ligne automatique</td>
+            <td class="gain">-62 % de no-show</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : CAS CLIENTS -->
+<section class="section-anth">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--flamme2)">Cas clients réels</div>
+    <h2 class="h2 h2-white">Ce que ça donne dans des entreprises du Nord</h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8;margin-bottom:2rem;">
+      Ces résultats ne sont pas des projections. Ce sont des mesures réelles, effectuées 6 à 12 mois après le déploiement des premières automatisations issues de l'audit Dunai.
+    </p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <p class="company">Logistique · Dunkerque · 18 sal.</p>
+        <h3>Automatisation des flux de commandes et relances transporteurs</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Temps récupéré</span><span>+28h/mois</span></div>
+          <div class="roi-result-item"><span>Économie annuelle</span><span>18 000 €/an</span></div>
+          <div class="roi-result-item"><span>Délai avant 1ers gains</span><span>6 semaines</span></div>
+          <div class="roi-result-item"><span>ROI</span><span>×4 sur 12 mois</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Commerce · Hauts-de-France · 8 sal.</p>
+        <h3>Génération automatique de devis et suivi commercial IA</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>CA supplémentaire</span><span>+9 800 €/trim.</span></div>
+          <div class="roi-result-item"><span>Temps de devis</span><span>45 min → 3 min</span></div>
+          <div class="roi-result-item"><span>Taux de transformation</span><span>+34 %</span></div>
+          <div class="roi-result-item"><span>ROI</span><span>×4,5 sur 12 mois</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">BTP · Nord · 22 sal.</p>
+        <h3>Automatisation des devis, planification et reporting chantier</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Devis envoyés</span><span>+28 %</span></div>
+          <div class="roi-result-item"><span>CA signé</span><span>+16 %</span></div>
+          <div class="roi-result-item"><span>Temps admin économisé</span><span>22h/sem.</span></div>
+          <div class="roi-result-item"><span>ROI</span><span>×3,8 sur 12 mois</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Santé · Hauts-de-France · 6 praticiens</p>
+        <h3>IA de prise de RDV et rappels automatiques patients</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>No-show</span><span>-62 %</span></div>
+          <div class="roi-result-item"><span>CA récupéré</span><span>+22 %</span></div>
+          <div class="roi-result-item"><span>Temps secrétariat</span><span>-3h/jour</span></div>
+          <div class="roi-result-item"><span>ROI</span><span>×5,2 sur 12 mois</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 : POUR QUI -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <div class="eyebrow">Éligibilité</div>
+    <h2 class="h2">L'audit IA est-il fait pour vous ?</h2>
+    <div class="prose">
+      <p>
+        L'audit Dunai s'adresse à toutes les entreprises — TPE, PME, ETI — qui sentent que leurs équipes passent trop de temps sur des tâches qui ne créent pas de valeur directe. Vous n'avez pas besoin d'être dans la tech, ni d'avoir un DSI ou un budget IT conséquent.
+      </p>
+      <p>
+        La seule condition : être prêt à regarder honnêtement comment votre organisation fonctionne <em>réellement</em>, pas comment elle est censée fonctionner sur le papier. C'est souvent là que les meilleures opportunités se cachent — dans l'écart entre le process théorique et la pratique quotidienne de vos équipes.
+      </p>
+      <p>
+        Nous intervenons dans tous les secteurs présents dans les Hauts-de-France : <strong>industrie, logistique, BTP, commerce, santé, services aux entreprises, distribution</strong>. Que vous ayez 5 ou 200 salariés, le potentiel d'automatisation est presque toujours significatif — et souvent sous-estimé par les dirigeants eux-mêmes.
+      </p>
+    </div>
+    <div class="info-box">
+      <p><strong>Bon à savoir :</strong> Les premières automatisations issues de l'audit génèrent en moyenne leurs premiers gains en <strong>6 semaines</strong>. Ce n'est pas un projet de transformation digitale sur trois ans — c'est une intervention ciblée, rapide et mesurable. Avec un ROI qui se calcule en mois, pas en années.</p>
+    </div>
+    <div class="internal-links">
+      <h3>📚 À lire aussi sur le blog Dunai</h3>
+      <ul>
+        <li><a href="https://dunai.fr/blog/roi-ia-pme">Comment calculer le ROI de l'IA dans votre entreprise</a></li>
+        <li><a href="https://dunai.fr/blog/automatisation-logistique-dunkerque">IA et logistique : cas concrets d'optimisation à Dunkerque</a></li>
+        <li><a href="https://dunai.fr/blog/premier-projet-automatisation">Comment choisir son premier projet d'automatisation</a></li>
+        <li><a href="https://dunai.fr/blog/formation-ia-equipes">Former ses équipes à l'IA : par où commencer</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-inner">
+    <h2>Découvrez ce que cache votre organisation</h2>
+    <p>Un audit IA Dunai, c'est 2 jours en immersion, un rapport chiffré et une feuille de route prête à déployer. Gratuit et sans engagement pour les PME des Hauts-de-France.</p>
+    <div class="cta-buttons">
+      <a href="https://dunai.fr/audit" class="btn-white">Demander mon audit gratuit</a>
+      <a href="https://dunai.fr/cas-clients" class="btn-transparent">Voir les cas clients</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div>
+  <p>Agence IA &amp; Automatisation — Dunkerque, Hauts-de-France</p>
+  <p><a href="https://dunai.fr">dunai.fr</a> · <a href="mailto:contact@dunai.fr">contact@dunai.fr</a></p>
+</footer>
+
+</body>
+</html>
