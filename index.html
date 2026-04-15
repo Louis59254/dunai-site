@@ -1514,7 +1514,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <div class="section-inner">
 
       <!-- Filtres par catégorie -->
-      <nav aria-label="Filtrer les articles par catégorie">
+      <div role="navigation" aria-label="Filtrer les articles par catégorie">
         <div class="blog-filter" role="list">
           <button class="filter-btn active" role="listitem" onclick="filterBlog(this,'tous')" aria-pressed="true">Tous les articles</button>
           <button class="filter-btn" role="listitem" onclick="filterBlog(this,'automatisation')" aria-pressed="false">Automatisation</button>
@@ -1522,7 +1522,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <button class="filter-btn" role="listitem" onclick="filterBlog(this,'roi')" aria-pressed="false">ROI & Chiffres</button>
           <button class="filter-btn" role="listitem" onclick="filterBlog(this,'cas-client')" aria-pressed="false">Cas clients</button>
         </div>
-      </nav>
+      </div>
 
       <!-- Article à la une -->
       <article class="blog-featured" data-cat="cas-client" aria-label="Article à la une">
@@ -1575,8 +1575,8 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 
         <article class="blog-card" data-cat="automatisation">
           <div class="blog-card-img" aria-hidden="true">
-            <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1C1917 40%,#2d1a0e)"></div>
-            <span class="blog-card-emoji">⚡</span>
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="Blog/images/dunai-thumb-automatisation-pme-dunkerque-2026.svg" alt="Automatisation PME Dunkerque 2026" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1598,8 +1598,8 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 
         <article class="blog-card" data-cat="agents-ia">
           <div class="blog-card-img" aria-hidden="true">
-            <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#1C1917 40%,#291c0e)"></div>
-            <span class="blog-card-emoji">🤖</span>
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="Blog/images/dunai-thumb-1-agents-ia.svg" alt="Agent IA automatisation entreprise" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1621,8 +1621,8 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 
         <article class="blog-card" data-cat="roi">
           <div class="blog-card-img" aria-hidden="true">
-            <div class="blog-card-img-inner" style="background:linear-gradient(135deg,#14290f 40%,#1C1917)"></div>
-            <span class="blog-card-emoji">📊</span>
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="Blog/images/dunai-thumb-2-roi-12-mois.svg" alt="ROI automatisation IA 12 mois" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">

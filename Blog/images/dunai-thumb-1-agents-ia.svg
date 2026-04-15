@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0C0A09" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1.5" fill="#EA580C" opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0C0A09"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="1080" cy="380" r="240" fill="#EA580C" opacity="0.04"/>
+  <circle cx="1080" cy="380" r="160" fill="#EA580C" opacity="0.05"/>
+  <circle cx="1080" cy="380" r="80" fill="#EA580C" opacity="0.07"/>
+  <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
+  <text x="52" y="72" font-family="Arial Black, sans-serif" font-size="36" font-weight="800" letter-spacing="-1">
+    <tspan fill="#EA580C">Dun</tspan><tspan fill="#ffffff">ai</tspan>
+  </text>
+  <line x1="52" y1="90" x2="300" y2="90" stroke="#EA580C" stroke-width="2" opacity="0.35"/>
+  <text x="52" y="130" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">AGENTS IA · AUTOMATISATION PME</text>
+  <text x="52" y="220" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Agent IA :</text>
+  <text x="52" y="292" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
+    <tspan fill="#ffffff">automatiser vos </tspan><tspan fill="#EA580C">tâches</tspan>
+  </text>
+  <text x="52" y="358" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce que ça change vraiment pour votre entreprise</text>
+  <line x1="52" y1="410" x2="580" y2="410" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="52" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-73%</text>
+  <text x="52" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
+  <text x="210" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="210" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">avant premiers gains</text>
+  <text x="390" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="390" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+  <text x="1148" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
+</svg>

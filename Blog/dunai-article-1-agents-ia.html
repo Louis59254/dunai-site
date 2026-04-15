@@ -49,33 +49,85 @@
     }
 
     /* ── NAV ── */
-    nav {
+    nav.main-nav {
       position: fixed; top: 12px; left: 0; right: 0; z-index: 200;
-      padding: 0 1.25rem;
+      padding: 0 1rem;
       display: flex; align-items: center; justify-content: space-between;
-      pointer-events: none;
+      gap: 8px; pointer-events: none;
     }
-    nav > * { pointer-events: all; }
+    nav.main-nav > * { pointer-events: all; }
     .nav-logo {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px; font-weight: 800; text-decoration: none;
+      font-size: 18px; font-weight: 800; text-decoration: none; letter-spacing: -0.5px;
       background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
-      border: 1px solid var(--border-dark);
-      padding: 8px 16px; border-radius: var(--r-full);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 16px; border-radius: 9999px;
       display: inline-flex; align-items: center; gap: 3px;
     }
-    .nav-logo .dun { color: var(--flamme); }
-    .nav-logo .nai { color: var(--blanc); }
-    .nav-logo .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--flamme); margin-bottom: 2px; }
-    .nav-cta {
-      background: var(--flamme); color: var(--blanc);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px; font-weight: 500;
-      padding: 9px 18px; border-radius: var(--r-full);
-      text-decoration: none; border: none;
-      backdrop-filter: blur(20px);
+    .nav-logo .dun { color: #EA580C; }
+    .nav-logo .nai { color: #ffffff; }
+    .nav-logo .dot { width: 5px; height: 5px; border-radius: 50%; background: #EA580C; margin-bottom: 2px; }
+    .nav-pill {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 9999px; padding: 4px 5px;
     }
-    .nav-cta:hover { background: var(--flamme2); }
+    .nav-links {
+      display: none; gap: 2px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      text-decoration: none; font-weight: 400;
+      padding: 7px 13px; border-radius: 9999px;
+      display: block; transition: all .18s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: #fff; background: rgba(255,255,255,0.1); font-weight: 500; }
+    .nav-cta {
+      background: #EA580C; color: #ffffff;
+      font-size: 13px; font-weight: 500;
+      padding: 8px 16px; border-radius: 9999px;
+      border: none; white-space: nowrap; text-decoration: none;
+      transition: background .2s; cursor: pointer;
+    }
+    .nav-cta:hover { background: #F97316; }
+    .nav-hamburger {
+      width: 36px; height: 36px; border-radius: 9999px;
+      background: rgba(255,255,255,0.1); border: none;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      cursor: pointer;
+    }
+    .nav-hamburger span {
+      display: block; width: 16px; height: 1.5px;
+      background: #ffffff; border-radius: 2px; transition: all .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 190;
+      background: #0C0A09;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;
+      transform: translateY(-100%); transition: transform .35s cubic-bezier(.4,0,.2,1);
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 28px; font-weight: 700;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      padding: 12px 24px; border-radius: 16px; transition: color .2s, background .2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: #fff; background: rgba(255,255,255,0.06); }
+    .mobile-menu-cta {
+      margin-top: 16px; background: #EA580C; color: #ffffff !important;
+      font-size: 18px !important; font-weight: 600 !important;
+      padding: 16px 32px !important; border-radius: 9999px !important;
+    }
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+    }
 
     /* ── HERO ── */
     .hero {
@@ -386,12 +438,36 @@
 </head>
 <body>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://dunai.fr">Accueil</a>
+  <a href="https://dunai.fr/#agents">Agents IA</a>
+  <a href="https://dunai.fr/#roi">Résultats</a>
+  <a href="https://dunai.fr/#offres">Offres</a>
+  <a href="https://dunai.fr/#tarifs">Tarifs</a>
+  <a href="https://dunai.fr/blog" class="active">Blog</a>
+  <a href="https://dunai.fr/#contact" class="mobile-menu-cta">Audit gratuit →</a>
+</div>
+
 <!-- NAV -->
-<nav>
+<nav class="main-nav">
   <a class="nav-logo" href="https://dunai.fr">
     <span class="dun">Dun</span><span class="nai">ai</span><span class="dot"></span>
   </a>
-  <a class="nav-cta" href="https://dunai.fr/audit">Audit gratuit</a>
+  <div class="nav-pill">
+    <ul class="nav-links">
+      <li><a href="https://dunai.fr">Accueil</a></li>
+      <li><a href="https://dunai.fr/#agents">Agents IA</a></li>
+      <li><a href="https://dunai.fr/#roi">Résultats</a></li>
+      <li><a href="https://dunai.fr/#offres">Offres</a></li>
+      <li><a href="https://dunai.fr/#tarifs">Tarifs</a></li>
+      <li><a href="https://dunai.fr/blog" class="active">Blog</a></li>
+    </ul>
+    <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- BREADCRUMB -->
@@ -729,5 +805,15 @@
   </div>
 </footer>
 
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  const open = menu.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+</script>
 </body>
 </html>
