@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatiser facturation, relances et devis en PME | Dunai</title>
+  <meta name="description" content="Comment automatiser sa facturation, ses relances clients et ses devis dans une PME des Hauts-de-France. Guide pratique avec cas concrets, chiffres et étapes de déploiement.">
+  <meta property="og:title" content="Automatiser sa facturation, ses relances, ses devis : mode d'emploi | Dunai">
+  <meta property="og:description" content="Guide pratique pour automatiser facturation, relances et devis dans une PME du Nord. Cas réels, ROI mesuré, étapes concrètes.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://dunai.fr/blog/images/dunai-thumb-facturation-relances-devis-2026-04-16.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dunai.fr/blog/images/dunai-thumb-facturation-relances-devis-2026-04-16.svg">
+  <link rel="canonical" href="https://dunai.fr/blog/automatisation-facturation-relances-devis">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'DM Sans',sans-serif; background:var(--creme); color:var(--anthracite); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--noir); border-bottom:1px solid var(--border-dark); display:flex; align-items:center; justify-content:space-between; padding:0 1.5rem; height:60px; }
+    .logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.3rem; text-decoration:none; }
+    .logo .dun { color:var(--blanc); } .logo .nai { color:var(--flamme); }
+    .btn-audit { background:var(--flamme); color:var(--blanc); padding:8px 18px; border-radius:var(--r-md); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:0.85rem; text-decoration:none; transition:background 0.2s; }
+    .btn-audit:hover { background:var(--flamme2); }
+    .breadcrumb-bar { background:var(--anthracite); padding:12px 1.5rem; margin-top:60px; }
+    .breadcrumb { max-width:860px; margin:0 auto; font-size:13px; color:var(--brun); }
+    .breadcrumb a { color:var(--brun); text-decoration:none; } .breadcrumb a:hover { color:var(--flamme); }
+    .breadcrumb span { color:var(--flamme); margin:0 6px; }
+    .hero { background:var(--noir); min-height:92svh; position:relative; display:flex; align-items:center; overflow:hidden; }
+    .hero-dots { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(234,88,12,0.13) 1px,transparent 1px); background-size:28px 28px; }
+    .hero-glow { position:absolute; inset:0; background:radial-gradient(circle at 30% 50%,rgba(234,88,12,0.17) 0%,transparent 70%); }
+    .hero-inner { position:relative; z-index:2; max-width:860px; margin:0 auto; padding:4rem 1.5rem; width:100%; }
+    .kicker { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500; color:var(--flamme2); text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem; }
+    .kicker-dot { width:8px; height:8px; border-radius:50%; background:var(--flamme); animation:pulse 2s infinite; flex-shrink:0; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+    .hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2.2rem,7vw,4.5rem); font-weight:800; color:var(--blanc); letter-spacing:-2px; line-height:1.1; margin-bottom:1.5rem; }
+    .hero h1 .hl { color:var(--flamme); }
+    .hero-meta { font-size:13px; color:var(--brun); margin-bottom:1.25rem; display:flex; gap:16px; flex-wrap:wrap; }
+    .hero-sub { font-size:1.05rem; color:rgba(255,255,255,0.7); line-height:1.75; max-width:640px; margin-bottom:2.5rem; font-weight:300; }
+    .hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; border-top:1px solid var(--border-dark); padding-top:2rem; }
+    .stat-item { text-align:center; }
+    .stat-n { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.6rem; font-weight:800; color:var(--flamme); display:block; }
+    .stat-l { font-size:12px; color:var(--brun); margin-top:4px; line-height:1.4; }
+    .section-white  { background:var(--blanc);      padding:5rem 1.25rem; }
+    .section-dark   { background:var(--anthracite); padding:5rem 1.25rem; }
+    .section-cream2 { background:var(--creme2);     padding:5rem 1.25rem; }
+    .section-anth   { background:var(--dark2);      padding:5rem 1.25rem; }
+    .section-inner { max-width:860px; margin:0 auto; }
+    .eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--flamme); margin-bottom:0.75rem; }
+    .h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.6rem,4vw,2.25rem); font-weight:800; letter-spacing:-1px; color:var(--anthracite); margin-bottom:1.5rem; }
+    .h2-white { color:var(--blanc) !important; }
+    .prose p { font-size:15px; color:var(--dark3); line-height:1.8; margin-bottom:1.1rem; }
+    .prose p:last-child { margin-bottom:0; }
+    .info-box { background:var(--flamme-pale); border-left:4px solid var(--flamme); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+    .info-box p { color:var(--dark3); font-size:15px; line-height:1.75; margin:0; }
+    .info-box strong { color:var(--flamme); }
+    .info-box-dark { background:rgba(234,88,12,0.1); border-left:4px solid var(--flamme); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+    .info-box-dark p { color:rgba(255,255,255,0.8); font-size:15px; line-height:1.75; margin:0; }
+    .info-box-dark strong { color:var(--flamme2); }
+    .ba-scroll { overflow-x:auto; margin:2rem 0; border-radius:var(--r-lg); overflow:hidden; }
+    .ba-table { width:100%; border-collapse:collapse; min-width:580px; }
+    .ba-table thead tr { background:var(--anthracite); }
+    .ba-table th { padding:14px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; text-align:left; }
+    .ba-table th:nth-child(1) { color:var(--brun); }
+    .ba-table th:nth-child(2) { color:rgba(255,255,255,0.55); }
+    .ba-table th.th-after { color:var(--flamme); }
+    .ba-table th.th-gain  { color:var(--vert); }
+    .ba-table td { padding:13px 18px; font-size:14px; border-bottom:1px solid var(--border-light); color:var(--dark3); background:var(--blanc); }
+    .ba-table tr:nth-child(even) td { background:var(--creme2); }
+    .ba-table tr:last-child td { border-bottom:none; }
+    .gain { color:var(--vert); font-weight:600; }
+    .process-list { list-style:none; position:relative; padding-left:0; margin:2rem 0; }
+    .process-list::before { content:''; position:absolute; left:20px; top:40px; bottom:40px; width:2px; background:linear-gradient(to bottom,var(--flamme),transparent); }
+    .process-item { display:flex; gap:1.25rem; margin-bottom:2rem; align-items:flex-start; }
+    .process-num { width:40px; height:40px; border-radius:50%; background:var(--flamme); color:var(--blanc); font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .process-content h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.02rem; font-weight:700; color:var(--anthracite); margin-bottom:0.5rem; }
+    .process-content p { font-size:14px; color:var(--dark3); line-height:1.75; margin:0; }
+    .roi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin:2rem 0; }
+    .roi-card { background:var(--dark2); border:1px solid var(--border-dark); border-radius:var(--r-lg); padding:1.5rem; }
+    .roi-card .company { font-size:11px; color:var(--brun); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.5px; }
+    .roi-card h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--blanc); margin-bottom:1rem; line-height:1.4; }
+    .roi-results { background:var(--noir); border-radius:var(--r-sm); padding:0.75rem 1rem; }
+    .roi-result-item { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-dark); }
+    .roi-result-item:last-child { border-bottom:none; }
+    .roi-result-item span:first-child { font-size:13px; color:var(--brun); }
+    .roi-result-item span:last-child { font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:700; color:var(--flamme); }
+    .signal-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:2rem 0; }
+    .signal-card { background:var(--dark2); border:1px solid var(--border-dark); border-radius:var(--r-md); padding:1.25rem; }
+    .signal-card h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--blanc); margin-bottom:0.5rem; }
+    .signal-card p { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65; margin:0; }
+    .quote-block { border-left:4px solid var(--flamme); padding:1.5rem 2rem; margin:2.5rem 0; background:var(--creme2); border-radius:0 var(--r-md) var(--r-md) 0; }
+    .quote-block blockquote { font-size:1.05rem; color:var(--anthracite); font-style:italic; line-height:1.75; margin-bottom:0.75rem; }
+    .quote-block cite { font-size:13px; color:var(--brun); font-style:normal; }
+    .internal-links { background:var(--creme2); border-radius:var(--r-lg); padding:1.5rem; margin:2.5rem 0; border:1px solid var(--border-light); }
+    .internal-links h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1rem; color:var(--anthracite); margin-bottom:1rem; }
+    .internal-links ul { list-style:none; }
+    .internal-links li { padding:8px 0; border-bottom:1px solid var(--border-light); }
+    .internal-links li:last-child { border-bottom:none; }
+    .internal-links a { font-size:14px; color:var(--flamme); text-decoration:none; font-weight:500; }
+    .internal-links a:hover { text-decoration:underline; }
+    .final-cta { background:var(--flamme); padding:5rem 1.25rem; text-align:center; }
+    .final-cta h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.8rem,5vw,3rem); color:var(--blanc); letter-spacing:-1px; margin-bottom:1rem; }
+    .final-cta p { font-size:1.05rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.7; }
+    .cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-white { background:var(--blanc); color:var(--flamme); padding:14px 28px; border-radius:var(--r-md); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; text-decoration:none; font-size:0.95rem; }
+    .btn-transparent { background:transparent; color:var(--blanc); padding:14px 28px; border-radius:var(--r-md); border:2px solid rgba(255,255,255,0.5); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; text-decoration:none; font-size:0.95rem; }
+    footer { background:var(--noir); padding:3rem 1.5rem; text-align:center; border-top:1px solid var(--border-dark); }
+    .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.5rem; font-weight:800; margin-bottom:0.75rem; }
+    .footer-logo .dun { color:var(--blanc); } .footer-logo .nai { color:var(--flamme); }
+    footer p { font-size:13px; color:var(--brun); margin-bottom:0.4rem; }
+    footer a { color:var(--flamme); text-decoration:none; }
+    @media (max-width:640px) {
+      .hero-stats { grid-template-columns:repeat(2,1fr); }
+      .roi-grid   { grid-template-columns:1fr; }
+      .signal-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://dunai.fr" class="logo"><span class="dun">Dun</span><span class="nai">ai</span></a>
+  <a href="https://dunai.fr/audit" class="btn-audit">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="https://dunai.fr">Accueil</a><span>›</span>
+    <a href="https://dunai.fr/blog">Blog</a><span>›</span>
+    Automatiser sa facturation, ses relances, ses devis
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="kicker"><span class="kicker-dot"></span> Automatisation · Gestion PME</div>
+    <h1>Facturation, relances, devis :<br><span class="hl">le mode d'emploi de l'automatisation</span></h1>
+    <div class="hero-meta">
+      <span>📅 16 avril 2026</span>
+      <span>✍️ Équipe Dunai</span>
+      <span>⏱ 8 min de lecture</span>
+    </div>
+    <p class="hero-sub">
+      Dans une PME, la facturation, les relances et les devis représentent souvent plus de 30 % du temps administratif total. Ce guide pratique explique comment les automatiser concrètement, dans quel ordre, et ce que ça change dans les 6 premières semaines.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-n">4,2h</span>
+        <p class="stat-l">perdues par salarié/jour — dont 30 % sur l'admin financière</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">-93%</span>
+        <p class="stat-l">de temps sur la création d'un devis après automatisation</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">18 k€</span>
+        <p class="stat-l">économisés/an dans une PME logistique 18 sal. (Dunkerque)</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">×4</span>
+        <p class="stat-l">ROI moyen sur 12 mois après déploiement</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 : LE CONSTAT -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="eyebrow">L'état des lieux</div>
+    <h2 class="h2">Facturation manuelle : le gouffre invisible des PME</h2>
+    <div class="prose">
+      <p>
+        Demandez à n'importe quel dirigeant de PME combien de temps ses équipes passent à gérer la facturation, les relances et les devis chaque semaine. La réponse, presque toujours, dépasse largement ce qu'ils imaginent. Nos audits terrain dans les entreprises des Hauts-de-France révèlent un chiffre constant : <strong>entre 8 et 15 heures par semaine</strong> pour une PME de 10 à 25 personnes — uniquement sur ces trois processus.
+      </p>
+      <p>
+        Le problème n'est pas le volume de travail. C'est la nature de ce travail : répétitif, sans valeur ajoutée, source d'erreurs humaines et de friction avec les clients. Une facture mal envoyée, une relance oubliée ou un devis en retard de 48 heures peut coûter bien plus cher que le temps passé à le produire.
+      </p>
+      <p>
+        La bonne nouvelle : ces trois processus sont parmi les plus simples à automatiser. Ils suivent des règles claires, manipulent des données structurées, et leur automatisation produit des résultats visibles dès les premières semaines. C'est pourquoi nous les recommandons presque systématiquement comme point d'entrée dans l'automatisation IA.
+      </p>
+    </div>
+    <div class="info-box">
+      <p><strong>Chiffre clé :</strong> 68 % des PME françaises n'ont encore rien automatisé. Parmi celles qui ont commencé, <strong>les trois quarts ont démarré par la facturation ou les devis</strong> — parce que le gain est immédiat, mesurable, et qu'il ne perturbe pas les opérations métier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : LES 3 PROCESSUS EN DÉTAIL -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--flamme2)">Les trois piliers</div>
+    <h2 class="h2 h2-white">Devis, facturation, relances : ce que l'IA change sur chacun</h2>
+    <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.8;margin-bottom:2rem;">
+      Ces trois processus forment un cycle cohérent : le devis ouvre la vente, la facture la conclut, la relance sécurise l'encaissement. Automatisés ensemble, ils créent un flux financier fluide et quasi sans intervention humaine pour les cas standards.
+    </p>
+    <div class="signal-grid">
+      <div class="signal-card">
+        <h3>📋 Devis automatiques</h3>
+        <p>À partir du catalogue produits / services et d'une demande client, l'IA génère un devis mis en page, personnalisé et prêt à envoyer en moins de 3 minutes. Finies les 45 minutes de copier-coller entre Excel et Word.</p>
+      </div>
+      <div class="signal-card">
+        <h3>🔔 Relances intelligentes sur devis</h3>
+        <p>Chaque devis non signé après X jours déclenche une séquence de relances automatiques, espacées et personnalisées selon le profil client et le montant. Le commercial est averti uniquement si le prospect n'a pas répondu après la séquence complète.</p>
+      </div>
+      <div class="signal-card">
+        <h3>🧾 Facturation déclenchée automatiquement</h3>
+        <p>Dès la signature d'un devis ou la validation d'une commande, la facture est générée, numérotée, archivée et envoyée sans intervention manuelle. Les informations client et les montants sont repris automatiquement du devis validé.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📬 Relances de paiement automatisées</h3>
+        <p>À J+30, J+45, J+60 : chaque facture impayée déclenche une relance adaptée au niveau d'urgence. Le ton change progressivement — courtois, puis ferme. L'équipe comptable n'intervient que sur les cas bloqués.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📊 Tableau de bord encaissements en temps réel</h3>
+        <p>L'état des encaissements, les factures en attente et les retards sont visibles en un clic, actualisés automatiquement depuis votre logiciel de facturation ou votre banque. Fini le reporting hebdomadaire manuel.</p>
+      </div>
+      <div class="signal-card">
+        <h3>🔗 Synchronisation ERP / comptabilité</h3>
+        <p>Les devis signés, les factures émises et les règlements reçus sont synchronisés automatiquement avec votre logiciel comptable. Zéro double saisie, zéro erreur de ressaisie entre la gestion et la compta.</p>
+      </div>
+    </div>
+    <div class="info-box-dark">
+      <p>Déployés ensemble, ces six automatisations éliminent en moyenne <strong>-73 % des tâches répétitives</strong> liées à la gestion financière d'une PME. Le temps récupéré est immédiatement réalloué à la relation client et au développement commercial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : AVANT / APRÈS -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <div class="eyebrow">Résultats mesurés</div>
+    <h2 class="h2">Avant / après : les transformations constatées chez nos clients</h2>
+    <div class="prose">
+      <p>
+        Ces données sont issues de mesures réelles effectuées chez des clients Dunai des Hauts-de-France, entre l'état initial (audit J0) et les résultats à 8 semaines de déploiement. Elles portent uniquement sur les processus de devis, facturation et relances.
+      </p>
+    </div>
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Processus</th>
+            <th>Avant automatisation</th>
+            <th class="th-after">Après déploiement IA</th>
+            <th class="th-gain">Gain mesuré</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Création d'un devis</td>
+            <td>45 min, copier-coller manuel depuis catalogue</td>
+            <td>3 min, généré et mis en page automatiquement</td>
+            <td class="gain">-93 % de temps</td>
+          </tr>
+          <tr>
+            <td>Relances sur devis non signés</td>
+            <td>Irrégulières, souvent oubliées faute de temps</td>
+            <td>Séquence de 3 relances auto sur 10 jours</td>
+            <td class="gain">+34 % de conversion</td>
+          </tr>
+          <tr>
+            <td>Émission de la facture</td>
+            <td>15–30 min de ressaisie depuis le devis signé</td>
+            <td>Instantanée, déclenchée à la signature</td>
+            <td class="gain">-100 % de saisie</td>
+          </tr>
+          <tr>
+            <td>Relances factures impayées</td>
+            <td>1 relance manuelle par semaine, sans suivi</td>
+            <td>3 niveaux automatiques, escalade progressive</td>
+            <td class="gain">DSO réduit de 12 j.</td>
+          </tr>
+          <tr>
+            <td>Reporting encaissements</td>
+            <td>2h de consolidation Excel chaque lundi</td>
+            <td>Dashboard temps réel, zéro action manuelle</td>
+            <td class="gain">-100 % de saisie</td>
+          </tr>
+          <tr>
+            <td>Synchronisation comptabilité</td>
+            <td>Export/import CSV hebdomadaire, erreurs fréquentes</td>
+            <td>Synchronisation automatique en temps réel</td>
+            <td class="gain">Zéro erreur de saisie</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="quote-block">
+      <blockquote>"La relance de factures, c'était devenu mon cauchemar. Je passais le vendredi après-midi à relancer à la main, j'oubliais des clients, et certains en profitaient. Depuis l'automatisation, les relances partent toutes seules, au bon moment, avec le bon ton. Mon DSO a baissé de 12 jours en deux mois."</blockquote>
+      <cite>— DAF d'une PME industrielle, 28 salariés, Valenciennes</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : CAS CLIENTS -->
+<section class="section-anth">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--flamme2)">Cas clients réels</div>
+    <h2 class="h2 h2-white">Ce que ça donne dans 4 PME des Hauts-de-France</h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8;margin-bottom:2rem;">
+      Ces résultats sont mesurés 6 à 12 mois après le premier déploiement Dunai. Ils portent sur l'ensemble des automatisations déployées, dont la facturation, les relances et les devis constituent la première brique dans chaque cas.
+    </p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <p class="company">Logistique · Dunkerque · 18 sal.</p>
+        <h3>Automatisation facturation, relances transporteurs et reporting</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Temps récupéré</span><span>+28h/mois</span></div>
+          <div class="roi-result-item"><span>Économie annuelle</span><span>18 000 €/an</span></div>
+          <div class="roi-result-item"><span>DSO amélioré</span><span>-12 jours</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×4</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Commerce · Hauts-de-France · 8 sal.</p>
+        <h3>Devis automatiques, relances commerciales et suivi encaissements</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Temps de devis</span><span>45 min → 3 min</span></div>
+          <div class="roi-result-item"><span>CA supplémentaire</span><span>+9 800 €/trim.</span></div>
+          <div class="roi-result-item"><span>Taux de conversion</span><span>+34 %</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×4,5</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">BTP · Nord · 22 sal.</p>
+        <h3>Devis chantier automatisés, facturation à l'avancement et relances</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Devis envoyés</span><span>+28 %</span></div>
+          <div class="roi-result-item"><span>CA signé</span><span>+16 %</span></div>
+          <div class="roi-result-item"><span>Litiges de facturation</span><span>-80 %</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×3,8</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Santé · Hauts-de-France · 6 praticiens</p>
+        <h3>Facturation actes, relances mutuelles et reporting mensuel automatisés</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Temps admin</span><span>-3h/jour</span></div>
+          <div class="roi-result-item"><span>Rejets de facturation</span><span>-68 %</span></div>
+          <div class="roi-result-item"><span>CA récupéré</span><span>+22 %</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×5,2</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : MODE D'EMPLOI -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="eyebrow">Mode d'emploi</div>
+    <h2 class="h2">Comment déployer ces automatisations dans votre PME</h2>
+    <div class="prose">
+      <p>
+        L'automatisation de la facturation, des relances et des devis ne nécessite pas de changer votre logiciel de gestion ni de former vos équipes pendant des semaines. Dans la grande majorité des cas, nous connectons des automatisations intelligentes à vos outils existants — ERP, logiciel de facturation, messagerie, CRM. L'essentiel de l'infrastructure est déjà là.
+      </p>
+    </div>
+    <ul class="process-list">
+      <li class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h3>Cartographier vos flux actuels lors de l'audit</h3>
+          <p>La première étape est de documenter précisément comment un devis est créé aujourd'hui dans votre structure : quelles données sources, quels outils, qui fait quoi. Cela prend une demi-journée lors de l'audit et c'est le fondement de toute automatisation fiable.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h3>Connecter l'IA à votre catalogue et vos données clients</h3>
+          <p>L'automatisation des devis repose sur deux sources : votre catalogue produits / services avec les prix, et votre base clients avec les conditions tarifaires. Ces données existent déjà dans votre ERP ou vos fichiers Excel — il s'agit de les rendre accessibles au moteur de génération automatique.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h3>Configurer les règles de relance adaptées à votre secteur</h3>
+          <p>Les délais, le ton et la fréquence des relances varient selon votre secteur et vos clients. Un client grande distribution ne se relance pas comme une TPE artisanale. Nous configurons des profils de relance adaptés, que vous validez avant activation — et que vous pouvez modifier à tout moment.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h3>Tester sur un volume limité, mesurer, ajuster</h3>
+          <p>Les deux premières semaines, l'automatisation tourne en parallèle du processus manuel. Vos équipes valident les devis générés, vérifient les relances envoyées, contrôlent les factures émises. À J+14, si tout est conforme, on bascule en production complète. Ce mode de déploiement progressif élimine le risque d'erreur à grande échelle.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">5</div>
+        <div class="process-content">
+          <h3>Mesurer les gains à 6 semaines</h3>
+          <p>Temps moyen de création de devis, taux de signature, délai moyen de paiement, nombre de relances nécessaires : tous ces indicateurs sont trackés dès le départ. À 6 semaines, vous disposez d'un bilan chiffré complet qui justifie — ou non — l'extension aux autres processus.</p>
+        </div>
+      </li>
+    </ul>
+    <div class="info-box">
+      <p><strong>À retenir :</strong> le premier déploiement (devis + relances) prend généralement <strong>3 à 4 semaines</strong> de la commande à la mise en production. La facturation automatique s'active en parallèle dès que le devis est opérationnel. Les <strong>premiers gains sont visibles dès la 6e semaine</strong>, et le ROI ×4 sur 12 mois représente la moyenne observée chez nos clients PME.</p>
+    </div>
+    <div class="internal-links">
+      <h3>📚 À lire aussi sur le blog Dunai</h3>
+      <ul>
+        <li><a href="https://dunai.fr/blog/audit-ia-pme-2-jours">Audit IA : ce qu'il révèle dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/blog/ia-commerce-gains-concrets">IA dans le commerce : exemples de gains concrets</a></li>
+        <li><a href="https://dunai.fr/blog/adoption-ia-pme-nord">Pourquoi les PME du Nord adoptent l'IA plus vite</a></li>
+        <li><a href="https://dunai.fr/blog/roi-ia-pme">Comment calculer le ROI de l'IA dans votre entreprise</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-inner">
+    <h2>Calculez ce que vous perdez chaque semaine</h2>
+    <p>En 2 jours d'audit terrain, Dunai chiffre précisément le coût de vos processus manuels de facturation, relances et devis — et vous remet une feuille de route opérationnelle pour les automatiser. Gratuit et sans engagement pour les PME des Hauts-de-France.</p>
+    <div class="cta-buttons">
+      <a href="https://dunai.fr/audit" class="btn-white">Demander mon audit gratuit</a>
+      <a href="https://dunai.fr/cas-clients" class="btn-transparent">Voir les cas clients</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div>
+  <p>Agence IA &amp; Automatisation — Dunkerque, Hauts-de-France</p>
+  <p><a href="https://dunai.fr">dunai.fr</a> · <a href="mailto:contact@dunai.fr">contact@dunai.fr</a></p>
+</footer>
+
+</body>
+</html>
