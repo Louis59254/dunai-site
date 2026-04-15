@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog IA & Automatisation PME — Dunai Dunkerque</title>
+  <meta name="description" content="Cas concrets, guides pratiques et retours terrain sur l'IA et l'automatisation pour les PME du Nord. Par Dunai, agence IA basée à Dunkerque.">
+  <link rel="canonical" href="https://dunai.fr/blog">
+  <meta property="og:title" content="Blog IA & Automatisation PME — Dunai">
+  <meta property="og:description" content="Cas concrets, guides pratiques et retours terrain sur l'IA et l'automatisation pour les PME du Nord.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'DM Sans', sans-serif; background: #FAFAF9; color: #1C1917; overflow-x: hidden; font-size: 16px; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --sable:#D6D3D1; --brun:#78716C;
+      --blanc:#ffffff; --vert:#16A34A;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+
+    /* ── NAV ── */
+    nav.main-nav {
+      position: fixed; top: 12px; left: 0; right: 0; z-index: 200;
+      padding: 0 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; pointer-events: none;
+    }
+    nav.main-nav > * { pointer-events: all; }
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px; font-weight: 800; text-decoration: none; letter-spacing: -0.5px;
+      background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
+      border: 1px solid var(--border-dark);
+      padding: 8px 16px; border-radius: var(--r-full);
+      display: inline-flex; align-items: center; gap: 3px;
+    }
+    .nav-logo .dun { color: var(--flamme); }
+    .nav-logo .nai { color: var(--blanc); }
+    .nav-logo .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--flamme); margin-bottom: 2px; }
+    .nav-pill {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--r-full); padding: 4px 5px;
+    }
+    .nav-links { display: none; gap: 2px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; font-weight: 400;
+      padding: 7px 13px; border-radius: var(--r-full);
+      display: block; transition: all .18s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--blanc); background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--blanc); background: rgba(255,255,255,0.1); font-weight: 500; }
+    .nav-cta {
+      background: var(--flamme); color: var(--blanc);
+      font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: var(--r-full);
+      border: none; white-space: nowrap; text-decoration: none; transition: background .2s; cursor: pointer;
+    }
+    .nav-cta:hover { background: var(--flamme2); }
+    .nav-hamburger {
+      width: 36px; height: 36px; border-radius: var(--r-full);
+      background: rgba(255,255,255,0.1); border: none;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer;
+    }
+    .nav-hamburger span { display: block; width: 16px; height: 1.5px; background: var(--blanc); border-radius: 2px; transition: all .25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 190;
+      background: var(--noir);
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;
+      transform: translateY(-100%); transition: transform .35s cubic-bezier(.4,0,.2,1);
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 700;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      padding: 12px 24px; border-radius: var(--r-lg); transition: color .2s, background .2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--blanc); background: rgba(255,255,255,0.06); }
+    .mobile-menu-cta {
+      margin-top: 16px; background: var(--flamme); color: var(--blanc) !important;
+      font-size: 18px !important; font-weight: 600 !important;
+      padding: 16px 32px !important; border-radius: var(--r-full) !important;
+    }
+    @media (min-width: 768px) { .nav-links { display: flex; } .nav-hamburger { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--noir); padding: 5.5rem 1.25rem 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(234,88,12,0.13) 1px, transparent 1px);
+      background-size: 28px 28px; pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; top: -100px; right: -60px; width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(234,88,12,0.16) 0%, transparent 70%); pointer-events: none;
+    }
+    .hero-inner { max-width: 1160px; margin: 0 auto; position: relative; z-index: 2; }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--flamme); margin-bottom: .5rem; display: block;
+    }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.75rem, 5vw, 2.75rem); font-weight: 800;
+      color: var(--blanc); letter-spacing: -1px; line-height: 1.1; margin-bottom: .875rem;
+    }
+    .hero-sub { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.75; max-width: 520px; }
+
+    /* ── BLOG CONTENT ── */
+    .section { padding: 3.5rem 1.25rem; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+
+    /* Filtres */
+    .blog-filter { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
+    .filter-btn {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+      padding: 6px 14px; border-radius: var(--r-full);
+      border: 1px solid var(--border-light); background: var(--blanc); color: var(--brun);
+      cursor: pointer; transition: all .18s;
+    }
+    .filter-btn:hover { border-color: var(--flamme); color: var(--flamme); }
+    .filter-btn.active { background: var(--flamme); color: var(--blanc); border-color: var(--flamme); }
+
+    /* Article à la une */
+    .blog-featured { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+    .blog-featured-img {
+      background: var(--noir); border-radius: var(--r-xl); overflow: hidden;
+      aspect-ratio: 16/9; position: relative; display: flex; align-items: flex-end;
+    }
+    .blog-featured-img img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; border-radius: var(--r-xl);
+    }
+    .blog-featured-img-inner {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 70% 30%, rgba(234,88,12,0.25) 0%, transparent 60%);
+      background-color: var(--anthracite);
+    }
+    .blog-featured-body { display: flex; flex-direction: column; gap: .75rem; }
+    .blog-featured-meta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+    .blog-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: var(--r-full);
+      background: var(--flamme-pale); color: var(--flamme);
+    }
+    .blog-meta-sep { color: var(--sable); font-size: 12px; }
+    .blog-date, .blog-read-time { font-size: 12px; color: var(--brun); }
+    .blog-featured-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.35rem, 4vw, 2rem); font-weight: 800;
+      color: var(--anthracite); letter-spacing: -0.5px; line-height: 1.15;
+    }
+    .blog-featured-excerpt { font-size: 15px; color: var(--brun); line-height: 1.75; }
+    .blog-read-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--flamme); font-weight: 500; font-size: 14px;
+      text-decoration: none; transition: gap .18s;
+    }
+    .blog-read-link:hover { gap: 10px; }
+
+    /* Grille articles */
+    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .blog-card {
+      background: var(--blanc); border: 1px solid var(--border-light);
+      border-radius: var(--r-lg); overflow: hidden;
+      transition: box-shadow .2s, transform .2s; display: flex; flex-direction: column;
+    }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(28,25,23,0.08); transform: translateY(-2px); }
+    .blog-card-img {
+      background: var(--anthracite); aspect-ratio: 16/8; position: relative; overflow: hidden;
+    }
+    .blog-card-img-inner { position: absolute; inset: 0; }
+    .blog-card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .blog-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: .625rem; }
+    .blog-card-meta { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .blog-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700;
+      color: var(--anthracite); letter-spacing: -0.2px; line-height: 1.3;
+    }
+    .blog-card-excerpt { font-size: 13px; color: var(--brun); line-height: 1.65; flex: 1; }
+    .blog-card-footer {
+      padding: 1rem 1.25rem; border-top: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .blog-card-author { display: flex; align-items: center; gap: .5rem; }
+    .author-avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--flamme), var(--flamme2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--blanc); flex-shrink: 0;
+    }
+    .author-name { font-size: 12px; font-weight: 500; color: var(--anthracite); }
+
+    /* CTA banner */
+    .blog-cta-banner {
+      background: var(--noir); border-radius: var(--r-xl);
+      padding: 2.5rem 1.5rem; margin-top: 3rem; position: relative; overflow: hidden; text-align: center;
+    }
+    .blog-cta-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(234,88,12,0.1) 1px, transparent 1px);
+      background-size: 24px 24px; pointer-events: none;
+    }
+    .blog-cta-banner h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 800; color: var(--blanc); letter-spacing: -0.5px; margin-bottom: .5rem; position: relative; z-index: 1;
+    }
+    .blog-cta-banner p { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; position: relative; z-index: 1; }
+    .blog-cta-btn {
+      background: var(--flamme); color: var(--blanc); padding: 12px 24px; border-radius: var(--r-md);
+      font-weight: 500; font-size: 14px; border: none; cursor: pointer; transition: background .2s;
+      text-decoration: none; display: inline-block; position: relative; z-index: 1;
+    }
+    .blog-cta-btn:hover { background: var(--flamme2); }
+
+    /* Footer */
+    footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; }
+    .footer-logo .dun { color: var(--flamme); }
+    .footer-logo .nai { color: var(--blanc); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; list-style: none; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy { padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: rgba(255,255,255,0.2); }
+
+    @media (min-width: 640px) {
+      .blog-featured { grid-template-columns: 1fr 1fr; align-items: center; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://dunai.fr">Accueil</a>
+  <a href="https://dunai.fr/#agents">Agents IA</a>
+  <a href="https://dunai.fr/#roi">Résultats</a>
+  <a href="https://dunai.fr/#offres">Offres</a>
+  <a href="https://dunai.fr/#tarifs">Tarifs</a>
+  <a href="https://dunai.fr/blog" class="active">Blog</a>
+  <a href="https://dunai.fr/#contact" class="mobile-menu-cta">Audit gratuit →</a>
+</div>
+
+<!-- NAV -->
+<nav class="main-nav" aria-label="Navigation principale">
+  <a class="nav-logo" href="https://dunai.fr">
+    <span class="dun">Dun</span><span class="nai">ai</span><span class="dot"></span>
+  </a>
+  <div class="nav-pill">
+    <ul class="nav-links">
+      <li><a href="https://dunai.fr">Accueil</a></li>
+      <li><a href="https://dunai.fr/#agents">Agents IA</a></li>
+      <li><a href="https://dunai.fr/#roi">Résultats</a></li>
+      <li><a href="https://dunai.fr/#offres">Offres</a></li>
+      <li><a href="https://dunai.fr/#tarifs">Tarifs</a></li>
+      <li><a href="https://dunai.fr/blog" class="active">Blog</a></li>
+    </ul>
+    <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Ressources & Insights</span>
+    <h1>IA & Automatisation :<br>ce qui marche vraiment.</h1>
+    <p class="hero-sub">Cas concrets, guides pratiques et retours terrain pour les PME du Nord.</p>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<main>
+  <section class="section" aria-label="Articles du blog">
+    <div class="section-inner">
+
+      <!-- Filtres -->
+      <div role="navigation" aria-label="Filtrer les articles par catégorie">
+        <div class="blog-filter">
+          <button class="filter-btn active" onclick="filterBlog(this,'tous')" aria-pressed="true">Tous les articles</button>
+          <button class="filter-btn" onclick="filterBlog(this,'automatisation')" aria-pressed="false">Automatisation</button>
+          <button class="filter-btn" onclick="filterBlog(this,'agents-ia')" aria-pressed="false">Agents IA</button>
+          <button class="filter-btn" onclick="filterBlog(this,'roi')" aria-pressed="false">ROI & Chiffres</button>
+          <button class="filter-btn" onclick="filterBlog(this,'cas-client')" aria-pressed="false">Cas clients</button>
+        </div>
+      </div>
+
+      <!-- Article à la une -->
+      <article class="blog-featured" data-cat="cas-client">
+        <div class="blog-featured-img" aria-hidden="true">
+          <div class="blog-featured-img-inner"></div>
+          <img src="../Blog/images/dunai-thumb-audit-ia-pme-2-jours-2026-04-15.svg" alt="Audit IA PME 2 jours" loading="lazy">
+        </div>
+        <div class="blog-featured-body">
+          <div class="blog-featured-meta">
+            <span class="blog-tag">Audit IA</span>
+            <span class="blog-meta-sep" aria-hidden="true">·</span>
+            <time class="blog-date" datetime="2026-04-15">15 avril 2026</time>
+            <span class="blog-meta-sep" aria-hidden="true">·</span>
+            <span class="blog-read-time">7 min de lecture</span>
+          </div>
+          <h2 class="blog-featured-title">Audit IA : ce qu'il révèle dans une PME en 2 jours</h2>
+          <p class="blog-featured-excerpt">Tâches répétitives, gains cachés, ROI estimé — voici ce qu'un audit terrain de 2 jours révèle concrètement dans une PME du Nord. Méthodologie, cas réels et résultats chiffrés.</p>
+          <a class="blog-read-link" href="../Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html" aria-label="Lire l'article : Audit IA PME en 2 jours">
+            Lire l'article <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Grille -->
+      <div class="blog-grid" id="blogGrid">
+
+        <article class="blog-card" data-cat="cas-client">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="../Blog/images/dunai-thumb-ia-commerce-2026-04-15.svg" alt="IA dans le commerce" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Commerce</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-date" datetime="2026-04-15">15 avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">IA dans le commerce : exemples de gains concrets</h3>
+            <p class="blog-card-excerpt">Comment les commerçants des Hauts-de-France utilisent l'IA pour gagner du temps, réduire les tâches répétitives et augmenter leur chiffre d'affaires.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="../Blog/dunai-article-ia-commerce-2026-04-15.html" style="font-size:13px">Lire →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-cat="automatisation">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="../Blog/images/dunai-thumb-automatisation-pme-dunkerque-2026.svg" alt="Automatisation PME Dunkerque 2026" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Automatisation</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-date" datetime="2026-04">Avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">Automatisation PME à Dunkerque : pourquoi 2026 change tout</h3>
+            <p class="blog-card-excerpt">68% des PME du Nord n'ont rien automatisé. Pendant ce temps, leurs concurrents gagnent 28h par mois. Voici pourquoi attendre coûte plus cher qu'agir.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="../Blog/dunai-article-automatisation-pme-dunkerque-2026.html" style="font-size:13px">Lire →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-cat="agents-ia">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="../Blog/images/dunai-thumb-1-agents-ia.svg" alt="Agent IA automatisation entreprise" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Agents IA</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-date" datetime="2026-04">Avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">Agent IA : automatiser les tâches répétitives en entreprise — ce que ça change vraiment</h3>
+            <p class="blog-card-excerpt">Un agent IA automatise vos tâches répétitives en quelques semaines. Découvrez comment ça marche concrètement, ce que ça rapporte, et par où commencer.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="../Blog/dunai-article-1-agents-ia.html" style="font-size:13px">Lire →</a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-cat="roi">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="../Blog/images/dunai-thumb-2-roi-12-mois.svg" alt="ROI automatisation IA 12 mois" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">ROI & Chiffres</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-date" datetime="2026-04">Avril 2026</time>
+            </div>
+            <h3 class="blog-card-title">ROI de l'automatisation IA : ce qu'on observe vraiment sur 12 mois</h3>
+            <p class="blog-card-excerpt">Combien rapporte vraiment l'automatisation IA dans une PME ? Chiffres réels observés sur 12 mois : heures récupérées, économies, retour sur investissement.</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="../Blog/dunai-article-2-roi-12-mois.html" style="font-size:13px">Lire →</a>
+          </div>
+        </article>
+
+      </div><!-- /blog-grid -->
+
+      <!-- CTA -->
+      <div class="blog-cta-banner" role="complementary">
+        <div class="blog-cta-dots" aria-hidden="true"></div>
+        <h3>Vous reconnaissez votre situation dans ces articles ?</h3>
+        <p>Un audit gratuit de 2h suffit pour identifier vos 5 premières automatisations et estimer le gain.</p>
+        <a class="blog-cta-btn" href="https://dunai.fr/#contact">Réserver mon audit gratuit →</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div>
+      <ul class="footer-links">
+        <li><a href="https://dunai.fr">Accueil</a></li>
+        <li><a href="https://dunai.fr/#agents">Agents IA</a></li>
+        <li><a href="https://dunai.fr/#roi">Résultats</a></li>
+        <li><a href="https://dunai.fr/#offres">Offres</a></li>
+        <li><a href="https://dunai.fr/#tarifs">Tarifs</a></li>
+        <li><a href="https://dunai.fr/blog">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  const open = menu.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+function filterBlog(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
+  const cards = document.querySelectorAll('#blogGrid .blog-card');
+  cards.forEach(card => {
+    card.style.display = (cat === 'tous' || card.dataset.cat === cat) ? '' : 'none';
+  });
+  const featured = document.querySelector('.blog-featured');
+  if (featured) featured.style.display = (cat === 'tous' || featured.dataset.cat === cat) ? '' : 'none';
+}
+</script>
+</body>
+</html>
