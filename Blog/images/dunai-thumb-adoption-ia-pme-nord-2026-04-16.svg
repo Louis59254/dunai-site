@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="32%" cy="48%" r="65%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#0C0A09" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1.5" fill="#EA580C" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <!-- Fond noir Dunai -->
+  <rect width="1200" height="630" fill="#0C0A09"/>
+  <!-- Motif de points -->
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <!-- Glow radial flamme -->
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Cercles décoratifs droite -->
+  <circle cx="1060" cy="380" r="240" fill="#EA580C" opacity="0.04"/>
+  <circle cx="1060" cy="380" r="160" fill="#EA580C" opacity="0.05"/>
+  <circle cx="1060" cy="380" r="80"  fill="#EA580C" opacity="0.07"/>
+
+  <!-- Barre flamme gauche -->
+  <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
+
+  <!-- Logo Dunai -->
+  <text x="52" y="72" font-family="Arial Black, sans-serif" font-size="38" font-weight="800" letter-spacing="-1">
+    <tspan fill="#ffffff">Dun</tspan><tspan fill="#EA580C">ai</tspan>
+  </text>
+  <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- Catégorie -->
+  <text x="52" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="600"
+        fill="#F97316" letter-spacing="2.5">ADOPTION IA · PME DU NORD</text>
+
+  <!-- Titre ligne 1 -->
+  <text x="52" y="228" font-family="Arial Black, sans-serif"
+        font-size="60" font-weight="800" fill="#ffffff" letter-spacing="-2">Pourquoi les PME du Nord</text>
+
+  <!-- Titre ligne 2 -->
+  <text x="52" y="304" font-family="Arial Black, sans-serif"
+        font-size="60" font-weight="800" letter-spacing="-2">
+    <tspan fill="rgba(255,255,255,0.9)">adoptent l'IA </tspan><tspan fill="#EA580C">plus vite</tspan>
+  </text>
+
+  <!-- Titre ligne 3 -->
+  <text x="52" y="374" font-family="Arial Black, sans-serif"
+        font-size="60" font-weight="800" fill="rgba(255,255,255,0.55)" letter-spacing="-2">qu'on ne le croit</text>
+
+  <!-- Sous-titre -->
+  <text x="52" y="428" font-family="Arial, sans-serif" font-size="21" font-weight="300"
+        fill="rgba(255,255,255,0.52)" letter-spacing="-0.3">La réalité terrain dans les Hauts-de-France, chiffres à l'appui</text>
+
+  <!-- Séparateur -->
+  <line x1="52" y1="462" x2="700" y2="462" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+  <!-- Stats -->
+  <text x="52"  y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">68%</text>
+  <text x="52"  y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">pas encore automatisé</text>
+
+  <text x="230" y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
+  <text x="230" y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
+
+  <text x="420" y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="420" y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">avant 1ers gains</text>
+
+  <text x="620" y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="620" y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+
+  <!-- URL -->
+  <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600"
+        fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
+</svg>
