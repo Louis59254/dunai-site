@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="28%" cy="52%" r="62%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0C0A09" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1.5" fill="#EA580C" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <!-- Fond noir Dunai -->
+  <rect width="1200" height="630" fill="#0C0A09"/>
+
+  <!-- Motif de points -->
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Glow radial flamme -->
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Éléments décoratifs cercles à droite -->
+  <circle cx="1080" cy="390" r="220" fill="#EA580C" opacity="0.05"/>
+  <circle cx="1080" cy="390" r="150" fill="#EA580C" opacity="0.05"/>
+  <circle cx="1080" cy="390" r="80" fill="#EA580C" opacity="0.07"/>
+
+  <!-- Barre verticale flamme à gauche -->
+  <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
+
+  <!-- Logo Dunai -->
+  <text x="52" y="72" font-family="Arial Black, sans-serif" font-size="38" font-weight="800" letter-spacing="-1">
+    <tspan fill="#ffffff">Dun</tspan><tspan fill="#EA580C">ai</tspan>
+  </text>
+
+  <!-- Séparateur logo -->
+  <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- Catégorie -->
+  <text x="52" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="600"
+        fill="#F97316" letter-spacing="2.5">IA &amp; COMMERCE · HAUTS-DE-FRANCE</text>
+
+  <!-- Titre ligne 1 -->
+  <text x="52" y="228" font-family="Arial Black, sans-serif"
+        font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-2">IA dans le commerce :</text>
+
+  <!-- Titre ligne 2 -->
+  <text x="52" y="308" font-family="Arial Black, sans-serif"
+        font-size="64" font-weight="800" letter-spacing="-2">
+    <tspan fill="rgba(255,255,255,0.9)">exemples de </tspan><tspan fill="#EA580C">gains concrets</tspan>
+  </text>
+
+  <!-- Sous-titre -->
+  <text x="52" y="372" font-family="Arial, sans-serif" font-size="22" font-weight="300"
+        fill="rgba(255,255,255,0.58)" letter-spacing="-0.3">
+    Comment les commerçants du Nord automatisent et augmentent leur CA
+  </text>
+
+  <!-- Séparateur stats -->
+  <line x1="52" y1="418" x2="680" y2="418" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+  <!-- Stat 1 -->
+  <text x="52" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">+9 800 €</text>
+  <text x="52" y="500" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">CA/trimestre récupéré</text>
+
+  <!-- Stat 2 -->
+  <text x="270" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">45 → 3 min</text>
+  <text x="270" y="500" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">temps de devis</text>
+
+  <!-- Stat 3 -->
+  <text x="520" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="520" y="500" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+
+  <!-- Tag article -->
+  <rect x="52" y="545" width="160" height="38" rx="6" fill="#EA580C" opacity="0.15"/>
+  <rect x="52" y="545" width="160" height="38" rx="6" fill="none" stroke="#EA580C" stroke-width="1.5" opacity="0.5"/>
+  <text x="132" y="569" font-family="Arial, sans-serif" font-size="14" font-weight="600"
+        fill="#F97316" text-anchor="middle" letter-spacing="0.5">Article de blog</text>
+
+  <!-- URL -->
+  <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600"
+        fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
+</svg>
