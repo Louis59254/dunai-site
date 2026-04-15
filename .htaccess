@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+
+# Redirection /blog → /Blog/
+RewriteRule ^blog/?$ /Blog/ [R=301,L]
+
+# Redirection /blog/article-slug → /Blog/article-slug.html si besoin
+RewriteRule ^blog/(.+)$ /Blog/$1 [R=301,L]
