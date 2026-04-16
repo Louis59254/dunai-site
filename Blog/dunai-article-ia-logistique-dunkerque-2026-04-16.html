@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA et logistique : optimisation concrète à Dunkerque | Dunai</title>
+  <meta name="description" content="Comment les entreprises logistiques de Dunkerque utilisent l'IA pour optimiser leurs flux, réduire les coûts et gagner du temps. Cas concrets et résultats mesurés par Dunai.">
+  <meta property="og:title" content="IA et logistique : cas concrets d'optimisation à Dunkerque | Dunai">
+  <meta property="og:description" content="Optimisation IA des flux logistiques à Dunkerque : traçabilité, planification, relances transporteurs. Gains réels mesurés sur le terrain.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://dunai.fr/blog/images/dunai-thumb-ia-logistique-dunkerque-2026-04-16.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dunai.fr/blog/images/dunai-thumb-ia-logistique-dunkerque-2026-04-16.svg">
+  <link rel="canonical" href="https://dunai.fr/blog/ia-logistique-dunkerque">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'DM Sans',sans-serif; background:var(--creme); color:var(--anthracite); }
+
+    /* ── NAV ── */
+    nav.main-nav {
+      position: fixed; top: 12px; left: 0; right: 0; z-index: 200;
+      padding: 0 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; pointer-events: none;
+    }
+    nav.main-nav > * { pointer-events: all; }
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px; font-weight: 800; text-decoration: none; letter-spacing: -0.5px;
+      background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 16px; border-radius: 9999px;
+      display: inline-flex; align-items: center; gap: 3px;
+    }
+    .nav-logo .dun { color: #EA580C; }
+    .nav-logo .nai { color: #ffffff; }
+    .nav-logo .dot { width: 5px; height: 5px; border-radius: 50%; background: #EA580C; margin-bottom: 2px; }
+    .nav-pill {
+      display: flex; align-items: center; gap: 4px;
+      background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 9999px; padding: 4px 5px;
+    }
+    .nav-links { display: none; gap: 2px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      text-decoration: none; font-weight: 400;
+      padding: 7px 13px; border-radius: 9999px;
+      display: block; transition: all .18s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: #fff; background: rgba(255,255,255,0.1); font-weight: 500; }
+    .nav-cta {
+      background: #EA580C; color: #ffffff;
+      font-size: 13px; font-weight: 500;
+      padding: 8px 16px; border-radius: 9999px;
+      border: none; white-space: nowrap; text-decoration: none;
+      transition: background .2s; cursor: pointer;
+    }
+    .nav-cta:hover { background: #F97316; }
+    .nav-hamburger {
+      width: 36px; height: 36px; border-radius: 9999px;
+      background: rgba(255,255,255,0.1); border: none;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      cursor: pointer;
+    }
+    .nav-hamburger span { display: block; width: 16px; height: 1.5px; background: #ffffff; border-radius: 2px; transition: all .25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 190;
+      background: #0C0A09;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;
+      transform: translateY(-100%); transition: transform .35s cubic-bezier(.4,0,.2,1);
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 28px; font-weight: 700;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      padding: 12px 24px; border-radius: 16px; transition: color .2s, background .2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: #fff; background: rgba(255,255,255,0.06); }
+    .mobile-menu-cta {
+      margin-top: 16px; background: #EA580C; color: #ffffff !important;
+      font-size: 18px !important; font-weight: 600 !important;
+      padding: 16px 32px !important; border-radius: 9999px !important;
+    }
+    @media (min-width: 768px) { .nav-links { display: flex; } .nav-hamburger { display: none; } }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar { background:var(--anthracite); padding:12px 1.5rem; margin-top:72px; }
+    .breadcrumb { max-width:860px; margin:0 auto; font-size:13px; color:var(--brun); }
+    .breadcrumb a { color:var(--brun); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--flamme); }
+    .breadcrumb span { color:var(--flamme); margin:0 6px; }
+
+    /* HERO */
+    .hero { background:var(--noir); min-height:92svh; position:relative; display:flex; align-items:center; overflow:hidden; }
+    .hero-dots { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(234,88,12,0.13) 1px,transparent 1px); background-size:28px 28px; }
+    .hero-glow { position:absolute; inset:0; background:radial-gradient(circle at 30% 50%,rgba(234,88,12,0.17) 0%,transparent 70%); }
+    .hero-inner { position:relative; z-index:2; max-width:860px; margin:0 auto; padding:4rem 1.5rem; width:100%; }
+    .kicker { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500; color:var(--flamme2); text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem; }
+    .kicker-dot { width:8px; height:8px; border-radius:50%; background:var(--flamme); animation:pulse 2s infinite; flex-shrink:0; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+    .hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2.2rem,7vw,4.5rem); font-weight:800; color:var(--blanc); letter-spacing:-2px; line-height:1.1; margin-bottom:1.5rem; }
+    .hero h1 .hl { color:var(--flamme); }
+    .hero-meta { font-size:13px; color:var(--brun); margin-bottom:1.25rem; display:flex; gap:16px; flex-wrap:wrap; }
+    .hero-sub { font-size:1.05rem; color:rgba(255,255,255,0.7); line-height:1.75; max-width:640px; margin-bottom:2.5rem; font-weight:300; }
+    .hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; border-top:1px solid var(--border-dark); padding-top:2rem; }
+    .stat-item { text-align:center; }
+    .stat-n { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.6rem; font-weight:800; color:var(--flamme); display:block; }
+    .stat-l { font-size:12px; color:var(--brun); margin-top:4px; line-height:1.4; }
+
+    .section-white  { background:var(--blanc);      padding:5rem 1.25rem; }
+    .section-dark   { background:var(--anthracite); padding:5rem 1.25rem; }
+    .section-cream2 { background:var(--creme2);     padding:5rem 1.25rem; }
+    .section-anth   { background:var(--dark2);      padding:5rem 1.25rem; }
+    .section-inner { max-width:860px; margin:0 auto; }
+    .eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--flamme); margin-bottom:0.75rem; }
+    .h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.6rem,4vw,2.25rem); font-weight:800; letter-spacing:-1px; color:var(--anthracite); margin-bottom:1.5rem; }
+    .h2-white { color:var(--blanc) !important; }
+    .prose p { font-size:15px; color:var(--dark3); line-height:1.8; margin-bottom:1.1rem; }
+    .prose p:last-child { margin-bottom:0; }
+
+    .info-box { background:var(--flamme-pale); border-left:4px solid var(--flamme); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+    .info-box p { color:var(--dark3); font-size:15px; line-height:1.75; margin:0; }
+    .info-box strong { color:var(--flamme); }
+    .info-box-dark { background:rgba(234,88,12,0.1); border-left:4px solid var(--flamme); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+    .info-box-dark p { color:rgba(255,255,255,0.8); font-size:15px; line-height:1.75; margin:0; }
+    .info-box-dark strong { color:var(--flamme2); }
+
+    .ba-scroll { overflow-x:auto; margin:2rem 0; border-radius:var(--r-lg); overflow:hidden; }
+    .ba-table { width:100%; border-collapse:collapse; min-width:580px; }
+    .ba-table thead tr { background:var(--anthracite); }
+    .ba-table th { padding:14px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; text-align:left; }
+    .ba-table th:nth-child(1) { color:var(--brun); }
+    .ba-table th:nth-child(2) { color:rgba(255,255,255,0.55); }
+    .ba-table th.th-after { color:var(--flamme); }
+    .ba-table th.th-gain  { color:var(--vert); }
+    .ba-table td { padding:13px 18px; font-size:14px; border-bottom:1px solid var(--border-light); color:var(--dark3); background:var(--blanc); }
+    .ba-table tr:nth-child(even) td { background:var(--creme2); }
+    .ba-table tr:last-child td { border-bottom:none; }
+    .gain { color:var(--vert); font-weight:600; }
+
+    .process-list { list-style:none; position:relative; padding-left:0; margin:2rem 0; }
+    .process-list::before { content:''; position:absolute; left:20px; top:40px; bottom:40px; width:2px; background:linear-gradient(to bottom,var(--flamme),transparent); }
+    .process-item { display:flex; gap:1.25rem; margin-bottom:2rem; align-items:flex-start; }
+    .process-num { width:40px; height:40px; border-radius:50%; background:var(--flamme); color:var(--blanc); font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .process-content h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.02rem; font-weight:700; color:var(--anthracite); margin-bottom:0.5rem; }
+    .process-content p { font-size:14px; color:var(--dark3); line-height:1.75; margin:0; }
+
+    .roi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin:2rem 0; }
+    .roi-card { background:var(--dark2); border:1px solid var(--border-dark); border-radius:var(--r-lg); padding:1.5rem; }
+    .roi-card .company { font-size:11px; color:var(--brun); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.5px; }
+    .roi-card h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--blanc); margin-bottom:1rem; line-height:1.4; }
+    .roi-results { background:var(--noir); border-radius:var(--r-sm); padding:0.75rem 1rem; }
+    .roi-result-item { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-dark); }
+    .roi-result-item:last-child { border-bottom:none; }
+    .roi-result-item span:first-child { font-size:13px; color:var(--brun); }
+    .roi-result-item span:last-child { font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:700; color:var(--flamme); }
+
+    .signal-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:2rem 0; }
+    .signal-card { background:var(--dark2); border:1px solid var(--border-dark); border-radius:var(--r-md); padding:1.25rem; }
+    .signal-card h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--blanc); margin-bottom:0.5rem; }
+    .signal-card p { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65; margin:0; }
+
+    .quote-block { border-left:4px solid var(--flamme); padding:1.5rem 2rem; margin:2.5rem 0; background:var(--creme2); border-radius:0 var(--r-md) var(--r-md) 0; }
+    .quote-block blockquote { font-size:1.05rem; color:var(--anthracite); font-style:italic; line-height:1.75; margin-bottom:0.75rem; }
+    .quote-block cite { font-size:13px; color:var(--brun); font-style:normal; }
+
+    .internal-links { background:var(--creme2); border-radius:var(--r-lg); padding:1.5rem; margin:2.5rem 0; border:1px solid var(--border-light); }
+    .internal-links h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1rem; color:var(--anthracite); margin-bottom:1rem; }
+    .internal-links ul { list-style:none; }
+    .internal-links li { padding:8px 0; border-bottom:1px solid var(--border-light); }
+    .internal-links li:last-child { border-bottom:none; }
+    .internal-links a { font-size:14px; color:var(--flamme); text-decoration:none; font-weight:500; }
+    .internal-links a:hover { text-decoration:underline; }
+
+    .final-cta { background:var(--flamme); padding:5rem 1.25rem; text-align:center; }
+    .final-cta h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.8rem,5vw,3rem); color:var(--blanc); letter-spacing:-1px; margin-bottom:1rem; }
+    .final-cta p { font-size:1.05rem; color:rgba(255,255,255,0.85); margin-bottom:2rem; line-height:1.7; }
+    .cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-white { background:var(--blanc); color:var(--flamme); padding:14px 28px; border-radius:var(--r-md); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; text-decoration:none; font-size:0.95rem; }
+    .btn-transparent { background:transparent; color:var(--blanc); padding:14px 28px; border-radius:var(--r-md); border:2px solid rgba(255,255,255,0.5); font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; text-decoration:none; font-size:0.95rem; }
+
+    footer { background:var(--noir); padding:3rem 1.5rem; text-align:center; border-top:1px solid var(--border-dark); }
+    .footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.5rem; font-weight:800; margin-bottom:0.75rem; }
+    .footer-logo .dun { color:var(--blanc); } .footer-logo .nai { color:var(--flamme); }
+    footer p { font-size:13px; color:var(--brun); margin-bottom:0.4rem; }
+    footer a { color:var(--flamme); text-decoration:none; }
+
+    @media (max-width:640px) {
+      .hero-stats { grid-template-columns:repeat(2,1fr); }
+      .roi-grid   { grid-template-columns:1fr; }
+      .signal-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://dunai.fr">Accueil</a>
+  <a href="https://dunai.fr/#agents">Agents IA</a>
+  <a href="https://dunai.fr/#roi">Résultats</a>
+  <a href="https://dunai.fr/#offres">Offres</a>
+  <a href="https://dunai.fr/#tarifs">Tarifs</a>
+  <a href="https://dunai.fr/blog" class="active">Blog</a>
+  <a href="https://dunai.fr/#contact" class="mobile-menu-cta">Audit gratuit →</a>
+</div>
+
+<!-- NAV -->
+<nav class="main-nav">
+  <a class="nav-logo" href="https://dunai.fr">
+    <span class="dun">Dun</span><span class="nai">ai</span><span class="dot"></span>
+  </a>
+  <div class="nav-pill">
+    <ul class="nav-links">
+      <li><a href="https://dunai.fr">Accueil</a></li>
+      <li><a href="https://dunai.fr/#agents">Agents IA</a></li>
+      <li><a href="https://dunai.fr/#roi">Résultats</a></li>
+      <li><a href="https://dunai.fr/#offres">Offres</a></li>
+      <li><a href="https://dunai.fr/#tarifs">Tarifs</a></li>
+      <li><a href="https://dunai.fr/blog" class="active">Blog</a></li>
+    </ul>
+    <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="https://dunai.fr">Accueil</a><span>›</span>
+    <a href="https://dunai.fr/blog">Blog</a><span>›</span>
+    IA et logistique : cas concrets d'optimisation à Dunkerque
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="kicker"><span class="kicker-dot"></span> Logistique · Dunkerque · IA terrain</div>
+    <h1>IA et logistique :<br><span class="hl">cas concrets à Dunkerque</span></h1>
+    <div class="hero-meta">
+      <span>📅 16 avril 2026</span>
+      <span>✍️ Équipe Dunai</span>
+      <span>⏱ 7 min de lecture</span>
+    </div>
+    <p class="hero-sub">
+      Dans la première place portuaire de France, les entreprises logistiques font face à des flux complexes, des délais serrés et une pression constante sur les marges. Voici comment l'IA transforme concrètement leur quotidien opérationnel — avec les chiffres pour le prouver.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-n">+28h</span>
+        <p class="stat-l">récupérées par mois dans une PME logistique 18 sal.</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">18 k€</span>
+        <p class="stat-l">économisés par an sur les coûts opérationnels</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">-73%</span>
+        <p class="stat-l">de tâches répétitives éliminées après déploiement</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">×4</span>
+        <p class="stat-l">ROI moyen sur 12 mois dans le secteur logistique</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 : CONTEXTE DUNKERQUE -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="eyebrow">Contexte local</div>
+    <h2 class="h2">Dunkerque, hub logistique sous pression : pourquoi l'IA s'y impose</h2>
+    <div class="prose">
+      <p>
+        Dunkerque n'est pas une ville logistique ordinaire. Avec son port — premier port de France pour le trafic transmanche, troisième port national — et son tissu dense d'industriels (ArcelorMittal, Toyota, Valdunes, terminaux à conteneurs), la ville génère des flux de marchandises d'une complexité rare pour des entreprises de taille intermédiaire.
+      </p>
+      <p>
+        Les PME logistiques qui gravitent autour de ce hub — transporteurs, transitaires, prestataires d'entrepôt, logisticiens spécialisés — partagent un défi commun : gérer des opérations complexes avec des équipes réduites, des marges serrées et une exigence client croissante en matière de délais et de traçabilité. <strong>4,2 heures par salarié et par jour</strong> sont perdues dans des saisies manuelles, des relances transporteurs et des reportings assemblés à la main.
+      </p>
+      <p>
+        C'est précisément dans ce contexte que l'IA déploie ses effets les plus significatifs. Non pas en remplaçant les opérations humaines — mais en automatisant ce qui peut l'être pour libérer les équipes sur ce qui exige vraiment leur expertise : la gestion des aléas, la relation client et l'optimisation des coûts.
+      </p>
+    </div>
+    <div class="info-box">
+      <p><strong>Données terrain :</strong> 68 % des PME logistiques françaises n'ont encore rien automatisé. Dans la zone portuaire de Dunkerque, ce chiffre recule rapidement depuis 2025 sous l'effet des premiers retours d'expérience — les dirigeants qui ont franchi le cap convainquent rapidement leurs pairs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : LES 6 CAS D'USAGE -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--flamme2)">Cas d'usage terrain</div>
+    <h2 class="h2 h2-white">6 applications de l'IA dans la logistique dunkerquoise</h2>
+    <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.8;margin-bottom:2rem;">
+      Ces cas d'usage sont issus de déploiements réels chez des clients Dunai dans la région. Chacun cible un point de friction spécifique identifié lors de l'audit initial.
+    </p>
+    <div class="signal-grid">
+      <div class="signal-card">
+        <h3>🚚 Suivi des expéditions automatisé</h3>
+        <p>Les statuts de transport sont récupérés automatiquement depuis les APIs transporteurs, consolidés et transmis au client sans intervention manuelle. Fini le suivi à la main sur les portails des différents prestataires.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📋 Relances transporteurs intelligentes</h3>
+        <p>Dès qu'un enlèvement ou une livraison dépasse le délai prévu, une relance est déclenchée automatiquement au transporteur concerné, avec les références du dossier et le niveau d'urgence adapté.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📦 Gestion des anomalies de réception</h3>
+        <p>Les écarts entre bons de commande et réception physique sont détectés automatiquement, signalés au bon interlocuteur et documentés dans le système sans ressaisie. Chaque anomalie génère une alerte structurée.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📊 Reporting KPI logistique en temps réel</h3>
+        <p>Taux de service, retards, coûts par flux, litiges : tous les indicateurs sont consolidés automatiquement depuis les outils existants (TMS, WMS, ERP). Le directeur d'exploitation dispose de son tableau de bord à 7h chaque matin.</p>
+      </div>
+      <div class="signal-card">
+        <h3>🏭 Optimisation des plans de chargement</h3>
+        <p>L'IA analyse les commandes, les contraintes de volume et les fenêtres horaires pour proposer des plans de chargement optimisés. Les gains sur le taux de remplissage des véhicules atteignent 12 à 18 % en moyenne.</p>
+      </div>
+      <div class="signal-card">
+        <h3>📄 Traitement automatique des documents de transport</h3>
+        <p>CMR, lettres de voiture, bons de livraison, factures transporteurs : l'IA extrait automatiquement les données structurées de ces documents et les injecte dans le TMS ou l'ERP sans saisie manuelle.</p>
+      </div>
+    </div>
+    <div class="info-box-dark">
+      <p>Déployés selon les priorités identifiées lors de l'audit, ces cas d'usage éliminent en moyenne <strong>-73 % des tâches répétitives</strong> dans une PME logistique de 10 à 30 personnes. Les premières économies de temps deviennent visibles dès la 6e semaine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : AVANT / APRÈS -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <div class="eyebrow">Transformations mesurées</div>
+    <h2 class="h2">Avant / après : l'opérationnel logistique transformé</h2>
+    <div class="prose">
+      <p>
+        Ces données proviennent de mesures effectuées chez des clients Dunai dans la zone portuaire et industrielle de Dunkerque. Elles comparent l'état à l'audit (J0) et les résultats à 8 semaines de déploiement.
+      </p>
+    </div>
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Processus logistique</th>
+            <th>Avant automatisation</th>
+            <th class="th-after">Après déploiement IA</th>
+            <th class="th-gain">Gain mesuré</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Suivi des expéditions</td>
+            <td>Vérification manuelle sur 3–5 portails transporteurs</td>
+            <td>Statuts consolidés automatiquement, alertes temps réel</td>
+            <td class="gain">-90 % de temps</td>
+          </tr>
+          <tr>
+            <td>Relances transporteurs</td>
+            <td>Relances oubliées, retards non signalés à temps</td>
+            <td>Déclenchement auto dès dépassement du délai</td>
+            <td class="gain">-65 % de retards non traités</td>
+          </tr>
+          <tr>
+            <td>Traitement des documents</td>
+            <td>Saisie manuelle des CMR et BL dans le TMS</td>
+            <td>Extraction IA et injection directe dans le système</td>
+            <td class="gain">-100 % de saisie manuelle</td>
+          </tr>
+          <tr>
+            <td>Reporting exploitation</td>
+            <td>3h de consolidation Excel chaque lundi matin</td>
+            <td>Dashboard automatique disponible à 7h chaque jour</td>
+            <td class="gain">+3h/semaine récupérées</td>
+          </tr>
+          <tr>
+            <td>Taux de remplissage véhicules</td>
+            <td>Optimisation manuelle, sous-optimale</td>
+            <td>Plans de chargement optimisés par IA</td>
+            <td class="gain">+14 % de taux de remplissage</td>
+          </tr>
+          <tr>
+            <td>Détection des anomalies</td>
+            <td>Constatées lors du bilan mensuel</td>
+            <td>Détection et alerte en temps réel à la réception</td>
+            <td class="gain">-80 % de litiges non détectés</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="quote-block">
+      <blockquote>"On gère des flux pour des industriels qui ne tolèrent aucun retard. Avant, je passais mes matinées à vérifier manuellement où en étaient les expéditions sur les portails des transporteurs. Maintenant, tout remonte automatiquement. Je me concentre sur les aléas — les cas qui nécessitent vraiment une décision humaine."</blockquote>
+      <cite>— Responsable exploitation, PME logistique, 18 salariés, Dunkerque</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : CAS CLIENTS -->
+<section class="section-anth">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--flamme2)">Résultats terrain Dunai</div>
+    <h2 class="h2 h2-white">4 entreprises, 4 contextes, des résultats convergents</h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8;margin-bottom:2rem;">
+      Ces mesures ont été réalisées 6 à 12 mois après le premier déploiement Dunai. Elles portent sur l'ensemble des automatisations mises en place, dont le suivi logistique constitue la première brique dans trois des quatre cas.
+    </p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <p class="company">Logistique · Dunkerque · 18 sal.</p>
+        <h3>Automatisation du suivi expéditions, relances transporteurs et reporting</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Temps récupéré</span><span>+28h/mois</span></div>
+          <div class="roi-result-item"><span>Économie annuelle</span><span>18 000 €/an</span></div>
+          <div class="roi-result-item"><span>Délai avant 1ers gains</span><span>6 semaines</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×4</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Transitaire · Port de Dunkerque · 12 sal.</p>
+        <h3>Traitement documentaire automatisé et suivi douanier IA</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Temps saisie documents</span><span>-87 %</span></div>
+          <div class="roi-result-item"><span>Erreurs de saisie</span><span>-94 %</span></div>
+          <div class="roi-result-item"><span>Dossiers traités/jour</span><span>+40 %</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×4,2</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Prestataire entrepôt · Nord · 30 sal.</p>
+        <h3>WMS augmenté : anomalies réception, KPIs et optimisation picking</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Anomalies détectées</span><span>×3 plus tôt</span></div>
+          <div class="roi-result-item"><span>Litiges clients</span><span>-58 %</span></div>
+          <div class="roi-result-item"><span>Productivité picking</span><span>+22 %</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×3,6</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <p class="company">Transport routier · Hauts-de-France · 22 sal.</p>
+        <h3>Optimisation plans de chargement, facturation auto et suivi conducteurs</h3>
+        <div class="roi-results">
+          <div class="roi-result-item"><span>Taux de remplissage</span><span>+14 %</span></div>
+          <div class="roi-result-item"><span>Coût/km</span><span>-9 %</span></div>
+          <div class="roi-result-item"><span>Temps facturation</span><span>-100 %</span></div>
+          <div class="roi-result-item"><span>ROI sur 12 mois</span><span>×3,9</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : PAR OÙ COMMENCER -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="eyebrow">Mise en œuvre</div>
+    <h2 class="h2">Comment déployer l'IA dans une PME logistique</h2>
+    <div class="prose">
+      <p>
+        L'automatisation dans la logistique doit suivre un principe simple : commencer par les processus qui génèrent le plus de friction sans créer le plus de valeur. Dans la grande majorité des PME logistiques que nous auditons, ce sont les mêmes trois points : le suivi des expéditions, le traitement des documents de transport, et le reporting d'exploitation.
+      </p>
+      <p>
+        Bonne nouvelle : ces trois processus s'appuient sur des données déjà structurées dans vos outils (TMS, WMS, tableur) et des APIs transporteurs largement disponibles. Le déploiement ne nécessite ni refonte de vos systèmes ni formation lourde de vos équipes.
+      </p>
+    </div>
+    <ul class="process-list">
+      <li class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h3>Cartographier vos flux prioritaires lors de l'audit (J0–J2)</h3>
+          <p>L'audit Dunai identifie vos trois flux les plus consommateurs de temps manuel : suivi expéditions, traitement documents, reporting. Pour chacun, nous quantifions le temps passé, les erreurs générées et le potentiel d'automatisation immédiat.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h3>Connecter les sources de données existantes (semaine 1–2)</h3>
+          <p>Nous connectons les APIs des transporteurs que vous utilisez, votre TMS ou WMS, et vos outils de reporting existants. Dans 90 % des cas, aucun changement de logiciel n'est nécessaire — l'IA se branche par-dessus vos outils actuels.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h3>Déployer en mode supervisé, valider les résultats (semaine 3–4)</h3>
+          <p>Les deux premières semaines, les automatisations tournent en parallèle des processus manuels. Vos responsables d'exploitation valident chaque sortie : alertes, relances, rapports. À J+14, si la qualité est conforme, on bascule en production complète.</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h3>Mesurer et étendre sur 12 mois (semaine 6 → mois 12)</h3>
+          <p>À 6 semaines, le bilan chiffré est disponible : heures récupérées, retards évités, anomalies détectées. Ces données guident le déploiement des cas d'usage suivants : optimisation des plans de chargement, facturation automatisée, suivi des KPIs contractuels clients.</p>
+        </div>
+      </li>
+    </ul>
+    <div class="info-box">
+      <p><strong>À retenir :</strong> une PME logistique de 10 à 30 salariés peut automatiser ses trois principaux flux en <strong>4 à 6 semaines</strong>. Le ROI ×4 sur 12 mois représente la moyenne observée — et dans certains cas (transitaires, prestataires documentaires), il dépasse ×4,5 dès la première année.</p>
+    </div>
+    <div class="internal-links">
+      <h3>📚 À lire aussi sur le blog Dunai</h3>
+      <ul>
+        <li><a href="https://dunai.fr/blog/audit-ia-pme-2-jours">Audit IA : ce qu'il révèle dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/blog/automatisation-facturation-relances-devis">Automatiser sa facturation, ses relances et ses devis</a></li>
+        <li><a href="https://dunai.fr/blog/adoption-ia-pme-nord">Pourquoi les PME du Nord adoptent l'IA plus vite</a></li>
+        <li><a href="https://dunai.fr/blog/roi-ia-pme">Comment calculer le ROI de l'IA dans votre entreprise</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-inner">
+    <h2>Optimisez vos flux logistiques avec l'IA</h2>
+    <p>En 2 jours d'audit terrain dans votre entreprise, Dunai identifie vos trois flux prioritaires à automatiser, chiffre les gains accessibles et vous remet une feuille de route opérationnelle. Gratuit et sans engagement pour les entreprises des Hauts-de-France.</p>
+    <div class="cta-buttons">
+      <a href="https://dunai.fr/audit" class="btn-white">Demander mon audit gratuit</a>
+      <a href="https://dunai.fr/cas-clients" class="btn-transparent">Voir les cas clients</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div>
+  <p>Agence IA &amp; Automatisation — Dunkerque, Hauts-de-France</p>
+  <p><a href="https://dunai.fr">dunai.fr</a> · <a href="mailto:contact@dunai.fr">contact@dunai.fr</a></p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  }
+</script>
+</body>
+</html>
