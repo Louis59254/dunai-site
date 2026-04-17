@@ -675,13 +675,13 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   aspect-ratio: 16/8; position: relative;
   overflow: hidden; display: flex; align-items: flex-end;
 }
-.blog-card-img-inner {
-  position: absolute; inset: 0;
-}
 .blog-card-img img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; z-index: 1;
+}
+.blog-card-img-inner {
+  position: absolute; inset: 0;
 }
 .blog-card-emoji {
   position: relative; z-index: 2;
@@ -802,17 +802,17 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <div class="hero-glow"></div>
     <div class="hero-inner">
       <div>
-        <div class="hero-kicker"><span class="kicker-dot"></span>Dunkerque · Hauts-de-France · Agents IA 24h/24</div>
+        <div class="hero-kicker"><span class="kicker-dot"></span>Agence IA & Automatisation · Dunkerque · Hauts-de-France</div>
         <h1>Vos tâches répétitives,<br><span class="hl">automatisées.</span><br>Vos équipes libérées.</h1>
-        <p class="hero-sub">Dunai déploie des agents IA dans votre entreprise qui traitent vos emails, relances, devis, reporting et bien plus — pendant que vous faites ce que vous faites de mieux.</p>
+        <p class="hero-sub">On vient dans vos locaux, on identifie ce qui vous fait perdre du temps, et on déploie les agents IA qui le récupèrent — en moins de 6 semaines. Basé à Dunkerque, on intervient dans toute la région.</p>
         <div class="hero-actions">
           <a class="btn-primary" onclick="showPage('contact')">Réserver mon audit gratuit →</a>
           <a class="btn-ghost" onclick="showPage('roi')">Voir les résultats</a>
         </div>
         <div class="hero-stats">
-          <div><div class="stat-n">-73%</div><div class="stat-l">tâches répétitives éliminées</div></div>
-          <div><div class="stat-n">2h</div><div class="stat-l">audit offert sans engagement</div></div>
-          <div><div class="stat-n">6 sem.</div><div class="stat-l">délai avant premiers gains</div></div>
+          <div><div class="stat-n">-73%</div><div class="stat-l">heures récupérées par nos clients chaque mois</div></div>
+          <div><div class="stat-n">2h</div><div class="stat-l">PME & artisans accompagnés dans la région</div></div>
+          <div><div class="stat-n">6 sem.</div><div class="stat-l">semaines en moyenne pour voir les premiers gains</div></div>
         </div>
       </div>
       <!-- Agent live preview -->
@@ -870,23 +870,30 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   </section>
 
   <!-- URGENCE -->
-  <div class="urgence">
-    <div class="urgence-inner">
-      <div class="urgence-stats">
-        <div class="u-stat"><div class="n">4,2h</div><div class="l">perdues par salarié<br>et par jour sur tâches admin</div></div>
-        <div class="u-stat"><div class="n">68%</div><div class="l">des PME n'ont encore<br>rien automatisé</div></div>
+  <div class="urgence" style="padding:3rem 1.25rem">
+    <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:2rem;text-align:center">
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center">
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:3rem;font-weight:800;color:white;line-height:1">4,2h</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.85);margin-top:8px;line-height:1.55;max-width:170px">perdues chaque jour par salarié sur des tâches répétitives automatisables</div>
+        </div>
+        <div style="width:1px;height:56px;background:rgba(255,255,255,0.3);flex-shrink:0"></div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:3rem;font-weight:800;color:white;line-height:1">68%</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.85);margin-top:8px;line-height:1.55;max-width:170px">des TPE et PME locales n'ont encore automatisé aucun processus</div>
+        </div>
       </div>
-      <div class="urgence-msg"><p>Pendant que vous lisez ceci, vos concurrents automatisent leurs relances, leurs devis et leur reporting. <strong>On vous aide à rattraper le retard en 6 semaines.</strong></p></div>
-      <button class="btn-urgence" onclick="showPage('contact')">Audit gratuit →</button>
+      <p style="font-size:15px;color:rgba(255,255,255,0.92);line-height:1.75;max-width:540px;margin:0">Chaque semaine sans automatisation, ce sont des heures perdues et de la marge laissée sur la table. <strong style="font-weight:600;color:white">On vous aide à récupérer tout ça en 6 semaines — déplacement à Dunkerque et dans toute la région.</strong></p>
+      <button class="btn-urgence" onclick="showPage('contact')" style="width:auto;padding:13px 32px">Audit gratuit →</button>
     </div>
   </div>
 
   <!-- AGENTS RÉSUMÉ -->
   <section class="section agents-section">
     <div class="section-inner">
-      <span class="eyebrow">Agents IA Dunai — 100% sur mesure</span>
-      <h2 class="h2 h2-white">Un agent IA pour chaque métier.<br>Les possibilités sont infinies.</h2>
-      <p class="lead lead-white">Voici quelques exemples. Chaque agent est conçu sur mesure pour votre activité : traiteur, dentiste, coiffeur, agence de voyage, club de sport, conciergerie Airbnb… si vous avez des tâches répétitives, on a un agent pour ça.</p>
+      <span class="eyebrow">Agents IA Dunai — Artisans, TPE & PME</span>
+      <h2 class="h2 h2-white">Des agents IA concrets,<br>pour vos vraies contraintes du quotidien.</h2>
+      <p class="lead lead-white">Relances impayées, devis qui traînent, saisies répétitives, reporting du lundi matin — on automatise les tâches qui vous coûtent le plus de temps, quel que soit votre secteur. Artisan, commerçant, PME de services, dirigeant de TPE : si vous avez des tâches répétitives, on a un agent pour ça.</p>
       <div class="agents-grid">
         <div class="agent-card">
           <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
@@ -942,19 +949,16 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
             <span class="gain-badge">Conciergerie automatisée</span>
           </div>
           <div class="sectors-wrap" style="margin-top:1.125rem">
-            <span class="sector-pill">Conciergerie Airbnb</span>
-            <span class="sector-pill">Agence de voyages</span>
-            <span class="sector-pill">Excursions & activités</span>
-            <span class="sector-pill">Traiteur & restaurateur</span>
-            <span class="sector-pill">Cabinet dentaire</span>
-            <span class="sector-pill">Salon de coiffure</span>
-            <span class="sector-pill">Club de voile</span>
-            <span class="sector-pill">Association</span>
-            <span class="sector-pill">Coach sportif</span>
-            <span class="sector-pill">Salle de sport</span>
-            <span class="sector-pill">Photographe</span>
-            <span class="sector-pill">Artisan & TPE</span>
-            <span class="sector-pill sector-pill-cta" onclick="showPage('contact')" style="cursor:pointer">+ votre métier →</span>
+            <span class="sector-pill">Artisan BTP</span>
+            <span class="sector-pill">Négoce & distribution</span>
+            <span class="sector-pill">Cabinet comptable</span>
+            <span class="sector-pill">Agence immobilière</span>
+            <span class="sector-pill">Industrie & production</span>
+            <span class="sector-pill">Transport & logistique</span>
+            <span class="sector-pill">Santé & paramédical</span>
+            <span class="sector-pill">Commerce local</span>
+            <span class="sector-pill">Restauration & traiteur</span>
+            <span class="sector-pill sector-pill-cta" onclick="showPage('contact')" style="cursor:pointer">Votre secteur →</span>
           </div>
         </div>
       </div>
@@ -971,22 +975,23 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <thead>
             <tr>
               <th>Tâche</th>
+              <th>Secteur</th>
               <th>Avant Dunai</th>
               <th>Avec Dunai</th>
               <th>Gain</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="ba-task">Relances clients impayés</td><td class="ba-before">3h / semaine</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Génération et envoi de devis</td><td class="ba-before">45 min / devis</td><td class="ba-after">3 min</td><td class="ba-gain">-93%</td></tr>
-            <tr><td class="ba-task">Saisie commandes dans l'ERP</td><td class="ba-before">2h / jour</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Rapport mensuel direction</td><td class="ba-before">1 journée / mois</td><td class="ba-after">Auto. lundi 8h</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Prise de RDV + confirmation</td><td class="ba-before">30 min / RDV</td><td class="ba-after">2 min</td><td class="ba-gain">-93%</td></tr>
-            <tr><td class="ba-task">Articles de blog SEO</td><td class="ba-before">3h / article</td><td class="ba-after">15 min</td><td class="ba-gain">-92%</td></tr>
-            <tr><td class="ba-task">Posts LinkedIn / réseaux</td><td class="ba-before">1h / post</td><td class="ba-after">Auto. quotidien</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Réponses avis Google</td><td class="ba-before">2h / semaine</td><td class="ba-after">Auto. 24h/24</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Transfert factures fournisseurs</td><td class="ba-before">4h / semaine</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Onboarding nouveau salarié</td><td class="ba-before">2 jours</td><td class="ba-after">4 heures</td><td class="ba-gain">-75%</td></tr>
+            <tr><td class="ba-task">Relances clients impayés</td><td><span class="ba-sector-badge">Services B2B</span></td><td class="ba-before">3h / semaine</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
+            <tr><td class="ba-task">Génération et envoi de devis</td><td><span class="ba-sector-badge">Artisan / BTP</span></td><td class="ba-before">45 min / devis</td><td class="ba-after">3 min</td><td class="ba-gain">-93%</td></tr>
+            <tr><td class="ba-task">Saisie commandes dans l'ERP</td><td><span class="ba-sector-badge">Négoce</span></td><td class="ba-before">2h / jour</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
+            <tr><td class="ba-task">Rapport mensuel direction</td><td><span class="ba-sector-badge">PME 20-50 sal.</span></td><td class="ba-before">1 journée / mois</td><td class="ba-after">Auto. lundi 8h</td><td class="ba-gain">-100%</td></tr>
+            <tr><td class="ba-task">Prise de RDV + confirmation</td><td><span class="ba-sector-badge">Santé / Médical</span></td><td class="ba-before">30 min / RDV</td><td class="ba-after">2 min</td><td class="ba-gain">-93%</td></tr>
+            <tr><td class="ba-task">Articles de blog SEO</td><td><span class="ba-sector-badge">Commerce local</span></td><td class="ba-before">3h / article</td><td class="ba-after">15 min</td><td class="ba-gain">-92%</td></tr>
+            <tr><td class="ba-task">Posts LinkedIn / réseaux</td><td><span class="ba-sector-badge">Services</span></td><td class="ba-before">1h / post</td><td class="ba-after">Auto. quotidien</td><td class="ba-gain">-100%</td></tr>
+            <tr><td class="ba-task">Réponses avis Google</td><td><span class="ba-sector-badge">Restaurant / Retail</span></td><td class="ba-before">2h / semaine</td><td class="ba-after">Auto. 24h/24</td><td class="ba-gain">-100%</td></tr>
+            <tr><td class="ba-task">Transfert factures fournisseurs</td><td><span class="ba-sector-badge">Comptabilité</span></td><td class="ba-before">4h / semaine</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
+            <tr><td class="ba-task">Onboarding nouveau salarié</td><td><span class="ba-sector-badge">Multi-secteurs</span></td><td class="ba-before">2 jours</td><td class="ba-after">4 heures</td><td class="ba-gain">-75%</td></tr>
           </tbody>
         </table>
       </div>
@@ -999,7 +1004,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <span class="eyebrow">Comment ça marche</span>
       <h2 class="h2 h2-white">De zéro à vos premiers gains<br>en moins de 6 semaines.</h2>
       <div class="process-list">
-        <div class="process-item"><div class="process-circle">1</div><div><div class="process-name">Audit gratuit</div><div class="process-sub">On vient chez vous 2h, on identifie les opportunités</div><div class="process-free">100% offert</div></div></div>
+        <div class="process-item"><div class="process-circle">1</div><div><div class="process-name">Audit gratuit</div><div class="process-sub">On vient dans vos locaux à Dunkerque ou en région — 2h pour cartographier vos opportunités</div><div class="process-free">100% offert</div></div></div>
         <div class="process-item"><div class="process-circle">2</div><div><div class="process-name">Roadmap</div><div class="process-sub">Plan d'action priorisé : impact vs faisabilité</div></div></div>
         <div class="process-item"><div class="process-circle">3</div><div><div class="process-name">Déploiement</div><div class="process-sub">Création et intégration des agents IA</div></div></div>
         <div class="process-item"><div class="process-circle">4</div><div><div class="process-name">Formation</div><div class="process-sub">Vos équipes prennent en main les outils</div></div></div>
@@ -1030,7 +1035,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <li><a onclick="showPage('contact')">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
+      <div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
     </div>
   </footer>
 </div>
@@ -1041,7 +1046,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <div class="section-inner">
       <span class="eyebrow">Agents IA Dunai</span>
       <h1 class="h2 h2-white">Des exemples parmi des centaines<br>de cas d'usage possibles.</h1>
-      <p class="lead lead-white">Ces agents sont nos cas d'usage les plus courants — mais l'IA n'a pas de limite sectorielle. Quel que soit votre métier, on conçoit l'agent qui correspond exactement à vos processus.</p>
+      <p class="lead lead-white">Artisans, dirigeants de TPE, PME de services ou de négoce — ces agents s'adaptent à votre organisation, vos outils et vos processus. Si c'est répétitif, on peut l'automatiser.</p>
     </div>
   </div>
 
@@ -1111,6 +1116,18 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <div class="agent-tasks"><div class="ati">Articles blog SEO — 1 à 4/semaine</div><div class="ati">Mots-clés : gaps vs concurrents</div><div class="ati">Posts LinkedIn, Facebook, Instagram</div><div class="ati">Fiches produits e-commerce</div><div class="ati">Réponses avis Google &lt; 2h</div><div class="ati">Newsletter mensuelle rédigée</div></div>
           <span class="gain-badge">↑ ×3 contenu · +40% trafic</span>
         </div>
+        <div class="agent-card">
+          <div class="agent-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div>
+          <div class="agent-name">Agent avis & réputation</div>
+          <div class="agent-role">Protège et améliore votre note Google en continu</div>
+          <div class="agent-tasks">
+            <div class="ati">Détection automatique des nouveaux avis</div>
+            <div class="ati">Réponse personnalisée sous 2h (5★ et négatifs)</div>
+            <div class="ati">Demande d'avis post-intervention automatique</div>
+            <div class="ati">Alerte dirigeant si avis négatif urgent</div>
+          </div>
+          <span class="gain-badge">↑ +1,2 points de note moyenne</span>
+        </div>
         <div class="agent-card-custom" style="grid-column: 1 / -1;">
           <span class="custom-new-badge">★ Agent sur mesure</span>
           <div class="agent-name" style="font-size:17px;color:var(--blanc);margin-bottom:.5rem">Agent 100% personnalisé selon votre métier</div>
@@ -1134,7 +1151,16 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
             </div>
           </div>
           <div class="sectors-wrap">
-            <span class="sector-pill">Conciergerie Airbnb</span><span class="sector-pill">Agence de voyages</span><span class="sector-pill">Traiteur</span><span class="sector-pill">Dentiste</span><span class="sector-pill">Coiffeur</span><span class="sector-pill">Club de voile</span><span class="sector-pill">Association</span><span class="sector-pill">Coach sportif</span><span class="sector-pill">Restaurateur</span><span class="sector-pill sector-pill-cta" onclick="showPage('contact')" style="cursor:pointer">Votre secteur →</span>
+            <span class="sector-pill">Artisan BTP</span>
+            <span class="sector-pill">Négoce & distribution</span>
+            <span class="sector-pill">Cabinet comptable</span>
+            <span class="sector-pill">Agence immobilière</span>
+            <span class="sector-pill">Industrie & production</span>
+            <span class="sector-pill">Transport & logistique</span>
+            <span class="sector-pill">Santé & paramédical</span>
+            <span class="sector-pill">Commerce local</span>
+            <span class="sector-pill">Restauration & traiteur</span>
+            <span class="sector-pill sector-pill-cta" onclick="showPage('contact')" style="cursor:pointer">Votre secteur →</span>
           </div>
         </div>
       </div>
@@ -1149,7 +1175,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     </div>
   </div>
 
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
 <!-- ══════════════════════ ROI ══════════════════════ -->
@@ -1177,20 +1203,20 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           </div>
         </div>
         <div class="roi-card">
-          <div class="roi-card-hdr"><span class="roi-badge">Commerce · 8 salariés</span><span class="roi-loc">Dunkerque</span></div>
+          <div class="roi-card-hdr"><span class="roi-badge">Services B2B · 6 salariés</span><span class="roi-loc">Dunkerque</span></div>
           <div class="roi-body">
-            <p class="roi-quote">Les relances impayés prenaient 3h par semaine. On n'osait pas relancer certains clients par peur de les froisser.</p>
+            <p class="roi-quote">Les relances impayées nous prenaient 3h par semaine. On n'osait pas toujours relancer certains clients par peur de les froisser.</p>
             <div class="roi-solution-lbl">Agents déployés</div>
-            <div class="roi-tags"><span class="roi-tag">Agent commercial</span><span class="roi-tag">Relances auto.</span><span class="roi-tag">Séquence perso.</span></div>
+            <div class="roi-tags"><span class="roi-tag">Agent commercial</span><span class="roi-tag">Relances automatiques</span><span class="roi-tag">Séquence personnalisée</span></div>
             <div class="roi-results"><div class="roi-result"><div class="roi-result-n">+34%</div><div class="roi-result-l">recouvrement</div></div><div class="roi-result"><div class="roi-result-n">3h</div><div class="roi-result-l">libérées/semaine</div></div><div class="roi-result"><div class="roi-result-n">9 800€</div><div class="roi-result-l">récupérés/trim.</div></div></div>
           </div>
         </div>
         <div class="roi-card">
-          <div class="roi-card-hdr"><span class="roi-badge">BTP · 22 salariés</span><span class="roi-loc">Hauts-de-France</span></div>
+          <div class="roi-card-hdr"><span class="roi-badge">Artisan BTP · 3 salariés</span><span class="roi-loc">Région Dunkerquoise</span></div>
           <div class="roi-body">
-            <p class="roi-quote">Chaque devis prenait 45 minutes. Avec 15 devis par semaine, ça mobilisait presque deux jours de travail.</p>
+            <p class="roi-quote">Chaque devis me prenait 45 minutes. Avec 15 devis par semaine, je perdais presque deux jours entiers juste à rédiger des documents.</p>
             <div class="roi-solution-lbl">Agents déployés</div>
-            <div class="roi-tags"><span class="roi-tag">Agent commercial</span><span class="roi-tag">Générateur devis IA</span><span class="roi-tag">Envoi auto</span></div>
+            <div class="roi-tags"><span class="roi-tag">Agent commercial</span><span class="roi-tag">Générateur de devis IA</span><span class="roi-tag">Envoi automatique</span></div>
             <div class="roi-results"><div class="roi-result"><div class="roi-result-n">3 min</div><div class="roi-result-l">par devis (vs 45)</div></div><div class="roi-result"><div class="roi-result-n">+28%</div><div class="roi-result-l">devis envoyés</div></div><div class="roi-result"><div class="roi-result-n">+16%</div><div class="roi-result-l">CA signé</div></div></div>
           </div>
         </div>
@@ -1252,12 +1278,17 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <span class="eyebrow">Ils ont franchi le pas</span>
       <h2 class="h2">Ce que disent nos clients.</h2>
       <div class="temo-grid">
-        <div class="temo-card"><div class="temo-stars">★★★★★</div><p class="temo-quote">L'audit m'a ouvert les yeux. Voir les chiffres écrits noir sur blanc — 28 heures par mois sur des tâches automatisables — ça m'a décidé en 5 minutes.</p><div class="temo-gain">Résultat : 28h récupérées + 14 000€ économisés / an</div><div class="temo-author">Directeur général</div><div class="temo-role">Transport · 18 salariés · Dunkerque</div></div>
-        <div class="temo-card"><div class="temo-stars">★★★★★</div><p class="temo-quote">Ce qui m'a convaincu, c'est que Dunai parle le même langage que nous. Pas de blabla tech. Juste : voilà ce qu'on peut faire, voilà ce que vous gagnez.</p><div class="temo-gain">Résultat : devis 45 min → 3 min</div><div class="temo-author">Gérant</div><div class="temo-role">BTP · 22 salariés · Hauts-de-France</div></div>
-        <div class="temo-card"><div class="temo-stars">★★★★★</div><p class="temo-quote">On était sceptiques. Six semaines après, mes équipes ne veulent plus revenir en arrière. Les tâches répétitives ont disparu.</p><div class="temo-gain">Résultat : -62% no-show · +22% CA</div><div class="temo-author">Directrice de cabinet</div><div class="temo-role">Santé · 6 praticiens · Nord</div></div>
+        <div class="temo-card"><div class="temo-stars">★★★★★</div><p class="temo-quote">L'audit m'a ouvert les yeux. Voir les chiffres écrits noir sur blanc — 28 heures par mois sur des tâches automatisables — ça m'a décidé en 5 minutes.</p><div class="temo-gain">Résultat : 28h récupérées + 14 000€ économisés / an</div><div class="temo-author">Directeur général</div><div class="temo-role">Transport & logistique · 18 salariés · Dunkerque</div></div>
+        <div class="temo-card"><div class="temo-stars">★★★★★</div><p class="temo-quote">Ce qui m'a convaincu, c'est que Dunai parle le même langage que nous. Pas de blabla tech. Juste : voilà ce qu'on peut faire, voilà ce que vous gagnez.</p><div class="temo-gain">Résultat : devis 45 min → 3 min</div><div class="temo-author">Gérant</div><div class="temo-role">Artisan BTP · 3 collaborateurs · Région Dunkerquoise</div></div>
+        <div class="temo-card"><div class="temo-stars">★★★★★</div><p class="temo-quote">On était sceptiques. Six semaines après, mes équipes ne veulent plus revenir en arrière. Les tâches répétitives ont disparu.</p><div class="temo-gain">Résultat : -62% no-show · +22% CA</div><div class="temo-author">Directrice de cabinet</div><div class="temo-role">Cabinet médical · 6 praticiens · Nord (59)</div></div>
       </div>
     </div>
   </section>
+
+  <div style="background:var(--flamme-pale);border:1.5px solid var(--flamme-mid);border-radius:16px;padding:1.5rem;margin:2rem 0;max-width:1160px;margin-left:auto;margin-right:auto;">
+    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--flamme);margin-bottom:.75rem">Résultats illustratifs</div>
+    <p style="font-size:13px;color:#9A3412;line-height:1.7">Ces exemples représentent des résultats typiques observés sur des projets d'automatisation similaires. Chaque entreprise est différente — c'est pourquoi le premier audit est gratuit : pour vous donner une estimation réaliste et personnalisée avant tout engagement.</p>
+  </div>
 
   <div class="final-cta">
     <h2>Votre entreprise mérite<br>le même résultat.</h2>
@@ -1268,7 +1299,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     </div>
   </div>
 
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
 <!-- ══════════════════════ OFFRES ══════════════════════ -->
@@ -1282,6 +1313,22 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   </div>
   <section class="section offres-section">
     <div class="section-inner">
+      <div style="background:var(--noir);border-radius:16px;padding:1.75rem;margin-bottom:2rem;border:2px solid var(--flamme);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;right:0;background:var(--flamme);font-size:10px;font-weight:700;color:white;padding:6px 16px;border-radius:0 0 0 12px;letter-spacing:.08em;text-transform:uppercase">★ Le plus choisi</div>
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--flamme);margin-bottom:.5rem">Pack de démarrage</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;color:white;margin-bottom:.25rem">Pack IA Déclic PME</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;color:var(--flamme);margin-bottom:1rem">2 990 € <span style="font-size:1rem;color:rgba(255,255,255,0.5);font-weight:400">HT · forfait fixe</span></div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem">
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem;align-items:flex-start"><span style="color:var(--flamme);font-weight:700;flex-shrink:0">✓</span> Audit complet sur site (2h) + rapport chiffré sous 48h</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem;align-items:flex-start"><span style="color:var(--flamme);font-weight:700;flex-shrink:0">✓</span> 2 automatisations prioritaires livrées et opérationnelles</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem;align-items:flex-start"><span style="color:var(--flamme);font-weight:700;flex-shrink:0">✓</span> 1 agent IA simple (relances ou devis — selon votre priorité)</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem;align-items:flex-start"><span style="color:var(--flamme);font-weight:700;flex-shrink:0">✓</span> 2h de formation pour votre équipe</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem;align-items:flex-start"><span style="color:var(--flamme);font-weight:700;flex-shrink:0">✓</span> 30 jours de support inclus après déploiement</div>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:1rem">Paiement possible en 3 fois · Financement OPCO possible pour la partie formation</div>
+        <button class="btn-primary" onclick="showPage('contact')" style="width:auto;padding:12px 28px">Démarrer avec ce pack →</button>
+      </div>
+
       <div class="offres-list">
         <div class="offre-row">
           <div class="offre-n">01</div>
@@ -1297,7 +1344,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <div class="offre-body">
             <h3>Roadmap & recommandations</h3>
             <p>Plan d'action IA sur 6 à 18 mois. Chaque cas d'usage est évalué selon l'impact, la faisabilité et le délai de ROI. Vous repartez avec une feuille de route exécutable.</p>
-            <div class="offre-tags"><span class="offre-tag">Roadmap 6–18 mois</span><span class="offre-tag">Fiches cas d'usage</span><span class="offre-tag">Estimation budgétaire</span></div>
+            <div class="offre-tags"><span class="offre-tag">Roadmap 6–18 mois</span><span class="offre-tag">Fiches cas d'usage</span><span class="offre-tag">Estimation budgétaire</span><span class="offre-tag">Inclus dans le Pack Déclic</span></div>
           </div>
           <span class="offre-duration">3 à 7 jours</span>
         </div>
@@ -1306,7 +1353,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <div class="offre-body">
             <h3>Déploiement des agents IA</h3>
             <p>On crée, intègre et paramètre vos agents dans votre environnement existant. Make, n8n, Zapier, GPT, agents IA, RPA — tout est documenté et maintenable par vos équipes.</p>
-            <div class="offre-tags"><span class="offre-tag">Agents opérationnels</span><span class="offre-tag">Intégration SI</span><span class="offre-tag">Documentation</span><span class="offre-tag">Tests & recettes</span></div>
+            <div class="offre-tags"><span class="offre-tag">Agents opérationnels</span><span class="offre-tag">Intégration SI</span><span class="offre-tag">Documentation</span><span class="offre-tag">Tests & recettes</span><span class="offre-tag">Inclus dans le Pack Déclic</span></div>
           </div>
           <span class="offre-duration">2 sem. à 3 mois</span>
         </div>
@@ -1345,7 +1392,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <p>2h de votre temps. Zéro euro. Un rapport complet pour décider en connaissance de cause.</p>
     <div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver l'audit gratuit</button></div>
   </div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
 <!-- ══════════════════════ TARIFS ══════════════════════ -->
@@ -1362,8 +1409,9 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <div class="tarifs-grid">
         <div class="tarif-card">
           <div class="tarif-tier">TPE · Indépendant</div>
-          <div class="tarif-price">Sur devis</div>
+          <div class="tarif-price">À partir de 1 500 €</div>
           <div class="tarif-desc">Moins de 20 salariés</div>
+          <div style="font-size:11px;color:var(--flamme);margin-top:.25rem">ou Pack Déclic à 2 990 €</div>
           <ul class="tarif-feats">
             <li>Audit IA offert (2h)</li>
             <li>Roadmap simplifiée</li>
@@ -1376,8 +1424,8 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
         <div class="tarif-card featured">
           <div class="tarif-badge">Le plus choisi</div>
           <div class="tarif-tier">PME · ETI</div>
-          <div class="tarif-price">Sur devis</div>
-          <div class="tarif-desc">20 à 500 salariés</div>
+          <div class="tarif-price">À partir de 3 900 €</div>
+          <div class="tarif-desc">20 à 200 salariés</div>
           <ul class="tarif-feats">
             <li>Audit IA complet (2 à 5 jours)</li>
             <li>Roadmap 6–18 mois</li>
@@ -1410,15 +1458,25 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <tbody>
             <tr><td>Audit IA initial</td><td>2h</td><td><span class="prix-free">Gratuit</span></td></tr>
             <tr><td>Audit complet + Roadmap</td><td>3 à 7 jours</td><td class="prix-cell">1 500€ à 4 500€</td></tr>
-            <tr><td>Déploiement agent simple</td><td>2 à 5 jours</td><td class="prix-cell">800€ à 2 500€</td></tr>
+            <tr><td>Déploiement agent simple</td><td>2 à 5 jours</td><td class="prix-cell">1 500€ à 3 500€</td></tr>
             <tr><td>Déploiement agent complexe</td><td>2 à 8 semaines</td><td class="prix-cell">3 000€ à 15 000€</td></tr>
             <tr><td>Formation équipe (demi-journée)</td><td>3h</td><td class="prix-cell">600€ à 900€</td></tr>
             <tr><td>Formation équipe (journée)</td><td>1 jour</td><td class="prix-cell">1 200€ à 1 800€</td></tr>
-            <tr><td>Suivi & optimisation mensuel</td><td>Continu</td><td class="prix-cell">400€ à 1 500€ / mois</td></tr>
+            <tr><td>Suivi & optimisation mensuel</td><td>Continu</td><td class="prix-cell">490€ à 1 990€ / mois</td></tr>
             <tr><td>Reporting ROI standalone</td><td>1 à 2 jours</td><td class="prix-cell">500€ à 1 500€</td></tr>
           </tbody>
         </table>
         <p style="font-size:12px;color:var(--brun);margin-top:1rem;line-height:1.6">Tarifs indicatifs. Un devis précis est remis après l'audit gratuit. On ne démarre une mission que si le ROI estimé est clairement favorable pour vous.</p>
+      </div>
+      <div style="background:var(--flamme-pale);border:1.5px solid var(--flamme-mid);border-radius:12px;padding:1.25rem;margin-top:1.5rem">
+        <div style="font-size:12px;font-weight:700;color:#9A3412;margin-bottom:.75rem">💡 Ce projet peut être financé à 20–50 %</div>
+        <div style="display:flex;flex-direction:column;gap:.4rem">
+          <div style="font-size:12px;color:#9A3412"><strong>France Num</strong> — Aide numérique jusqu'à 5 000 € pour les TPE/PME</div>
+          <div style="font-size:12px;color:#9A3412"><strong>OPCO</strong> — Prise en charge de la partie formation (Qualiopi en cours)</div>
+          <div style="font-size:12px;color:#9A3412"><strong>Crédit d'Impôt Innovation</strong> — 20 % des dépenses éligibles récupérés</div>
+          <div style="font-size:12px;color:#9A3412"><strong>Région Hauts-de-France</strong> — Aides à la transformation numérique et IA</div>
+        </div>
+        <div style="font-size:11px;color:rgba(154,52,18,0.7);margin-top:.875rem">On vous aide à identifier les dispositifs applicables à votre situation lors de l'audit gratuit.</div>
       </div>
     </div>
   </section>
@@ -1427,7 +1485,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <p>Chaque semaine sans automatisation, c'est des heures perdues et de l'argent laissé sur la table.</p>
     <div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver l'audit gratuit →</button></div>
   </div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
 <!-- ══════════════════════ CONTACT ══════════════════════ -->
@@ -1442,7 +1500,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <div class="section-inner">
       <div class="contact-grid">
         <div class="contact-left">
-          <h2>On vient chez vous.<br>On écoute. On chiffre.</h2>
+          <h2>On vient dans vos locaux.<br>On écoute. On chiffre.</h2>
           <p>L'audit Dunai n'est pas une présentation commerciale. On vient observer votre fonctionnement réel, on identifie les tâches automatisables, et on vous remet un rapport chiffré sous 48h. Sans engagement, sans condition.</p>
           <div class="audit-inclus">
             <h4>Ce que vous obtenez — gratuitement</h4>
@@ -1454,6 +1512,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <li>Estimation du gain financier / an</li>
               <li>Présentation des agents IA adaptés</li>
               <li>Rapport PDF envoyé à votre équipe</li>
+              <li>Identification des financements disponibles (France Num, OPCO…)</li>
             </ul>
           </div>
         </div>
@@ -1487,8 +1546,20 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
             </select>
           </div>
           <div class="field-group">
+            <label class="field-label">Taille de votre entreprise</label>
+            <select class="field-select">
+              <option value="">Sélectionner...</option>
+              <option>Indépendant / 0 salarié</option>
+              <option>1 à 5 salariés</option>
+              <option>6 à 20 salariés</option>
+              <option>21 à 50 salariés</option>
+              <option>51 à 200 salariés</option>
+              <option>200+ salariés</option>
+            </select>
+          </div>
+          <div class="field-group">
             <label class="field-label">Quelle tâche vous coûte le plus de temps en ce moment ?</label>
-            <textarea class="field-textarea" placeholder="Ex : On passe des heures à relancer les clients impayés, faire des devis, saisir des commandes..."></textarea>
+            <textarea class="field-textarea" placeholder="Ex : Je passe 3h par semaine à relancer mes clients impayés et mes devis prennent 45 min chacun..."></textarea>
           </div>
           <button class="field-submit" onclick="handleSubmit(this)">Réserver mon audit gratuit →</button>
           <div class="form-reassurances">
@@ -1500,7 +1571,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       </div>
     </div>
   </section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('offres')">Offres</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
 <!-- ══════════════════════ BLOG ══════════════════════ -->
@@ -1520,7 +1591,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <div class="section-inner">
 
       <!-- Filtres par catégorie -->
-      <div role="navigation" aria-label="Filtrer les articles par catégorie">
+      <nav aria-label="Filtrer les articles par catégorie">
         <div class="blog-filter" role="list">
           <button class="filter-btn active" role="listitem" onclick="filterBlog(this,'tous')" aria-pressed="true">Tous les articles</button>
           <button class="filter-btn" role="listitem" onclick="filterBlog(this,'automatisation')" aria-pressed="false">Automatisation</button>
@@ -1528,13 +1599,13 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <button class="filter-btn" role="listitem" onclick="filterBlog(this,'roi')" aria-pressed="false">ROI & Chiffres</button>
           <button class="filter-btn" role="listitem" onclick="filterBlog(this,'cas-client')" aria-pressed="false">Cas clients</button>
         </div>
-      </div>
+      </nav>
 
       <!-- Article à la une -->
       <article class="blog-featured" data-cat="automatisation" aria-label="Article à la une">
         <div class="blog-featured-img" aria-hidden="true">
           <div class="blog-featured-img-inner"></div>
-          <img src="Blog/images/dunai-thumb-facturation-relances-devis-2026-04-16.svg" alt="Automatiser facturation, relances et devis en PME" loading="lazy">
+          <img src="../Blog/images/dunai-thumb-facturation-relances-devis-2026-04-16.svg" alt="Automatiser facturation, relances et devis en PME" loading="lazy">
         </div>
         <div class="blog-featured-body">
           <div class="blog-featured-meta">
@@ -1546,7 +1617,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           </div>
           <h2 class="blog-featured-title">Automatiser facturation, relances et devis en PME</h2>
           <p class="blog-featured-excerpt">Comment automatiser sa facturation, ses relances clients et ses devis dans une PME des Hauts-de-France.</p>
-          <a class="blog-read-link" href="Blog/dunai-article-facturation-relances-devis-2026-04-16.html" target="_blank" aria-label="Lire l'article : Automatiser facturation, relances et devis en PME">
+          <a class="blog-read-link" href="../Blog/dunai-article-facturation-relances-devis-2026-04-16.html" target="_blank" aria-label="Lire l'article : Automatiser facturation, relances et devis en PME">
             Lire l'article <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -1558,7 +1629,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
         <article class="blog-card" data-cat="cas-client">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-ia-logistique-dunkerque-2026-04-16.svg" alt="IA et logistique : cas concrets d'optimisation à Dunkerque" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-ia-logistique-dunkerque-2026-04-16.svg" alt="IA et logistique : cas concrets d'optimisation à Dunkerque" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1574,14 +1645,14 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-ia-logistique-dunkerque-2026-04-16.html" target="_blank" style="font-size:13px">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-ia-logistique-dunkerque-2026-04-16.html" target="_blank" style="font-size:13px">Lire →</a>
           </div>
         </article>
 
         <article class="blog-card" data-cat="agents-ia">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-adoption-ia-pme-nord-2026-04-16.svg" alt="PME du Nord et IA : pourquoi l'adoption accélère vraiment" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-adoption-ia-pme-nord-2026-04-16.svg" alt="PME du Nord et IA : pourquoi l'adoption accélère vraiment" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1597,14 +1668,14 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-adoption-ia-pme-nord-2026-04-16.html" target="_blank" style="font-size:13px">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-adoption-ia-pme-nord-2026-04-16.html" target="_blank" style="font-size:13px">Lire →</a>
           </div>
         </article>
 
         <article class="blog-card" data-cat="cas-client">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-ia-commerce-2026-04-15.svg" alt="IA dans le commerce : exemples de gains concrets" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-ia-commerce-2026-04-15.svg" alt="IA dans le commerce : exemples de gains concrets" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1620,14 +1691,14 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-ia-commerce-2026-04-15.html" target="_blank" style="font-size:13px" aria-label="Lire : IA dans le commerce">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-ia-commerce-2026-04-15.html" target="_blank" style="font-size:13px" aria-label="Lire : IA dans le commerce">Lire →</a>
           </div>
         </article>
 
         <article class="blog-card" data-cat="cas-client">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-audit-ia-pme-2-jours-2026-04-15.svg" alt="Audit IA PME 2 jours" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-audit-ia-pme-2-jours-2026-04-15.svg" alt="Audit IA PME 2 jours" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1643,14 +1714,14 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html" target="_blank" style="font-size:13px" aria-label="Lire : Audit IA PME en 2 jours">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html" target="_blank" style="font-size:13px" aria-label="Lire : Audit IA PME en 2 jours">Lire →</a>
           </div>
         </article>
 
         <article class="blog-card" data-cat="automatisation">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-automatisation-pme-dunkerque-2026.svg" alt="Automatisation PME Dunkerque 2026" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-automatisation-pme-dunkerque-2026.svg" alt="Automatisation PME Dunkerque 2026" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1666,14 +1737,14 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-automatisation-pme-dunkerque-2026.html" target="_blank" style="font-size:13px" aria-label="Lire : Automatisation PME Dunkerque 2026">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-automatisation-pme-dunkerque-2026.html" target="_blank" style="font-size:13px" aria-label="Lire : Automatisation PME Dunkerque 2026">Lire →</a>
           </div>
         </article>
 
         <article class="blog-card" data-cat="roi">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-2-roi-12-mois.svg" alt="ROI automatisation IA 12 mois" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-2-roi-12-mois.svg" alt="ROI automatisation IA 12 mois" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1689,14 +1760,14 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-2-roi-12-mois.html" target="_blank" style="font-size:13px" aria-label="Lire : ROI automatisation IA 12 mois">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-2-roi-12-mois.html" target="_blank" style="font-size:13px" aria-label="Lire : ROI automatisation IA 12 mois">Lire →</a>
           </div>
         </article>
 
         <article class="blog-card" data-cat="agents-ia">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-1-agents-ia.svg" alt="Agent IA automatisation entreprise" loading="lazy">
+            <img src="../Blog/images/dunai-thumb-1-agents-ia.svg" alt="Agent IA automatisation entreprise" loading="lazy">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -1712,7 +1783,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="Blog/dunai-article-1-agents-ia.html" target="_blank" style="font-size:13px" aria-label="Lire : Agent IA automatisation entreprise">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-1-agents-ia.html" target="_blank" style="font-size:13px" aria-label="Lire : Agent IA automatisation entreprise">Lire →</a>
           </div>
         </article>
 
@@ -1742,7 +1813,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <li><a href="/blog">Blog</a></li>
         </ul>
       </div>
-      <div class="footer-copy">© 2025 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
+      <div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
     </div>
   </footer>
 </div>
@@ -1866,6 +1937,7 @@ async function handleSubmit(btn) {
     email:      getValue('marie@'),
     telephone:  getValue('06'),
     secteur:    form.querySelector('.field-select')?.value || '',
+    taille:     form.querySelectorAll('.field-select')[1]?.value || '',
     message:    form.querySelector('.field-textarea')?.value.trim() || '',
     source:     'Site dunai.fr',
     date:       new Date().toLocaleString('fr-FR')
