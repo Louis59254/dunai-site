@@ -810,9 +810,9 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <a class="btn-ghost" onclick="showPage('roi')">Voir les résultats</a>
         </div>
         <div class="hero-stats">
-          <div><div class="stat-n">-73%</div><div class="stat-l">heures récupérées par nos clients chaque mois</div></div>
-          <div><div class="stat-n">2h</div><div class="stat-l">PME & artisans accompagnés dans la région</div></div>
-          <div><div class="stat-n">6 sem.</div><div class="stat-l">semaines en moyenne pour voir les premiers gains</div></div>
+          <div><div class="stat-n">+28h</div><div class="stat-l">récupérées en moyenne par mois dès le 1er déploiement</div></div>
+          <div><div class="stat-n">×3</div><div class="stat-l">ROI moyen constaté dans les 12 premiers mois</div></div>
+          <div><div class="stat-n">6 sem.</div><div class="stat-l">pour voir vos premiers gains concrets</div></div>
         </div>
       </div>
       <!-- Agent live preview -->
@@ -1057,7 +1057,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
         <div class="counter-item"><div class="counter-n" id="c1">0</div><div class="counter-l">emails traités auto. / mois</div></div>
         <div class="counter-item"><div class="counter-n" id="c2">0</div><div class="counter-l">heures économisées / mois</div></div>
         <div class="counter-item"><div class="counter-n" id="c3">0</div><div class="counter-l">devis générés sans intervention</div></div>
-        <div class="counter-item"><div class="counter-n" id="c4">0,2%</div><div class="counter-l">taux d'erreur saisies auto.</div></div>
+        <div class="counter-item"><div class="counter-n" id="c4">-95%</div><div class="counter-l">d'erreurs vs saisie manuelle</div></div>
       </div>
     </div>
   </section>
@@ -1899,6 +1899,12 @@ function selectStep(el, idx) {
 
 // ── Counters ─────────────────────────────────────────────────────
 let countersStarted = false;
+// Déclenche les compteurs si la page agents est déjà visible au chargement
+document.addEventListener('DOMContentLoaded', () => {
+  const agentsPage = document.getElementById('page-agents');
+  if (agentsPage && agentsPage.classList.contains('active')) startCounters();
+});
+
 function startCounters() {
   if (countersStarted) return;
   countersStarted = true;
