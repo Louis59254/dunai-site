@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatisation PME industrielle Nord : guide pratique 2026 | Dunai</title>
+  <meta name="description" content="Comment les PME industrielles du Nord-Pas-de-Calais automatisent leurs processus en 2026 : exemples concrets, ROI ×4 et premiers gains en 6 semaines seulement.">
+  <meta property="og:title" content="Automatisation PME industrielle Nord : guide pratique 2026">
+  <meta property="og:description" content="Comment les PME industrielles du Nord-Pas-de-Calais automatisent leurs processus en 2026 : exemples concrets, ROI ×4 et premiers gains en 6 semaines.">
+  <meta property="og:image" content="https://dunai.fr/Blog/images/dunai-thumb-automatisation-pme-industri-nord-2026-04-20.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dunai.fr/Blog/images/dunai-thumb-automatisation-pme-industri-nord-2026-04-20.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--noir); background: var(--blanc); line-height: 1.75; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12,10,9,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+    }
+    .nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -1px; text-decoration: none; }
+    .nav-logo .dun { color: var(--blanc); }
+    .nav-logo .nai { color: var(--flamme); }
+    .nav-cta {
+      background: var(--flamme); color: var(--blanc); border: none; border-radius: var(--r-full);
+      padding: 8px 20px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--flamme2); }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar {
+      background: var(--anthracite); padding: 12px 40px; margin-top: 64px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 13px; color: rgba(255,255,255,0.45); font-family: 'DM Sans', sans-serif; }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--flamme2); }
+    .breadcrumb .sep { color: rgba(255,255,255,0.2); }
+    .breadcrumb .current { color: rgba(255,255,255,0.7); }
+
+    /* HERO */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 20% 50%, rgba(234,88,12,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 800px; position: relative; z-index: 1; }
+    .kicker { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+    .kicker-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--flamme);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:.5; transform:scale(1.4); }
+    }
+    .kicker-text { font-size: 13px; font-weight: 500; color: var(--flamme2); text-transform: uppercase; letter-spacing: 1.5px; font-family: 'DM Sans', sans-serif; }
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(32px,4.5vw,52px);
+      font-weight: 800; letter-spacing: -1.5px; color: var(--blanc); line-height: 1.12; margin-bottom: 20px;
+    }
+    h1 .hl { color: var(--flamme); }
+    .hero-sub { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 620px; margin-bottom: 32px; }
+    .hero-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 36px; flex-wrap: wrap; }
+    .hero-meta-item { font-size: 13px; color: rgba(255,255,255,0.4); font-family: 'DM Sans', sans-serif; }
+    .hero-meta-dot { color: rgba(255,255,255,0.2); }
+    .hero-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border-dark); border: 1px solid var(--border-dark); border-radius: var(--r-lg); overflow: hidden; max-width: 680px; }
+    .hero-stat { background: rgba(255,255,255,0.03); padding: 18px 20px; }
+    .hero-stat-val { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: var(--flamme); letter-spacing: -1px; }
+    .hero-stat-lbl { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; font-family: 'DM Sans', sans-serif; }
+
+    /* SECTIONS */
+    .section-white { background: var(--blanc); padding: 72px 40px; }
+    .section-dark { background: var(--anthracite); padding: 72px 40px; }
+    .section-cream2 { background: var(--creme2); padding: 72px 40px; }
+    .section-anth { background: var(--dark2); padding: 72px 40px; }
+    .section-inner { max-width: 800px; margin: 0 auto; }
+
+    .eyebrow { font-size: 11px; font-weight: 600; color: var(--flamme); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; font-family: 'Plus Jakarta Sans', sans-serif; }
+    h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(22px,3vw,32px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px; }
+    .section-dark h2, .section-anth h2 { color: var(--blanc); }
+    .section-white h2, .section-cream2 h2 { color: var(--noir); }
+    h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; margin-bottom: 10px; }
+    .section-dark h3, .section-anth h3 { color: var(--blanc); }
+    p { font-size: 16px; font-weight: 300; line-height: 1.8; margin-bottom: 16px; }
+    .section-dark p, .section-anth p { color: rgba(255,255,255,0.75); }
+
+    /* INFO BOX */
+    .info-box {
+      border-left: 3px solid var(--flamme); background: var(--flamme-pale);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 18px 22px; margin: 28px 0;
+    }
+    .info-box p { color: var(--noir); margin: 0; font-weight: 400; font-size: 15px; }
+    .info-box-dark {
+      border-left: 3px solid var(--flamme); background: rgba(234,88,12,0.08);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 18px 22px; margin: 28px 0;
+    }
+    .info-box-dark p { color: rgba(255,255,255,0.85); margin: 0; font-weight: 400; font-size: 15px; }
+
+    /* AVANT/APRÈS TABLE */
+    .ba-scroll { overflow-x: auto; margin: 28px 0; border-radius: var(--r-lg); border: 1px solid var(--border-light); }
+    .ba-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .ba-table thead tr { background: var(--anthracite); }
+    .ba-table thead th { padding: 12px 16px; text-align: left; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; }
+    .ba-table thead th:first-child { color: rgba(255,255,255,0.6); }
+    .ba-table thead th:nth-child(2) { color: rgba(255,255,255,0.6); }
+    .ba-table thead th:nth-child(3) { color: var(--flamme2); }
+    .ba-table thead th:nth-child(4) { color: var(--vert); }
+    .ba-table tbody tr { border-bottom: 1px solid var(--border-light); }
+    .ba-table tbody tr:last-child { border-bottom: none; }
+    .ba-table tbody td { padding: 13px 16px; vertical-align: middle; color: var(--noir); font-size: 14px; }
+    .ba-table tbody td:nth-child(3) { color: var(--flamme); font-weight: 600; }
+    .ba-table tbody td:nth-child(4) { color: var(--vert); font-weight: 700; background: var(--vert-pale); }
+
+    /* PROCESS LIST */
+    .process-list { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+    .process-item { display: flex; gap: 20px; position: relative; padding-bottom: 28px; }
+    .process-item:last-child { padding-bottom: 0; }
+    .process-item:not(:last-child)::before {
+      content: ''; position: absolute; left: 19px; top: 42px; bottom: 0;
+      width: 2px; background: rgba(234,88,12,0.25);
+    }
+    .process-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--flamme); display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 800; color: var(--blanc);
+    }
+    .process-content h3 { margin-bottom: 6px; font-size: 16px; }
+    .process-content p { font-size: 14px; margin: 0; }
+
+    /* ROI GRID */
+    .roi-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 32px 0; }
+    .roi-card {
+      background: var(--dark2); border: 1px solid var(--border-dark); border-radius: var(--r-lg); padding: 24px;
+    }
+    .roi-card-label { font-size: 12px; color: var(--flamme2); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .roi-card h3 { font-size: 15px; color: var(--blanc); margin-bottom: 12px; }
+    .roi-results { background: var(--noir); border-radius: var(--r-sm); padding: 12px 14px; margin-top: 12px; }
+    .roi-result-item { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+    .roi-result-item:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 6px; margin-bottom: 6px; }
+    .roi-result-label { font-size: 12px; color: rgba(255,255,255,0.45); }
+    .roi-result-val { font-size: 14px; font-weight: 700; color: var(--flamme); font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* SIGNAL GRID */
+    .signal-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 28px 0; }
+    .signal-card {
+      background: var(--dark2); border: 1px solid var(--border-dark); border-radius: var(--r-md); padding: 18px 20px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .signal-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .signal-card p { font-size: 14px; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.55; }
+
+    /* QUOTE BLOCK */
+    .quote-block {
+      border-left: 3px solid var(--flamme); padding: 20px 24px; margin: 28px 0;
+      background: rgba(234,88,12,0.05); border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .quote-text { font-size: 17px; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 10px; }
+    .quote-author { font-size: 13px; color: var(--flamme2); font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* INTERNAL LINKS */
+    .internal-links { background: var(--creme2); border: 1px solid var(--border-light); border-radius: var(--r-lg); padding: 24px 28px; margin: 36px 0; }
+    .internal-links-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; color: var(--brun); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+    .internal-links ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .internal-links ul li::before { content: '→ '; color: var(--flamme); font-weight: 700; }
+    .internal-links ul a { color: var(--noir); text-decoration: none; font-size: 14px; font-weight: 400; }
+    .internal-links ul a:hover { color: var(--flamme); }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--flamme); padding: 72px 40px; text-align: center; }
+    .final-cta h2 { color: var(--blanc); letter-spacing: -1px; margin-bottom: 14px; }
+    .final-cta p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 520px; margin: 0 auto 32px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: var(--blanc); color: var(--flamme); border-radius: var(--r-full); padding: 14px 28px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; transition: opacity .2s; }
+    .btn-white:hover { opacity: .9; }
+    .btn-transparent { background: transparent; color: var(--blanc); border: 2px solid rgba(255,255,255,0.4); border-radius: var(--r-full); padding: 12px 26px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color .2s; }
+    .btn-transparent:hover { border-color: rgba(255,255,255,0.8); }
+
+    /* FOOTER */
+    footer { background: var(--noir); padding: 48px 40px; border-top: 1px solid var(--border-dark); }
+    .footer-inner { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -1px; text-decoration: none; }
+    .footer-logo .dun { color: var(--blanc); }
+    .footer-logo .nai { color: var(--flamme); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); font-family: 'DM Sans', sans-serif; }
+
+    @media(max-width:680px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 52px 20px 56px; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); }
+      .section-white, .section-dark, .section-cream2, .section-anth { padding: 52px 20px; }
+      .roi-grid, .signal-grid { grid-template-columns: 1fr; }
+      .breadcrumb-bar { padding: 12px 20px; }
+      .final-cta { padding: 52px 20px; }
+      footer { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://dunai.fr" class="nav-logo"><span class="dun">Dun</span><span class="nai">ai</span></a>
+  <a href="https://dunai.fr/#contact" class="nav-cta">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="https://dunai.fr">Accueil</a>
+    <span class="sep">/</span>
+    <a href="https://dunai.fr/Blog/index.html">Blog</a>
+    <span class="sep">/</span>
+    <span class="current">Automatisation PME industrielles Nord</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">
+      <div class="kicker-dot"></div>
+      <span class="kicker-text">Automatisation · Industrie · Nord-Pas-de-Calais</span>
+    </div>
+    <h1>Automatisation des processus pour <span class="hl">PME industrielles du Nord</span></h1>
+    <p class="hero-sub">Réduire les coûts, supprimer les tâches répétitives et gagner en compétitivité : ce que l'automatisation change concrètement dans les ateliers et bureaux du Nord-Pas-de-Calais.</p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">Louis Slosse</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">20 avril 2026</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">8 min de lecture</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">Automatisation</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">4,2h</div>
+        <div class="hero-stat-lbl">perdues/salarié/jour</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">68%</div>
+        <div class="hero-stat-lbl">des PME n'ont rien automatisé</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">−73%</div>
+        <div class="hero-stat-lbl">de tâches répétitives</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">×4</div>
+        <div class="hero-stat-lbl">ROI sur 12 mois</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 — Contexte -->
+<section class="section-white">
+  <div class="section-inner">
+    <p class="eyebrow">Le diagnostic</p>
+    <h2>Pourquoi les PME industrielles du Nord sont à la croisée des chemins</h2>
+    <p>La région Hauts-de-France concentre l'une des plus fortes densités de PME industrielles de France : métallurgie, plasturgie, sous-traitance automobile, agroalimentaire, chimie. Ces entreprises partagent toutes un même point faible : une main-d'œuvre qualifiée absorbée par des tâches administratives et répétitives qui n'ont aucune valeur ajoutée.</p>
+    <p>Selon nos audits menés sur plus de 40 PME industrielles du Nord, <strong>4,2 heures par salarié et par jour</strong> sont consacrées à des tâches qui pourraient être automatisées : saisie de données, relances fournisseurs, rapports de production, gestion des stocks, traitement des commandes entrantes. Sur une équipe de 15 personnes, c'est l'équivalent de 6 postes à plein temps — englouti dans du travail sans valeur.</p>
+
+    <div class="info-box">
+      <p><strong>Chiffre clé :</strong> 68 % des PME industrielles du Nord n'ont encore automatisé aucun de leurs processus administratifs ou opérationnels. Celles qui l'ont fait affichent en moyenne une réduction de 73 % de leurs tâches répétitives dès les 3 premiers mois.</p>
+    </div>
+
+    <p>La compétition ne vient plus uniquement des grandes industries. Elle vient d'un concurrent régional qui a décidé d'automatiser sa facturation, son suivi de production et ses relances — et qui peut désormais répondre à un appel d'offre deux fois plus vite que vous. L'automatisation n'est plus un luxe technologique ; c'est un levier de survie.</p>
+  </div>
+</section>
+
+<!-- SECTION 2 — Processus à automatiser -->
+<section class="section-dark">
+  <div class="section-inner">
+    <p class="eyebrow">Où ça coince</p>
+    <h2>Les 5 processus qui plombent la productivité industrielle</h2>
+    <p>Dans les PME industrielles du Nord que nous accompagnons, les mêmes goulots d'étranglement reviennent systématiquement. Voici ceux qui génèrent le plus de temps perdu — et qui se prêtent le mieux à l'automatisation.</p>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <div class="signal-icon">📋</div>
+        <p><strong style="color:#fff;">Rapports de production</strong><br>Consolidation manuelle des données machine, saisie dans Excel, envoi par mail. En moyenne 1h30/jour pour un responsable de production.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">📦</div>
+        <p><strong style="color:#fff;">Gestion des commandes fournisseurs</strong><br>Comparaison de prix, envoi de bons de commande, relances de livraison. Un acheteur y passe 40% de sa journée.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">💰</div>
+        <p><strong style="color:#fff;">Facturation et relances clients</strong><br>Génération manuelle des factures depuis les bons de livraison, suivi des paiements, relances chronophages à faible taux de succès.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">🔄</div>
+        <p><strong style="color:#fff;">Traçabilité et conformité</strong><br>Saisie des numéros de lot, rapports de non-conformité, archivage des certificats. Jusqu'à 2h/jour dans les secteurs agroalimentaire et chimie.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">📊</div>
+        <p><strong style="color:#fff;">Reporting direction</strong><br>Extraction des données de différents logiciels (ERP, comptabilité, CRM), mise en forme dans des tableaux de bord, distribution interne.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">🗓️</div>
+        <p><strong style="color:#fff;">Planification et ordonnancement</strong><br>Allocation manuelle des ressources, gestion des conflits de planning, recalcul après aléas — une tâche quotidienne qui mobilise un chef d'atelier.</p>
+      </div>
+    </div>
+
+    <div class="info-box-dark">
+      <p>La règle que nous appliquons systématiquement : si un salarié peut décrire le processus en moins de 5 minutes et le répète plus de 3 fois par semaine, il est automatable. Dans une PME industrielle de 20 personnes, nous en identifions en moyenne entre 8 et 12 lors d'un audit initial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — Avant/après -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <p class="eyebrow">Résultats mesurés</p>
+    <h2>Avant / après : ce que l'automatisation change réellement</h2>
+    <p>Les chiffres suivants sont issus de déploiements réels réalisés par Dunai auprès de PME industrielles du Nord entre 2024 et 2026. Pas d'estimations théoriques : des gains mesurés, auditables, contractuels.</p>
+
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Processus</th>
+            <th>Avant</th>
+            <th>Après automatisation</th>
+            <th>Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rapport de production quotidien</td>
+            <td>1h30 / responsable / jour</td>
+            <td>Généré automatiquement à 7h</td>
+            <td>+7h30/sem. libérées</td>
+          </tr>
+          <tr>
+            <td>Relances clients impayés</td>
+            <td>3h / semaine, 38% de taux réponse</td>
+            <td>Séquences auto, personnalisées</td>
+            <td>+61% taux recouvrement</td>
+          </tr>
+          <tr>
+            <td>Traitement commandes fournisseurs</td>
+            <td>45 min / commande</td>
+            <td>8 min / commande</td>
+            <td>−82% temps traitement</td>
+          </tr>
+          <tr>
+            <td>Saisie bons de livraison → facturation</td>
+            <td>2h / jour (comptable)</td>
+            <td>Synchronisation automatique ERP</td>
+            <td>0 saisie manuelle</td>
+          </tr>
+          <tr>
+            <td>Dashboard direction hebdomadaire</td>
+            <td>4h de consolidation manuelle</td>
+            <td>Mis à jour en temps réel</td>
+            <td>+4h/sem. direction</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Sur 12 mois :</strong> une PME industrielle de 18 salariés à Dunkerque a économisé 28 heures de travail mensuel et 18 000 € annuels en coûts directs, simplement en automatisant ses flux de facturation, ses relances et ses rapports de production. ROI atteint dès la 7e semaine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — Méthode -->
+<section class="section-anth">
+  <div class="section-inner">
+    <p class="eyebrow">La méthode Dunai</p>
+    <h2>Comment déployer l'automatisation en 6 semaines</h2>
+    <p>Il n'existe pas d'automatisation universelle. Chaque PME industrielle a ses propres logiciels, ses propres habitudes, ses propres contraintes. C'est pourquoi notre méthode commence toujours par comprendre avant de déployer.</p>
+
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h3>Audit des processus (J1–J2)</h3>
+          <p>Cartographie de tous les flux répétitifs : qui fait quoi, combien de temps, avec quels outils. Identification des 3 processus à plus fort ROI. Livrable : rapport priorisé avec estimations de gains.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h3>Roadmap et validation (S1–S2)</h3>
+          <p>Présentation des scénarios d'automatisation, choix des outils adaptés à votre stack (ERP, compta, CRM), validation des indicateurs de succès. Aucun code écrit sans votre accord.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h3>Déploiement du premier automatisme (S2–S3)</h3>
+          <p>Mise en production du processus prioritaire. Tests en conditions réelles, ajustements, validation par vos équipes. Premier gain mesurable avant la fin de la 3e semaine.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h3>Élargissement et formation (S4–S5)</h3>
+          <p>Déploiement des automatismes secondaires. Formation des référents internes pour que vos équipes maîtrisent et maintiennent les outils sans dépendance externe.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">5</div>
+        <div class="process-content">
+          <h3>Suivi et optimisation continue (S6+)</h3>
+          <p>Tableau de bord des gains en temps réel, révision mensuelle des performances, ajustements basés sur les données. Le ROI ×4 est validé en moyenne au 12e mois.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — Cas clients -->
+<section class="section-dark">
+  <div class="section-inner">
+    <p class="eyebrow">Preuves terrain</p>
+    <h2>Résultats clients : PME industrielles et commerciales du Nord</h2>
+    <p>Ces résultats proviennent d'entreprises réelles accompagnées par Dunai en Hauts-de-France. Les chiffres sont issus de nos rapports de suivi trimestriels.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-card-label">Logistique · Dunkerque</div>
+        <h3>PME transport & logistique, 18 salariés</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:4px;">Automatisation : facturation, relances, reporting hebdo</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="roi-result-label">Temps libéré</span>
+            <span class="roi-result-val">+28h/mois</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">Économies annuelles</span>
+            <span class="roi-result-val">18 000 €/an</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">Délai ROI</span>
+            <span class="roi-result-val">7 semaines</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">Commerce · Hauts-de-France</div>
+        <h3>Commerce spécialisé B2B, 8 salariés</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:4px;">Automatisation : devis, relances, suivi commandes</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="roi-result-label">CA additionnel / trim.</span>
+            <span class="roi-result-val">+9 800 €</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">Temps devis</span>
+            <span class="roi-result-val">45 min → 3 min</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">Taux conversion devis</span>
+            <span class="roi-result-val">+34%</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">BTP · Nord</div>
+        <h3>Entreprise de construction, 22 salariés</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:4px;">Automatisation : devis, planification, conformité</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="roi-result-label">Devis envoyés</span>
+            <span class="roi-result-val">+28%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">CA signé</span>
+            <span class="roi-result-val">+16%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">Temps conformité</span>
+            <span class="roi-result-val">−58%</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">Santé · Dunkerque</div>
+        <h3>Cabinet médical, 6 praticiens</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:4px;">Automatisation : rappels RDV, relances, planning</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="roi-result-label">Taux no-show</span>
+            <span class="roi-result-val">−62%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">CA annuel</span>
+            <span class="roi-result-val">+22%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="roi-result-label">Délai ROI</span>
+            <span class="roi-result-val">5 semaines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">« On pensait que l'automatisation était réservée aux grands groupes. En 6 semaines, notre responsable de production a récupéré 2 heures par jour. On a réinvesti ce temps en prospection commerciale. »</p>
+      <p class="quote-author">— Dirigeant, sous-traitance industrielle, 20 salariés, Hauts-de-France</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — Signaux d'alerte -->
+<section class="section-white">
+  <div class="section-inner">
+    <p class="eyebrow">Passez à l'action</p>
+    <h2>6 signaux qui indiquent que votre PME est mûre pour l'automatisation</h2>
+    <p>L'automatisation n'est pas toujours visible de l'intérieur. Voici les signaux concrets qui reviennent dans presque toutes les PME industrielles que nous auditons — et qui indiquent un potentiel de gain immédiat.</p>
+
+    <div class="signal-grid">
+      <div class="signal-card" style="background:var(--creme2);border-color:var(--border-light);">
+        <div class="signal-icon">⏱️</div>
+        <p style="color:var(--noir);">Vos collaborateurs "refont" régulièrement la même saisie dans deux logiciels différents, ou re-tapent des données déjà saisies ailleurs.</p>
+      </div>
+      <div class="signal-card" style="background:var(--creme2);border-color:var(--border-light);">
+        <div class="signal-icon">📧</div>
+        <p style="color:var(--noir);">Les relances clients ou fournisseurs sont gérées manuellement, à la main, sans calendrier ni suivi structuré.</p>
+      </div>
+      <div class="signal-card" style="background:var(--creme2);border-color:var(--border-light);">
+        <div class="signal-icon">📁</div>
+        <p style="color:var(--noir);">Vos rapports de suivi (production, commercial, finances) sont produits dans Excel chaque semaine avec des copier-coller.</p>
+      </div>
+      <div class="signal-card" style="background:var(--creme2);border-color:var(--border-light);">
+        <div class="signal-icon">🔔</div>
+        <p style="color:var(--noir);">Des erreurs de traçabilité ou de facturation surviennent régulièrement à cause d'une saisie humaine — et vous les découvrez trop tard.</p>
+      </div>
+      <div class="signal-card" style="background:var(--creme2);border-color:var(--border-light);">
+        <div class="signal-icon">💼</div>
+        <p style="color:var(--noir);">Votre équipe administrative est débordée en fin de mois ou en clôture de trimestre, et vous envisagez de recruter pour absorber la charge.</p>
+      </div>
+      <div class="signal-card" style="background:var(--creme2);border-color:var(--border-light);">
+        <div class="signal-icon">📉</div>
+        <p style="color:var(--noir);">Vos délais de réponse aux clients (devis, commandes, SAV) sont plus longs que vos concurrents, non par manque de compétence, mais par manque de temps.</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p>Si vous avez reconnu au moins 3 de ces situations, votre PME a un potentiel d'automatisation immédiat et mesurable. Un audit Dunai de 2 jours vous donnera une estimation précise des gains atteignables — sans engagement de déploiement.</p>
+    </div>
+
+    <div class="internal-links">
+      <div class="internal-links-title">À lire aussi</div>
+      <ul>
+        <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il révèle dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'IA : comment mesurer les gains réels en entreprise</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-facturation-relances-devis-2026-04-16.html">Automatiser sa facturation, ses relances et ses devis</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-adoption-ia-pme-nord-2026-04-16.html">Pourquoi les PME du Nord adoptent l'IA plus vite qu'on ne le croit</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Votre PME industrielle perd-elle 4,2h/salarié/jour ?</h2>
+  <p>Un audit Dunai de 2 jours identifie vos 3 processus les plus coûteux et chiffre le ROI exact de leur automatisation. Sans engagement, sans jargon.</p>
+  <div class="cta-buttons">
+    <a href="https://dunai.fr/#contact" class="btn-white">Demander mon audit gratuit</a>
+    <a href="https://dunai.fr/#agents" class="btn-transparent">Voir nos cas clients</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="https://dunai.fr" class="footer-logo"><span class="dun">Dun</span><span class="nai">ai</span></a>
+    <span class="footer-copy">© 2026 Dunai — Agence IA & Automatisation · Dunkerque</span>
+  </div>
+</footer>
+
+</body>
+</html>
