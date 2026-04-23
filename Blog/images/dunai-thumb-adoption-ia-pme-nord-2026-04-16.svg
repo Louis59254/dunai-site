@@ -25,9 +25,10 @@
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
 
   <!-- Logo Dunai -->
-  <text x="52" y="72" font-family="Arial Black, sans-serif" font-size="38" font-weight="800" letter-spacing="-1">
-    <tspan fill="#ffffff">Dun</tspan><tspan fill="#EA580C">ai</tspan>
+  <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
+    <tspan fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
   </text>
+  <circle cx="240.8" cy="71.3" r="5.2" fill="#F54800"/>
   <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
 
   <!-- Catégorie -->
