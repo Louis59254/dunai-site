@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700');</style>
+    <linearGradient id="tg" x1="308.7" y1="0" x2="491.3" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F54800"/><stop offset="80%" stop-color="#FFFFFF"/></linearGradient>
+  </defs>
+  <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="96" y="161.1">
+    <tspan x="268.4" fill="#F54800">Dun</tspan><tspan fill="#FFFFFF">aı</tspan>
+  </text>
+  <circle cx="520.2" cy="101.5" r="6.9" fill="#F54800"/>
+  <text x="400.0" y="190.1" font-family="'Space Grotesk',sans-serif" font-weight="500" font-size="18" fill="url(#tg)" text-anchor="middle" letter-spacing="2">IA & AUTOMATISATION</text>
+</svg>

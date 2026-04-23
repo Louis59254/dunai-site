@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="180" viewBox="0 0 600 180">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700');</style>
+    
+  </defs>
+  <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="72" y="115.9">
+    <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#111111">aı</tspan>
+  </text>
+  <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
+  
+</svg>
