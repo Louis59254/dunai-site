@@ -432,6 +432,11 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   .page-hero-dark { padding: 5rem 2rem 4rem; }
 }
 
+/* NAV PHONE */
+.nav-phone { display: none; align-items: center; gap: 5px; font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; padding: 7px 12px; border-radius: var(--r-full); transition: color .18s; }
+.nav-phone:hover { color: var(--blanc); }
+.nav-phone svg { stroke: currentColor; flex-shrink: 0; }
+
 /* RESPONSIVE 1024px */
 @media (min-width: 1024px) {
   .nav-hamburger { display: none; }
@@ -457,11 +462,6 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   .blog-grid { grid-template-columns: repeat(3, 1fr); }
   .nav-phone { display: flex; }
 }
-
-/* NAV PHONE */
-.nav-phone { display: none; align-items: center; gap: 5px; font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; padding: 7px 12px; border-radius: var(--r-full); transition: color .18s; }
-.nav-phone:hover { color: var(--blanc); }
-.nav-phone svg { stroke: currentColor; flex-shrink: 0; }
 
 /* HERO PROFILE PILLS */
 .hero-profile-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
@@ -495,7 +495,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <li><a onclick="showPage('blog')">Blog</a></li>
     </ul>
     <a href="tel:0646890887" class="nav-phone">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.05 2.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.05 2.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
       06 46 89 08 87
     </a>
     <button class="nav-cta-btn" onclick="showPage('contact');closeMenu()">Audit gratuit</button>
