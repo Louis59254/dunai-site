@@ -214,9 +214,9 @@ nav > * { pointer-events: all; }
 .calc-section { background: var(--creme2); }
 .calc-grid { display: flex; flex-direction: column; gap: 0; }
 .calc-profile-tabs { display: flex; border-bottom: 1.5px solid var(--border-light); background: var(--creme2); }
-.calc-ptab { flex: 1; padding: 12px 8px; text-align: center; cursor: pointer; background: var(--creme2); border-bottom: 2px solid transparent; transition: all .18s; border: none; font-family: inherit; }
+.calc-ptab { flex: 1; min-width: 0; padding: 12px 8px; text-align: center; cursor: pointer; background: var(--creme2); border-bottom: 2px solid transparent; transition: all .18s; border: none; font-family: inherit; }
 .calc-ptab-icon { font-size: 16px; display: block; margin-bottom: 3px; }
-.calc-ptab-name { font-size: 11px; font-weight: 600; color: var(--brun); display: block; }
+.calc-ptab-name { font-size: 11px; font-weight: 600; color: var(--brun); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .calc-ptab-desc { font-size: 9px; color: var(--sable); display: block; }
 .calc-ptab.active { border-bottom: 2px solid var(--flamme); background: var(--flamme-pale); }
 .calc-ptab.active .calc-ptab-name { color: var(--flamme); }
@@ -248,7 +248,18 @@ nav > * { pointer-events: all; }
 .calc-hourly-label { font-size: 11px; color: var(--brun); flex: 1; }
 .calc-hourly-val { font-size: 13px; font-weight: 700; color: var(--flamme); white-space: nowrap; }
 .calc-disclaimer { font-size: 10px; color: var(--sable); text-align: center; margin-top: .25rem; }
-@media (min-width: 640px) { .calc-body-wrap { display: grid; grid-template-columns: 1.1fr 1fr; } .calc-tasks { border-radius: 0 0 0 var(--r-lg); border-right: none; } .calc-result-box { border-radius: 0 0 var(--r-lg) 0; border-left: none; } }
+/* Mobile: result box above tasks so user sees it update immediately */
+@media (max-width: 639px) {
+  .calc-result-box { order: -1; border-top: none; border-radius: 0; }
+  .calc-tasks { border-radius: 0 0 var(--r-lg) var(--r-lg); }
+}
+@media (min-width: 640px) { .calc-body-wrap { display: grid; grid-template-columns: 1.1fr 1fr; } .calc-tasks { border-radius: 0 0 0 var(--r-lg); border-right: none; } .calc-result-box { order: 0; border-radius: 0 0 var(--r-lg) 0; border-left: none; } }
+/* Very small screens: hide tab descriptions to prevent overflow */
+@media (max-width: 420px) {
+  .profile-tab-desc, .calc-ptab-desc { display: none; }
+  .profile-tab { padding: 12px 6px; }
+  .calc-ptab { padding: 10px 6px; }
+}
 
 
 /* GARANTIE */
@@ -514,11 +525,11 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 .profile-selector-inner { max-width: 1160px; margin: 0 auto; }
 .profile-selector-hdr { margin-bottom: 1.5rem; }
 .profile-tabs { display: flex; gap: 0; border: 1.5px solid var(--border-light); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 0; }
-.profile-tab { flex: 1; padding: 14px 10px; text-align: center; cursor: pointer; background: var(--blanc); border: none; border-right: 1px solid var(--border-light); font-family: inherit; transition: background .18s; }
+.profile-tab { flex: 1; min-width: 0; padding: 14px 10px; text-align: center; cursor: pointer; background: var(--blanc); border: none; border-right: 1px solid var(--border-light); font-family: inherit; transition: background .18s; }
 .profile-tab:last-child { border-right: none; }
 .profile-tab.active { background: var(--flamme-pale); border-bottom: 2px solid var(--flamme); }
 .profile-tab-icon { font-size: 20px; display: block; margin-bottom: 4px; }
-.profile-tab-name { font-size: 13px; font-weight: 600; color: var(--brun); display: block; }
+.profile-tab-name { font-size: 13px; font-weight: 600; color: var(--brun); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .profile-tab.active .profile-tab-name { color: var(--flamme); }
 .profile-tab-desc { font-size: 10px; color: var(--sable); display: block; margin-top: 1px; }
 .profile-content { background: var(--blanc); border: 1.5px solid var(--border-light); border-top: none; border-radius: 0 0 var(--r-lg) var(--r-lg); padding: 1.5rem; }
