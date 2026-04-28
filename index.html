@@ -714,9 +714,9 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   <div class="urgence">
     <div class="urgence-inner">
       <div class="urgence-stats">
-        <div class="u-stat"><div class="n">+28h</div><div class="l">récupérées dès le 1er déploiement, en moyenne</div></div>
-        <div class="u-stat"><div class="n">×3</div><div class="l">ROI moyen constaté à 12 mois</div></div>
-        <div class="u-stat"><div class="n">6 sem.</div><div class="l">pour vos premiers gains concrets</div></div>
+        <div class="u-stat"><div class="n">3 min</div><div class="l">pour générer un devis — contre 45 min en manuel</div></div>
+        <div class="u-stat"><div class="n">−62%</div><div class="l">de rendez-vous manqués chez nos clients planification</div></div>
+        <div class="u-stat"><div class="n">+34%</div><div class="l">de recouvrement client en moyenne dès les 3 premiers mois</div></div>
         <div class="u-stat"><div class="n">−90%</div><div class="l">de saisie manuelle sur les tâches automatisées</div></div>
       </div>
       <p class="urgence-msg">Chaque semaine sans automatisation, ce sont des heures perdues et de la marge laissée sur la table. <strong>On vous aide à récupérer tout ça en 6 semaines.</strong></p>
@@ -728,12 +728,12 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   <section class="section pourquoi-section">
     <div class="section-inner">
       <span class="eyebrow">Pourquoi Dunai</span>
-      <h2 class="h2">Pourquoi pas se débrouiller<br>tout seul — ou appeler une grande ESN ?</h2>
+      <h2 class="h2">Tout gérer vous-même<br>— ou faire appel à une grande ESN ?</h2>
       <p class="lead">Trois approches possibles. Une seule adaptée aux PME qui veulent des résultats en 6 semaines, pas en 18 mois.</p>
       <div class="pourquoi-grid">
         <div class="pourquoi-col">
           <div class="pourquoi-col-eyebrow">Option 1</div>
-          <div class="pourquoi-col-title">Se débrouiller soi-même</div>
+          <div class="pourquoi-col-title">Gérer en interne</div>
           <div class="pourquoi-items">
             <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Pas de coût immédiat</span></div>
             <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Des semaines d'apprentissage (Make, n8n, GPT…)</span></div>
@@ -1125,7 +1125,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)"><span>C'est adapté à ma taille d'entreprise ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. Nos clients vont de l'artisan solo à la PME de 200 salariés. L'audit gratuit permet justement de calibrer ce qui est pertinent pour votre taille. Un indépendant peut commencer avec 1 ou 2 agents simples à 1 500€ — une PME de 50 personnes ira sur un déploiement multi-agents. Il n'y a pas de taille minimum.</div>
+          <div class="faq-a">Oui. Nos clients vont de l'artisan solo à la PME de 200 salariés. L'audit gratuit permet justement de calibrer ce qui est pertinent pour votre taille. Un indépendant peut démarrer avec notre Pack Solo à 1 190€ HT — audit, 1 automatisation livrée et formation incluse. Une PME de 50 personnes ira sur un déploiement multi-agents. Il n'y a pas de taille minimum.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)"><span>Combien de temps avant les premiers résultats ?</span><span class="faq-icon">+</span></div>
@@ -1678,7 +1678,7 @@ function setProfile(p) {
         ${data.cases.map(c => `<div class="profile-use-case">${c}</div>`).join('')}
       </div>
       <div class="profile-cta-row">
-        <button class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
+        <button type="button" class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
         <button type="button" class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</button>
       </div>`;
   }
