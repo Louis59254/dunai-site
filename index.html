@@ -1616,7 +1616,7 @@ function toggleFaq(el) {
   if(!isOpen) item.classList.add('open');
 }
 
-const WEBHOOK_URL='https://n8n.louismagie.fr/webhook/dunai-contact';
+const WEBHOOK_URL='https://n8n.dunai.fr/webhook/dunai-contact';
 async function handleSubmit(btn) {
   const form=btn.closest('.contact-form');
   const getValue=ph=>{const el=form.querySelector(`[placeholder*="${ph}"]`);return el?el.value.trim():'';};
