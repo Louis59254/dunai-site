@@ -196,11 +196,16 @@ nav > * { pointer-events: all; }
 
 /* TÉMOIGNAGES */
 .temo-section { background: var(--creme); }
+.temo-tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.temo-tab { font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: var(--r-full); border: 1px solid var(--border-light); background: var(--blanc); color: var(--brun); cursor: pointer; transition: all .18s; }
+.temo-tab:hover { border-color: var(--flamme); color: var(--flamme); }
+.temo-tab.active { background: var(--flamme); color: var(--blanc); border-color: var(--flamme); }
+.temo-sector-badge { display: inline-block; background: var(--flamme-pale); border: 1px solid var(--flamme-mid); border-radius: var(--r-full); font-size: 9px; font-weight: 700; color: var(--flamme); padding: 2px 8px; margin-bottom: .5rem; text-transform: uppercase; letter-spacing: .06em; }
 .temo-grid { display: flex; flex-direction: column; gap: 1.125rem; margin-top: 2rem; }
 .temo-card { background: var(--blanc); border-radius: var(--r-lg); padding: 1.5rem; border: 1.5px solid var(--border-light); }
 .temo-stars { color: var(--flamme); font-size: 13px; margin-bottom: .875rem; letter-spacing: 2px; }
 .temo-quote { font-size: 14px; color: var(--anthracite); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
-.temo-gain { background: var(--vert-pale); border-radius: 8px; padding: .5rem .875rem; margin-bottom: 1rem; font-size: 12px; color: var(--vert); font-weight: 500; }
+.temo-gain { display: inline-block; background: var(--vert-pale); border: 1px solid #86efac; border-radius: var(--r-full); font-size: 11px; font-weight: 600; color: var(--vert); padding: 3px 10px; margin-bottom: .75rem; }
 .temo-author { font-size: 13px; font-weight: 500; color: var(--anthracite); }
 .temo-role { font-size: 12px; color: var(--brun); }
 .temo-disclaimer { font-size: 11px; color: var(--brun); background: var(--flamme-pale); border: 1px solid var(--flamme-mid); border-radius: var(--r-md); padding: .75rem 1rem; margin-top: 1.5rem; line-height: 1.6; }
@@ -921,25 +926,34 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     <div class="section-inner">
       <span class="eyebrow">Ils ont franchi le pas</span>
       <h2 class="h2">Ce que disent nos clients.</h2>
-      <div class="temo-grid">
-        <div class="temo-card">
+      <div class="temo-tabs" id="temoTabs">
+        <button class="temo-tab active" onclick="filterTemoByProfile('all')">Tous</button>
+        <button class="temo-tab" onclick="filterTemoByProfile('pme')">PME</button>
+        <button class="temo-tab" onclick="filterTemoByProfile('tpe')">TPE · Artisan</button>
+        <button class="temo-tab" onclick="filterTemoByProfile('ae')">Autoentrepreneur</button>
+      </div>
+      <div class="temo-grid" id="temoGrid">
+        <div class="temo-card" data-temo-profile="pme">
+          <div class="temo-sector-badge">Transport · PME</div>
           <div class="temo-stars">★★★★★</div>
+          <div class="temo-gain">28h récupérées/mois · 14 000€ économisés/an</div>
           <p class="temo-quote">L'audit m'a ouvert les yeux. Voir les chiffres écrits noir sur blanc — 28 heures par mois sur des tâches automatisables — ça m'a décidé en 5 minutes.</p>
-          <div class="temo-gain">Résultat : 28h récupérées + 14 000€ économisés / an</div>
           <div class="temo-author">Directeur général</div>
           <div class="temo-role">Transport & logistique · 18 salariés · Dunkerque</div>
         </div>
-        <div class="temo-card">
+        <div class="temo-card" data-temo-profile="tpe">
+          <div class="temo-sector-badge">BTP · Artisan</div>
           <div class="temo-stars">★★★★★</div>
+          <div class="temo-gain">Devis 45 min → 3 min · 0 relance manuelle</div>
           <p class="temo-quote">Ce qui m'a convaincu, c'est que Dunai parle le même langage que nous. Pas de blabla tech. Juste : voilà ce qu'on peut faire, voilà ce que vous gagnez.</p>
-          <div class="temo-gain">Résultat : devis 45 min → 3 min</div>
           <div class="temo-author">Gérant</div>
           <div class="temo-role">Artisan BTP · 3 collaborateurs · Région Dunkerquoise</div>
         </div>
-        <div class="temo-card">
+        <div class="temo-card" data-temo-profile="pme">
+          <div class="temo-sector-badge">Médical · Cabinet</div>
           <div class="temo-stars">★★★★★</div>
+          <div class="temo-gain">−62% no-show · +22% CA</div>
           <p class="temo-quote">On était sceptiques. Six semaines après, mes équipes ne veulent plus revenir en arrière. Les tâches répétitives ont simplement disparu.</p>
-          <div class="temo-gain">Résultat : -62% no-show · +22% CA</div>
           <div class="temo-author">Directrice de cabinet</div>
           <div class="temo-role">Cabinet médical · 6 praticiens · Nord (59)</div>
         </div>
@@ -1525,6 +1539,19 @@ function setProfile(p) {
   if (typeof syncCalcProfile === 'function') syncCalcProfile(p);
   // Synchroniser les témoignages
   if (typeof filterTemoByProfile === 'function') filterTemoByProfile(p);
+}
+
+function filterTemoByProfile(p) {
+  // Mettre à jour les tabs
+  document.querySelectorAll('#temoTabs .temo-tab').forEach(t => {
+    const onclick = t.getAttribute('onclick') || '';
+    t.classList.toggle('active', onclick.includes(`'${p}'`));
+  });
+  // Filtrer les cards
+  document.querySelectorAll('#temoGrid .temo-card').forEach(card => {
+    const show = p === 'all' || card.dataset.temoProfile === p;
+    card.style.display = show ? '' : 'none';
+  });
 }
 
 // Init au chargement
