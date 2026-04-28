@@ -347,6 +347,8 @@ nav > * { pointer-events: all; }
 .tarif-btn { width: 100%; padding: 12px; border-radius: var(--r-md); font-size: 14px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border-light); background: transparent; color: var(--anthracite); transition: all .2s; }
 .tarif-btn:hover { border-color: var(--flamme); color: var(--flamme); }
 .tarif-btn.fire { background: var(--flamme); border-color: var(--flamme); color: var(--blanc); }
+.tarif-badge-ae { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--vert); color: var(--blanc); font-size: 10px; font-weight: 600; padding: 4px 14px; border-radius: var(--r-full); white-space: nowrap; letter-spacing: .04em; }
+.tarif-card.ae-card { border-color: var(--vert); }
 .prix-table-wrap { overflow-x: auto; margin-top: 2rem; }
 .prix-table { width: 100%; min-width: 400px; border-collapse: collapse; font-size: 13px; }
 .prix-table thead tr { border-bottom: 2px solid var(--flamme); }
@@ -1278,6 +1280,19 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   <section class="section tarifs-section"><div class="section-inner">
     <span class="eyebrow">Grille tarifaire</span><h2 class="h2">Quel budget selon votre taille ?</h2>
     <div class="tarifs-grid">
+      <div class="tarif-card ae-card" style="position:relative">
+        <div class="tarif-badge-ae">★ Autoentrepreneur</div>
+        <div class="tarif-tier">Pack Solo</div>
+        <div class="tarif-price" style="color:var(--vert)">1 190 €</div>
+        <div class="tarif-desc">HT · forfait fixe · paiement en 2×</div>
+        <ul class="tarif-feats">
+          <li>Audit 1h en visio + rapport chiffré</li>
+          <li>1 automatisation livrée en 2 semaines</li>
+          <li>1h de formation individuelle</li>
+          <li>15 jours de support post-déploiement</li>
+        </ul>
+        <button type="button" class="tarif-btn" onclick="showPage('contact')" style="border-color:var(--vert);color:var(--vert)">Démarrer →</button>
+      </div>
       <div class="tarif-card"><div class="tarif-tier">TPE · Indépendant</div><div class="tarif-price">À partir de 1 500 €</div><div class="tarif-desc">Moins de 20 salariés</div><div style="font-size:11px;color:var(--flamme);margin-top:.25rem;margin-bottom:1rem">ou Pack Déclic à 2 990 €</div><ul class="tarif-feats"><li>Audit IA offert (2h)</li><li>Roadmap simplifiée</li><li>1 à 2 agents IA déployés</li><li>Formation individuelle</li><li>Rapport ROI inclus</li></ul><button class="tarif-btn" onclick="showPage('contact')">Prendre contact</button></div>
       <div class="tarif-card featured"><div class="tarif-badge">Le plus choisi</div><div class="tarif-tier">PME · ETI</div><div class="tarif-price">À partir de 3 900 €</div><div class="tarif-desc">20 à 200 salariés</div><ul class="tarif-feats"><li>Audit IA complet (2 à 5 jours)</li><li>Roadmap 6–18 mois</li><li>Déploiement multi-agents</li><li>Formation équipe (1–2 jours)</li><li>Suivi mensuel inclus 3 mois</li><li>Reporting ROI dirigeants</li></ul><button class="tarif-btn fire" onclick="showPage('contact')">Demander un devis</button></div>
       <div class="tarif-card"><div class="tarif-tier">Grande entreprise</div><div class="tarif-price">Sur devis</div><div class="tarif-desc">200+ salariés · Industrie</div><ul class="tarif-feats"><li>Audit multi-sites</li><li>Roadmap stratégique groupe</li><li>Déploiement SI complexe</li><li>Programme formation complet</li><li>Contrat suivi annuel</li><li>Dashboard ROI temps réel</li></ul><button class="tarif-btn" onclick="showPage('contact')">Prendre contact</button></div>
