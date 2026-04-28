@@ -467,6 +467,28 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 .hero-profile-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
 .hero-profile-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--r-full); padding: 5px 12px; }
 .hpp-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--flamme); flex-shrink: 0; }
+
+/* SÉLECTEUR DE PROFIL */
+.profile-selector { background: var(--creme); padding: 2.5rem 1.25rem; }
+.profile-selector-inner { max-width: 1160px; margin: 0 auto; }
+.profile-selector-hdr { margin-bottom: 1.5rem; }
+.profile-tabs { display: flex; gap: 0; border: 1.5px solid var(--border-light); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 0; }
+.profile-tab { flex: 1; padding: 14px 10px; text-align: center; cursor: pointer; background: var(--blanc); border-right: 1px solid var(--border-light); transition: background .18s; }
+.profile-tab:last-child { border-right: none; }
+.profile-tab.active { background: var(--flamme-pale); border-bottom: 2px solid var(--flamme); }
+.profile-tab-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+.profile-tab-name { font-size: 13px; font-weight: 600; color: var(--brun); display: block; }
+.profile-tab.active .profile-tab-name { color: var(--flamme); }
+.profile-tab-desc { font-size: 10px; color: var(--sable); display: block; margin-top: 1px; }
+.profile-content { background: var(--blanc); border: 1.5px solid var(--border-light); border-top: none; border-radius: 0 0 var(--r-lg) var(--r-lg); padding: 1.5rem; }
+.profile-content-title { font-size: 14px; font-weight: 700; color: var(--anthracite); margin-bottom: .875rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+.profile-use-cases { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
+.profile-use-case { display: flex; align-items: flex-start; gap: .625rem; font-size: 13px; color: var(--brun); }
+.profile-use-case::before { content: '→'; color: var(--flamme); font-weight: 700; flex-shrink: 0; }
+.profile-cta-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.profile-cta-link { font-size: 12px; color: var(--brun); text-decoration: underline; cursor: pointer; }
+@media (min-width: 640px) { .profile-tabs { gap: 0; } }
+@media (min-width: 1024px) { .profile-content-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; } }
 </style>
 </head>
 <body>
@@ -582,6 +604,34 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <span class="af-num">+18h · +3 400€</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SÉLECTEUR DE PROFIL -->
+  <section class="profile-selector">
+    <div class="profile-selector-inner">
+      <div class="profile-selector-hdr">
+        <span class="eyebrow">Personnalisez votre expérience</span>
+        <h2 class="h2" style="font-size:clamp(1.5rem,4vw,2.25rem)">Quelle situation vous ressemble le plus ?</h2>
+      </div>
+      <div class="profile-tabs" id="profileTabs">
+        <div class="profile-tab active" data-profile="pme" onclick="setProfile('pme')">
+          <span class="profile-tab-icon">🏢</span>
+          <span class="profile-tab-name">PME</span>
+          <span class="profile-tab-desc">10–50 salariés</span>
+        </div>
+        <div class="profile-tab" data-profile="tpe" onclick="setProfile('tpe')">
+          <span class="profile-tab-icon">🔧</span>
+          <span class="profile-tab-name">TPE / Artisan</span>
+          <span class="profile-tab-desc">2–9 salariés</span>
+        </div>
+        <div class="profile-tab" data-profile="ae" onclick="setProfile('ae')">
+          <span class="profile-tab-icon">🧑‍💻</span>
+          <span class="profile-tab-name">Autoentrepreneur</span>
+          <span class="profile-tab-desc">Seul·e</span>
+        </div>
+      </div>
+      <div class="profile-content" id="profileContent"></div>
     </div>
   </section>
 
@@ -1377,6 +1427,68 @@ function filterBlog(btn,cat) {
   const featured=document.querySelector('.blog-featured');
   if(featured) featured.style.display=(cat==='tous'||featured.dataset.cat===cat)?'':'none';
 }
+
+const PROFILE_DATA = {
+  pme: {
+    title: 'Ce que Dunai automatise pour vous :',
+    cases: [
+      'Reporting direction produit chaque lundi — zéro intervention',
+      'Saisie ERP à 0 min/jour — transfert automatique',
+      'Onboarding RH en 4h au lieu de 2 jours',
+      'Rapport mensuel chiffré sans toucher à Excel',
+    ],
+  },
+  tpe: {
+    title: 'Ce que Dunai automatise pour vous :',
+    cases: [
+      'Devis générés en 3 min au lieu de 45',
+      'Relances impayés sans y penser',
+      'Prise de RDV + confirmations automatiques',
+      'Transfert factures fournisseurs à 0 min/jour',
+    ],
+  },
+  ae: {
+    title: 'Ce que Dunai automatise pour vous :',
+    cases: [
+      '8h/semaine récupérées sans embaucher',
+      'Relances clients 100% automatiques',
+      'Facturation et suivi sans effort',
+      'Posts réseaux sociaux générés chaque semaine',
+    ],
+  },
+};
+
+function setProfile(p) {
+  localStorage.setItem('dunai_profile', p);
+  // Mettre à jour les tabs
+  document.querySelectorAll('.profile-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.profile === p);
+  });
+  // Mettre à jour le contenu
+  const data = PROFILE_DATA[p];
+  const content = document.getElementById('profileContent');
+  if (content && data) {
+    content.innerHTML = `
+      <div class="profile-content-title">${data.title}</div>
+      <div class="profile-use-cases">
+        ${data.cases.map(c => `<div class="profile-use-case">${c}</div>`).join('')}
+      </div>
+      <div class="profile-cta-row">
+        <button class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
+        <span class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</span>
+      </div>`;
+  }
+  // Synchroniser le calculateur si présent
+  if (typeof syncCalcProfile === 'function') syncCalcProfile(p);
+  // Synchroniser les témoignages
+  if (typeof filterTemoByProfile === 'function') filterTemoByProfile(p);
+}
+
+// Init au chargement
+(function initProfile() {
+  const saved = localStorage.getItem('dunai_profile') || 'pme';
+  setProfile(saved);
+})();
 </script>
 </body>
 </html>
