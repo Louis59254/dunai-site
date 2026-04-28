@@ -251,6 +251,11 @@ nav > * { pointer-events: all; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-a { display: none; padding: 0 1.25rem 1.25rem; font-size: 13px; color: var(--brun); line-height: 1.8; }
 .faq-item.open .faq-a { display: block; }
+.faq-profile-badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: .05em; margin-right: 8px; vertical-align: middle; }
+.fpb-ae  { background: var(--flamme-pale); color: var(--flamme); }
+.fpb-tpe { background: #faf5ff; color: #7c3aed; }
+.fpb-pme { background: #eff6ff; color: #2563eb; }
+.fpb-all { background: var(--vert-pale); color: var(--vert); }
 
 /* ROI CARDS */
 .roi-section { background: var(--creme2); }
@@ -1130,6 +1135,27 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <span class="eyebrow">Questions fréquentes</span>
       <h2 class="h2">Tout ce qu'on nous demande<br>avant de démarrer.</h2>
       <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span><span class="faq-profile-badge fpb-ae">AE</span>Je travaille seul — "vos équipes libérées" ne me parle pas vraiment.</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">C'est votre temps à vous qu'on libère. En solo, chaque heure récupérée sur des tâches répétitives est une heure que vous réinvestissez en clients, en CA ou en vie. Nos clients autoentrepreneurs récupèrent en moyenne 8h par semaine — sans embaucher, sans déléguer à quelqu'un d'autre.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span><span class="faq-profile-badge fpb-tpe">TPE</span>2 990€ c'est beaucoup pour une petite structure comme la mienne.</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">C'est exactement pourquoi on valide le ROI avant de vous proposer quoi que ce soit. Si votre automatisation ne rembourse pas au moins 3× l'investissement dans les 12 mois, on ne vous la propose pas. Nous avons aussi un Pack Solo à 1 190€ HT spécialement conçu pour les petites structures — et le paiement en 2× ou 3× est disponible sur tous nos packs.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span><span class="faq-profile-badge fpb-pme">PME</span>Mon équipe va résister au changement.</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">C'est la première crainte qu'on entend — et la dernière qu'on observe. Les agents IA ne remplacent pas vos salariés : ils leur retirent les tâches ennuyeuses et répétitives. Dans 100% des cas, après 6 semaines de déploiement, les équipes ne veulent plus revenir en arrière. La résistance vient du mot "IA" — elle disparaît dès le premier gain concret.</div>
+        </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)"><span>C'est adapté à ma taille d'entreprise ?</span><span class="faq-icon">+</span></div>
           <div class="faq-a">Oui. Nos clients vont de l'artisan solo à la PME de 200 salariés. L'audit gratuit permet justement de calibrer ce qui est pertinent pour votre taille. Un indépendant peut commencer avec 1 ou 2 agents simples à 1 500€ — une PME de 50 personnes ira sur un déploiement multi-agents. Il n'y a pas de taille minimum.</div>
