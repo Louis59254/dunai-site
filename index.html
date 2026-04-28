@@ -1605,8 +1605,7 @@ function toggleFaq(el) {
   if(!isOpen) item.classList.add('open');
 }
 
-// ➜ Remplacez VOTRE_ID_FORMSPREE par votre ID sur formspree.io (ex: "xkgwpbnz")
-const FORMSPREE_URL='https://formspree.io/f/VOTRE_ID_FORMSPREE';
+const WEBHOOK_URL='https://n8n.louismagie.fr/webhook/dunai-contact';
 async function handleSubmit(btn) {
   const form=btn.closest('.contact-form');
   const getValue=ph=>{const el=form.querySelector(`[placeholder*="${ph}"]`);return el?el.value.trim():'';};
@@ -1618,7 +1617,7 @@ async function handleSubmit(btn) {
   const prevErr=form.querySelector('.form-error');if(prevErr)prevErr.remove();
   btn.textContent='Envoi en cours…';btn.disabled=true;
   try{
-    const response=await fetch(FORMSPREE_URL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    const response=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     if(!response.ok) throw new Error('HTTP '+response.status);
     btn.textContent='✓ Demande reçue — on revient vers vous sous 24h !';btn.style.background='#16A34A';
     setTimeout(()=>{form.querySelectorAll('.field-input,.field-textarea').forEach(el=>el.value='');form.querySelectorAll('.field-select').forEach(el=>el.value='');},2000);
