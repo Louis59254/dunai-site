@@ -490,7 +490,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 
 /* STICKY CTA */
 .sticky-cta { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 150; background: var(--anthracite); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-xl); padding: 12px 16px 10px; display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.35); transition: transform .35s cubic-bezier(.4,0,.2,1), opacity .35s; opacity: 0; pointer-events: none; white-space: nowrap; }
-.sticky-cta.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: all; }
+.sticky-cta.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
 .sticky-cta-text { font-size: 12px; color: rgba(255,255,255,0.5); }
 .sticky-cta-phone { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 1px; }
 .sticky-cta-btn { background: var(--flamme); color: var(--blanc); font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: var(--r-full); border: none; cursor: pointer; white-space: nowrap; transition: background .2s; flex-shrink: 0; }
@@ -1504,6 +1504,7 @@ function setProfile(p) {
       document.getElementById('page-contact').classList.contains('active');
     const scrolled = window.scrollY > 300;
     btn.classList.toggle('visible', scrolled && !onContact);
+    btn.setAttribute('aria-hidden', String(!(scrolled && !onContact)));
   }
   window.addEventListener('scroll', updateSticky, { passive: true });
   // Re-vérifier au changement de page (hook sur showPage existant)
@@ -1514,12 +1515,12 @@ function setProfile(p) {
 </script>
 
 <!-- STICKY CTA -->
-<div class="sticky-cta" id="stickyCta">
+<div class="sticky-cta" id="stickyCta" aria-label="Audit gratuit" aria-hidden="true">
   <div>
     <div class="sticky-cta-text">L'audit est gratuit et sans engagement.</div>
     <div class="sticky-cta-phone">📞 06 46 89 08 87</div>
   </div>
-  <button class="sticky-cta-btn" onclick="showPage('contact');stickyCta.classList.remove('visible')">Audit gratuit →</button>
+  <button class="sticky-cta-btn" onclick="showPage('contact')">Audit gratuit →</button>
 </div>
 </body>
 </html>
