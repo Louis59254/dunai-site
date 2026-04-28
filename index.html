@@ -239,6 +239,9 @@ nav > * { pointer-events: all; }
 .garantie-icon { font-size: 1.75rem; flex-shrink: 0; }
 .garantie-item-title { font-size: 14px; font-weight: 700; color: #9A3412; margin-bottom: .25rem; font-family: 'Plus Jakarta Sans', sans-serif; }
 .garantie-item-desc { font-size: 13px; color: #C2410C; line-height: 1.6; }
+.satisfait-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--vert); color: var(--blanc); font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: var(--r-full); }
+.satisfait-badge-small { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--vert); font-weight: 500; margin-top: .5rem; }
+.satisfait-badge-small::before { content: '✓'; font-weight: 700; }
 
 /* FAQ */
 .faq-section { background: var(--blanc); }
@@ -1123,6 +1126,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
           <div>
             <div class="garantie-item-title">Support 30 jours inclus</div>
             <div class="garantie-item-desc">Chaque déploiement inclut 30 jours de support post-livraison. Si un agent dysfonctionne, on intervient sans surcoût.</div>
+            <div style="margin-top:.75rem"><span class="satisfait-badge">✓ Satisfait ou remboursé 30 jours</span></div>
           </div>
         </div>
       </div>
@@ -1355,6 +1359,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <div class="audit-inclus"><h4>Ce que vous obtenez — gratuitement</h4><div class="sub">Dans les 48h suivant l'audit</div><ul><li>Cartographie de vos processus clés</li><li>Top 5 des tâches automatisables</li><li>Estimation du gain de temps / mois</li><li>Estimation du gain financier / an</li><li>Présentation des agents IA adaptés</li><li>Rapport PDF envoyé à votre équipe</li><li>Identification des financements disponibles (France Num, OPCO…)</li></ul></div>
     </div>
     <div class="contact-form">
+      <div class="satisfait-badge-small" style="margin-bottom:.875rem">Satisfait ou remboursé 30 jours — sans conditions</div>
       <div class="form-title">Réserver mon audit gratuit</div>
       <div class="field-row"><div class="field-group"><label class="field-label">Prénom</label><input class="field-input" type="text" placeholder="Marie"></div><div class="field-group"><label class="field-label">Nom</label><input class="field-input" type="text" placeholder="Dupont"></div></div>
       <div class="field-group"><label class="field-label">Entreprise</label><input class="field-input" type="text" placeholder="Nom de votre société"></div>
