@@ -211,26 +211,45 @@ nav > * { pointer-events: all; }
 .temo-disclaimer { font-size: 11px; color: var(--brun); background: var(--flamme-pale); border: 1px solid var(--flamme-mid); border-radius: var(--r-md); padding: .75rem 1rem; margin-top: 1.5rem; line-height: 1.6; }
 
 /* CALCULATEUR */
-.calc-section { background: var(--anthracite); }
-.calc-grid { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-.calc-tasks { display: flex; flex-direction: column; gap: .75rem; }
-.calc-task { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-md); padding: 1rem; transition: border-color .2s, background .2s; }
-.calc-task.active { border-color: rgba(234,88,12,0.4); background: rgba(234,88,12,0.05); }
+.calc-section { background: var(--creme2); }
+.calc-grid { display: flex; flex-direction: column; gap: 0; }
+.calc-profile-tabs { display: flex; border-bottom: 1.5px solid var(--border-light); background: var(--creme2); }
+.calc-ptab { flex: 1; padding: 12px 8px; text-align: center; cursor: pointer; background: var(--creme2); border-bottom: 2px solid transparent; transition: all .18s; border: none; font-family: inherit; }
+.calc-ptab-icon { font-size: 16px; display: block; margin-bottom: 3px; }
+.calc-ptab-name { font-size: 11px; font-weight: 600; color: var(--brun); display: block; }
+.calc-ptab-desc { font-size: 9px; color: var(--sable); display: block; }
+.calc-ptab.active { border-bottom: 2px solid var(--flamme); background: var(--flamme-pale); }
+.calc-ptab.active .calc-ptab-name { color: var(--flamme); }
+.calc-body-wrap { display: flex; flex-direction: column; gap: 0; }
+.calc-tasks { padding: 1.25rem; display: flex; flex-direction: column; gap: .5rem; background: var(--blanc); border: 1.5px solid var(--border-light); border-top: none; border-radius: 0 0 var(--r-lg) var(--r-lg); }
+.calc-category-label { font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sable); margin-top: .625rem; margin-bottom: .25rem; }
+.calc-category-label:first-child { margin-top: 0; }
+.calc-task { background: var(--creme); border: 1.5px solid var(--border-light); border-radius: var(--r-md); padding: .75rem 1rem; transition: border-color .2s, background .2s; }
+.calc-task.active { border-color: rgba(234,88,12,0.3); background: var(--flamme-pale); }
 .calc-task-hdr { display: flex; align-items: center; gap: .75rem; cursor: pointer; }
-.calc-cb { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; cursor: pointer; accent-color: var(--flamme); flex-shrink: 0; }
-.calc-task-label { font-size: 14px; color: rgba(255,255,255,0.75); flex: 1; }
-.calc-task-hint { font-size: 11px; color: rgba(255,255,255,0.25); white-space: nowrap; }
-.calc-slider-wrap { margin-top: .875rem; display: none; }
+.calc-cb { width: 16px; height: 16px; border-radius: 4px; accent-color: var(--flamme); flex-shrink: 0; cursor: pointer; }
+.calc-task-label { font-size: 13px; color: var(--anthracite); flex: 1; }
+.calc-task-hint { font-size: 10px; color: var(--sable); white-space: nowrap; }
+.calc-slider-wrap { margin-top: .625rem; padding-top: .625rem; border-top: 1px solid var(--border-light); display: none; }
 .calc-task.active .calc-slider-wrap { display: block; }
-.calc-slider-label { font-size: 12px; color: var(--flamme); font-weight: 500; margin-bottom: .375rem; }
+.calc-slider-label { font-size: 11px; color: var(--flamme); font-weight: 500; margin-bottom: .375rem; }
 .calc-slider { width: 100%; accent-color: var(--flamme); cursor: pointer; }
-.calc-result-box { background: var(--noir); border: 1.5px solid rgba(234,88,12,0.3); border-radius: var(--r-xl); padding: 1.75rem; }
-.calc-result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
-.calc-result-item .n { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.25rem; font-weight: 800; color: var(--flamme); line-height: 1; }
-.calc-result-item .l { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; line-height: 1.4; }
-.calc-result-item .n.green { color: #4ADE80; }
-.calc-empty { font-size: 13px; color: rgba(255,255,255,0.3); text-align: center; padding: 2rem; }
-.calc-disclaimer { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 1rem; line-height: 1.6; }
+.calc-result-box { background: var(--creme); border: 1.5px solid var(--border-light); border-top: none; padding: 1.25rem; display: flex; flex-direction: column; gap: .875rem; }
+.calc-result-main { background: var(--anthracite); border-radius: var(--r-lg); padding: 1.5rem; text-align: center; }
+.calc-result-main-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: .5rem; }
+.calc-result-main-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.75rem; font-weight: 800; color: var(--flamme); line-height: 1; letter-spacing: -2px; margin-bottom: .375rem; }
+.calc-result-main-sub { font-size: 11px; color: rgba(255,255,255,0.4); }
+.calc-result-empty { font-size: 13px; color: var(--sable); text-align: center; padding: 2rem 1rem; }
+.calc-result-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: .625rem; }
+.calc-result-item-light { background: var(--blanc); border: 1.5px solid var(--border-light); border-radius: var(--r-md); padding: .875rem; text-align: center; }
+.calc-result-item-light .n { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--vert); line-height: 1; margin-bottom: 3px; }
+.calc-result-item-light .l { font-size: 10px; color: var(--brun); line-height: 1.4; }
+.calc-hourly-row { display: flex; align-items: center; gap: .75rem; background: var(--blanc); border: 1.5px solid var(--border-light); border-radius: var(--r-md); padding: .75rem 1rem; }
+.calc-hourly-label { font-size: 11px; color: var(--brun); flex: 1; }
+.calc-hourly-val { font-size: 13px; font-weight: 700; color: var(--flamme); white-space: nowrap; }
+.calc-disclaimer { font-size: 10px; color: var(--sable); text-align: center; margin-top: .25rem; }
+@media (min-width: 640px) { .calc-body-wrap { display: grid; grid-template-columns: 1.1fr 1fr; } .calc-tasks { border-radius: 0 0 0 var(--r-lg); border-right: none; } .calc-result-box { border-radius: 0 0 var(--r-lg) 0; border-left: none; } }
+@media (min-width: 1024px) { .calc-grid { display: block; } }
 
 /* GARANTIE */
 .garantie-section { background: var(--flamme-pale); padding: 3.5rem 1.25rem; border-top: 2px solid var(--flamme-mid); border-bottom: 2px solid var(--flamme-mid); }
@@ -972,107 +991,49 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 
   <!-- CALCULATEUR DE GAINS -->
   <section class="section calc-section">
-    <div class="section-inner">
-      <span class="eyebrow">Calculateur de gains</span>
-      <h2 class="h2 h2-white">Estimez vos gains<br>en 60 secondes.</h2>
-      <p class="lead lead-white">Cochez les tâches qui vous coûtent du temps. Ajustez le volume. Voyez ce que l'automatisation peut vous rapporter.</p>
-      <div class="calc-grid">
-        <div class="calc-tasks">
-          <div class="calc-task" id="ct-relances">
-            <div class="calc-task-hdr" onclick="toggleCalcTask('ct-relances')">
-              <input type="checkbox" class="calc-cb" id="cb-relances" onchange="calcUpdate()">
-              <label class="calc-task-label" for="cb-relances">Relances clients & impayés</label>
-              <span class="calc-task-hint" id="hint-relances">0h/sem</span>
+  <div class="section-inner">
+    <span class="eyebrow">Calculateur de gains</span>
+    <h2 class="h2 h2-white" style="color:var(--anthracite)">Estimez vos gains en 60 secondes.</h2>
+    <p class="lead" style="color:var(--brun)">Sélectionnez votre profil, cochez vos tâches, ajustez les volumes.</p>
+    <div class="calc-grid">
+      <div class="calc-profile-tabs" id="calcProfileTabs">
+        <button type="button" class="calc-ptab active" data-calc-profile="pme" onclick="syncCalcProfile('pme')">
+          <span class="calc-ptab-icon" aria-hidden="true">🏢</span><span class="calc-ptab-name">PME</span><span class="calc-ptab-desc">10–50 sal.</span>
+        </button>
+        <button type="button" class="calc-ptab" data-calc-profile="tpe" onclick="syncCalcProfile('tpe')">
+          <span class="calc-ptab-icon" aria-hidden="true">🔧</span><span class="calc-ptab-name">TPE / Artisan</span><span class="calc-ptab-desc">2–9 sal.</span>
+        </button>
+        <button type="button" class="calc-ptab" data-calc-profile="ae" onclick="syncCalcProfile('ae')">
+          <span class="calc-ptab-icon" aria-hidden="true">🧑‍💻</span><span class="calc-ptab-name">Autoentrepreneur</span><span class="calc-ptab-desc">Seul·e</span>
+        </button>
+      </div>
+      <div class="calc-body-wrap">
+        <div class="calc-tasks" id="calcTasksContainer"></div>
+        <div class="calc-result-box">
+          <div id="calcResultEmpty" class="calc-result-empty">Cochez au moins une tâche pour voir votre estimation →</div>
+          <div id="calcResultFilled" style="display:none;flex-direction:column;gap:.875rem">
+            <div class="calc-result-main">
+              <div class="calc-result-main-label">Vous perdez chaque année</div>
+              <div class="calc-result-main-amount" id="calcAnnual">0 €</div>
+              <div class="calc-result-main-sub">sur des tâches automatisables</div>
             </div>
-            <div class="calc-slider-wrap">
-              <div class="calc-slider-label" id="lbl-relances">3 heures / semaine</div>
-              <input type="range" class="calc-slider" id="sl-relances" min="1" max="15" value="3" oninput="calcSlider('relances',this.value,'h/sem')">
+            <div class="calc-result-secondary">
+              <div class="calc-result-item-light"><div class="n" id="calcHours">0h</div><div class="l">récupérables / mois</div></div>
+              <div class="calc-result-item-light"><div class="n" id="calcMonthly">0 €</div><div class="l">économisés / mois</div></div>
             </div>
+            <div class="calc-hourly-row">
+              <div class="calc-hourly-label">Votre coût horaire</div>
+              <input type="range" class="calc-slider" id="calcHourlySlider" min="20" max="80" value="35" oninput="calcUpdateHourly(this.value)" style="width:80px;flex-shrink:0">
+              <div class="calc-hourly-val" id="calcHourlyVal">35 €/h</div>
+            </div>
+            <button type="button" class="btn-primary" onclick="showPage('contact')" style="width:100%">Confirmer ce chiffre lors de l'audit gratuit →</button>
           </div>
-          <div class="calc-task" id="ct-devis">
-            <div class="calc-task-hdr" onclick="toggleCalcTask('ct-devis')">
-              <input type="checkbox" class="calc-cb" id="cb-devis" onchange="calcUpdate()">
-              <label class="calc-task-label" for="cb-devis">Génération de devis</label>
-              <span class="calc-task-hint" id="hint-devis">0 devis/sem</span>
-            </div>
-            <div class="calc-slider-wrap">
-              <div class="calc-slider-label" id="lbl-devis">5 devis / semaine (≈ 3h45)</div>
-              <input type="range" class="calc-slider" id="sl-devis" min="1" max="30" value="5" oninput="calcSlider('devis',this.value,'devis/sem')">
-            </div>
-          </div>
-          <div class="calc-task" id="ct-reporting">
-            <div class="calc-task-hdr" onclick="toggleCalcTask('ct-reporting')">
-              <input type="checkbox" class="calc-cb" id="cb-reporting" onchange="calcUpdate()">
-              <label class="calc-task-label" for="cb-reporting">Reporting & tableaux de bord</label>
-              <span class="calc-task-hint" id="hint-reporting">0h/sem</span>
-            </div>
-            <div class="calc-slider-wrap">
-              <div class="calc-slider-label" id="lbl-reporting">3 heures / semaine</div>
-              <input type="range" class="calc-slider" id="sl-reporting" min="1" max="10" value="3" oninput="calcSlider('reporting',this.value,'h/sem')">
-            </div>
-          </div>
-          <div class="calc-task" id="ct-saisie">
-            <div class="calc-task-hdr" onclick="toggleCalcTask('ct-saisie')">
-              <input type="checkbox" class="calc-cb" id="cb-saisie" onchange="calcUpdate()">
-              <label class="calc-task-label" for="cb-saisie">Saisie ERP / logiciels</label>
-              <span class="calc-task-hint" id="hint-saisie">0h/sem</span>
-            </div>
-            <div class="calc-slider-wrap">
-              <div class="calc-slider-label" id="lbl-saisie">4 heures / semaine</div>
-              <input type="range" class="calc-slider" id="sl-saisie" min="1" max="15" value="4" oninput="calcSlider('saisie',this.value,'h/sem')">
-            </div>
-          </div>
-          <div class="calc-task" id="ct-rdv">
-            <div class="calc-task-hdr" onclick="toggleCalcTask('ct-rdv')">
-              <input type="checkbox" class="calc-cb" id="cb-rdv" onchange="calcUpdate()">
-              <label class="calc-task-label" for="cb-rdv">Gestion RDV & confirmations</label>
-              <span class="calc-task-hint" id="hint-rdv">0h/sem</span>
-            </div>
-            <div class="calc-slider-wrap">
-              <div class="calc-slider-label" id="lbl-rdv">2 heures / semaine</div>
-              <input type="range" class="calc-slider" id="sl-rdv" min="1" max="10" value="2" oninput="calcSlider('rdv',this.value,'h/sem')">
-            </div>
-          </div>
-          <div class="calc-task" id="ct-emails">
-            <div class="calc-task-hdr" onclick="toggleCalcTask('ct-emails')">
-              <input type="checkbox" class="calc-cb" id="cb-emails" onchange="calcUpdate()">
-              <label class="calc-task-label" for="cb-emails">Emails, archivage, classement</label>
-              <span class="calc-task-hint" id="hint-emails">0h/sem</span>
-            </div>
-            <div class="calc-slider-wrap">
-              <div class="calc-slider-label" id="lbl-emails">2 heures / semaine</div>
-              <input type="range" class="calc-slider" id="sl-emails" min="1" max="10" value="2" oninput="calcSlider('emails',this.value,'h/sem')">
-            </div>
-          </div>
-        </div>
-        <div class="calc-result-box" id="calcResultBox">
-          <div id="calcEmpty" class="calc-empty">Cochez au moins une tâche pour voir votre estimation →</div>
-          <div id="calcResults" style="display:none">
-            <div class="calc-result-grid">
-              <div class="calc-result-item">
-                <div class="n" id="calcMonthly">0h</div>
-                <div class="l">heures perdues<br>par mois</div>
-              </div>
-              <div class="calc-result-item">
-                <div class="n green" id="calcRecoverable">0h</div>
-                <div class="l">heures récupérables<br>avec Dunai (~80%)</div>
-              </div>
-              <div class="calc-result-item">
-                <div class="n" id="calcMonthCost">0€</div>
-                <div class="l">coût mensuel<br>de ce temps (35€/h)</div>
-              </div>
-              <div class="calc-result-item">
-                <div class="n green" id="calcAnnual">0€</div>
-                <div class="l">économies<br>potentielles / an</div>
-              </div>
-            </div>
-            <button class="btn-primary" onclick="showPage('contact')" style="width:100%">Confirmer ce chiffre lors de l'audit gratuit →</button>
-          </div>
-          <p class="calc-disclaimer">Estimation indicative basée sur un coût horaire moyen de 35€ et un taux de récupération de 80%. Vos gains réels sont estimés précisément lors de l'audit.</p>
+          <p class="calc-disclaimer">Estimation indicative (taux horaire personnalisable · 80% récupérables). Vos gains réels estimés lors de l'audit.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- TARIFS APERÇU -->
   <section class="section" style="background:var(--creme2)">
@@ -1449,39 +1410,170 @@ function startCounters() {
   });
 }
 
-const calcDefs={relances:{type:'hours',default:3,max:15},devis:{type:'devis',default:5,max:30,minPerUnit:45},reporting:{type:'hours',default:3,max:10},saisie:{type:'hours',default:4,max:15},rdv:{type:'hours',default:2,max:10},emails:{type:'hours',default:2,max:10}};
-function toggleCalcTask(taskId) {
-  const task=document.getElementById(taskId); const key=taskId.replace('ct-','');
-  const cb=document.getElementById('cb-'+key); cb.checked=!cb.checked; task.classList.toggle('active',cb.checked);
-  const hint=document.getElementById('hint-'+key);
-  if(cb.checked){const val=parseInt(document.getElementById('sl-'+key).value);const def=calcDefs[key];hint.textContent=def.type==='devis'?val+' devis/sem':val+'h/sem';}
-  else{hint.textContent=calcDefs[key].type==='devis'?'0 devis/sem':'0h/sem';}
-  calcUpdate();
-}
-function calcSlider(key,val,unit) {
-  const def=calcDefs[key]; const lbl=document.getElementById('lbl-'+key); const hint=document.getElementById('hint-'+key);
-  if(def.type==='devis'){const hrs=Math.round((val*def.minPerUnit)/60*10)/10;lbl.textContent=val+' devis / semaine (≈ '+hrs+'h)';hint.textContent=val+' devis/sem';}
-  else{lbl.textContent=val+' heure'+(val>1?'s':'')+' / semaine';hint.textContent=val+'h/sem';}
-  calcUpdate();
-}
-function calcUpdate() {
-  let totalWeeklyHours=0;
-  Object.keys(calcDefs).forEach(key=>{
-    const cb=document.getElementById('cb-'+key); if(!cb.checked) return;
-    const val=parseInt(document.getElementById('sl-'+key).value); const def=calcDefs[key];
-    totalWeeklyHours+=def.type==='devis'?(val*def.minPerUnit)/60:val;
+const CALC_PROFILES = {
+  pme: [
+    { cat: 'Administration & gestion', tasks: [
+      { label: 'Relances clients & impayés', unit: 'h/sem', min:1, max:20, val:5, hpu:1 },
+      { label: 'Saisie ERP / logiciels métier', unit: 'h/sem', min:1, max:20, val:6, hpu:1 },
+      { label: 'Onboarding & gestion RH', unit: 'h/sem', min:1, max:10, val:3, hpu:1 },
+      { label: 'Génération de devis', unit: 'devis/sem', min:1, max:30, val:8, hpu:0.75 },
+    ]},
+    { cat: 'Reporting & communication interne', tasks: [
+      { label: 'Reporting & tableaux de bord direction', unit: 'h/sem', min:1, max:15, val:5, hpu:1 },
+      { label: 'Emails, archivage, classement', unit: 'h/sem', min:1, max:10, val:3, hpu:1 },
+    ]},
+    { cat: 'Marketing & présence en ligne', tasks: [
+      { label: 'Posts LinkedIn & réseaux sociaux', unit: 'posts/sem', min:1, max:10, val:3, hpu:0.75 },
+      { label: 'Articles de blog & contenu SEO', unit: 'articles/mois', min:1, max:8, val:2, hpu:3 },
+      { label: 'Newsletter mensuelle', unit: 'newsletters/mois', min:1, max:4, val:1, hpu:2 },
+    ]},
+  ],
+  tpe: [
+    { cat: 'Gestion clients', tasks: [
+      { label: 'Génération et envoi de devis', unit: 'devis/sem', min:1, max:20, val:5, hpu:0.75 },
+      { label: 'Relances clients & impayés', unit: 'h/sem', min:1, max:10, val:3, hpu:1 },
+      { label: 'Prise de RDV & confirmations', unit: 'h/sem', min:1, max:8, val:2, hpu:1 },
+      { label: 'Réponses avis Google / Trustpilot', unit: 'h/sem', min:1, max:5, val:1, hpu:1 },
+    ]},
+    { cat: 'Administration', tasks: [
+      { label: 'Transfert factures fournisseurs', unit: 'h/sem', min:1, max:10, val:4, hpu:1 },
+      { label: 'Emails & archivage', unit: 'h/sem', min:1, max:8, val:2, hpu:1 },
+    ]},
+    { cat: 'Marketing & présence en ligne', tasks: [
+      { label: 'Posts Google Business / Instagram', unit: 'posts/sem', min:1, max:7, val:2, hpu:0.75 },
+      { label: 'Articles de blog local & SEO', unit: 'articles/mois', min:1, max:4, val:1, hpu:3 },
+    ]},
+  ],
+  ae: [
+    { cat: 'Gestion clients & admin', tasks: [
+      { label: 'Relances clients & facturation', unit: 'h/sem', min:1, max:8, val:2, hpu:1 },
+      { label: 'Génération de devis & propositions', unit: 'devis/sem', min:1, max:10, val:3, hpu:0.75 },
+      { label: 'Prise de RDV & confirmations', unit: 'h/sem', min:1, max:6, val:2, hpu:1 },
+      { label: 'Emails, admin, classement', unit: 'h/sem', min:1, max:6, val:2, hpu:1 },
+    ]},
+    { cat: 'Marketing & présence en ligne', tasks: [
+      { label: 'Posts LinkedIn / Instagram', unit: 'posts/sem', min:1, max:10, val:3, hpu:0.75 },
+      { label: 'Articles de blog & contenu SEO', unit: 'articles/mois', min:1, max:6, val:2, hpu:3 },
+      { label: 'Newsletter clients', unit: 'newsletters/mois', min:1, max:4, val:1, hpu:2 },
+    ]},
+  ],
+};
+
+let _calcProfile = 'pme';
+let _calcHourly = 35;
+let _calcChecked = {};
+let _calcSliders = {};
+let _calcTaskIndex = [];
+
+function syncCalcProfile(p) {
+  _calcProfile = p;
+  _calcChecked = {};
+  _calcSliders = {};
+  _calcTaskIndex = [];
+  // Mettre à jour les tabs du calculateur
+  document.querySelectorAll('#calcProfileTabs .calc-ptab').forEach(t => {
+    t.classList.toggle('active', t.dataset.calcProfile === p);
   });
-  const monthly=Math.round(totalWeeklyHours*4.33); const recoverable=Math.round(monthly*0.8);
-  const monthlyCost=Math.round(recoverable*35/100)*100; const annual=monthlyCost*12;
-  const empty=document.getElementById('calcEmpty'); const results=document.getElementById('calcResults');
-  if(totalWeeklyHours===0){empty.style.display='';results.style.display='none';}
-  else{empty.style.display='none';results.style.display='';
-    document.getElementById('calcMonthly').textContent=monthly+'h';
-    document.getElementById('calcRecoverable').textContent=recoverable+'h';
-    document.getElementById('calcMonthCost').textContent=monthlyCost.toLocaleString('fr-FR')+'€';
-    document.getElementById('calcAnnual').textContent=annual.toLocaleString('fr-FR')+'€';
+  // Sync le sélecteur de profil principal si différent
+  const savedProfile = localStorage.getItem('dunai_profile');
+  if (savedProfile !== p) {
+    localStorage.setItem('dunai_profile', p);
+    document.querySelectorAll('#profileTabs .profile-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.profile === p);
+    });
+    if (typeof PROFILE_DATA !== 'undefined') {
+      const data = PROFILE_DATA[p];
+      const content = document.getElementById('profileContent');
+      if (content && data) {
+        content.innerHTML = `<div class="profile-content-title">${data.title}</div>
+          <div class="profile-use-cases">${data.cases.map(c=>`<div class="profile-use-case">${c}</div>`).join('')}</div>
+          <div class="profile-cta-row"><button type="button" class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
+          <button type="button" class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</button></div>`;
+      }
+    }
+  }
+  renderCalcTasks();
+  calcUpdateResult();
+}
+
+function renderCalcTasks() {
+  const sections = CALC_PROFILES[_calcProfile];
+  const container = document.getElementById('calcTasksContainer');
+  if (!container) return;
+  container.innerHTML = '';
+  let idx = 0;
+  sections.forEach(sec => {
+    const catEl = document.createElement('div');
+    catEl.className = 'calc-category-label';
+    catEl.textContent = sec.cat;
+    container.appendChild(catEl);
+    sec.tasks.forEach(t => {
+      _calcTaskIndex[idx] = t;
+      _calcSliders[idx] = t.val;
+      const row = document.createElement('div');
+      row.className = 'calc-task';
+      row.id = `ctask-${idx}`;
+      row.innerHTML = `<div class="calc-task-hdr" onclick="calcToggleTask(${idx})">
+        <input type="checkbox" class="calc-cb" id="ccb-${idx}" onchange="calcToggleTask(${idx},this.checked)" onclick="event.stopPropagation()">
+        <label class="calc-task-label" for="ccb-${idx}">${t.label}</label>
+        <span class="calc-task-hint" id="chint-${idx}">0 ${t.unit}</span>
+      </div>
+      <div class="calc-slider-wrap">
+        <div class="calc-slider-label" id="clbl-${idx}">${t.val} ${t.unit}</div>
+        <input type="range" class="calc-slider" min="${t.min}" max="${t.max}" value="${t.val}" oninput="calcOnSlider(${idx},this.value)">
+      </div>`;
+      container.appendChild(row);
+      idx++;
+    });
+  });
+}
+
+function calcToggleTask(i, forceVal) {
+  const cb = document.getElementById(`ccb-${i}`);
+  if (forceVal === undefined) { cb.checked = !cb.checked; }
+  _calcChecked[i] = cb.checked;
+  document.getElementById(`ctask-${i}`).classList.toggle('active', cb.checked);
+  const t = _calcTaskIndex[i];
+  document.getElementById(`chint-${i}`).textContent = cb.checked ? `${_calcSliders[i]} ${t.unit}` : `0 ${t.unit}`;
+  calcUpdateResult();
+}
+
+function calcOnSlider(i, val) {
+  _calcSliders[i] = parseFloat(val);
+  const t = _calcTaskIndex[i];
+  document.getElementById(`clbl-${i}`).textContent = `${val} ${t.unit}`;
+  document.getElementById(`chint-${i}`).textContent = `${val} ${t.unit}`;
+  calcUpdateResult();
+}
+
+function calcUpdateHourly(val) {
+  _calcHourly = parseFloat(val);
+  document.getElementById('calcHourlyVal').textContent = `${val} €/h`;
+  calcUpdateResult();
+}
+
+function calcUpdateResult() {
+  let totalH = 0;
+  _calcTaskIndex.forEach((t, i) => { if (_calcChecked[i]) totalH += _calcSliders[i] * t.hpu; });
+  const recH = Math.round(totalH * 4.33 * 0.8);
+  const monthly = Math.round(recH * _calcHourly);
+  const annual = monthly * 12;
+  const hasChecked = Object.values(_calcChecked).some(Boolean);
+  document.getElementById('calcResultEmpty').style.display = hasChecked ? 'none' : 'block';
+  const filled = document.getElementById('calcResultFilled');
+  filled.style.display = hasChecked ? 'flex' : 'none';
+  if (hasChecked) {
+    document.getElementById('calcAnnual').textContent = annual.toLocaleString('fr-FR') + ' €';
+    document.getElementById('calcHours').textContent = recH + 'h';
+    document.getElementById('calcMonthly').textContent = monthly.toLocaleString('fr-FR') + ' €';
   }
 }
+
+// Init calculateur au chargement
+(function initCalc() {
+  const saved = localStorage.getItem('dunai_profile') || 'pme';
+  syncCalcProfile(saved);
+})();
 
 function toggleFaq(el) {
   const item=el.closest('.faq-item'); const isOpen=item.classList.contains('open');
