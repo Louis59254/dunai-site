@@ -455,7 +455,18 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   .calc-grid { display: grid; grid-template-columns: 1.1fr 1fr; align-items: start; }
   .roi-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  .nav-phone { display: flex; }
 }
+
+/* NAV PHONE */
+.nav-phone { display: none; align-items: center; gap: 5px; font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; padding: 7px 12px; border-radius: var(--r-full); transition: color .18s; }
+.nav-phone:hover { color: var(--blanc); }
+.nav-phone svg { stroke: currentColor; flex-shrink: 0; }
+
+/* HERO PROFILE PILLS */
+.hero-profile-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
+.hero-profile-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--r-full); padding: 5px 12px; }
+.hpp-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--flamme); flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -483,6 +494,10 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <li><a onclick="showPage('tarifs')">Tarifs</a></li>
       <li><a onclick="showPage('blog')">Blog</a></li>
     </ul>
+    <a href="tel:0646890887" class="nav-phone">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.05 2.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      06 46 89 08 87
+    </a>
     <button class="nav-cta-btn" onclick="showPage('contact');closeMenu()">Audit gratuit</button>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -501,6 +516,11 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
       <div>
         <div class="hero-kicker"><span class="kicker-dot"></span>Agence IA & Automatisation · Dunkerque · Hauts-de-France</div>
         <h1>Vos tâches répétitives,<br><span class="hl">automatisées.</span><br>Vos équipes libérées.</h1>
+        <div class="hero-profile-pills">
+          <span class="hero-profile-pill"><span class="hpp-dot"></span>Dirigeant PME</span>
+          <span class="hero-profile-pill"><span class="hpp-dot"></span>Gérant TPE</span>
+          <span class="hero-profile-pill"><span class="hpp-dot"></span>Autoentrepreneur</span>
+        </div>
         <p class="hero-sub">On vient dans vos locaux, on identifie ce qui vous fait perdre du temps, et on déploie les agents IA qui le récupèrent — en moins de 6 semaines.</p>
         <div class="hero-actions">
           <a class="btn-primary" onclick="showPage('contact')">Réserver mon audit gratuit →</a>
