@@ -1381,6 +1381,15 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
   <footer><div class="footer-inner"><div class="footer-top"><div><svg xmlns="http://www.w3.org/2000/svg" width="108" height="32" viewBox="195 42 300 88"><text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9"><tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan></text><circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/></svg></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta" aria-label="Audit gratuit" aria-hidden="true">
+  <div>
+    <div class="sticky-cta-text">L'audit est gratuit et sans engagement.</div>
+    <div class="sticky-cta-phone">📞 06 46 89 08 87</div>
+  </div>
+  <button class="sticky-cta-btn" onclick="showPage('contact')">Audit gratuit →</button>
+</div>
+
 <script>
 const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', tarifs:'Tarifs', blog:'Blog', contact:'Audit gratuit' };
 
@@ -1716,13 +1725,5 @@ function filterTemoByProfile(p) {
 })();
 </script>
 
-<!-- STICKY CTA -->
-<div class="sticky-cta" id="stickyCta" aria-label="Audit gratuit" aria-hidden="true">
-  <div>
-    <div class="sticky-cta-text">L'audit est gratuit et sans engagement.</div>
-    <div class="sticky-cta-phone">📞 06 46 89 08 87</div>
-  </div>
-  <button class="sticky-cta-btn" onclick="showPage('contact')">Audit gratuit →</button>
-</div>
 </body>
 </html>
