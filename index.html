@@ -473,7 +473,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 .profile-selector-inner { max-width: 1160px; margin: 0 auto; }
 .profile-selector-hdr { margin-bottom: 1.5rem; }
 .profile-tabs { display: flex; gap: 0; border: 1.5px solid var(--border-light); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 0; }
-.profile-tab { flex: 1; padding: 14px 10px; text-align: center; cursor: pointer; background: var(--blanc); border-right: 1px solid var(--border-light); transition: background .18s; }
+.profile-tab { flex: 1; padding: 14px 10px; text-align: center; cursor: pointer; background: var(--blanc); border: none; border-right: 1px solid var(--border-light); font-family: inherit; transition: background .18s; }
 .profile-tab:last-child { border-right: none; }
 .profile-tab.active { background: var(--flamme-pale); border-bottom: 2px solid var(--flamme); }
 .profile-tab-icon { font-size: 20px; display: block; margin-bottom: 4px; }
@@ -486,10 +486,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 .profile-use-case { display: flex; align-items: flex-start; gap: .625rem; font-size: 13px; color: var(--brun); }
 .profile-use-case::before { content: '→'; color: var(--flamme); font-weight: 700; flex-shrink: 0; }
 .profile-cta-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.profile-cta-link { font-size: 12px; color: var(--brun); text-decoration: underline; cursor: pointer; }
-@media (min-width: 640px) { .profile-tabs { gap: 0; } }
-@media (min-width: 1024px) { .profile-content-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; } }
-</style>
+.profile-cta-link { font-size: 12px; color: var(--brun); text-decoration: underline; cursor: pointer; background: none; border: none; font-family: inherit; }</style>
 </head>
 <body>
 
@@ -615,21 +612,21 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
         <h2 class="h2" style="font-size:clamp(1.5rem,4vw,2.25rem)">Quelle situation vous ressemble le plus ?</h2>
       </div>
       <div class="profile-tabs" id="profileTabs">
-        <div class="profile-tab active" data-profile="pme" onclick="setProfile('pme')">
-          <span class="profile-tab-icon">🏢</span>
+        <button type="button" class="profile-tab active" data-profile="pme" onclick="setProfile('pme')">
+          <span class="profile-tab-icon" aria-hidden="true">🏢</span>
           <span class="profile-tab-name">PME</span>
           <span class="profile-tab-desc">10–50 salariés</span>
-        </div>
-        <div class="profile-tab" data-profile="tpe" onclick="setProfile('tpe')">
-          <span class="profile-tab-icon">🔧</span>
+        </button>
+        <button type="button" class="profile-tab" data-profile="tpe" onclick="setProfile('tpe')">
+          <span class="profile-tab-icon" aria-hidden="true">🔧</span>
           <span class="profile-tab-name">TPE / Artisan</span>
           <span class="profile-tab-desc">2–9 salariés</span>
-        </div>
-        <div class="profile-tab" data-profile="ae" onclick="setProfile('ae')">
-          <span class="profile-tab-icon">🧑‍💻</span>
+        </button>
+        <button type="button" class="profile-tab" data-profile="ae" onclick="setProfile('ae')">
+          <span class="profile-tab-icon" aria-hidden="true">🧑‍💻</span>
           <span class="profile-tab-name">Autoentrepreneur</span>
           <span class="profile-tab-desc">Seul·e</span>
-        </div>
+        </button>
       </div>
       <div class="profile-content" id="profileContent"></div>
     </div>
@@ -1475,7 +1472,7 @@ function setProfile(p) {
       </div>
       <div class="profile-cta-row">
         <button class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
-        <span class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</span>
+        <button type="button" class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</button>
       </div>`;
   }
   // Synchroniser le calculateur si présent
