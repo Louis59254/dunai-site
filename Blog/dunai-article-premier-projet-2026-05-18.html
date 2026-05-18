@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment choisir son premier projet d'automatisation — Dunai</title>
+  <meta name="description" content="4 critères concrets pour choisir le bon premier projet d'automatisation en PME. Évitez les erreurs fréquentes et atteignez un ROI ×4 en 12 mois avec Dunai, agence IA à Dunkerque.">
+  <link rel="canonical" href="https://dunai.fr/Blog/dunai-article-premier-projet-2026-05-18.html">
+  <meta property="og:title" content="Comment choisir son premier projet d'automatisation — Dunai">
+  <meta property="og:description" content="4 critères concrets pour choisir le bon premier projet d'automatisation en PME du Nord.">
+  <meta property="og:image" content="https://dunai.fr/blog/images/dunai-thumb-premier-projet-2026-05-18.svg">
+  <meta name="twitter:image" content="https://dunai.fr/blog/images/dunai-thumb-premier-projet-2026-05-18.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--anthracite);background:var(--blanc);line-height:1.75}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,10,9,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dark);display:flex;align-items:center;justify-content:space-between;padding:.875rem 2rem}
+    .nav-logo{display:flex;align-items:center;text-decoration:none}
+    .nav-cta{background:#F54800;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.5px;padding:.55rem 1.1rem;border-radius:var(--r-full);text-decoration:none;transition:opacity .2s}
+    .nav-cta:hover{opacity:.88}
+
+    /* BREADCRUMB */
+    .breadcrumb-bar{margin-top:56px;background:var(--anthracite);border-bottom:1px solid var(--border-dark);padding:.75rem 2rem;font-size:12px;color:rgba(255,255,255,.5)}
+    .breadcrumb-bar a{color:rgba(255,255,255,.5);text-decoration:none}
+    .breadcrumb-bar a:hover{color:var(--flamme2)}
+    .breadcrumb-bar span{color:rgba(255,255,255,.25);margin:0 .5rem}
+
+    /* HERO */
+    .hero{background:var(--noir);padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 20% 50%,rgba(234,88,12,.18),transparent);pointer-events:none}
+    .hero-dots{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+    .kicker{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;color:var(--flamme2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5rem}
+    .kicker-dot{width:8px;height:8px;border-radius:50%;background:var(--flamme);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+    .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-2px;line-height:1.1;color:#fff;margin-bottom:1.25rem}
+    .hero h1 .hl{color:var(--flamme2)}
+    .hero-meta{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+    .hero-meta strong{color:rgba(255,255,255,.7)}
+    .hero-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:2.5rem;max-width:640px}
+    .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;border-top:1px solid var(--border-dark);padding-top:2rem}
+    .stat-block{text-align:center}
+    .stat-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.6rem;color:var(--flamme);letter-spacing:-1px}
+    .stat-l{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.4;margin-top:.2rem}
+
+    /* SECTIONS */
+    .section-white{background:var(--blanc);padding:4rem 2rem}
+    .section-dark{background:var(--anthracite);padding:4rem 2rem}
+    .section-cream2{background:var(--creme2);padding:4rem 2rem}
+    .section-anth{background:var(--dark2);padding:4rem 2rem}
+    .container{max-width:800px;margin:0 auto}
+
+    .eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--flamme);margin-bottom:.75rem}
+    h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-1px;line-height:1.2;margin-bottom:1.25rem}
+    .section-dark h2,.section-anth h2{color:#fff}
+    h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:-.3px;margin-bottom:.75rem;margin-top:2rem}
+    .section-dark h3,.section-anth h3{color:#fff}
+    p{margin-bottom:1.25rem;color:var(--brun)}
+    .section-dark p,.section-anth p{color:rgba(255,255,255,.65)}
+    strong{font-weight:600;color:var(--anthracite)}
+    .section-dark strong,.section-anth strong{color:rgba(255,255,255,.9)}
+
+    /* INFO BOX */
+    .info-box{background:var(--flamme-pale);border-left:4px solid var(--flamme);border-radius:var(--r-md);padding:1.25rem 1.5rem;margin:1.75rem 0}
+    .info-box p{color:var(--anthracite);margin:0}
+    .info-box-dark{background:rgba(234,88,12,.08);border-left:4px solid var(--flamme);border-radius:var(--r-md);padding:1.25rem 1.5rem;margin:1.75rem 0}
+    .info-box-dark p{color:rgba(255,255,255,.8);margin:0}
+
+    /* SIGNAL GRID */
+    .signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.75rem 0}
+    .signal-card{background:var(--dark2);border:1px solid var(--border-dark);border-radius:var(--r-md);padding:1.25rem}
+    .signal-card-icon{font-size:1.5rem;margin-bottom:.5rem}
+    .signal-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:.4rem}
+    .signal-card p{font-size:.85rem;color:rgba(255,255,255,.55);margin:0}
+
+    /* PROCESS LIST */
+    .process-list{margin:2rem 0;display:flex;flex-direction:column;gap:0}
+    .process-item{display:flex;gap:1.25rem;align-items:flex-start;position:relative;padding-bottom:2rem}
+    .process-item:last-child{padding-bottom:0}
+    .process-item:not(:last-child)::after{content:'';position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--border-dark)}
+    .process-num{width:40px;height:40px;border-radius:50%;background:var(--flamme);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .process-content h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:.35rem}
+    .process-content p{font-size:.88rem;color:rgba(255,255,255,.6);margin:0}
+
+    /* BA TABLE */
+    .ba-scroll{overflow-x:auto;margin:1.75rem 0}
+    .ba-table{width:100%;border-collapse:collapse;font-size:.88rem}
+    .ba-table thead tr{background:var(--anthracite)}
+    .ba-table thead th{padding:.75rem 1rem;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.5px;color:rgba(255,255,255,.6);text-transform:uppercase}
+    .ba-table thead th.col-after{color:var(--flamme)}
+    .ba-table thead th.col-gain{color:var(--vert)}
+    .ba-table tbody tr{border-bottom:1px solid var(--border-light)}
+    .ba-table tbody tr:hover{background:rgba(234,88,12,.04)}
+    .ba-table tbody td{padding:.75rem 1rem;color:var(--brun);vertical-align:top}
+    .ba-table tbody td:nth-child(2){color:var(--anthracite);font-weight:500}
+    .ba-table tbody td:nth-child(3){color:var(--vert);font-weight:600}
+
+    /* ROI GRID */
+    .roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.75rem 0}
+    .roi-card{background:var(--dark2);border:1px solid var(--border-dark);border-radius:var(--r-lg);padding:1.5rem}
+    .roi-card-label{font-size:.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--flamme2);margin-bottom:.5rem}
+    .roi-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:1rem;line-height:1.3}
+    .roi-results{background:var(--noir);border-radius:var(--r-sm);padding:1rem;display:flex;flex-direction:column;gap:.4rem}
+    .roi-result-line{display:flex;justify-content:space-between;align-items:center;font-size:.82rem}
+    .roi-result-line span:first-child{color:rgba(255,255,255,.5)}
+    .roi-result-line span:last-child{color:var(--flamme2);font-weight:700}
+
+    /* QUOTE BLOCK */
+    .quote-block{border-left:4px solid var(--flamme);padding:1.25rem 1.5rem;margin:1.75rem 0;background:rgba(234,88,12,.05);border-radius:0 var(--r-md) var(--r-md) 0}
+    .quote-block blockquote{font-size:1.05rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:.75rem}
+    .quote-author{font-size:.8rem;color:rgba(255,255,255,.45)}
+
+    /* INTERNAL LINKS */
+    .internal-links{background:var(--creme2);border:1px solid var(--border-light);border-radius:var(--r-lg);padding:1.5rem;margin:2.5rem 0}
+    .internal-links h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.9rem;color:var(--anthracite);margin-bottom:.875rem}
+    .internal-links ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .internal-links ul li::before{content:'→ ';color:var(--flamme);font-weight:700}
+    .internal-links ul li a{color:var(--anthracite);text-decoration:none;font-size:.88rem}
+    .internal-links ul li a:hover{color:var(--flamme)}
+
+    /* FINAL CTA */
+    .final-cta{background:var(--flamme);padding:4rem 2rem;text-align:center}
+    .final-cta h2{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-1px;margin-bottom:1rem}
+    .final-cta p{color:rgba(255,255,255,.85);font-size:1.05rem;margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn-white{background:#fff;color:var(--flamme);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.9rem;padding:.85rem 2rem;border-radius:var(--r-full);text-decoration:none;transition:opacity .2s}
+    .btn-white:hover{opacity:.9}
+    .btn-transparent{background:transparent;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.9rem;padding:.85rem 2rem;border-radius:var(--r-full);text-decoration:none;border:2px solid rgba(255,255,255,.5);transition:border-color .2s}
+    .btn-transparent:hover{border-color:#fff}
+
+    /* FOOTER */
+    footer{background:var(--noir);border-top:1px solid var(--border-dark);padding:3rem 2rem 2rem;text-align:center}
+    footer p{font-size:.82rem;color:rgba(255,255,255,.35)}
+    footer a{color:rgba(255,255,255,.35);text-decoration:none}
+    footer a:hover{color:var(--flamme2)}
+
+    @media(max-width:600px){
+      .hero-stats{grid-template-columns:repeat(2,1fr)}
+      .signal-grid{grid-template-columns:1fr}
+      .roi-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai — Agence IA Dunkerque">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="22" viewBox="0 0 600 180" aria-hidden="true" focusable="false">
+      <text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9">
+        <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
+      </text>
+      <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
+    </svg>
+  </a>
+  <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="https://dunai.fr">Dunai</a>
+  <span>›</span>
+  <a href="https://dunai.fr/blog">Blog</a>
+  <span>›</span>
+  Comment choisir son premier projet d'automatisation
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">
+      <span class="kicker-dot"></span>
+      Automatisation · PME Nord
+    </div>
+    <h1>Comment choisir son premier projet <span class="hl">d'automatisation</span></h1>
+    <div class="hero-meta">
+      <strong>Louis Slosse</strong>
+      <span>·</span>
+      <time datetime="2026-05-18">18 mai 2026</time>
+      <span>·</span>
+      8 min de lecture
+    </div>
+    <p class="hero-sub">Beaucoup de dirigeants de PME savent qu'ils devraient automatiser. Le problème : par où commencer ? Voici le cadre décisionnel que Dunai utilise avec chaque nouveau client pour identifier le bon premier projet — celui qui génère un résultat visible en moins de 6 semaines.</p>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-n">4,2h</div>
+        <div class="stat-l">perdues/salarié/jour sur tâches répétitives</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">68%</div>
+        <div class="stat-l">des PME n'ont encore rien automatisé</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">6 sem.</div>
+        <div class="stat-l">avant les premiers gains mesurables</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">×4</div>
+        <div class="stat-l">ROI médian sur 12 mois</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION WHITE — Pourquoi le premier projet est critique -->
+<section class="section-white">
+  <div class="container">
+    <div class="eyebrow">L'enjeu</div>
+    <h2>Pourquoi le premier projet conditionne tout</h2>
+    <p>Le premier projet d'automatisation n'est pas qu'un chantier technique. C'est un signal envoyé à l'ensemble de vos équipes : <strong>l'IA et l'automatisation fonctionnent ici, dans notre entreprise, avec nos contraintes.</strong></p>
+    <p>Si ce premier projet échoue — ou simplement déçoit — il devient le prétexte à l'inaction pour les deux années suivantes. À l'inverse, un premier projet bien choisi crée une dynamique interne irréversible : les collaborateurs deviennent demandeurs, non résistants.</p>
+
+    <div class="info-box">
+      <p><strong>Constat terrain Dunai :</strong> Sur les PME du Nord que nous avons accompagnées, celles qui ont bien choisi leur premier projet ont toutes lancé un second chantier dans les 4 mois. Celles qui ont mal choisi ont attendu en moyenne 18 mois avant de retenter.</p>
+    </div>
+
+    <p>La pression est donc forte — mais le choix n'est pas si compliqué, à condition d'appliquer les bons critères de sélection.</p>
+
+    <h3>Le piège le plus fréquent : vouloir commencer grand</h3>
+    <p>Beaucoup de dirigeants, enthousiastes après un premier audit ou une démonstration, veulent automatiser leur processus le plus complexe en premier. C'est une erreur. Les projets ambitieux demandent plus de temps, mobilisent plus de ressources, et présentent plus de risques d'ajustements en cours de route.</p>
+    <p>Le premier projet doit être simple, rapide à déployer, et produire des résultats visibles pour tous. Pas parce qu'on manque d'ambition, mais parce que <strong>la confiance se construit étape par étape.</strong></p>
+  </div>
+</section>
+
+<!-- SECTION DARK — Les 4 critères -->
+<section class="section-dark">
+  <div class="container">
+    <div class="eyebrow">Méthode</div>
+    <h2>Les 4 critères de sélection d'un bon premier projet</h2>
+    <p>Chez Dunai, nous appliquons une grille de sélection simple pour identifier le projet à lancer en priorité. Un bon premier projet doit répondre à ces quatre conditions.</p>
+
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h4>Fréquence élevée — la tâche se répète au moins hebdomadairement</h4>
+          <p>Automatiser une tâche qui n'arrive qu'une fois par mois génère peu de ROI visible. Cherchez ce qui se fait chaque jour ou chaque semaine : traitement de mails entrants, relances clients, saisie de commandes, rapports récurrents. Plus la fréquence est haute, plus le gain est immédiat et mesurable.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h4>Règles claires — peu ou pas de cas d'exception</h4>
+          <p>L'automatisation excelle sur les processus à règles stables : si ceci, alors cela. Les processus qui nécessitent beaucoup de jugement humain au cas par cas sont à réserver pour plus tard. Commencez avec ce qui est prévisible et structuré.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h4>Douleur reconnue — vos équipes savent que c'est une perte de temps</h4>
+          <p>Si personne dans l'entreprise n'est frustré par le processus ciblé, l'automatisation passera inaperçue. Le meilleur premier projet est celui dont les personnes concernées disent "enfin !" quand vous leur annoncez l'automatisation. Leur adhésion accélère le déploiement et l'adoption.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h4>Données accessibles — les informations existent déjà quelque part</h4>
+          <p>L'automatisation ne crée pas des données, elle les exploite. Le premier projet doit s'appuyer sur des données déjà disponibles : fichiers Excel, formulaires, emails, ERP, CRM. Si les données sont éparpillées ou non structurées, commencez par les consolider avant d'automatiser.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box-dark">
+      <p><strong>Score rapide :</strong> Notez votre projet candidat de 0 à 3 sur chaque critère (fréquence, règles claires, douleur reconnue, données accessibles). Un score total ≥ 9 sur 12 indique un bon premier projet. En dessous de 7, cherchez un autre candidat.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION CREAM2 — Exemples concrets -->
+<section class="section-cream2">
+  <div class="container">
+    <div class="eyebrow">Cas concrets</div>
+    <h2>Ce que ça donne en pratique — exemples PME Nord</h2>
+    <p>Voici comment quatre entreprises des Hauts-de-France ont appliqué ces critères pour choisir leur premier projet d'automatisation.</p>
+
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Entreprise</th>
+            <th>Premier projet choisi</th>
+            <th class="col-after">Résultat 8 semaines</th>
+            <th class="col-gain">Gain mesuré</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PME logistique, Dunkerque (18 sal.)</td>
+            <td>Relances transporteurs automatiques par email + SMS</td>
+            <td>Zéro email manuel de relance</td>
+            <td>+28h/mois récupérées</td>
+          </tr>
+          <tr>
+            <td>Commerce HdF (8 sal.)</td>
+            <td>Génération automatique de devis depuis le formulaire web</td>
+            <td>Devis envoyé en 3 min au lieu de 45</td>
+            <td>+9 800€/trimestre</td>
+          </tr>
+          <tr>
+            <td>BTP Hauts-de-France (22 sal.)</td>
+            <td>Suivi automatisé des relances devis non signés</td>
+            <td>+28% de devis relancés, taux de signature en hausse</td>
+            <td>+16% de CA signé</td>
+          </tr>
+          <tr>
+            <td>Cabinet santé, Dunkerque (6 praticiens)</td>
+            <td>Rappels automatiques de RDV par SMS/email</td>
+            <td>Taux de no-show divisé par 2,6</td>
+            <td>-62% no-show, +22% CA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Dans chacun de ces cas, le premier projet n'était pas le plus ambitieux techniquement. C'était <strong>le plus douloureux, le plus fréquent, et le plus simple à automatiser</strong> — ce qui a permis un déploiement en moins de 6 semaines et des résultats immédiatement visibles.</p>
+  </div>
+</section>
+
+<!-- SECTION DARK — Ce qu'il faut éviter -->
+<section class="section-anth">
+  <div class="container">
+    <div class="eyebrow">Erreurs fréquentes</div>
+    <h2>Les 4 erreurs qui font rater le premier projet</h2>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <div class="signal-card-icon">🎯</div>
+        <h4>Cibler le processus le plus complexe</h4>
+        <p>Vouloir automatiser l'intégralité du cycle de vente dès le début. Résultat : 6 mois de projet, résultats flous, équipes perdues.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-card-icon">📊</div>
+        <h4>Choisir sans impliquer les équipes</h4>
+        <p>Le projet est choisi par la direction sans consulter les opérationnels. Les automatisations créées ne correspondent pas à la réalité du terrain.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-card-icon">🔧</div>
+        <h4>Confondre outil et solution</h4>
+        <p>Acheter un logiciel d'automatisation sans définir précisément le processus à automatiser. L'outil reste inutilisé faute de cadre clair.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-card-icon">📉</div>
+        <h4>Ne pas définir de métriques de succès</h4>
+        <p>Sans baseline de départ et indicateurs cibles, impossible de mesurer si l'automatisation a fonctionné — et donc de la défendre en interne.</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"On avait voulu automatiser toute notre chaîne logistique d'un coup. Six mois après, on avait dépensé mais rien de déployé. Dunai nous a aidés à recommencer sur un périmètre de 3 jours. Deux mois plus tard, les relances tournaient seules et on avait 28h/mois libérées."</blockquote>
+      <div class="quote-author">— Responsable opérations, PME logistique, Dunkerque</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION WHITE — Comment identifier votre projet -->
+<section class="section-white">
+  <div class="container">
+    <div class="eyebrow">Passer à l'action</div>
+    <h2>Identifier votre premier projet en 3 étapes concrètes</h2>
+    <p>Vous n'avez pas besoin d'un consultant externe pour faire le premier filtre. Voici comment procéder seul en une après-midi.</p>
+
+    <h3>Étape 1 — Cartographier les tâches répétitives</h3>
+    <p>Demandez à chaque responsable de service de lister les 3 tâches qu'ils effectuent le plus souvent et qu'ils considèrent comme des "pertes de temps". Agrégez ces listes. Vous obtenez rapidement un top 10 des candidats à l'automatisation dans votre entreprise.</p>
+    <p>Règle empirique : <strong>4,2 heures par salarié et par jour</strong> sont consacrées à des tâches administratives répétitives dans une PME type. Sur une entreprise de 20 salariés, c'est 84 heures par jour — soit plus de 2 équivalents temps plein dédiés à des tâches à zéro valeur ajoutée.</p>
+
+    <h3>Étape 2 — Appliquer la grille des 4 critères</h3>
+    <p>Pour chaque tâche listée, notez-la sur les 4 critères : fréquence, règles claires, douleur reconnue, données accessibles. Les tâches qui obtiennent les scores les plus élevés sont vos meilleures candidates. Sélectionnez les 2 ou 3 premières.</p>
+
+    <h3>Étape 3 — Estimer l'impact avant de décider</h3>
+    <p>Pour chacune des candidates sélectionnées, estimez :</p>
+    <ul style="margin:0 0 1.25rem 1.5rem;color:var(--brun);line-height:2">
+      <li>Le temps actuel consacré à cette tâche par semaine (en heures × nombre de personnes)</li>
+      <li>Le coût de ce temps (heures × taux horaire chargé)</li>
+      <li>L'impact business indirect : erreurs évitées, délais raccourcis, satisfaction client améliorée</li>
+    </ul>
+    <p>Le projet avec le <strong>coût annuel le plus élevé × la faisabilité technique la plus simple</strong> est votre premier projet. C'est celui qui sera le plus facile à justifier en interne et le plus rapide à montrer des résultats.</p>
+
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Type de tâche</th>
+            <th>Fréquence</th>
+            <th class="col-after">Temps typique éliminé</th>
+            <th class="col-gain">Économie annuelle (20 sal.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Relances clients / fournisseurs</td>
+            <td>Quotidienne</td>
+            <td>2-4h/semaine</td>
+            <td>6 000 – 12 000€</td>
+          </tr>
+          <tr>
+            <td>Génération de devis</td>
+            <td>Plurihebdomadaire</td>
+            <td>3-6h/semaine</td>
+            <td>9 000 – 18 000€</td>
+          </tr>
+          <tr>
+            <td>Traitement commandes entrantes</td>
+            <td>Quotidienne</td>
+            <td>4-8h/semaine</td>
+            <td>12 000 – 24 000€</td>
+          </tr>
+          <tr>
+            <td>Rapports et tableaux de bord</td>
+            <td>Hebdomadaire</td>
+            <td>2-5h/semaine</td>
+            <td>6 000 – 15 000€</td>
+          </tr>
+          <tr>
+            <td>Rappels de RDV / confirmations</td>
+            <td>Quotidienne</td>
+            <td>1-3h/semaine</td>
+            <td>3 000 – 9 000€</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION DARK — Ce qu'un audit Dunai apporte -->
+<section class="section-dark">
+  <div class="container">
+    <div class="eyebrow">Aller plus vite</div>
+    <h2>Pourquoi faire appel à Dunai plutôt que de chercher seul</h2>
+    <p>La méthode ci-dessus fonctionne — mais elle demande du temps et une expertise pour éviter les faux positifs. Un processus peut sembler simple à automatiser et se révéler complexe une fois qu'on creuse les exceptions, les cas limites ou les contraintes techniques.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-card-label">Audit 2 jours</div>
+        <div class="roi-card-title">Cartographie complète de vos processus automatisables</div>
+        <div class="roi-results">
+          <div class="roi-result-line"><span>Processus analysés</span><span>8 à 15</span></div>
+          <div class="roi-result-line"><span>Priorités identifiées</span><span>Top 3 chiffré</span></div>
+          <div class="roi-result-line"><span>Délai rendu</span><span>J+5</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">Déploiement rapide</div>
+        <div class="roi-card-title">Premier projet opérationnel en 6 semaines</div>
+        <div class="roi-results">
+          <div class="roi-result-line"><span>Tâches répétitives éliminées</span><span>-73% moy.</span></div>
+          <div class="roi-result-line"><span>Premiers résultats</span><span>Semaine 4</span></div>
+          <div class="roi-result-line"><span>ROI médian 12 mois</span><span>×4</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">Suivi continu</div>
+        <div class="roi-card-title">Optimisation et passage au projet suivant</div>
+        <div class="roi-results">
+          <div class="roi-result-line"><span>Reporting mensuel</span><span>Inclus</span></div>
+          <div class="roi-result-line"><span>Prochain projet</span><span>M+4 en moy.</span></div>
+          <div class="roi-result-line"><span>Économies cumulées</span><span>×2 en Y2</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p>Notre audit gratuit de 2 heures vous permet de repartir avec une liste priorisée de 3 projets d'automatisation, leur impact estimé et leur niveau de complexité. Sans engagement, sans jargon.</p>
+  </div>
+</section>
+
+<!-- SECTION CREAM2 — Maillage interne -->
+<section class="section-cream2">
+  <div class="container">
+    <div class="internal-links">
+      <h4>À lire aussi</h4>
+      <ul>
+        <li><a href="https://dunai.fr/Blog/dunai-article-1-agents-ia.html">Agent IA vs automatisation classique : quelles différences pour une PME ?</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'IA : comment mesurer les gains réels en entreprise sur 12 mois</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il révèle dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-facturation-relances-devis-2026-04-16.html">Automatiser sa facturation, ses relances, ses devis : mode d'emploi</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-automatisation-pme-dunkerque-2026.html">Automatisation PME Dunkerque : guide complet</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Quel est votre meilleur premier projet ?</h2>
+  <p>En 2 heures d'audit gratuit, Dunai identifie vos 3 meilleures opportunités d'automatisation, les chiffre et les priorise. Vous repartez avec un plan concret, pas une présentation PowerPoint.</p>
+  <div class="cta-buttons">
+    <a class="btn-white" href="https://dunai.fr/#contact">Demander l'audit gratuit</a>
+    <a class="btn-transparent" href="https://dunai.fr/#agents">Voir nos cas clients</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><a href="https://dunai.fr">Dunai</a> — Agence IA & Automatisation · Dunkerque, Hauts-de-France · <a href="https://dunai.fr/blog">Blog</a></p>
+  <p style="margin-top:.5rem">© 2026 Dunai. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
