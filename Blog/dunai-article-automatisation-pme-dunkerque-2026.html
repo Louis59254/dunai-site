@@ -56,8 +56,9 @@
       gap: 8px; pointer-events: none;
     }
     nav.main-nav > * { pointer-events: all; }
-        .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; }
-    .nav-logo img { height: 44px; width: auto; display: block; filter: drop-shadow(0 1px 8px rgba(0,0,0,0.35)); }
+        .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; opacity: 1; transition: opacity .2s; }
+    .nav-logo:hover { opacity: .75; }
+    .nav-logo img { height: 32px; width: auto; display: block; }
     .nav-pill {
       display: flex; align-items: center; gap: 4px;
       background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
@@ -401,7 +402,8 @@
     footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
     .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem; }
-        .footer-logo img { height: 52px; width: auto; display: block; }
+        .footer-brand img { height: 34px; width: auto; display: block; opacity: .9; }
+    .footer-tagline { font-size: 12.5px; color: rgba(255,255,255,0.3); line-height: 1.55; margin-top: .75rem; }
     .footer-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; list-style: none; }
     .footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; }
     .footer-links a:hover { color: rgba(255,255,255,0.7); }
@@ -836,7 +838,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-logo"><img src="/images/logo-footer.svg" alt="Dunai" height="52"></div>
+      <div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div>
       <ul class="footer-links">
         <li><a href="https://dunai.fr">Accueil</a></li>
         <li><a href="https://dunai.fr/services">Agents IA</a></li>

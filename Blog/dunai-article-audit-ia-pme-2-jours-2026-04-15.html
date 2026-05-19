@@ -30,8 +30,9 @@
       gap: 8px; pointer-events: none;
     }
     nav.main-nav > * { pointer-events: all; }
-        .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; }
-    .nav-logo img { height: 44px; width: auto; display: block; filter: drop-shadow(0 1px 8px rgba(0,0,0,0.35)); }
+        .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; opacity: 1; transition: opacity .2s; }
+    .nav-logo:hover { opacity: .75; }
+    .nav-logo img { height: 32px; width: auto; display: block; }
     .nav-pill {
       display: flex; align-items: center; gap: 4px;
       background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
@@ -567,7 +568,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><img src="/images/logo-footer.svg" alt="Dunai" height="52"></div>
+  <div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div>
   <p>Agence IA &amp; Automatisation — Dunkerque, Hauts-de-France</p>
   <p><a href="https://dunai.fr">dunai.fr</a> · <a href="mailto:contact@dunai.fr">contact@dunai.fr</a></p>
 </footer>

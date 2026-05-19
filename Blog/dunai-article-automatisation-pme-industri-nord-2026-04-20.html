@@ -31,8 +31,9 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px; height: 64px;
     }
-    .nav-logo { text-decoration: none; display: inline-flex; align-items: center; }
-    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; opacity: 1; transition: opacity .2s; }
+    .nav-logo:hover { opacity: .75; }
+    .nav-logo img { height: 32px; width: auto; display: block; }
     .nav-cta {
       background: var(--flamme); color: var(--blanc); border: none; border-radius: var(--r-full);
       padding: 8px 20px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
@@ -197,7 +198,8 @@
     /* FOOTER */
     footer { background: var(--noir); padding: 48px 40px; border-top: 1px solid var(--border-dark); }
     .footer-inner { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-        .footer-logo img { height: 52px; width: auto; display: block; }
+        .footer-brand img { height: 34px; width: auto; display: block; opacity: .9; }
+    .footer-tagline { font-size: 12.5px; color: rgba(255,255,255,0.3); line-height: 1.55; margin-top: .75rem; }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); font-family: 'DM Sans', sans-serif; }
 
     @media(max-width:680px) {
@@ -216,7 +218,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="https://dunai.fr" class="nav-logo"><img src="/images/logo-footer.svg" alt="Dunai" height="44"></a>
+  <a href="https://dunai.fr" class="nav-logo"><img src="/images/logo-footer.svg" alt="Dunai" height="32"></a>
   <a href="https://dunai.fr/#contact" class="nav-cta">Audit gratuit</a>
 </nav>
 
