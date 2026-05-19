@@ -85,7 +85,7 @@
       font-size: 18px !important; font-weight: 600 !important;
       padding: 16px 32px !important; border-radius: var(--r-full) !important;
     }
-    @media (min-width: 768px) { .nav-links { display: flex; } .nav-hamburger { display: none; } }
+    @media (min-width: 1024px) { .nav-links { display: flex; } .nav-hamburger { display: none; } }
 
     /* ── HERO ── */
     .hero {
@@ -242,12 +242,12 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="https://dunai.fr">Accueil</a>
-  <a href="https://dunai.fr/#agents">Agents IA</a>
-  <a href="https://dunai.fr/#roi">Résultats</a>
-  <a href="https://dunai.fr/#offres">Offres</a>
-  <a href="https://dunai.fr/#tarifs">Tarifs</a>
+  <a href="https://dunai.fr/agents">Agents IA</a>
+  <a href="https://dunai.fr/roi">Résultats</a>
+  <a href="https://dunai.fr/tarifs">Offres</a>
+  <a href="https://dunai.fr/tarifs">Tarifs</a>
   <a href="https://dunai.fr/blog" class="active">Blog</a>
-  <a href="https://dunai.fr/#contact" class="mobile-menu-cta">Audit gratuit →</a>
+  <a href="https://dunai.fr/contact" class="mobile-menu-cta">Audit gratuit →</a>
 </div>
 
 <!-- NAV -->
@@ -256,13 +256,13 @@
   <div class="nav-pill">
     <ul class="nav-links">
       <li><a href="https://dunai.fr">Accueil</a></li>
-      <li><a href="https://dunai.fr/#agents">Agents IA</a></li>
-      <li><a href="https://dunai.fr/#roi">Résultats</a></li>
-      <li><a href="https://dunai.fr/#offres">Offres</a></li>
-      <li><a href="https://dunai.fr/#tarifs">Tarifs</a></li>
+      <li><a href="https://dunai.fr/agents">Agents IA</a></li>
+      <li><a href="https://dunai.fr/roi">Résultats</a></li>
+      <li><a href="https://dunai.fr/tarifs">Offres</a></li>
+      <li><a href="https://dunai.fr/tarifs">Tarifs</a></li>
       <li><a href="https://dunai.fr/blog" class="active">Blog</a></li>
     </ul>
-    <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+    <a class="nav-cta" href="https://dunai.fr/contact">Audit gratuit</a>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -340,11 +340,34 @@
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="../Blog/dunai-article-premier-projet-2026-05-18.html" target="_blank" style="font-size:13px">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-premier-projet-2026-05-18.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a>
           </div>
         </article>
 
-        <article class="blog-card" data-cat="automatisation">
+        
+        <article class="blog-card" data-cat="roi">
+          <div class="blog-card-img" aria-hidden="true">
+            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
+            <img src="../Blog/images/dunai-thumb-roi-ia-2026-04-28.svg" alt="ROI de l'IA en entreprise" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">ROI &amp; Chiffres</span>
+              <span class="blog-meta-sep" aria-hidden="true">·</span>
+              <time class="blog-read-time" datetime="2026-04-28">28 avr. 2026</time>
+            </div>
+            <h3 class="blog-card-title">Mesurer le vrai ROI de l'IA en entreprise</h3>
+            <p class="blog-card-excerpt">Comment calculer concrètement le retour sur investissement de l'IA dans votre PME. Méthode, chiffres réels et grille de calcul téléchargeable...</p>
+          </div>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <div class="author-avatar" aria-hidden="true">LS</div>
+              <span class="author-name">Louis Slosse</span>
+            </div>
+            <a class="blog-read-link" href="../Blog/dunai-article-roi-ia-2026-04-28.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a>
+          </div>
+        </article>
+<article class="blog-card" data-cat="automatisation">
           <div class="blog-card-img" aria-hidden="true">
             <div class="blog-card-img-inner" style="background:#0C0A09"></div>
             <img src="../Blog/images/dunai-thumb-automatisation-pme-industri-nord-2026-04-20.svg" alt="Automatisation des processus pour PME industrielles du Nord" loading="lazy">
@@ -363,7 +386,7 @@
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="../Blog/dunai-article-automatisation-pme-industri-nord-2026-04-20.html" target="_blank" style="font-size:13px">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-automatisation-pme-industri-nord-2026-04-20.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a>
           </div>
         </article>
 
@@ -386,7 +409,7 @@
               <div class="author-avatar" aria-hidden="true">LS</div>
               <span class="author-name">Louis Slosse</span>
             </div>
-            <a class="blog-read-link" href="../Blog/dunai-article-agent-ia-2026-04-19.html" target="_blank" style="font-size:13px">Lire →</a>
+            <a class="blog-read-link" href="../Blog/dunai-article-agent-ia-2026-04-19.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a>
           </div>
         </article>
 
@@ -558,7 +581,7 @@
         <div class="blog-cta-dots" aria-hidden="true"></div>
         <h3>Vous reconnaissez votre situation dans ces articles ?</h3>
         <p>Un audit gratuit de 2h suffit pour identifier vos 5 premières automatisations et estimer le gain.</p>
-        <a class="blog-cta-btn" href="https://dunai.fr/#contact">Réserver mon audit gratuit →</a>
+        <a class="blog-cta-btn" href="https://dunai.fr/contact">Réserver mon audit gratuit →</a>
       </div>
 
     </div>
@@ -571,10 +594,10 @@
       <div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div>
       <ul class="footer-links">
         <li><a href="https://dunai.fr">Accueil</a></li>
-        <li><a href="https://dunai.fr/#agents">Agents IA</a></li>
-        <li><a href="https://dunai.fr/#roi">Résultats</a></li>
-        <li><a href="https://dunai.fr/#offres">Offres</a></li>
-        <li><a href="https://dunai.fr/#tarifs">Tarifs</a></li>
+        <li><a href="https://dunai.fr/agents">Agents IA</a></li>
+        <li><a href="https://dunai.fr/roi">Résultats</a></li>
+        <li><a href="https://dunai.fr/tarifs">Offres</a></li>
+        <li><a href="https://dunai.fr/tarifs">Tarifs</a></li>
         <li><a href="https://dunai.fr/blog">Blog</a></li>
       </ul>
     </div>
