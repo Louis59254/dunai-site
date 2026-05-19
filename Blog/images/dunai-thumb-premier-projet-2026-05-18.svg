@@ -918,13 +918,7 @@
 
   <!-- Barre verticale flamme à gauche -->
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <text x="52" y="72" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="36" font-weight="800" letter-spacing="-1">
-    <tspan fill="#ffffff">Dun</tspan><tspan fill="#EA580C">ai</tspan>
-  </text>
-
-  <!-- Séparateur logo -->
-
-  <!-- Catégorie -->
+<!-- Catégorie -->
   <text x="52" y="68" font-family="'DM Sans', Arial, sans-serif" font-size="18" font-weight="500"
         fill="#F97316" letter-spacing="2">AUTOMATISATION · PME NORD</text>
 

@@ -30,8 +30,8 @@ button, a { cursor: pointer; }
 /* NAV */
 nav { position: fixed; top: 12px; left: 0; right: 0; z-index: 200; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
 nav > * { pointer-events: all; }
-.nav-logo { cursor: pointer; text-decoration: none; background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); border: 1px solid rgba(0,0,0,0.08); padding: 5px 14px; border-radius: var(--r-full); display: inline-flex; align-items: center; line-height: 1; }
-.nav-logo img { height: 44px; width: auto; display: block; }
+.nav-logo { cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+.nav-logo img { height: 44px; width: auto; display: block; filter: drop-shadow(0 1px 8px rgba(0,0,0,0.35)); }
 .nav-pill { display: flex; align-items: center; gap: 4px; background: rgba(12,10,9,0.85); backdrop-filter: blur(20px); border: 1px solid var(--border-dark); border-radius: var(--r-full); padding: 4px 5px; }
 .nav-links-desktop { display: none; gap: 2px; list-style: none; align-items: center; }
 .nav-links-desktop a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; cursor: pointer; font-weight: 400; padding: 7px 13px; border-radius: var(--r-full); display: block; transition: all .18s; white-space: nowrap; }
@@ -562,7 +562,7 @@ footer { background: var(--noir); padding: 2.5rem 1.25rem 2rem; }
 <!-- NAV -->
 <nav>
   <a class="nav-logo" onclick="showPage('home')" aria-label="Dunai — Agence IA Dunkerque">
-    <img src="/images/logo-nav.svg" alt="Dunai" height="44">
+    <img src="/images/logo-footer.svg" alt="Dunai" height="44">
   </a>
   <div class="nav-pill">
     <ul class="nav-links-desktop" id="navLinks">
