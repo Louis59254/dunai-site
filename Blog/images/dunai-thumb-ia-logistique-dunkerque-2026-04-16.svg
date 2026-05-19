@@ -15,19 +15,14 @@
   <circle cx="1070" cy="370" r="155" fill="#EA580C" opacity="0.05"/>
   <circle cx="1070" cy="370" r="72"  fill="#EA580C" opacity="0.08"/>
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <!-- Logo Dunai -->
-  <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
-    <tspan fill="#ea580c">Dun</tspan><tspan fill="#ffffff">aı</tspan>
-  </text>
-  <circle cx="240.8" cy="71.3" r="5.2" fill="#ea580c"/>
   <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
   <text x="52" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#F97316" letter-spacing="2.5">LOGISTIQUE · DUNKERQUE · IA</text>
-  <text x="52" y="228" font-family="Arial Black, sans-serif" font-size="62" font-weight="800" fill="#ffffff" letter-spacing="-2">IA et logistique :</text>
-  <text x="52" y="304" font-family="Arial Black, sans-serif" font-size="62" font-weight="800" letter-spacing="-2">
+  <text x="52" y="128" font-family="Arial Black, sans-serif" font-size="62" font-weight="800" fill="#ffffff" letter-spacing="-2">IA et logistique :</text>
+  <text x="52" y="204" font-family="Arial Black, sans-serif" font-size="62" font-weight="800" letter-spacing="-2">
     <tspan fill="rgba(255,255,255,0.9)">cas concrets </tspan><tspan fill="#EA580C">Dunkerque</tspan>
   </text>
-  <text x="52" y="372" font-family="Arial, sans-serif" font-size="22" font-weight="300" fill="rgba(255,255,255,0.54)" letter-spacing="-0.3">Optimisation de flux, traçabilité et gains mesurés sur le terrain</text>
-  <line x1="52" y1="416" x2="700" y2="416" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="52" y="272" font-family="Arial, sans-serif" font-size="22" font-weight="300" fill="rgba(255,255,255,0.54)" letter-spacing="-0.3">Optimisation de flux, traçabilité et gains mesurés sur le terrain</text>
+  <line x1="52" y1="316" x2="700" y2="316" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <text x="52"  y="464" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">+28h/mois</text>
   <text x="52"  y="492" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">temps récupéré (18 sal.)</text>
   <text x="280" y="464" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">18 000€/an</text>

@@ -15,19 +15,13 @@
   <circle cx="1080" cy="380" r="160" fill="#EA580C" opacity="0.05"/>
   <circle cx="1080" cy="380" r="80" fill="#EA580C" opacity="0.07"/>
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <!-- Logo Dunai -->
-  <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
-    <tspan fill="#ea580c">Dun</tspan><tspan fill="#ffffff">aı</tspan>
-  </text>
-  <circle cx="240.8" cy="71.3" r="5.2" fill="#ea580c"/>
-  <line x1="52" y1="90" x2="300" y2="90" stroke="#EA580C" stroke-width="2" opacity="0.35"/>
-  <text x="52" y="130" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">AGENTS IA · AUTOMATISATION PME</text>
-  <text x="52" y="220" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Agent IA :</text>
-  <text x="52" y="292" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
+  <text x="52" y="68" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">AGENTS IA · AUTOMATISATION PME</text>
+  <text x="52" y="120" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Agent IA :</text>
+  <text x="52" y="192" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
     <tspan fill="#ffffff">automatiser vos </tspan><tspan fill="#EA580C">tâches</tspan>
   </text>
-  <text x="52" y="358" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce que ça change vraiment pour votre entreprise</text>
-  <line x1="52" y1="410" x2="580" y2="410" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce que ça change vraiment pour votre entreprise</text>
+  <line x1="52" y1="310" x2="580" y2="310" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <text x="52" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-73%</text>
   <text x="52" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
   <text x="210" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>

@@ -26,12 +26,6 @@
   <!-- Barre verticale flamme à gauche -->
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
 
-  <!-- Logo Dunai -->
-  <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
-    <tspan fill="#ea580c">Dun</tspan><tspan fill="#ffffff">aı</tspan>
-  </text>
-  <circle cx="240.8" cy="71.3" r="5.2" fill="#ea580c"/>
-
   <!-- Séparateur logo -->
   <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
 
@@ -40,23 +34,23 @@
         fill="#F97316" letter-spacing="2.5">IA &amp; COMMERCE · HAUTS-DE-FRANCE</text>
 
   <!-- Titre ligne 1 -->
-  <text x="52" y="228" font-family="Arial Black, sans-serif"
+  <text x="52" y="128" font-family="Arial Black, sans-serif"
         font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-2">IA dans le commerce :</text>
 
   <!-- Titre ligne 2 -->
-  <text x="52" y="308" font-family="Arial Black, sans-serif"
+  <text x="52" y="208" font-family="Arial Black, sans-serif"
         font-size="64" font-weight="800" letter-spacing="-2">
     <tspan fill="rgba(255,255,255,0.9)">exemples de </tspan><tspan fill="#EA580C">gains concrets</tspan>
   </text>
 
   <!-- Sous-titre -->
-  <text x="52" y="372" font-family="Arial, sans-serif" font-size="22" font-weight="300"
+  <text x="52" y="272" font-family="Arial, sans-serif" font-size="22" font-weight="300"
         fill="rgba(255,255,255,0.58)" letter-spacing="-0.3">
     Comment les commerçants du Nord automatisent et augmentent leur CA
   </text>
 
   <!-- Séparateur stats -->
-  <line x1="52" y1="418" x2="680" y2="418" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="52" y1="318" x2="680" y2="318" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
 
   <!-- Stat 1 -->
   <text x="52" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">+9 800 €</text>

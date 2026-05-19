@@ -15,19 +15,13 @@
   <circle cx="1070" cy="400" r="130" fill="#EA580C" opacity="0.05"/>
   <circle cx="1070" cy="400" r="65" fill="#EA580C" opacity="0.08"/>
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <!-- Logo Dunai -->
-  <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
-    <tspan fill="#ea580c">Dun</tspan><tspan fill="#ffffff">aı</tspan>
-  </text>
-  <circle cx="240.8" cy="71.3" r="5.2" fill="#ea580c"/>
-  <line x1="52" y1="90" x2="300" y2="90" stroke="#EA580C" stroke-width="2" opacity="0.35"/>
-  <text x="52" y="130" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">AUDIT IA · DIAGNOSTIC TERRAIN</text>
-  <text x="52" y="220" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Audit IA :</text>
-  <text x="52" y="292" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
+  <text x="52" y="68" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">AUDIT IA · DIAGNOSTIC TERRAIN</text>
+  <text x="52" y="120" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Audit IA :</text>
+  <text x="52" y="192" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
     <tspan fill="#ffffff">ce qu'il </tspan><tspan fill="#EA580C">révèle</tspan>
   </text>
-  <text x="52" y="358" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce qu'un audit révèle dans une PME en 2 jours</text>
-  <line x1="52" y1="410" x2="580" y2="410" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce qu'un audit révèle dans une PME en 2 jours</text>
+  <line x1="52" y1="310" x2="580" y2="310" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <text x="52" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">2 jours</text>
   <text x="52" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">pour tout cartographier</text>
   <text x="230" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">48h</text>

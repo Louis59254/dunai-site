@@ -23,12 +23,6 @@
 
   <!-- Barre flamme gauche -->
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-
-  <!-- Logo Dunai -->
-  <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
-    <tspan fill="#ea580c">Dun</tspan><tspan fill="#ffffff">aı</tspan>
-  </text>
-  <circle cx="240.8" cy="71.3" r="5.2" fill="#ea580c"/>
   <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
 
   <!-- Catégorie -->
@@ -36,21 +30,21 @@
         fill="#F97316" letter-spacing="2.5">ADOPTION IA · PME DU NORD</text>
 
   <!-- Titre ligne 1 -->
-  <text x="52" y="228" font-family="Arial Black, sans-serif"
+  <text x="52" y="128" font-family="Arial Black, sans-serif"
         font-size="60" font-weight="800" fill="#ffffff" letter-spacing="-2">Pourquoi les PME du Nord</text>
 
   <!-- Titre ligne 2 -->
-  <text x="52" y="304" font-family="Arial Black, sans-serif"
+  <text x="52" y="204" font-family="Arial Black, sans-serif"
         font-size="60" font-weight="800" letter-spacing="-2">
     <tspan fill="rgba(255,255,255,0.9)">adoptent l'IA </tspan><tspan fill="#EA580C">plus vite</tspan>
   </text>
 
   <!-- Titre ligne 3 -->
-  <text x="52" y="374" font-family="Arial Black, sans-serif"
+  <text x="52" y="274" font-family="Arial Black, sans-serif"
         font-size="60" font-weight="800" fill="rgba(255,255,255,0.55)" letter-spacing="-2">qu'on ne le croit</text>
 
   <!-- Sous-titre -->
-  <text x="52" y="428" font-family="Arial, sans-serif" font-size="21" font-weight="300"
+  <text x="52" y="328" font-family="Arial, sans-serif" font-size="21" font-weight="300"
         fill="rgba(255,255,255,0.52)" letter-spacing="-0.3">La réalité terrain dans les Hauts-de-France, chiffres à l'appui</text>
 
   <!-- Séparateur -->
