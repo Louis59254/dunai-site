@@ -26,9 +26,7 @@
 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,10,9,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-dark);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;letter-spacing:-1px;text-decoration:none}
-    .logo .dun{color:var(--blanc)}
-    .logo .nai{color:var(--flamme)}
+    .logo{text-decoration:none;display:flex;align-items:center}.logo img{height:28px;width:auto}
     .btn-audit{background:var(--flamme);color:var(--blanc);border:none;padding:10px 20px;border-radius:var(--r-full);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;transition:background 0.2s}
     .btn-audit:hover{background:var(--flamme2)}
 
@@ -152,9 +150,7 @@
 
     /* FOOTER */
     footer{background:var(--noir);padding:48px 5%;border-top:1px solid var(--border-dark);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
-    .logo-foot{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;letter-spacing:-1px;text-decoration:none}
-    .logo-foot .dun{color:var(--blanc)}
-    .logo-foot .nai{color:var(--flamme)}
+    .logo-foot{text-decoration:none;display:flex;align-items:center}.logo-foot img{height:32px;width:auto}
     footer p{font-size:13px;color:rgba(255,255,255,0.3)}
     footer nav a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;margin-left:20px}
     footer nav a:hover{color:var(--flamme2)}
@@ -172,12 +168,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="https://dunai.fr" class="logo nav-logo" aria-label="Dunai — Agence IA Dunkerque"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="22" viewBox="0 0 600 180" aria-hidden="true" focusable="false">
-      <text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9">
-        <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
-      </text>
-      <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
-    </svg></a>
+  <a href="https://dunai.fr" class="logo nav-logo" aria-label="Dunai"><img src="/images/logo-footer.svg" alt="Dunai" height="28"></a>
   <a href="https://dunai.fr/#contact" class="btn-audit">Audit gratuit</a>
 </nav>
 
@@ -553,7 +544,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="https://dunai.fr" class="logo-foot"><span class="dun">Dun</span><span class="nai">ai</span></a>
+  <a href="https://dunai.fr" class="logo-foot"><img src="/images/logo-footer.svg" alt="Dunai" height="32"></a>
   <p>© 2026 Dunai — Agence IA & Automatisation — Dunkerque, Hauts-de-France</p>
   <nav>
     <a href="https://dunai.fr/#contact">Contact</a>

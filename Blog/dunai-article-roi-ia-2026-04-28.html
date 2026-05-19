@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI de l'IA : comment mesurer les gains réels en entreprise | Dunai</title>
+  <meta name="description" content="Comment calculer le vrai retour sur investissement de l'IA dans votre PME ? Méthodes concrètes, 4 indicateurs clés et exemples d'entreprises du Nord. Guide Dunai.">
+  <meta property="og:title" content="ROI de l'IA : comment mesurer les gains réels en entreprise">
+  <meta property="og:description" content="Comment calculer le vrai retour sur investissement de l'IA dans votre PME ? Méthodes concrètes, 4 indicateurs clés et exemples d'entreprises du Nord.">
+  <meta property="og:image" content="https://dunai.fr/blog/images/dunai-thumb-roi-ia-2026-04-28.svg">
+  <meta name="twitter:image" content="https://dunai.fr/blog/images/dunai-thumb-roi-ia-2026-04-28.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://dunai.fr/Blog/dunai-article-roi-ia-2026-04-28.html">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--anthracite); background: var(--blanc); line-height: 1.75; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(12,10,9,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-cta { background: #F54800; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; padding: .5rem 1.25rem; border-radius: var(--r-full); text-decoration: none; letter-spacing: .3px; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .88; }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar { background: var(--anthracite); padding: .75rem 2rem; margin-top: 60px; }
+    .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: 12px; color: rgba(255,255,255,0.45); max-width: 860px; margin: 0 auto; }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--flamme2); }
+    .breadcrumb-sep { opacity: .35; }
+
+    /* HERO */
+    .hero { background: var(--noir); padding: 4.5rem 2rem 3.5rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(234,88,12,.18) 0%, transparent 70%); pointer-events: none; }
+    .hero-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(234,88,12,.15) 1.5px, transparent 1.5px); background-size: 30px 30px; pointer-events: none; }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .kicker { display: inline-flex; align-items: center; gap: .5rem; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--flamme2); margin-bottom: 1.25rem; }
+    .kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--flamme); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+    .hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.1; letter-spacing: -2px; color: var(--blanc); margin-bottom: 1.25rem; }
+    .hero h1 .hl { color: var(--flamme); }
+    .hero-meta { display: flex; align-items: center; gap: 1rem; font-size: 13px; color: rgba(255,255,255,.45); margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.25); }
+    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,.7); font-weight: 300; line-height: 1.8; max-width: 700px; margin-bottom: 2.5rem; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-dark); border: 1px solid var(--border-dark); border-radius: var(--r-lg); overflow: hidden; }
+    .hero-stat { background: rgba(255,255,255,.03); padding: 1.25rem 1rem; text-align: center; }
+    .hero-stat-val { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.75rem; color: var(--flamme); letter-spacing: -1px; display: block; }
+    .hero-stat-label { font-size: 11px; color: rgba(255,255,255,.45); margin-top: .25rem; line-height: 1.4; }
+
+    /* SECTIONS */
+    section { padding: 4rem 2rem; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-white { background: var(--blanc); }
+    .section-dark { background: var(--noir); color: var(--blanc); }
+    .section-dark p, .section-dark li { color: rgba(255,255,255,.75); }
+    .section-dark h2, .section-dark h3 { color: var(--blanc); }
+    .section-cream2 { background: var(--creme2); }
+    .section-anth { background: var(--anthracite); color: var(--blanc); }
+    .section-anth p, .section-anth li { color: rgba(255,255,255,.75); }
+    .section-anth h2, .section-anth h3 { color: var(--blanc); }
+
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--flamme); margin-bottom: .75rem; }
+    h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 3.5vw, 2.1rem); letter-spacing: -1px; line-height: 1.2; margin-bottom: 1.25rem; color: var(--anthracite); }
+    h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: -.3px; margin-bottom: .75rem; }
+    p { margin-bottom: 1rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: .5rem; }
+
+    /* INFO BOX */
+    .info-box { border-left: 3px solid var(--flamme); background: var(--flamme-pale); border-radius: 0 var(--r-md) var(--r-md) 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .info-box strong { color: var(--flamme); font-family: 'Plus Jakarta Sans', sans-serif; }
+    .info-box-dark { border-left: 3px solid var(--flamme); background: rgba(234,88,12,.08); border-radius: 0 var(--r-md) var(--r-md) 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .info-box-dark strong { color: var(--flamme2); }
+
+    /* PROCESS LIST */
+    .process-list { list-style: none; padding: 0; margin: 2rem 0; position: relative; }
+    .process-list::before { content: ''; position: absolute; left: 19px; top: 24px; bottom: 24px; width: 2px; background: rgba(234,88,12,.2); }
+    .process-list li { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.75rem; position: relative; }
+    .process-num { width: 40px; height: 40px; border-radius: 50%; background: var(--flamme); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 1; }
+    .process-content h3 { margin-bottom: .25rem; font-size: 1rem; }
+    .process-content p { font-size: .95rem; margin: 0; }
+
+    /* BA TABLE */
+    .ba-scroll { overflow-x: auto; margin: 2rem 0; }
+    .ba-table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: .9rem; }
+    .ba-table thead tr { background: var(--anthracite); }
+    .ba-table thead th { padding: .85rem 1rem; text-align: left; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: rgba(255,255,255,.6); }
+    .ba-table thead th.th-apres { color: var(--flamme2); }
+    .ba-table thead th.th-gain { color: var(--vert); }
+    .ba-table tbody tr { border-bottom: 1px solid var(--border-light); }
+    .ba-table tbody tr:last-child { border-bottom: none; }
+    .ba-table td { padding: .9rem 1rem; }
+    .ba-table td:first-child { font-weight: 500; color: var(--anthracite); }
+    .ba-table .val-avant { color: var(--brun); }
+    .ba-table .val-apres { color: var(--flamme); font-weight: 600; }
+    .ba-table .val-gain { color: var(--vert); font-weight: 700; }
+
+    /* ROI GRID */
+    .roi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 2rem 0; }
+    .roi-card { background: var(--dark2); border: 1px solid var(--border-dark); border-radius: var(--r-lg); padding: 1.5rem; }
+    .roi-card-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--flamme2); margin-bottom: .75rem; }
+    .roi-card h3 { font-size: .95rem; color: var(--blanc); margin-bottom: 1rem; font-weight: 600; }
+    .roi-results { display: flex; flex-direction: column; gap: .5rem; }
+    .roi-result-item { display: flex; justify-content: space-between; align-items: center; padding: .5rem .75rem; background: var(--noir); border-radius: var(--r-sm); }
+    .roi-result-label { font-size: 12px; color: rgba(255,255,255,.5); }
+    .roi-result-val { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; color: var(--flamme); font-size: .95rem; }
+
+    /* SIGNAL GRID */
+    .signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.75rem 0; }
+    .signal-card { background: var(--dark2); border: 1px solid var(--border-dark); border-radius: var(--r-md); padding: 1.25rem; }
+    .signal-card-icon { font-size: 1.5rem; margin-bottom: .5rem; }
+    .signal-card h3 { font-size: .9rem; color: var(--blanc); font-weight: 600; margin-bottom: .4rem; }
+    .signal-card p { font-size: .85rem; color: rgba(255,255,255,.55); margin: 0; }
+
+    /* QUOTE BLOCK */
+    .quote-block { border-left: 4px solid var(--flamme); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--flamme-pale); border-radius: 0 var(--r-md) var(--r-md) 0; }
+    .quote-text { font-size: 1.05rem; font-style: italic; color: var(--anthracite); line-height: 1.7; margin-bottom: .5rem; font-weight: 300; }
+    .quote-author { font-size: 12px; font-weight: 600; color: var(--flamme); letter-spacing: .5px; text-transform: uppercase; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--flamme); padding: 4rem 2rem; text-align: center; }
+    .final-cta h2 { color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -1px; margin-bottom: 1rem; }
+    .final-cta p { color: rgba(255,255,255,.85); font-size: 1.05rem; margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--flamme); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; padding: .9rem 2rem; border-radius: var(--r-full); text-decoration: none; font-size: .95rem; transition: opacity .2s; }
+    .btn-white:hover { opacity: .9; }
+    .btn-transparent { border: 2px solid rgba(255,255,255,.55); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; padding: .85rem 1.75rem; border-radius: var(--r-full); text-decoration: none; font-size: .95rem; transition: border-color .2s; }
+    .btn-transparent:hover { border-color: #fff; }
+
+    /* INTERNAL LINKS */
+    .internal-links { background: var(--creme2); border: 1px solid var(--border-light); border-radius: var(--r-lg); padding: 1.75rem; margin: 2.5rem 0; }
+    .internal-links h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1rem; color: var(--anthracite); margin-bottom: 1rem; }
+    .internal-links ul { padding-left: 0; list-style: none; }
+    .internal-links li { margin-bottom: .5rem; }
+    .internal-links a { color: var(--flamme); text-decoration: none; font-weight: 500; font-size: .9rem; }
+    .internal-links a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--noir); padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--border-dark); }
+    .footer-logo { margin-bottom: 1rem; display: flex; justify-content: center; }
+    footer p { font-size: 13px; color: rgba(255,255,255,.35); }
+    footer a { color: var(--flamme2); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .roi-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai — Agence IA Dunkerque"><img src="/images/logo-footer.svg" alt="Dunai" height="28"></a>
+    <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <nav class="breadcrumb" aria-label="Fil d'ariane">
+      <a href="https://dunai.fr">Dunai</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="https://dunai.fr/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>ROI de l'IA : mesurer les gains réels</span>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-dots" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="kicker">
+        <span class="kicker-dot"></span>
+        ROI &amp; Mesure · IA Entreprise
+      </div>
+      <h1>ROI de l'IA : comment mesurer<br>les <span class="hl">gains réels</span> en entreprise</h1>
+      <div class="hero-meta">
+        <span>Louis Slosse</span>
+        <span class="dot"></span>
+        <time datetime="2026-04-28">28 avril 2026</time>
+        <span class="dot"></span>
+        <span>8 min de lecture</span>
+      </div>
+      <p class="hero-sub">Votre concurrent a investi dans l'IA et annonce des résultats spectaculaires. Mais comment vérifier que ces chiffres sont réels — et comment calculer votre propre retour avant de vous lancer ? Ce guide vous donne les indicateurs concrets, la méthode de calcul et des exemples tirés de PME du Nord.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-val">×4</span>
+          <span class="hero-stat-label">ROI moyen sur 12 mois</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">6 sem.</span>
+          <span class="hero-stat-label">avant les premiers gains</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">-73%</span>
+          <span class="hero-stat-label">tâches répétitives éliminées</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">4,2h</span>
+          <span class="hero-stat-label">perdues/salarié/jour</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 — Pourquoi les PME ratent le calcul -->
+  <section class="section-white">
+    <div class="section-inner">
+      <p class="eyebrow">Le problème de fond</p>
+      <h2>Pourquoi la plupart des PME ratent leur calcul de ROI IA</h2>
+      <p>Quand une PME envisage d'investir dans l'IA, la première question est presque toujours la même : "Combien ça va me rapporter ?" C'est la bonne question. Mais la réponse est souvent fausse, parce qu'on cherche au mauvais endroit.</p>
+      <p>La majorité des dirigeants regardent uniquement le coût de l'outil et le compare à une économie supposée sur les salaires. C'est une vision partielle qui sous-estime systématiquement les gains — et qui explique pourquoi <strong>68% des PME du Nord n'ont encore rien automatisé</strong>, paralysées par un calcul trop flou pour décider.</p>
+
+      <div class="info-box">
+        <strong>Le vrai problème n'est pas le coût, c'est l'invisibilité des pertes actuelles.</strong><br>
+        Un salarié qui passe 4,2h par jour sur des tâches répétitives ne le signale pas sur son bulletin de salaire. Ces heures sont pourtant mesurables — et récupérables.
+      </div>
+
+      <p>Le ROI de l'IA se calcule sur quatre dimensions que peu de dirigeants ont l'habitude de modéliser ensemble : le temps récupéré, les erreurs évitées, la capacité commerciale libérée et l'effet sur la rétention des équipes. Chacune de ces dimensions a un équivalent financier précis.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Les 4 indicateurs -->
+  <section class="section-dark">
+    <div class="section-inner">
+      <p class="eyebrow">Méthode</p>
+      <h2>Les 4 indicateurs à mesurer avant de lancer (et après)</h2>
+      <p>Avant d'automatiser quoi que ce soit, photographiez la situation actuelle. Ces quatre indicateurs constituent votre référence de départ — sans eux, vous ne pourrez jamais démontrer ce que l'IA vous a apporté.</p>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <div class="signal-card-icon">⏱</div>
+          <h3>Temps sur tâches répétitives</h3>
+          <p>Combien d'heures par semaine votre équipe consacre-t-elle à des tâches identiques et reproductibles (saisies, relances, rapports, mises en forme) ?</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-card-icon">❌</div>
+          <h3>Taux d'erreur et reprises</h3>
+          <p>Quelle part de vos devis, factures ou commandes doit être corrigée après envoi ? Chaque reprise a un coût direct en temps et en relation client.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-card-icon">📈</div>
+          <h3>Capacité commerciale bloquée</h3>
+          <p>Combien de devis ou de relances sont retardés parce que l'équipe est occupée ailleurs ? Chaque heure perdue sur l'administratif est une heure de moins pour vendre.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-card-icon">🔄</div>
+          <h3>Délais de traitement</h3>
+          <p>Combien de temps entre la réception d'une demande client et l'envoi d'une réponse ou d'un devis ? Ce délai est directement corrélé au taux de conversion.</p>
+        </div>
+      </div>
+
+      <div class="info-box-dark">
+        <strong>Bonne nouvelle :</strong> ces quatre indicateurs se mesurent en 2 à 3 jours d'observation dans votre équipe. C'est exactement ce que Dunai fait pendant son audit terrain — et les résultats surprennent presque toujours les dirigeants.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — La formule de calcul -->
+  <section class="section-cream2">
+    <div class="section-inner">
+      <p class="eyebrow">Calcul concret</p>
+      <h2>La formule simple pour chiffrer votre ROI IA</h2>
+      <p>Pas besoin d'un tableur complexe. Le calcul de base tient en trois lignes :</p>
+
+      <ol class="process-list">
+        <li>
+          <div class="process-num">1</div>
+          <div class="process-content">
+            <h3>Valorisez le temps récupéré</h3>
+            <p>Heures/semaine automatisables × coût horaire chargé × 52 semaines = économie annuelle brute. Pour un salarié à 30 000€/an, une heure automatisée par jour représente environ 4 500€/an.</p>
+          </div>
+        </li>
+        <li>
+          <div class="process-num">2</div>
+          <div class="process-content">
+            <h3>Ajoutez les gains commerciaux libérés</h3>
+            <p>Si automatiser les devis permet d'en envoyer 30% de plus, calculez l'impact sur le CA signé en appliquant votre taux de conversion moyen. C'est souvent le poste de gain le plus important — et le moins pris en compte.</p>
+          </div>
+        </li>
+        <li>
+          <div class="process-num">3</div>
+          <div class="process-content">
+            <h3>Déduisez le coût total du projet</h3>
+            <p>Intégrez l'investissement initial (audit + déploiement + formation) et le coût mensuel de maintenance. Le ratio gains annuels / coût total vous donne votre ROI. Sur nos projets, il dépasse ×4 sur 12 mois dans la grande majorité des cas.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="ba-scroll">
+        <table class="ba-table">
+          <thead>
+            <tr>
+              <th>Indicateur</th>
+              <th class="val-avant">Avant IA</th>
+              <th class="th-apres">Après IA</th>
+              <th class="th-gain">Gain annuel estimé</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Temps saisie & relances (équipe 8 pers.)</td>
+              <td class="val-avant">14h/semaine</td>
+              <td class="val-apres">4h/semaine</td>
+              <td class="val-gain">+26 000€</td>
+            </tr>
+            <tr>
+              <td>Délai d'envoi devis</td>
+              <td class="val-avant">45 min</td>
+              <td class="val-apres">3 min</td>
+              <td class="val-gain">+9 800€/trim.</td>
+            </tr>
+            <tr>
+              <td>Taux d'erreur facturation</td>
+              <td class="val-avant">12%</td>
+              <td class="val-apres">1,5%</td>
+              <td class="val-gain">-4 200€ litiges</td>
+            </tr>
+            <tr>
+              <td>No-show cabinet (6 praticiens)</td>
+              <td class="val-avant">18%</td>
+              <td class="val-apres">7%</td>
+              <td class="val-gain">+22% CA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Résultats clients réels -->
+  <section class="section-anth">
+    <div class="section-inner">
+      <p class="eyebrow">Cas concrets Nord</p>
+      <h2>Ce que mesurent vraiment les entreprises du Nord</h2>
+      <p>Les chiffres ci-dessous proviennent d'entreprises des Hauts-de-France accompagnées par Dunai. Ils sont mesurés à T+6 mois par rapport à la situation initiale.</p>
+
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-card-tag">Logistique · Dunkerque · 18 sal.</div>
+          <h3>Suivi transporteurs & relances automatisées</h3>
+          <div class="roi-results">
+            <div class="roi-result-item">
+              <span class="roi-result-label">Temps récupéré</span>
+              <span class="roi-result-val">+28h/mois</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Économie annuelle</span>
+              <span class="roi-result-val">18 000€/an</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">ROI</span>
+              <span class="roi-result-val">×4,1</span>
+            </div>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-tag">Commerce HdF · 8 sal.</div>
+          <h3>Devis automatisés &amp; relances clients</h3>
+          <div class="roi-results">
+            <div class="roi-result-item">
+              <span class="roi-result-label">Délai devis</span>
+              <span class="roi-result-val">45 min → 3 min</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Gain trimestriel</span>
+              <span class="roi-result-val">+9 800€</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">ROI</span>
+              <span class="roi-result-val">×3,8</span>
+            </div>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-tag">BTP · Nord · 22 sal.</div>
+          <h3>Automatisation devis &amp; suivi chantiers</h3>
+          <div class="roi-results">
+            <div class="roi-result-item">
+              <span class="roi-result-label">Devis envoyés</span>
+              <span class="roi-result-val">+28%</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">CA signé</span>
+              <span class="roi-result-val">+16%</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">ROI</span>
+              <span class="roi-result-val">×5,2</span>
+            </div>
+          </div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-tag">Santé · 6 praticiens</div>
+          <h3>Rappels patients &amp; gestion des créneaux</h3>
+          <div class="roi-results">
+            <div class="roi-result-item">
+              <span class="roi-result-label">No-show</span>
+              <span class="roi-result-val">-62%</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">CA cabinet</span>
+              <span class="roi-result-val">+22%</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">ROI</span>
+              <span class="roi-result-val">×6,4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block" style="background:rgba(234,88,12,.08); border-left-color:var(--flamme);">
+        <p class="quote-text" style="color:rgba(255,255,255,.8)">"On pensait que l'IA c'était pour les grandes entreprises. Six semaines après le déploiement, j'avais récupéré 12 heures par semaine sur les relances et les devis. Le ROI était déjà là avant la fin du premier trimestre."</p>
+        <div class="quote-author">Dirigeant BTP, 22 salariés — Hauts-de-France</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Les pièges à éviter -->
+  <section class="section-white">
+    <div class="section-inner">
+      <p class="eyebrow">Erreurs fréquentes</p>
+      <h2>Les 3 erreurs qui faussent le calcul de ROI IA</h2>
+
+      <h3>1. Mesurer uniquement les économies directes sur les salaires</h3>
+      <p>L'automatisation ne licencie pas — elle libère. Une heure récupérée sur les relances est une heure investie sur un devis, une visite client ou un projet à plus forte valeur ajoutée. Ne calculer que l'économie salariale revient à ignorer l'essentiel du retour.</p>
+
+      <h3>2. Oublier le coût de l'inaction</h3>
+      <p>Attendre coûte. Chaque semaine pendant laquelle un salarié passe 4,2h sur des tâches répétitives représente une perte mesurable. Sur une équipe de 10 personnes, c'est plus de 200 000€ de valeur non créée par an. Le vrai risque n'est pas l'investissement IA — c'est le statu quo.</p>
+
+      <div class="info-box">
+        <strong>Donnée clé :</strong> avec -73% de tâches répétitives éliminées en moyenne sur nos projets, une équipe de 8 personnes récupère l'équivalent de 2 à 3 postes en capacité productive — sans embaucher.
+      </div>
+
+      <h3>3. Attendre trop longtemps pour mesurer</h3>
+      <p>Les premiers gains apparaissent dès la 6ème semaine après déploiement. Mettre en place des indicateurs de suivi dès le lancement permet de corriger rapidement, d'optimiser les automatisations et de démontrer le ROI aux équipes — ce qui favorise l'adoption.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — Le calendrier des gains -->
+  <section class="section-cream2">
+    <div class="section-inner">
+      <p class="eyebrow">Calendrier</p>
+      <h2>À quoi s'attendre, et quand</h2>
+      <p>Sur la base de nos déploiements dans les PME du Nord, voici le calendrier type d'un projet IA bien conduit :</p>
+
+      <ol class="process-list">
+        <li>
+          <div class="process-num">S1</div>
+          <div class="process-content">
+            <h3>Semaines 1-2 : Audit & cartographie</h3>
+            <p>Identification des tâches automatisables, mesure des indicateurs de départ, priorisation des chantiers par ROI potentiel. Aucune perturbation pour les équipes.</p>
+          </div>
+        </li>
+        <li>
+          <div class="process-num">S3</div>
+          <div class="process-content">
+            <h3>Semaines 3-5 : Déploiement pilote</h3>
+            <p>Mise en place sur le périmètre le plus rentable (en général relances, devis ou reporting). Formation des utilisateurs clés. Ajustements en temps réel.</p>
+          </div>
+        </li>
+        <li>
+          <div class="process-num">S6</div>
+          <div class="process-content">
+            <h3>Semaine 6 : Premiers gains mesurés</h3>
+            <p>Les indicateurs établis en semaine 1 sont remesurés. Sur tous nos projets, les gains sont déjà visibles à ce stade — en temps récupéré, en erreurs évitées et en délais de traitement.</p>
+          </div>
+        </li>
+        <li>
+          <div class="process-num">M3</div>
+          <div class="process-content">
+            <h3>Mois 3-12 : Extension & consolidation</h3>
+            <p>Extension des automatisations aux périmètres suivants, suivi mensuel du ROI, optimisation des workflows. C'est sur cette période que le retour sur investissement ×4 se consolide.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- INTERNAL LINKS -->
+  <section class="section-white" style="padding-top:0; padding-bottom:2rem;">
+    <div class="section-inner">
+      <div class="internal-links">
+        <h3>À lire aussi</h3>
+        <ul>
+          <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'automatisation IA : ce qu'on observe vraiment sur 12 mois →</a></li>
+          <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il révèle dans une PME en 2 jours →</a></li>
+          <li><a href="https://dunai.fr/Blog/dunai-article-automatisation-pme-dunkerque-2026.html">Automatisation PME à Dunkerque : pourquoi 2026 change tout →</a></li>
+          <li><a href="https://dunai.fr/Blog/dunai-article-facturation-relances-devis-2026-04-16.html">Automatiser sa facturation, ses relances, ses devis →</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Calculez votre ROI IA en 2 jours</h2>
+    <p>Dunai réalise un audit terrain dans votre entreprise, mesure vos indicateurs actuels et vous remet une estimation chiffrée du ROI attendu — sans engagement.</p>
+    <div class="cta-buttons">
+      <a class="btn-white" href="https://dunai.fr/#contact">Demander l'audit gratuit</a>
+      <a class="btn-transparent" href="https://dunai.fr/#agents">Voir les cas clients</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo"><img src="/images/logo-footer.svg" alt="Dunai" height="32"></div>
+    <p>© 2026 Dunai — Agence IA &amp; Automatisation · Dunkerque (Hauts-de-France)</p>
+    <p style="margin-top:.5rem"><a href="https://dunai.fr">dunai.fr</a> · <a href="https://dunai.fr/#contact">Contact</a> · <a href="https://dunai.fr/blog">Blog</a></p>
+  </footer>
+
+</body>
+</html>

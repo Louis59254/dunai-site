@@ -17,9 +17,9 @@
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
   <!-- Logo Dunai -->
   <text x="52" y="115.9" font-family="'Space Grotesk','Plus Jakarta Sans',Arial Black,sans-serif" font-weight="700" font-size="72">
-    <tspan fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
+    <tspan fill="#ea580c">Dun</tspan><tspan fill="#ffffff">aı</tspan>
   </text>
-  <circle cx="240.8" cy="71.3" r="5.2" fill="#F54800"/>
+  <circle cx="240.8" cy="71.3" r="5.2" fill="#ea580c"/>
   <line x1="52" y1="90" x2="300" y2="90" stroke="#EA580C" stroke-width="2" opacity="0.35"/>
   <text x="52" y="130" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">AUDIT IA · DIAGNOSTIC TERRAIN</text>
   <text x="52" y="220" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Audit IA :</text>
