@@ -559,7 +559,66 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 .sticky-cta-phone { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 1px; }
 .sticky-cta-btn { background: var(--flamme); color: var(--blanc); font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: var(--r-full); border: none; cursor: pointer; white-space: nowrap; transition: background .2s; flex-shrink: 0; }
 .sticky-cta-btn:hover { background: var(--flamme2); }
-@media (max-width: 639px) { .sticky-cta { bottom: 12px; padding: 10px 12px 8px; gap: 10px; } .sticky-cta-text { display: none; } }</style>
+@media (max-width: 639px) { .sticky-cta { bottom: 12px; padding: 10px 12px 8px; gap: 10px; } .sticky-cta-text { display: none; } }
+
+/* RECONNAIT */
+.reconnait-section { background: var(--blanc); }
+.reconnait-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+.reconnait-item { background: var(--creme2); border: 1.5px solid var(--border-light); border-radius: var(--r-lg); padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; transition: border-color .2s; }
+.reconnait-item:hover { border-color: var(--flamme); }
+.reconnait-emoji { font-size: 1.75rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
+.reconnait-item p { font-size: 14px; color: var(--brun); line-height: 1.7; }
+.reconnait-item strong { color: var(--anthracite); font-weight: 600; }
+.reconnait-conclusion { margin-top: 2rem; padding: 1.25rem 1.5rem; background: var(--noir); border-radius: var(--r-xl); display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; }
+.reconnait-conclusion strong { color: var(--blanc); }
+.reconnait-cta { background: var(--flamme); color: var(--blanc); border: none; padding: 12px 22px; border-radius: var(--r-md); font-size: 14px; font-weight: 500; cursor: pointer; transition: background .2s; flex-shrink: 0; font-family: inherit; }
+.reconnait-cta:hover { background: var(--flamme2); }
+
+/* PROCESS 3 STEPS */
+.process3-section { background: var(--creme); }
+.process3-grid { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+.process3-item { background: var(--blanc); border: 1.5px solid var(--border-light); border-radius: var(--r-lg); padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; }
+.process3-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; color: var(--flamme); flex-shrink: 0; line-height: 1; min-width: 2rem; }
+.process3-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; color: var(--anthracite); margin-bottom: .375rem; }
+.process3-desc { font-size: 13px; color: var(--brun); line-height: 1.7; margin-bottom: .625rem; }
+.process3-timing { display: inline-block; font-size: 11px; font-weight: 600; color: var(--flamme); text-transform: uppercase; letter-spacing: .07em; background: var(--flamme-pale); padding: 3px 10px; border-radius: var(--r-full); }
+
+/* MINI CALC */
+.minicalc-section { background: var(--creme2); }
+.minicalc-box { background: var(--blanc); border: 1.5px solid var(--border-light); border-radius: var(--r-xl); overflow: hidden; margin-top: 2rem; max-width: 680px; }
+.minicalc-profile-row { display: flex; border-bottom: 1.5px solid var(--border-light); }
+.minicalc-ptab { flex: 1; padding: 12px 8px; text-align: center; font-size: 12px; font-weight: 600; color: var(--brun); background: var(--creme2); border: none; cursor: pointer; border-right: 1px solid var(--border-light); transition: all .18s; font-family: inherit; }
+.minicalc-ptab:last-child { border-right: none; }
+.minicalc-ptab.active { background: var(--flamme-pale); color: var(--flamme); border-bottom: 2px solid var(--flamme); }
+.minicalc-task-row { padding: 1.25rem; display: flex; flex-direction: column; gap: .5rem; }
+.minicalc-label { font-size: 13px; font-weight: 500; color: var(--anthracite); }
+.minicalc-select { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--anthracite); background: var(--creme); border: 1.5px solid var(--border-light); border-radius: var(--r-md); padding: 10px 13px; outline: none; transition: border-color .2s; -webkit-appearance: none; appearance: none; cursor: pointer; }
+.minicalc-select:focus { border-color: var(--flamme); }
+.minicalc-empty { padding: 1.25rem; text-align: center; font-size: 13px; color: var(--sable); border-top: 1.5px solid var(--border-light); }
+.minicalc-result { padding: 1.25rem; background: var(--noir); display: flex; flex-direction: column; gap: 1rem; }
+.minicalc-result-main { text-align: center; padding: .75rem; }
+.minicalc-result-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: .5rem; }
+.minicalc-result-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3rem; font-weight: 800; color: var(--flamme); line-height: 1; letter-spacing: -2px; margin-bottom: .375rem; }
+.minicalc-result-sub { font-size: 12px; color: rgba(255,255,255,0.4); }
+.minicalc-result-actions { display: flex; flex-direction: column; gap: .75rem; }
+
+/* TEMOIGNAGE + PRIX */
+.temoprx-section { background: var(--creme); }
+.temoprx-grid { display: flex; flex-direction: column; gap: 2.5rem; }
+
+@media (min-width: 640px) {
+  .reconnait-grid { grid-template-columns: 1fr 1fr; }
+  .reconnait-conclusion { flex-direction: row; align-items: center; }
+  .minicalc-result-actions { flex-direction: row; align-items: center; }
+}
+@media (min-width: 768px) {
+  .temoprx-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 3rem; }
+}
+@media (min-width: 1024px) {
+  .process3-grid { flex-direction: row; }
+  .process3-item { flex-direction: column; flex: 1; gap: .875rem; }
+  .process3-num { font-size: 2.25rem; }
+}</style>
 </head>
 <body>
 
@@ -677,183 +736,32 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </section>
 
-  <!-- SÉLECTEUR DE PROFIL -->
-  <section class="profile-selector">
-    <div class="profile-selector-inner">
-      <div class="profile-selector-hdr">
-        <span class="eyebrow">Personnalisez votre expérience</span>
-        <h2 class="h2" style="font-size:clamp(1.5rem,4vw,2.25rem)">Quelle situation vous ressemble le plus ?</h2>
-      </div>
-      <div class="profile-tabs" id="profileTabs">
-        <button type="button" class="profile-tab active" data-profile="pme" onclick="setProfile('pme')">
-          <span class="profile-tab-icon" aria-hidden="true">🏢</span>
-          <span class="profile-tab-name">PME</span>
-          <span class="profile-tab-desc">10–50 salariés</span>
-        </button>
-        <button type="button" class="profile-tab" data-profile="tpe" onclick="setProfile('tpe')">
-          <span class="profile-tab-icon" aria-hidden="true">🔧</span>
-          <span class="profile-tab-name">TPE / Artisan</span>
-          <span class="profile-tab-desc">2–9 salariés</span>
-        </button>
-        <button type="button" class="profile-tab" data-profile="ae" onclick="setProfile('ae')">
-          <span class="profile-tab-icon" aria-hidden="true">🧑‍💻</span>
-          <span class="profile-tab-name">Autoentrepreneur</span>
-          <span class="profile-tab-desc">Seul·e</span>
-        </button>
-      </div>
-      <div class="profile-content" id="profileContent"></div>
-    </div>
-  </section>
-
-  <!-- OUTILS COMPATIBLES -->
-  <div class="outils-section">
-    <div class="outils-inner">
-      <div class="outils-label">Fonctionne avec vos outils du quotidien</div>
-      <div class="outils-tagline">Vous gardez ce que vous utilisez déjà — on connecte tout.</div>
-      <div class="outils-pills">
-        <span class="stack-pill">Excel</span>
-        <span class="stack-pill">Google Sheets</span>
-        <span class="stack-pill">Outlook</span>
-        <span class="stack-pill">Gmail</span>
-        <span class="stack-pill">Google Drive</span>
-        <span class="stack-pill">Teams</span>
-        <span class="stack-pill">HubSpot</span>
-        <span class="stack-pill">Pipedrive</span>
-        <span class="stack-pill">Salesforce</span>
-        <span class="stack-pill">Sellsy</span>
-        <span class="stack-pill">Sage</span>
-        <span class="stack-pill">Cegid</span>
-        <span class="stack-pill">EBP</span>
-        <span class="stack-pill">SAP</span>
-        <span class="stack-pill">Pennylane</span>
-        <span class="stack-pill">Stripe</span>
-        <span class="stack-pill">Docusign</span>
-        <span class="stack-pill" onclick="showPage('contact')" style="cursor:pointer;border-color:var(--flamme);color:var(--flamme)">+ votre outil →</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- URGENCE -->
-  <div class="urgence">
-    <div class="urgence-inner">
-      <div class="urgence-stats">
-        <div class="u-stat"><div class="n">3 min</div><div class="l">pour générer un devis — contre 45 min en manuel</div></div>
-        <div class="u-stat"><div class="n">−62%</div><div class="l">de rendez-vous manqués chez nos clients planification</div></div>
-        <div class="u-stat"><div class="n">+34%</div><div class="l">de recouvrement client en moyenne dès les 3 premiers mois</div></div>
-        <div class="u-stat"><div class="n">−90%</div><div class="l">de saisie manuelle sur les tâches automatisées</div></div>
-      </div>
-      <p class="urgence-msg">Chaque semaine sans automatisation, ce sont des heures perdues et de la marge laissée sur la table. <strong>On vous aide à récupérer tout ça en 6 semaines.</strong></p>
-      <button class="btn-urgence" onclick="showPage('contact')" style="width:auto;padding:12px 24px">Audit gratuit →</button>
-    </div>
-  </div>
-
-  <!-- POURQUOI DUNAI -->
-  <section class="section pourquoi-section">
+  <!-- VOUS VOUS RECONNAISSEZ ? -->
+  <section class="section reconnait-section">
     <div class="section-inner">
-      <span class="eyebrow">Pourquoi Dunai</span>
-      <h2 class="h2">Tout gérer vous-même<br>— ou faire appel à une grande ESN ?</h2>
-      <p class="lead">Trois approches possibles. Une seule adaptée aux PME qui veulent des résultats en 6 semaines, pas en 18 mois.</p>
-      <div class="pourquoi-grid">
-        <div class="pourquoi-col">
-          <div class="pourquoi-col-eyebrow">Option 1</div>
-          <div class="pourquoi-col-title">Gérer en interne</div>
-          <div class="pourquoi-items">
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Pas de coût immédiat</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Des semaines d'apprentissage (Make, n8n, GPT…)</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Agents fragiles, non maintenus, pas documentés</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Intégrations à vos outils = casse-tête technique</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Aucun ROI mesuré, aucun suivi</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Si ça plante, vous êtes seuls</span></div>
-          </div>
+      <span class="eyebrow">Ça vous parle ?</span>
+      <h2 class="h2">Vous vous reconnaissez<br>dans l'une de ces situations ?</h2>
+      <div class="reconnait-grid">
+        <div class="reconnait-item">
+          <span class="reconnait-emoji">📧</span>
+          <p>Vous passez <strong>3h par semaine</strong> à relancer des clients qui ne paient pas — souvent sans oser insister.</p>
         </div>
-        <div class="pourquoi-col featured">
-          <div class="pourquoi-col-eyebrow">Option 2 — recommandé</div>
-          <div class="pourquoi-col-title">Dunai</div>
-          <div class="pourquoi-items">
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Déploiement opérationnel en 6 semaines</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Intégration clé-en-main à vos outils existants</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Formation de vos équipes incluse</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>ROI validé avant tout démarrage</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Suivi et maintenance continus</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Prix accessible TPE/PME · interlocuteur local unique</span></div>
-          </div>
+        <div class="reconnait-item">
+          <span class="reconnait-emoji">📋</span>
+          <p>Chaque devis vous prend <strong>45 minutes</strong>. Avec 15 devis par semaine, c'est deux jours entiers à rédiger des documents.</p>
         </div>
-        <div class="pourquoi-col">
-          <div class="pourquoi-col-eyebrow">Option 3</div>
-          <div class="pourquoi-col-title">Grande ESN / Cabinet conseil</div>
-          <div class="pourquoi-items">
-            <div class="pourquoi-item"><span class="pourquoi-icon">✅</span><span>Image rassurante et marque connue</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Délais de 6 à 18 mois pour livrer quoi que ce soit</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Budget hors de portée des TPE et PME</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Interlocuteurs qui changent à chaque sprint</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Approche généraliste, peu adaptée à votre métier</span></div>
-            <div class="pourquoi-item"><span class="pourquoi-icon">❌</span><span>Vous n'êtes pas leur client prioritaire</span></div>
-          </div>
+        <div class="reconnait-item">
+          <span class="reconnait-emoji">📊</span>
+          <p>Le rapport mensuel, c'est <strong>vous, un vendredi soir</strong>, à compiler des tableaux depuis trois sources différentes.</p>
+        </div>
+        <div class="reconnait-item">
+          <span class="reconnait-emoji">📥</span>
+          <p>Vos factures arrivent par email, vous les <strong>retapez à la main</strong> dans votre logiciel de comptabilité.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- AGENTS RÉSUMÉ -->
-  <section class="section agents-section">
-    <div class="section-inner">
-      <span class="eyebrow">Agents IA Dunai — Artisans, TPE & PME</span>
-      <h2 class="h2 h2-white">Des agents IA concrets,<br>pour vos vraies contraintes du quotidien.</h2>
-      <p class="lead lead-white">Relances impayées, devis qui traînent, saisies répétitives, reporting du lundi matin — on automatise les tâches qui vous coûtent le plus de temps, quel que soit votre secteur.</p>
-      <div class="agents-grid">
-        <div class="agent-card">
-          <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div class="agent-name">Agent commercial</div>
-          <div class="agent-role">Gère toute votre relation client entrante et sortante</div>
-          <div class="agent-tasks"><div class="ati">Relances impayés automatiques</div><div class="ati">Génération et envoi de devis</div><div class="ati">Qualification prospects</div><div class="ati">Suivi pipeline CRM</div></div>
-          <span class="gain-badge">↑ +12h/sem libérées</span>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <div class="agent-name">Agent reporting</div>
-          <div class="agent-role">Produit vos rapports sans que personne ne touche Excel</div>
-          <div class="agent-tasks"><div class="ati">Reporting hebdo/mensuel auto.</div><div class="ati">Consolidation multi-sources</div><div class="ati">Dashboard dirigeants live</div><div class="ati">Alertes anomalies</div></div>
-          <span class="gain-badge">↑ +8h/sem libérées</span>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
-          <div class="agent-name">Agent administratif</div>
-          <div class="agent-role">Traite, classe et route tous vos documents entrants</div>
-          <div class="agent-tasks"><div class="ati">Lecture & extraction factures PDF</div><div class="ati">Saisie automatique ERP</div><div class="ati">Archivage emails</div><div class="ati">Conformité documents</div></div>
-          <span class="gain-badge">↑ -90% saisie manuelle</span>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <div class="agent-name">Agent RH</div>
-          <div class="agent-role">Automatise les flux RH sans alourdir votre équipe</div>
-          <div class="agent-tasks"><div class="ati">Onboarding nouveaux salariés</div><div class="ati">Gestion congés</div><div class="ati">Diffusion offres d'emploi</div><div class="ati">Rappels formations</div></div>
-          <span class="gain-badge">↑ +6h/sem libérées</span>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
-          <div class="agent-name">Agent planification</div>
-          <div class="agent-role">Organise, planifie et alerte sans intervention humaine</div>
-          <div class="agent-tasks"><div class="ati">Prise de RDV + confirmation auto.</div><div class="ati">Rappels SMS / email</div><div class="ati">Gestion files d'attente</div><div class="ati">Optimisation tournées</div></div>
-          <span class="gain-badge">↑ -62% de no-show</span>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-          <div class="agent-name">Agent marketing & SEO</div>
-          <div class="agent-role">Rédige, publie et améliore votre référencement</div>
-          <div class="agent-tasks"><div class="ati">Articles de blog SEO auto.</div><div class="ati">Posts LinkedIn / réseaux sociaux</div><div class="ati">Newsletter mensuelle</div><div class="ati">Réponses avis Google</div></div>
-          <span class="gain-badge">↑ ×3 de contenu produit</span>
-        </div>
-        <div class="agent-card-custom" style="grid-column: 1 / -1;">
-          <span class="custom-new-badge">★ Sur mesure</span>
-          <div class="agent-name" style="font-size:17px;color:var(--blanc)">Agent 100% personnalisé selon votre métier</div>
-          <div class="agent-role" style="font-size:14px;margin-top:.5rem;max-width:580px">Votre activité est unique — votre agent aussi. On conçoit de A à Z un agent IA taillé pour vos processus spécifiques, quel que soit votre secteur.</div>
-          <div class="sectors-wrap" style="margin-top:1rem">
-            <span class="sector-pill">Artisan BTP</span><span class="sector-pill">Négoce & distribution</span><span class="sector-pill">Cabinet comptable</span><span class="sector-pill">Agence immobilière</span><span class="sector-pill">Industrie & production</span><span class="sector-pill">Transport & logistique</span><span class="sector-pill">Santé & paramédical</span><span class="sector-pill">Commerce local</span><span class="sector-pill">Restauration & traiteur</span><span class="sector-pill sector-pill-cta" onclick="showPage('contact')" style="cursor:pointer">Votre secteur →</span>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:2rem">
-        <button onclick="showPage('agents')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:10px 24px;border-radius:var(--r-full);font-size:13px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.6)'">Voir tous les agents et cas d'usage →</button>
+      <div class="reconnait-conclusion">
+        <span>Ces tâches n'ont pas besoin d'un humain. <strong>Elles ont besoin d'un agent.</strong></span>
+        <button class="reconnait-cta" onclick="showPage('contact')">Audit gratuit — on identifie les vôtres en 2h →</button>
       </div>
     </div>
   </section>
@@ -873,310 +781,187 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
             <tr><td class="ba-task">Rapport mensuel direction</td><td><span class="ba-sector-badge">PME 20-50 sal.</span></td><td class="ba-before">1 journée / mois</td><td class="ba-after">Auto. lundi 8h</td><td class="ba-gain">-100%</td></tr>
             <tr><td class="ba-task">Prise de RDV + confirmation</td><td><span class="ba-sector-badge">Santé / Médical</span></td><td class="ba-before">30 min / RDV</td><td class="ba-after">2 min</td><td class="ba-gain">-93%</td></tr>
             <tr><td class="ba-task">Articles de blog SEO</td><td><span class="ba-sector-badge">Commerce local</span></td><td class="ba-before">3h / article</td><td class="ba-after">15 min</td><td class="ba-gain">-92%</td></tr>
-            <tr><td class="ba-task">Réponses avis Google</td><td><span class="ba-sector-badge">Restaurant / Retail</span></td><td class="ba-before">2h / semaine</td><td class="ba-after">Auto. 24h/24</td><td class="ba-gain">-100%</td></tr>
             <tr><td class="ba-task">Transfert factures fournisseurs</td><td><span class="ba-sector-badge">Comptabilité</span></td><td class="ba-before">4h / semaine</td><td class="ba-after">0 min</td><td class="ba-gain">-100%</td></tr>
-            <tr><td class="ba-task">Onboarding nouveau salarié</td><td><span class="ba-sector-badge">Multi-secteurs</span></td><td class="ba-before">2 jours</td><td class="ba-after">4 heures</td><td class="ba-gain">-75%</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- PROCESSUS -->
-  <section class="section process-section">
+  <!-- 3 AGENTS PREVIEW -->
+  <section class="section agents-section">
+    <div class="section-inner">
+      <span class="eyebrow">Agents IA Dunai</span>
+      <h2 class="h2 h2-white">Les agents qui libèrent<br>le plus de temps.</h2>
+      <p class="lead lead-white">Conçus pour les PME et artisans des Hauts-de-France. Sans migration, sans formation lourde. Opérationnels en 6 semaines.</p>
+      <div class="agents-grid" style="margin-top:2rem">
+        <div class="agent-card">
+          <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="agent-name">Agent commercial</div>
+          <div class="agent-role">Gère toute votre relation client entrante et sortante</div>
+          <div class="agent-tasks"><div class="ati">Relances impayés automatiques</div><div class="ati">Génération et envoi de devis</div><div class="ati">Qualification prospects</div><div class="ati">Suivi pipeline CRM</div></div>
+          <span class="gain-badge">↑ +12h/sem libérées</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+          <div class="agent-name">Agent administratif</div>
+          <div class="agent-role">Traite, classe et route tous vos documents entrants</div>
+          <div class="agent-tasks"><div class="ati">Lecture & extraction factures PDF</div><div class="ati">Saisie automatique ERP</div><div class="ati">Archivage emails</div><div class="ati">Conformité documents</div></div>
+          <span class="gain-badge">↑ -90% saisie manuelle</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+          <div class="agent-name">Agent planification</div>
+          <div class="agent-role">Organise, planifie et alerte sans intervention humaine</div>
+          <div class="agent-tasks"><div class="ati">Prise de RDV + confirmation auto.</div><div class="ati">Rappels SMS / email</div><div class="ati">Gestion files d'attente</div><div class="ati">Optimisation tournées</div></div>
+          <span class="gain-badge">↑ -62% de no-show</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <button onclick="showPage('agents')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:10px 24px;border-radius:var(--r-full);font-size:13px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.6)'">Voir les 6 agents et tous les cas d'usage →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT ÇA MARCHE — 3 étapes -->
+  <section class="section process3-section">
     <div class="section-inner">
       <span class="eyebrow">Comment ça marche</span>
-      <h2 class="h2 h2-white">De zéro à vos premiers gains<br>en moins de 6 semaines.</h2>
-      <div class="process-list">
-        <div class="process-item">
-          <div class="process-circle">1</div>
+      <h2 class="h2">De zéro à vos premiers gains<br>en moins de 6 semaines.</h2>
+      <div class="process3-grid">
+        <div class="process3-item">
+          <div class="process3-num">①</div>
           <div>
-            <div class="process-name">Audit gratuit</div>
-            <div class="process-sub">On vient dans vos locaux — 2h pour cartographier vos opportunités d'automatisation</div>
-            <div class="process-free">100% offert</div>
-            <div class="process-deliverable">Livrable : rapport PDF chiffré sous 48h</div>
-            <div class="process-timing">Semaine 1</div>
+            <div class="process3-name">Audit gratuit</div>
+            <div class="process3-desc">On vient 2h dans vos locaux. On identifie vos tâches automatisables. Vous repartez avec un rapport PDF chiffré sous 48h — sans engagement.</div>
+            <span class="process3-timing">Semaine 1 · 100% offert</span>
           </div>
         </div>
-        <div class="process-item">
-          <div class="process-circle">2</div>
+        <div class="process3-item">
+          <div class="process3-num">②</div>
           <div>
-            <div class="process-name">Roadmap</div>
-            <div class="process-sub">Plan d'action priorisé — impact vs faisabilité, budget estimé, délai de ROI pour chaque cas</div>
-            <div class="process-deliverable">Livrable : feuille de route 6–18 mois</div>
-            <div class="process-timing">Semaine 1–2</div>
+            <div class="process3-name">Déploiement</div>
+            <div class="process3-desc">On installe et configure vos agents IA dans vos outils existants. Vous n'avez rien à faire de technique. Formation de votre équipe incluse.</div>
+            <span class="process3-timing">Semaines 2–6</span>
           </div>
         </div>
-        <div class="process-item">
-          <div class="process-circle">3</div>
+        <div class="process3-item">
+          <div class="process3-num">③</div>
           <div>
-            <div class="process-name">Déploiement</div>
-            <div class="process-sub">Création et intégration des agents IA dans votre environnement existant — tout est documenté</div>
-            <div class="process-deliverable">Livrable : agents opérationnels + documentation</div>
-            <div class="process-timing">Semaines 2–6</div>
-          </div>
-        </div>
-        <div class="process-item">
-          <div class="process-circle">4</div>
-          <div>
-            <div class="process-name">Formation</div>
-            <div class="process-sub">Vos équipes prennent en main les outils — présentiel, distanciel ou mixte</div>
-            <div class="process-deliverable">Livrable : supports formation + session dédiée</div>
-            <div class="process-timing">Semaine 6</div>
-          </div>
-        </div>
-        <div class="process-item">
-          <div class="process-circle">5</div>
-          <div>
-            <div class="process-name">Mesure ROI</div>
-            <div class="process-sub">Rapport avant/après chiffré — heures récupérées, coûts réduits, revenus générés</div>
-            <div class="process-deliverable">Livrable : dashboard KPI + rapport dirigeants</div>
-            <div class="process-timing">Mois 3</div>
+            <div class="process3-name">ROI mesuré</div>
+            <div class="process3-desc">Rapport avant/après chiffré. Heures récupérées, coûts réduits, revenus générés. Vous voyez vos gains en euros, pas juste en pourcentages.</div>
+            <span class="process3-timing">Mois 3 · ROI moyen ×3</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STACK / INTÉGRATIONS -->
-  <section class="section stack-section">
+  <!-- MINI CALCULATEUR -->
+  <section class="section minicalc-section">
     <div class="section-inner">
-      <span class="eyebrow">Intégrations</span>
-      <h2 class="h2">On s'intègre à vos outils existants.<br>Aucune migration, aucune rupture.</h2>
-      <p class="lead">Vous gardez votre ERP, votre CRM, votre messagerie. On connecte tout — sans remplacer ce qui fonctionne déjà.</p>
-      <div class="stack-grid">
-        <span class="stack-pill">Make (Integromat)</span>
-        <span class="stack-pill">n8n</span>
-        <span class="stack-pill">Zapier</span>
-        <span class="stack-pill">OpenAI / GPT</span>
-        <span class="stack-pill">Claude AI</span>
-        <span class="stack-pill">HubSpot</span>
-        <span class="stack-pill">Salesforce</span>
-        <span class="stack-pill">Pipedrive</span>
-        <span class="stack-pill">Sage</span>
-        <span class="stack-pill">Cegid</span>
-        <span class="stack-pill">SAP</span>
-        <span class="stack-pill">EBP</span>
-        <span class="stack-pill">Google Workspace</span>
-        <span class="stack-pill">Microsoft 365</span>
-        <span class="stack-pill">Outlook / Gmail</span>
-        <span class="stack-pill">Notion</span>
-        <span class="stack-pill">Slack</span>
-        <span class="stack-pill">Airtable</span>
-        <span class="stack-pill">Stripe</span>
-        <span class="stack-pill">Pennylane</span>
-        <span class="stack-pill">Sellsy</span>
-        <span class="stack-pill">Docusign</span>
-        <span class="stack-pill">Twilio SMS</span>
-        <span class="stack-pill">+ votre outil →</span>
+      <span class="eyebrow">Estimez vos gains</span>
+      <h2 class="h2">Combien vous coûtent<br>vos tâches répétitives ?</h2>
+      <p class="lead">Sélectionnez votre profil et votre tâche principale — obtenez une estimation en 30 secondes.</p>
+      <div class="minicalc-box">
+        <div class="minicalc-profile-row">
+          <button class="minicalc-ptab active" data-mc-profile="pme" onclick="mcSetProfile('pme')">🏢 PME</button>
+          <button class="minicalc-ptab" data-mc-profile="tpe" onclick="mcSetProfile('tpe')">🔧 TPE / Artisan</button>
+          <button class="minicalc-ptab" data-mc-profile="ae" onclick="mcSetProfile('ae')">🧑‍💻 Indépendant</button>
+        </div>
+        <div class="minicalc-task-row">
+          <label class="minicalc-label">Ma tâche la plus chronophage :</label>
+          <select class="minicalc-select" id="mcTaskSelect" onchange="mcCalc()">
+            <option value="">Choisir une tâche...</option>
+          </select>
+        </div>
+        <div id="mcEmpty" class="minicalc-empty">← Sélectionnez votre profil et une tâche pour voir votre estimation</div>
+        <div class="minicalc-result" id="mcResult" style="display:none">
+          <div class="minicalc-result-main">
+            <div class="minicalc-result-label">Vous perdez chaque année</div>
+            <div class="minicalc-result-amount" id="mcAmount">0 €</div>
+            <div class="minicalc-result-sub" id="mcHours">sur cette seule tâche</div>
+          </div>
+          <div class="minicalc-result-actions">
+            <button class="btn-primary" onclick="showPage('contact')" style="width:auto">Valider lors de l'audit gratuit →</button>
+            <button onclick="showPage('calculateur')" style="background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);padding:12px 20px;border-radius:var(--r-md);font-size:13px;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'">Toutes mes tâches →</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TÉMOIGNAGES -->
-  <section class="section temo-section">
-    <div class="section-inner">
-      <span class="eyebrow">Ils ont franchi le pas</span>
-      <h2 class="h2">Ce que disent nos clients.</h2>
-      <div class="temo-tabs" id="temoTabs">
-        <button class="temo-tab active" onclick="filterTemoByProfile('all')">Tous</button>
-        <button class="temo-tab" onclick="filterTemoByProfile('pme')">PME</button>
-        <button class="temo-tab" onclick="filterTemoByProfile('tpe')">TPE · Artisan</button>
-        <button class="temo-tab" onclick="filterTemoByProfile('ae')">Autoentrepreneur</button>
-      </div>
-      <div class="temo-grid" id="temoGrid">
-        <div class="temo-card" data-temo-profile="pme">
-          <div class="temo-sector-badge">Transport · PME</div>
+  <!-- TÉMOIGNAGE + PRIX -->
+  <section class="section temoprx-section">
+    <div class="section-inner temoprx-grid">
+      <div class="temoprx-temo">
+        <span class="eyebrow">Client</span>
+        <div class="temo-card" style="border-color:rgba(234,88,12,0.35)">
+          <div class="temo-sector-badge">Transport · PME · 18 salariés</div>
           <div class="temo-stars">★★★★★</div>
           <div class="temo-gain">28h récupérées/mois · 14 000€ économisés/an</div>
           <p class="temo-quote">L'audit m'a ouvert les yeux. Voir les chiffres écrits noir sur blanc — 28 heures par mois sur des tâches automatisables — ça m'a décidé en 5 minutes.</p>
           <div class="temo-author">Directeur général</div>
-          <div class="temo-role">Transport & logistique · 18 salariés · Dunkerque</div>
+          <div class="temo-role">Transport & logistique · Dunkerque</div>
         </div>
-        <div class="temo-card" data-temo-profile="tpe">
-          <div class="temo-sector-badge">BTP · Artisan</div>
-          <div class="temo-stars">★★★★★</div>
-          <div class="temo-gain">Devis 45 min → 3 min · 0 relance manuelle</div>
-          <p class="temo-quote">Ce qui m'a convaincu, c'est que Dunai parle le même langage que nous. Pas de blabla tech. Juste : voilà ce qu'on peut faire, voilà ce que vous gagnez.</p>
-          <div class="temo-author">Gérant</div>
-          <div class="temo-role">Artisan BTP · 3 collaborateurs · Région Dunkerquoise</div>
-        </div>
-        <div class="temo-card" data-temo-profile="pme">
-          <div class="temo-sector-badge">Médical · Cabinet</div>
-          <div class="temo-stars">★★★★★</div>
-          <div class="temo-gain">−62% no-show · +22% CA</div>
-          <p class="temo-quote">On était sceptiques. Six semaines après, mes équipes ne veulent plus revenir en arrière. Les tâches répétitives ont simplement disparu.</p>
-          <div class="temo-author">Directrice de cabinet</div>
-          <div class="temo-role">Cabinet médical · 6 praticiens · Nord (59)</div>
-        </div>
+        <p class="temo-disclaimer" style="margin-top:.875rem">Résultat d'un audit Dunai réel. Chaque entreprise est différente — l'audit gratuit estime vos gains avant tout engagement.</p>
       </div>
-      <p class="temo-disclaimer">Ces témoignages représentent des résultats typiques observés sur des projets similaires. Chaque entreprise est différente — l'audit gratuit permet d'estimer vos gains réels avant tout engagement.</p>
-    </div>
-  </section>
-
-  <!-- CALCULATEUR DE GAINS -->
-  <section class="section calc-section">
-  <div class="section-inner">
-    <span class="eyebrow">Calculateur de gains</span>
-    <h2 class="h2 h2-white" style="color:var(--anthracite)">Estimez vos gains en 60 secondes.</h2>
-    <p class="lead" style="color:var(--brun)">Sélectionnez votre profil, cochez vos tâches, ajustez les volumes.</p>
-    <div class="calc-grid">
-      <div class="calc-profile-tabs" id="calcProfileTabs">
-        <button type="button" class="calc-ptab active" data-calc-profile="pme" onclick="syncCalcProfile('pme')">
-          <span class="calc-ptab-icon" aria-hidden="true">🏢</span><span class="calc-ptab-name">PME</span><span class="calc-ptab-desc">10–50 sal.</span>
-        </button>
-        <button type="button" class="calc-ptab" data-calc-profile="tpe" onclick="syncCalcProfile('tpe')">
-          <span class="calc-ptab-icon" aria-hidden="true">🔧</span><span class="calc-ptab-name">TPE / Artisan</span><span class="calc-ptab-desc">2–9 sal.</span>
-        </button>
-        <button type="button" class="calc-ptab" data-calc-profile="ae" onclick="syncCalcProfile('ae')">
-          <span class="calc-ptab-icon" aria-hidden="true">🧑‍💻</span><span class="calc-ptab-name">Autoentrepreneur</span><span class="calc-ptab-desc">Seul·e</span>
-        </button>
-      </div>
-      <div class="calc-body-wrap">
-        <div class="calc-tasks" id="calcTasksContainer"></div>
-        <div class="calc-result-box">
-          <div id="calcResultEmpty" class="calc-result-empty">Cochez au moins une tâche pour voir votre estimation →</div>
-          <div id="calcResultFilled" style="display:none;flex-direction:column;gap:.875rem">
-            <div class="calc-result-main">
-              <div class="calc-result-main-label">Vous perdez chaque année</div>
-              <div class="calc-result-main-amount" id="calcAnnual">0 €</div>
-              <div class="calc-result-main-sub">sur des tâches automatisables</div>
-            </div>
-            <div class="calc-result-secondary">
-              <div class="calc-result-item-light"><div class="n" id="calcHours">0h</div><div class="l">récupérables / mois</div></div>
-              <div class="calc-result-item-light"><div class="n" id="calcMonthly">0 €</div><div class="l">économisés / mois</div></div>
-            </div>
-            <div class="calc-hourly-row">
-              <div class="calc-hourly-label">Votre coût horaire</div>
-              <input type="range" class="calc-slider" id="calcHourlySlider" min="20" max="80" value="35" oninput="calcUpdateHourly(this.value)" style="width:80px;flex-shrink:0">
-              <div class="calc-hourly-val" id="calcHourlyVal">35 €/h</div>
-            </div>
-            <button type="button" class="btn-primary" onclick="showPage('contact')" style="width:100%">Confirmer ce chiffre lors de l'audit gratuit →</button>
+      <div class="temoprx-prix">
+        <span class="eyebrow">Pour commencer</span>
+        <div style="background:var(--noir);border:2px solid var(--flamme);border-radius:var(--r-xl);padding:1.75rem;position:relative">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--flamme);color:white;font-size:10px;font-weight:700;padding:4px 16px;border-radius:var(--r-full);letter-spacing:.06em;white-space:nowrap">★ Le plus choisi</div>
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--flamme);margin-bottom:.375rem">Pack de démarrage</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;color:white;margin-bottom:.25rem">Pack IA Déclic</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.25rem;font-weight:800;color:var(--flamme);line-height:1;margin-bottom:1.25rem">2 990 € <span style="font-size:1rem;color:rgba(255,255,255,0.4);font-weight:400">HT · forfait fixe</span></div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem">
+            <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> Audit complet sur site (2h) + rapport chiffré sous 48h</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> 2 automatisations prioritaires livrées et opérationnelles</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> 1 agent IA simple (relances ou devis)</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> Formation incluse + 30 jours de support</div>
           </div>
-          <p class="calc-disclaimer">Estimation indicative (taux horaire personnalisable · 80% récupérables). Vos gains réels estimés lors de l'audit.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- TARIFS APERÇU -->
-  <section class="section" style="background:var(--creme2)">
-    <div class="section-inner">
-      <span class="eyebrow">Tarifs</span>
-      <h2 class="h2">Un investissement qui se rembourse<br>en moins de 3 mois.</h2>
-      <p class="lead">On ne démarre pas un projet si le ROI estimé n'est pas au moins 3× votre investissement à 12 mois.</p>
-      <div style="background:var(--noir);border:2px solid var(--flamme);border-radius:var(--r-xl);padding:2rem;max-width:600px;margin:0 auto;position:relative">
-        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--flamme);color:white;font-size:10px;font-weight:700;padding:4px 16px;border-radius:var(--r-full);letter-spacing:.06em;white-space:nowrap">★ Le plus choisi</div>
-        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--flamme);margin-bottom:.375rem">Pack de démarrage</div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;color:white;margin-bottom:.25rem">Pack IA Déclic</div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.25rem;font-weight:800;color:var(--flamme);line-height:1;margin-bottom:1.25rem">2 990 € <span style="font-size:1rem;color:rgba(255,255,255,0.4);font-weight:400">HT · forfait fixe</span></div>
-        <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem">
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> Audit complet sur site (2h) + rapport chiffré sous 48h</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> 2 automatisations prioritaires livrées et opérationnelles</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> 1 agent IA simple (relances ou devis — selon votre priorité)</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> 2h de formation pour votre équipe</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:.5rem"><span style="color:var(--flamme);font-weight:700">✓</span> 30 jours de support inclus après déploiement</div>
-        </div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:1.25rem">Paiement possible en 2× ou 3× · Financement OPCO possible pour la partie formation</div>
-        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-          <button class="btn-primary" onclick="showPage('contact')" style="width:auto;flex:1;min-width:180px">Démarrer →</button>
-          <button onclick="showPage('tarifs')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:12px 20px;border-radius:var(--r-md);font-size:13px;cursor:pointer;white-space:nowrap;flex-shrink:0">Voir toutes les offres</button>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:1.25rem">Paiement en 2× ou 3× · OPCO possible · France Num jusqu'à 5 000€</div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <button class="btn-primary" onclick="showPage('contact')" style="width:auto;flex:1;min-width:160px">Démarrer →</button>
+            <button onclick="showPage('tarifs')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:12px 16px;border-radius:var(--r-md);font-size:13px;cursor:pointer;white-space:nowrap;flex-shrink:0">Voir toutes les offres</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GARANTIE -->
-  <div class="garantie-section">
-    <div style="max-width:1160px;margin:0 auto">
-      <span class="eyebrow">Notre promesse</span>
-      <h2 class="h2" style="color:#9A3412">Zéro risque.<br>On ne démarre que quand le ROI est garanti.</h2>
-      <div class="garantie-items">
-        <div class="garantie-item">
-          <div class="garantie-icon">🔍</div>
-          <div>
-            <div class="garantie-item-title">Audit offert — sans engagement</div>
-            <div class="garantie-item-desc">2h dans vos locaux, rapport chiffré sous 48h. Vous ne payez rien et ne vous engagez à rien. L'audit est gratuit, point.</div>
-          </div>
-        </div>
-        <div class="garantie-item">
-          <div class="garantie-icon">📊</div>
-          <div>
-            <div class="garantie-item-title">ROI validé avant démarrage</div>
-            <div class="garantie-item-desc">On ne propose pas de déploiement si le ROI estimé n'est pas au moins 3× votre investissement dans les 12 premiers mois. Sinon, on ne vous le propose pas.</div>
-          </div>
-        </div>
-        <div class="garantie-item">
-          <div class="garantie-icon">🤝</div>
-          <div>
-            <div class="garantie-item-title">Support 30 jours inclus</div>
-            <div class="garantie-item-desc">Chaque déploiement inclut 15 à 30 jours de support selon le pack post-livraison. Si un agent dysfonctionne, on intervient sans surcoût.</div>
-            <div style="margin-top:.75rem"><span class="satisfait-badge">✓ Satisfait ou remboursé 30 jours</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ -->
+  <!-- FAQ 4 QUESTIONS -->
   <section class="section faq-section">
     <div class="section-inner">
       <span class="eyebrow">Questions fréquentes</span>
-      <h2 class="h2">Tout ce qu'on nous demande<br>avant de démarrer.</h2>
+      <h2 class="h2">Ce qu'on nous demande<br>avant de démarrer.</h2>
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span><span class="faq-profile-badge fpb-ae">AE</span>Je travaille seul — "vos équipes libérées" ne me parle pas vraiment.</span>
+            <span>C'est quoi concrètement un "agent IA" ?</span>
             <span class="faq-icon">+</span>
           </div>
-          <div class="faq-a">C'est votre temps à vous qu'on libère. En solo, chaque heure récupérée sur des tâches répétitives est une heure que vous réinvestissez en clients, en CA ou en vie. Nos clients autoentrepreneurs récupèrent en moyenne 8h par semaine — sans embaucher, sans déléguer à quelqu'un d'autre.</div>
+          <div class="faq-a">Un agent IA est un programme qui effectue des tâches répétitives à votre place — sans que vous ayez besoin de déclencher quoi que ce soit. Relancer un client, générer un devis, compiler un rapport, classer des factures : l'agent exécute ces actions automatiquement, 24h/24, connecté à vos outils existants (email, CRM, ERP, Excel…). Vous ne voyez que le résultat.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span><span class="faq-profile-badge fpb-tpe">TPE</span>2 990€ c'est beaucoup pour une petite structure comme la mienne.</span>
+            <span>Je dois changer tous mes outils existants ?</span>
             <span class="faq-icon">+</span>
           </div>
-          <div class="faq-a">C'est exactement pourquoi on valide le ROI avant de vous proposer quoi que ce soit. Si votre automatisation ne rembourse pas au moins 3× l'investissement dans les 12 mois, on ne vous la propose pas. Nous avons aussi un Pack Solo à 1 190€ HT spécialement conçu pour les petites structures — et le paiement en 2× ou 3× est disponible sur tous nos packs.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span><span class="faq-profile-badge fpb-pme">PME</span>Mon équipe va résister au changement.</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-a">C'est la première crainte qu'on entend — et la dernière qu'on observe. Les agents IA ne remplacent pas vos salariés : ils leur retirent les tâches ennuyeuses et répétitives. Dans 100% des cas, après 6 semaines de déploiement, les équipes ne veulent plus revenir en arrière. La résistance vient du mot "IA" — elle disparaît dès le premier gain concret.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>C'est adapté à ma taille d'entreprise ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. Nos clients vont de l'artisan solo à la PME de 200 salariés. L'audit gratuit permet justement de calibrer ce qui est pertinent pour votre taille. Un indépendant peut démarrer avec notre Pack Solo à 1 190€ HT — audit, 1 automatisation livrée et formation incluse. Une PME de 50 personnes ira sur un déploiement multi-agents. Il n'y a pas de taille minimum.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>Combien de temps avant les premiers résultats ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">En moyenne 6 semaines entre l'audit et les premiers agents opérationnels. Les cas simples (relances, devis) peuvent être livrés en 2 semaines. Les projets multi-agents et intégrations SI complexes prennent 2 à 3 mois.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>Mes données sont-elles sécurisées ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">Toutes les données restent dans votre environnement (votre CRM, votre ERP, votre messagerie). On ne stocke rien chez nous. Les flux IA utilisent des API hébergées en Europe (OpenAI Europe, Azure…) et tout est documenté dans le contrat.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>On doit changer tous nos outils existants ?</span><span class="faq-icon">+</span></div>
           <div class="faq-a">Non. C'est même le contraire — on s'adapte à vos outils actuels. Sage, Cegid, SAP, Google Workspace, Microsoft 365, HubSpot, Pipedrive… On connecte ce que vous avez déjà, on ne remplace rien.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>Est-ce que mes équipes vont savoir utiliser ça ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">La formation est incluse dans chaque déploiement. On adapte le programme à votre équipe — présentiel, distanciel ou mixte. L'objectif est que vos collaborateurs soient autonomes et comprennent comment interagir avec les agents sans dépendre de nous.</div>
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>2 990€ c'est beaucoup pour ma structure.</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">C'est exactement pourquoi on valide le ROI avant de vous proposer quoi que ce soit. Si votre automatisation ne rembourse pas au moins 3× l'investissement dans les 12 mois, on ne vous la propose pas. Pack Solo à 1 190€ HT pour les petites structures. Paiement en 2× ou 3× sur tous les packs. France Num finance jusqu'à 5 000€ sur ce type de projet.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>Que se passe-t-il si ça ne marche pas comme prévu ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">Chaque mission inclut 30 jours de support post-livraison. Si un agent dysfonctionne ou ne tient pas ses promesses, on intervient sans surcoût. Et comme le ROI est estimé avant démarrage, on ne vous propose une mission que si on est confiants sur le résultat.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>Vous intervenez uniquement à Dunkerque ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. On est basés à Dunkerque mais on intervient dans toute la région Hauts-de-France — Lille, Valenciennes, Arras, Amiens, Boulogne, Calais, Lens… L'audit initial peut aussi se faire en visio si vous êtes hors région.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span>Quel est le vrai coût d'un projet ?</span><span class="faq-icon">+</span></div>
-          <div class="faq-a">L'audit est 100% gratuit. Le Pack IA Déclic démarre à 2 990€ HT (2 automatisations + 1 agent + formation + 30j support). Pour des projets plus larges, les tarifs vont de 3 900€ à plusieurs dizaines de milliers d'euros selon le périmètre. Un devis précis est remis après l'audit. Des financements existent : France Num (jusqu'à 5 000€), OPCO pour la formation, Crédit d'Impôt Innovation.</div>
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Combien de temps avant les premiers résultats ?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">En moyenne 6 semaines entre l'audit et les premiers agents opérationnels. Les cas simples (relances, devis) peuvent être livrés en 2 semaines. Les projets multi-agents prennent 2 à 3 mois.</div>
         </div>
       </div>
     </div>
@@ -1428,6 +1213,52 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
   <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
 </div>
 
+<!-- ══════════════════════ CALCULATEUR ROI ══════════════════════ -->
+<div id="page-calculateur" class="page">
+  <div class="page-hero-dark"><div class="section-inner"><span class="eyebrow">Calculateur ROI</span><h1 class="h2 h2-white">Estimez vos gains<br>en 60 secondes.</h1><p class="lead lead-white" style="max-width:540px;margin-top:.75rem">Sélectionnez votre profil, cochez vos tâches, ajustez les volumes. Vous obtenez une estimation personnalisée du coût annuel de vos tâches répétitives.</p></div></div>
+  <section class="section calc-section"><div class="section-inner">
+    <div class="calc-grid">
+      <div class="calc-profile-tabs" id="calcProfileTabs">
+        <button type="button" class="calc-ptab active" data-calc-profile="pme" onclick="syncCalcProfile('pme')">
+          <span class="calc-ptab-icon" aria-hidden="true">🏢</span><span class="calc-ptab-name">PME</span><span class="calc-ptab-desc">10–50 sal.</span>
+        </button>
+        <button type="button" class="calc-ptab" data-calc-profile="tpe" onclick="syncCalcProfile('tpe')">
+          <span class="calc-ptab-icon" aria-hidden="true">🔧</span><span class="calc-ptab-name">TPE / Artisan</span><span class="calc-ptab-desc">2–9 sal.</span>
+        </button>
+        <button type="button" class="calc-ptab" data-calc-profile="ae" onclick="syncCalcProfile('ae')">
+          <span class="calc-ptab-icon" aria-hidden="true">🧑‍💻</span><span class="calc-ptab-name">Autoentrepreneur</span><span class="calc-ptab-desc">Seul·e</span>
+        </button>
+      </div>
+      <div class="calc-body-wrap">
+        <div class="calc-tasks" id="calcTasksContainer"></div>
+        <div class="calc-result-box">
+          <div id="calcResultEmpty" class="calc-result-empty">Cochez au moins une tâche pour voir votre estimation →</div>
+          <div id="calcResultFilled" style="display:none;flex-direction:column;gap:.875rem">
+            <div class="calc-result-main">
+              <div class="calc-result-main-label">Vous perdez chaque année</div>
+              <div class="calc-result-main-amount" id="calcAnnual">0 €</div>
+              <div class="calc-result-main-sub">sur des tâches automatisables</div>
+            </div>
+            <div class="calc-result-secondary">
+              <div class="calc-result-item-light"><div class="n" id="calcHours">0h</div><div class="l">récupérables / mois</div></div>
+              <div class="calc-result-item-light"><div class="n" id="calcMonthly">0 €</div><div class="l">économisés / mois</div></div>
+            </div>
+            <div class="calc-hourly-row">
+              <div class="calc-hourly-label">Votre coût horaire</div>
+              <input type="range" class="calc-slider" id="calcHourlySlider" min="20" max="80" value="35" oninput="calcUpdateHourly(this.value)" style="width:80px;flex-shrink:0">
+              <div class="calc-hourly-val" id="calcHourlyVal">35 €/h</div>
+            </div>
+            <button type="button" class="btn-primary" onclick="showPage('contact')" style="width:100%">Confirmer ce chiffre lors de l'audit gratuit →</button>
+          </div>
+          <p class="calc-disclaimer">Estimation indicative (taux horaire personnalisable · 80% récupérables). Vos gains réels estimés lors de l'audit.</p>
+        </div>
+      </div>
+    </div>
+  </div></section>
+  <div class="final-cta"><h2>Un chiffre dans la tête ?<br>Vérifiez-le lors de l'audit.</h2><p>2h dans vos locaux. Rapport chiffré sous 48h. 100% gratuit et sans engagement.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
+</div>
+
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="stickyCta" aria-label="Audit gratuit" aria-hidden="true">
   <div>
@@ -1438,9 +1269,9 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 </div>
 
 <script>
-const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', tarifs:'Tarifs', blog:'Blog', contact:'Audit gratuit' };
-const slugMap  = { home:'/', agents:'/agents', roi:'/roi', tarifs:'/tarifs', contact:'/contact' };
-const urlToPage = { '/':'home','':'home','/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact' };
+const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', tarifs:'Tarifs', blog:'Blog', contact:'Audit gratuit', calculateur:'Calculateur ROI' };
+const slugMap  = { home:'/', agents:'/agents', roi:'/roi', tarifs:'/tarifs', contact:'/contact', calculateur:'/calculateur' };
+const urlToPage = { '/':'home','':'home','/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact','/calculateur':'calculateur' };
 
 function showPage(id, push=true) {
   // Blog → full navigation (standalone page served by Nginx)
@@ -1486,7 +1317,7 @@ function selectStep(el,idx) {
 
 let countersStarted=false;
 document.addEventListener('DOMContentLoaded',()=>{
-  const pathMap = {'/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact'};
+  const pathMap = {'/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact','/calculateur':'calculateur'};
   const initPage = pathMap[location.pathname] || 'home';
   showPage(initPage, false);
 });
@@ -1662,6 +1493,58 @@ function calcUpdateResult() {
   const saved = localStorage.getItem('dunai_profile') || 'pme';
   syncCalcProfile(saved);
 })();
+
+// ── MINI CALCULATEUR (homepage) ──
+const MC_DATA = {
+  pme: [
+    { label: 'Relances clients & impayés', hpw: 5 },
+    { label: 'Saisie ERP / logiciels métier', hpw: 6 },
+    { label: 'Reporting & tableaux de bord direction', hpw: 5 },
+    { label: 'Génération de devis (15/sem)', hpw: 11.25 },
+    { label: 'Emails, archivage, classement', hpw: 3 },
+    { label: 'Onboarding & gestion RH', hpw: 3 },
+  ],
+  tpe: [
+    { label: 'Génération et envoi de devis', hpw: 3.75 },
+    { label: 'Relances clients & impayés', hpw: 3 },
+    { label: 'Prise de RDV & confirmations', hpw: 2 },
+    { label: 'Transfert factures fournisseurs', hpw: 4 },
+    { label: 'Réponses avis Google / Trustpilot', hpw: 1.5 },
+    { label: 'Emails & archivage', hpw: 2 },
+  ],
+  ae: [
+    { label: 'Relances clients & facturation', hpw: 2 },
+    { label: 'Génération de devis & propositions', hpw: 2.25 },
+    { label: 'Prise de RDV & confirmations', hpw: 2 },
+    { label: 'Emails, admin, classement', hpw: 2 },
+    { label: 'Posts LinkedIn / réseaux sociaux', hpw: 2.25 },
+    { label: 'Contenus & newsletter', hpw: 2 },
+  ],
+};
+let _mcProfile = 'pme';
+function mcSetProfile(p) {
+  _mcProfile = p;
+  document.querySelectorAll('.minicalc-ptab').forEach(t => t.classList.toggle('active', t.dataset.mcProfile === p));
+  const sel = document.getElementById('mcTaskSelect');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">Choisir une tâche...</option>';
+  MC_DATA[p].forEach((t, i) => { const o = document.createElement('option'); o.value = i; o.textContent = t.label; sel.appendChild(o); });
+  const r = document.getElementById('mcResult'); const e = document.getElementById('mcEmpty');
+  if (r) r.style.display = 'none'; if (e) e.style.display = 'block';
+  sel.value = '';
+}
+function mcCalc() {
+  const sel = document.getElementById('mcTaskSelect');
+  const r = document.getElementById('mcResult'); const e = document.getElementById('mcEmpty');
+  if (!sel || sel.value === '') { if (r) r.style.display='none'; if (e) e.style.display='block'; return; }
+  const task = MC_DATA[_mcProfile][parseInt(sel.value)];
+  const monthlyH = Math.round(task.hpw * 4.33 * 0.8);
+  const annual = Math.round(monthlyH * 35 * 12);
+  document.getElementById('mcAmount').textContent = annual.toLocaleString('fr-FR') + ' €';
+  document.getElementById('mcHours').textContent = 'soit ~' + monthlyH + 'h récupérables par mois';
+  if (r) r.style.display = 'flex'; if (e) e.style.display = 'none';
+}
+(function initMiniCalc() { mcSetProfile('pme'); })();
 
 function toggleFaq(el) {
   const item=el.closest('.faq-item'); const isOpen=item.classList.contains('open');
