@@ -35,9 +35,9 @@
       gap: 8px; pointer-events: none;
     }
     nav.main-nav > * { pointer-events: all; }
-    .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; opacity: 1; transition: opacity .2s; }
-    .nav-logo:hover { opacity: .75; }
-    .nav-logo img { height: 32px; width: auto; display: block; }
+    .nav-logo { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; background: rgba(12,10,9,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); padding: 7px 16px; border-radius: 9999px; transition: border-color .2s; }
+    .nav-logo:hover { border-color: rgba(255,255,255,0.2); }
+    .nav-logo img { height: 28px; width: auto; display: block; }
     .nav-pill {
       display: flex; align-items: center; gap: 4px;
       background: rgba(12,10,9,0.88); backdrop-filter: blur(20px);
@@ -252,7 +252,7 @@
 
 <!-- NAV -->
 <nav class="main-nav" aria-label="Navigation principale">
-  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai — Agence IA Dunkerque"><img src="/images/logo-footer.svg" alt="Dunai" height="32"></a>
+  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai — Agence IA Dunkerque"><img src="/images/logo-footer.svg" alt="Dunai" height="28"></a>
   <div class="nav-pill">
     <ul class="nav-links">
       <li><a href="https://dunai.fr">Accueil</a></li>

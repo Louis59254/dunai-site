@@ -22,11 +22,11 @@
   </text>
   <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce que ça change vraiment pour votre entreprise</text>
   <line x1="52" y1="310" x2="580" y2="310" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="52" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-73%</text>
-  <text x="52" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
-  <text x="210" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>
-  <text x="210" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">avant premiers gains</text>
-  <text x="390" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×4 ROI</text>
-  <text x="390" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+  <text x="52" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-73%</text>
+  <text x="52" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
+  <text x="210" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="210" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">avant premiers gains</text>
+  <text x="390" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="390" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
   <text x="1148" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
 </svg>

@@ -49,14 +49,14 @@
   <line x1="52" y1="330" x2="600" y2="330" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
 
   <!-- Stats -->
-  <text x="52" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">4,2h</text>
-  <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">perdues/salarié/jour</text>
+  <text x="52" y="390" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">4,2h</text>
+  <text x="52" y="420" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">perdues/salarié/jour</text>
 
-  <text x="230" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4</text>
-  <text x="230" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">ROI sur 12 mois</text>
+  <text x="230" y="390" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4</text>
+  <text x="230" y="420" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">ROI sur 12 mois</text>
 
-  <text x="370" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
-  <text x="370" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">avant premiers gains</text>
+  <text x="370" y="390" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="370" y="420" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">avant premiers gains</text>
 
   <!-- URL dunai.fr en bas à droite -->
   <text x="1148" y="590" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="600"

@@ -27,10 +27,10 @@
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
 
   <!-- Séparateur logo -->
-  <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
+  <line x1="52" y1="38" x2="340" y2="38" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
 
   <!-- Catégorie -->
-  <text x="52" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="600"
+  <text x="52" y="58" font-family="Arial, sans-serif" font-size="16" font-weight="600"
         fill="#F97316" letter-spacing="2.5">IA &amp; COMMERCE · HAUTS-DE-FRANCE</text>
 
   <!-- Titre ligne 1 -->
@@ -53,21 +53,21 @@
   <line x1="52" y1="318" x2="680" y2="318" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
 
   <!-- Stat 1 -->
-  <text x="52" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">+9 800 €</text>
-  <text x="52" y="500" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">CA/trimestre récupéré</text>
+  <text x="52" y="380" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">+9 800 €</text>
+  <text x="52" y="408" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">CA/trimestre récupéré</text>
 
   <!-- Stat 2 -->
-  <text x="270" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">45 → 3 min</text>
-  <text x="270" y="500" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">temps de devis</text>
+  <text x="270" y="380" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">45 → 3 min</text>
+  <text x="270" y="408" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">temps de devis</text>
 
   <!-- Stat 3 -->
-  <text x="520" y="472" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">×4 ROI</text>
-  <text x="520" y="500" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+  <text x="520" y="380" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="520" y="408" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
 
   <!-- Tag article -->
-  <rect x="52" y="545" width="160" height="38" rx="6" fill="#EA580C" opacity="0.15"/>
-  <rect x="52" y="545" width="160" height="38" rx="6" fill="none" stroke="#EA580C" stroke-width="1.5" opacity="0.5"/>
-  <text x="132" y="569" font-family="Arial, sans-serif" font-size="14" font-weight="600"
+  <rect x="52" y="460" width="160" height="38" rx="6" fill="#EA580C" opacity="0.15"/>
+  <rect x="52" y="460" width="160" height="38" rx="6" fill="none" stroke="#EA580C" stroke-width="1.5" opacity="0.5"/>
+  <text x="132" y="484" font-family="Arial, sans-serif" font-size="14" font-weight="600"
         fill="#F97316" text-anchor="middle" letter-spacing="0.5">Article de blog</text>
 
   <!-- URL -->

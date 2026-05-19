@@ -23,10 +23,10 @@
 
   <!-- Barre flamme gauche -->
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
+  <line x1="52" y1="38" x2="340" y2="38" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
 
   <!-- Catégorie -->
-  <text x="52" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="600"
+  <text x="52" y="58" font-family="Arial, sans-serif" font-size="16" font-weight="600"
         fill="#F97316" letter-spacing="2.5">ADOPTION IA · PME DU NORD</text>
 
   <!-- Titre ligne 1 -->
@@ -48,20 +48,20 @@
         fill="rgba(255,255,255,0.52)" letter-spacing="-0.3">La réalité terrain dans les Hauts-de-France, chiffres à l'appui</text>
 
   <!-- Séparateur -->
-  <line x1="52" y1="462" x2="700" y2="462" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <line x1="52" y1="360" x2="700" y2="360" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
 
   <!-- Stats -->
-  <text x="52"  y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">68%</text>
-  <text x="52"  y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">pas encore automatisé</text>
+  <text x="52"  y="406" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">68%</text>
+  <text x="52"  y="434" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">pas encore automatisé</text>
 
-  <text x="230" y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
-  <text x="230" y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
+  <text x="230" y="406" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
+  <text x="230" y="434" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
 
-  <text x="420" y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
-  <text x="420" y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">avant 1ers gains</text>
+  <text x="420" y="406" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="420" y="434" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">avant 1ers gains</text>
 
-  <text x="620" y="510" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4 ROI</text>
-  <text x="620" y="538" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+  <text x="620" y="406" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="620" y="434" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
 
   <!-- URL -->
   <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600"

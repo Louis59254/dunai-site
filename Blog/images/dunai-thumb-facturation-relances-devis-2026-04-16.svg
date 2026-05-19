@@ -15,8 +15,8 @@
   <circle cx="1090" cy="360" r="150" fill="#EA580C" opacity="0.05"/>
   <circle cx="1090" cy="360" r="70"  fill="#EA580C" opacity="0.08"/>
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <line x1="52" y1="92" x2="340" y2="92" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
-  <text x="52" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#F97316" letter-spacing="2.5">AUTOMATISATION · GESTION PME</text>
+  <line x1="52" y1="38" x2="340" y2="38" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
+  <text x="52" y="58" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#F97316" letter-spacing="2.5">AUTOMATISATION · GESTION PME</text>
   <text x="52" y="122" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">Automatiser sa facturation,</text>
   <text x="52" y="192" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
     <tspan fill="rgba(255,255,255,0.9)">ses relances, </tspan><tspan fill="#EA580C">ses devis</tspan>
@@ -24,13 +24,13 @@
   <text x="52" y="255" font-family="Arial Black, sans-serif" font-size="42" font-weight="800" fill="rgba(255,255,255,0.45)" letter-spacing="-1.5">mode d'emploi</text>
   <text x="52" y="310" font-family="Arial, sans-serif" font-size="21" font-weight="300" fill="rgba(255,255,255,0.52)" letter-spacing="-0.3">Le guide pratique pour les PME des Hauts-de-France</text>
   <line x1="52" y1="346" x2="720" y2="346" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="52"  y="494" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-93%</text>
-  <text x="52"  y="520" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">temps de devis</text>
-  <text x="210" y="494" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">18 000€/an</text>
-  <text x="210" y="520" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">économisés (logistique)</text>
-  <text x="470" y="494" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>
-  <text x="470" y="520" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">avant 1ers gains</text>
-  <text x="650" y="494" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×4 ROI</text>
-  <text x="650" y="520" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
+  <text x="52"  y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-93%</text>
+  <text x="52"  y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">temps de devis</text>
+  <text x="210" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">18 000€/an</text>
+  <text x="210" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">économisés (logistique)</text>
+  <text x="470" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="470" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">avant 1ers gains</text>
+  <text x="650" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="650" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
   <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
 </svg>

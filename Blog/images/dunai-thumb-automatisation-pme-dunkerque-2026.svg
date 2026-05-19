@@ -22,11 +22,11 @@
   </text>
   <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">68% des PME du Nord n'ont encore rien automatisé</text>
   <line x1="52" y1="310" x2="580" y2="310" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="52" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">68%</text>
-  <text x="52" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">PME sans automatisation</text>
-  <text x="210" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">+28h</text>
-  <text x="210" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">gagnées / mois</text>
-  <text x="370" y="468" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#4ADE80">×4</text>
-  <text x="370" y="496" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">ROI sur 12 mois</text>
+  <text x="52" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">68%</text>
+  <text x="52" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">PME sans automatisation</text>
+  <text x="210" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">+28h</text>
+  <text x="210" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">gagnées / mois</text>
+  <text x="370" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#4ADE80">×4</text>
+  <text x="370" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">ROI sur 12 mois</text>
   <text x="1148" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
 </svg>

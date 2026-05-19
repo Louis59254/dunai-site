@@ -30,9 +30,9 @@ button, a { cursor: pointer; }
 /* NAV */
 nav { position: fixed; top: 12px; left: 0; right: 0; z-index: 200; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
 nav > * { pointer-events: all; }
-.nav-logo { cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; opacity: 1; transition: opacity .2s; }
-.nav-logo:hover { opacity: .75; }
-.nav-logo img { height: 32px; width: auto; display: block; }
+.nav-logo { cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(12,10,9,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); padding: 7px 16px; border-radius: var(--r-full); transition: border-color .2s; }
+.nav-logo:hover { border-color: rgba(255,255,255,0.2); }
+.nav-logo img { height: 28px; width: auto; display: block; }
 .nav-pill { display: flex; align-items: center; gap: 4px; background: rgba(12,10,9,0.85); backdrop-filter: blur(20px); border: 1px solid var(--border-dark); border-radius: var(--r-full); padding: 4px 5px; }
 .nav-links-desktop { display: none; gap: 2px; list-style: none; align-items: center; }
 .nav-links-desktop a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; cursor: pointer; font-weight: 400; padding: 7px 13px; border-radius: var(--r-full); display: block; transition: all .18s; white-space: nowrap; }
@@ -1406,8 +1406,12 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 
 <script>
 const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', tarifs:'Tarifs', blog:'Blog', contact:'Audit gratuit' };
+const slugMap  = { home:'/', agents:'/agents', roi:'/roi', tarifs:'/tarifs', contact:'/contact' };
+const urlToPage = { '/':' home','':' home','/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact' };
 
-function showPage(id) {
+function showPage(id, push=true) {
+  // Blog → full navigation (standalone page served by Nginx)
+  if (id === 'blog') { window.location.href = '/blog'; return; }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1416,7 +1420,16 @@ function showPage(id) {
     a.classList.remove('active');
     if (a.textContent.trim() === pageMap[id]) a.classList.add('active');
   });
+  if (push) history.pushState({ page: id }, '', slugMap[id] || '/');
+  document.title = id === 'home'
+    ? 'Dunai — Automatisation IA pour les PME des Hauts-de-France'
+    : pageMap[id] + ' — Dunai';
 }
+
+window.addEventListener('popstate', e => {
+  const id = (e.state && e.state.page) || urlToPage[location.pathname.replace(/ /g,'')] || 'home';
+  showPage(id, false);
+});
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu'); const btn = document.getElementById('hamburger');
   const open = menu.classList.toggle('open'); btn.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : '';
@@ -1439,7 +1452,11 @@ function selectStep(el,idx) {
 }
 
 let countersStarted=false;
-document.addEventListener('DOMContentLoaded',()=>{ if(document.getElementById('page-agents').classList.contains('active')) startCounters(); });
+document.addEventListener('DOMContentLoaded',()=>{
+  const pathMap = {'/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact'};
+  const initPage = pathMap[location.pathname] || 'home';
+  showPage(initPage, false);
+});
 function startCounters() {
   if(countersStarted) return; countersStarted=true;
   [{id:'c1',end:4800},{id:'c2',end:340},{id:'c3',end:1200}].forEach(t=>{
