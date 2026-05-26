@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation IA des équipes en PME — Guide pratique 2026 | Dunai</title>
+  <meta name="description" content="Comment former vos équipes à l'IA en entreprise ? Dunai vous guide : diagnostic, modules pratiques, indicateurs ROI. Résultats concrets en 6 semaines à Dunkerque et dans les Hauts-de-France.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dunai.fr/Blog/dunai-article-formation-ia-2026-05-26.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Formation IA des équipes en PME — Guide pratique 2026">
+  <meta property="og:description" content="Comment former vos équipes à l'IA en entreprise ? Dunai vous guide : diagnostic, modules pratiques, indicateurs ROI. Résultats en 6 semaines.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dunai.fr/Blog/dunai-article-formation-ia-2026-05-26.html">
+  <meta property="og:image" content="https://dunai.fr/Blog/images/dunai-thumb-formation-ia-2026-05-26.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dunai.fr/Blog/images/dunai-thumb-formation-ia-2026-05-26.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      background: var(--creme);
+      color: var(--noir);
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12,10,9,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 64px;
+    }
+    .nav-logo svg { display: block; }
+    .nav-logo { text-decoration: none; }
+    .nav-cta {
+      background: #F54800; color: #fff;
+      text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.5px;
+      padding: 9px 20px; border-radius: var(--r-full);
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb-bar {
+      margin-top: 64px;
+      background: var(--anthracite);
+      padding: 12px 32px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .breadcrumb-bar a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .breadcrumb-bar a:hover { color: var(--flamme2); }
+    .breadcrumb-bar span { margin: 0 8px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--noir);
+      padding: 80px 32px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 15% 50%, rgba(234,88,12,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(234,88,12,.15) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; max-width: 860px; margin: 0 auto;
+    }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      color: var(--flamme2); text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .kicker-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--flamme); flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.75); }
+    }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: clamp(36px, 5vw, 58px);
+      color: #fff; letter-spacing: -1.5px; line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 .hl { color: var(--flamme2); }
+    .hero-meta {
+      display: flex; gap: 20px; align-items: center;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+      margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .hero-meta .tag {
+      background: rgba(234,88,12,.15); color: var(--flamme2);
+      border: 1px solid rgba(234,88,12,.25); border-radius: var(--r-full);
+      padding: 3px 12px; font-size: 12px; font-weight: 600;
+    }
+    .hero-sub {
+      font-size: 19px; font-weight: 300; color: rgba(255,255,255,0.7);
+      line-height: 1.7; max-width: 700px; margin-bottom: 40px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border-dark);
+      border: 1px solid var(--border-dark); border-radius: var(--r-lg);
+      overflow: hidden; max-width: 720px;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.03);
+      padding: 20px 16px; text-align: center;
+    }
+    .hero-stat-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: 28px;
+      color: var(--flamme2); letter-spacing: -1px;
+      display: block;
+    }
+    .hero-stat-lbl {
+      font-size: 12px; color: rgba(255,255,255,0.4);
+      line-height: 1.4; display: block; margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    .section-white { background: #fff; padding: 72px 32px; }
+    .section-dark { background: var(--anthracite); padding: 72px 32px; color: #fff; }
+    .section-cream2 { background: var(--creme2); padding: 72px 32px; }
+    .section-anth { background: var(--dark2); padding: 72px 32px; color: #fff; }
+
+    .section-inner { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--flamme); margin-bottom: 10px;
+    }
+    .section-dark .eyebrow, .section-anth .eyebrow { color: var(--flamme2); }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: clamp(26px, 3.5vw, 38px);
+      letter-spacing: -1px; line-height: 1.15; margin-bottom: 20px;
+      color: var(--noir);
+    }
+    .section-dark h2, .section-anth h2 { color: #fff; }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 22px;
+      letter-spacing: -0.5px; margin-bottom: 12px;
+      color: var(--noir);
+    }
+    .section-dark h3, .section-anth h3 { color: #fff; }
+
+    p { margin-bottom: 16px; }
+    .section-dark p, .section-anth p { color: rgba(255,255,255,0.75); }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      border-left: 3px solid var(--flamme);
+      background: var(--flamme-pale);
+      padding: 20px 24px; border-radius: 0 var(--r-md) var(--r-md) 0;
+      margin: 24px 0;
+    }
+    .info-box strong { color: var(--flamme); }
+    .info-box-dark {
+      border-left: 3px solid var(--flamme2);
+      background: rgba(249,115,22,0.08);
+      padding: 20px 24px; border-radius: 0 var(--r-md) var(--r-md) 0;
+      margin: 24px 0;
+    }
+    .info-box-dark strong { color: var(--flamme2); }
+
+    /* ── SIGNAL GRID ── */
+    .signal-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin: 28px 0;
+    }
+    .signal-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-md); padding: 20px;
+    }
+    .signal-card-icon {
+      font-size: 22px; margin-bottom: 10px; display: block;
+    }
+    .signal-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 15px; color: #fff;
+      margin-bottom: 6px;
+    }
+    .signal-card p { font-size: 14px; color: rgba(255,255,255,0.55); margin: 0; }
+
+    /* ── PROCESS LIST ── */
+    .process-list {
+      list-style: none; position: relative;
+      padding-left: 0; margin: 28px 0;
+    }
+    .process-list::before {
+      content: ''; position: absolute;
+      left: 20px; top: 40px; bottom: 20px;
+      width: 2px; background: rgba(234,88,12,.25);
+    }
+    .process-list li {
+      display: flex; gap: 20px; align-items: flex-start;
+      margin-bottom: 28px; position: relative;
+    }
+    .process-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--flamme); color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .process-content h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 17px;
+      color: #fff; margin-bottom: 6px;
+    }
+    .process-content p { font-size: 15px; color: rgba(255,255,255,0.65); margin: 0; }
+
+    /* ── BEFORE/AFTER TABLE ── */
+    .ba-scroll { overflow-x: auto; margin: 28px 0; }
+    .ba-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 15px;
+    }
+    .ba-table thead tr { background: var(--anthracite); }
+    .ba-table thead th {
+      padding: 14px 18px; text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 12px; text-transform: uppercase;
+      letter-spacing: 1px; color: rgba(255,255,255,0.6);
+    }
+    .ba-table thead th.th-apres { color: var(--flamme2); }
+    .ba-table thead th.th-gain { color: var(--vert); }
+    .ba-table tbody tr { border-bottom: 1px solid var(--border-light); }
+    .ba-table tbody tr:nth-child(even) { background: rgba(0,0,0,.025); }
+    .ba-table tbody td {
+      padding: 14px 18px; vertical-align: top;
+      color: var(--noir);
+    }
+    .ba-table .td-gain {
+      color: var(--vert); font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .ba-table .td-avant { color: var(--brun); }
+
+    /* ── ROI GRID ── */
+    .roi-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 20px; margin: 28px 0;
+    }
+    .roi-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); padding: 28px; position: relative;
+      overflow: hidden;
+    }
+    .roi-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--flamme);
+    }
+    .roi-card-label {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--flamme2); margin-bottom: 10px;
+    }
+    .roi-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 17px; color: #fff;
+      margin-bottom: 16px;
+    }
+    .roi-results {
+      background: var(--noir); border-radius: var(--r-sm);
+      padding: 14px 16px; margin-top: 12px;
+    }
+    .roi-result-item {
+      display: flex; justify-content: space-between;
+      align-items: baseline; padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px;
+    }
+    .roi-result-item:last-child { border-bottom: none; }
+    .roi-result-item .lbl { color: rgba(255,255,255,0.5); }
+    .roi-result-item .val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; color: var(--flamme2);
+    }
+    .roi-result-item .val.vert { color: #4ADE80; }
+
+    /* ── QUOTE BLOCK ── */
+    .quote-block {
+      border-left: 4px solid var(--flamme);
+      padding: 20px 28px; margin: 28px 0;
+      background: rgba(234,88,12,0.06);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .quote-block blockquote {
+      font-style: italic; font-size: 18px; line-height: 1.7;
+      color: rgba(255,255,255,0.85); margin-bottom: 10px;
+    }
+    .quote-block cite {
+      font-size: 13px; color: var(--flamme2);
+      font-style: normal; font-weight: 600;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--flamme); padding: 72px 32px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(255,255,255,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      color: #fff; font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 16px; position: relative;
+    }
+    .final-cta p {
+      color: rgba(255,255,255,.85); font-size: 18px;
+      max-width: 520px; margin: 0 auto 32px; position: relative;
+    }
+    .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-white {
+      background: #fff; color: var(--flamme);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 15px;
+      padding: 14px 32px; border-radius: var(--r-full);
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-transparent {
+      background: transparent; color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600; font-size: 15px;
+      padding: 14px 32px; border-radius: var(--r-full);
+      border: 2px solid rgba(255,255,255,.5);
+      text-decoration: none; transition: border-color .2s;
+      display: inline-block;
+    }
+    .btn-transparent:hover { border-color: #fff; }
+
+    /* ── INTERNAL LINKS ── */
+    .internal-links {
+      background: var(--creme2); border: 1px solid var(--border-light);
+      border-radius: var(--r-lg); padding: 28px 32px; margin: 32px 0;
+    }
+    .internal-links h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 15px; color: var(--noir);
+      margin-bottom: 14px; text-transform: uppercase;
+      letter-spacing: 1px; font-size: 12px;
+    }
+    .internal-links ul { list-style: none; }
+    .internal-links li { padding: 7px 0; border-bottom: 1px solid var(--border-light); }
+    .internal-links li:last-child { border-bottom: none; }
+    .internal-links a {
+      color: var(--flamme); text-decoration: none; font-weight: 500;
+      font-size: 15px;
+    }
+    .internal-links a:hover { text-decoration: underline; }
+    .internal-links a::before { content: '→ '; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--noir); padding: 48px 32px;
+      text-align: center; color: rgba(255,255,255,0.35);
+      font-size: 14px;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--flamme2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .signal-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 16px; }
+      .hero { padding: 48px 20px 56px; }
+      .section-white, .section-dark, .section-cream2, .section-anth { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai — Agence IA Dunkerque">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="22" viewBox="0 0 600 180" aria-hidden="true" focusable="false">
+      <text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9">
+        <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
+      </text>
+      <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
+    </svg>
+  </a>
+  <a class="nav-cta" href="https://dunai.fr/#contact">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="https://dunai.fr">Accueil</a>
+  <span aria-hidden="true">›</span>
+  <a href="https://dunai.fr/blog">Blog</a>
+  <span aria-hidden="true">›</span>
+  Formation IA des équipes
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="kicker">
+      <span class="kicker-dot" aria-hidden="true"></span>
+      Formation IA &amp; Montée en compétences
+    </div>
+    <h1>Formation IA des équipes :<br><span class="hl">par où commencer</span></h1>
+    <div class="hero-meta">
+      <span class="tag">Formation IA</span>
+      <span>26 mai 2026</span>
+      <span>·</span>
+      <span>8 min de lecture</span>
+      <span>·</span>
+      <span>Louis Slosse — Dunai</span>
+    </div>
+    <p class="hero-sub">
+      68&nbsp;% des PME du Nord n'ont encore rien automatisé. Ce n'est pas un problème technologique : c'est un problème de compétences. Former vos équipes à l'IA, c'est la décision qui débloque tout le reste — en 6 semaines, pas en 6 mois.
+    </p>
+    <div class="hero-stats" role="list">
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-val">4,2h</span>
+        <span class="hero-stat-lbl">perdues/salarié/jour sur tâches répétitives</span>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-val">68&nbsp;%</span>
+        <span class="hero-stat-lbl">des PME n'ont rien automatisé</span>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-val">6 sem.</span>
+        <span class="hero-stat-lbl">avant les premiers gains mesurables</span>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-val">×4</span>
+        <span class="hero-stat-lbl">ROI moyen sur 12 mois</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 — POURQUOI FORMER -->
+<section class="section-white">
+  <div class="section-inner">
+    <p class="eyebrow">Le problème de fond</p>
+    <h2>Pourquoi vos équipes freinent face à l'IA</h2>
+    <p>
+      Quand on parle d'IA à un chef d'entreprise du Nord, la première réaction n'est pas "comment ça marche" — c'est "est-ce que mes gens vont suivre ?". C'est la bonne question. Et elle n'est pas posée assez tôt.
+    </p>
+    <p>
+      La résistance au changement est le principal frein à l'adoption de l'IA dans les PME, devant le coût et la complexité technique. Les outils existent, sont accessibles, et souvent moins chers qu'une embauche. Ce qui manque, c'est le cadre pour les utiliser.
+    </p>
+    <div class="info-box">
+      <strong>Chiffre clé :</strong> Dans les PME industrielles des Hauts-de-France, 4,2&nbsp;h par salarié et par jour sont consacrées à des tâches à faible valeur ajoutée : saisie, copier-coller, relances manuelles, mise en forme de documents. Ce n'est pas un problème d'outil — c'est un problème de méthode de travail.
+    </div>
+    <p>
+      Former vos équipes à l'IA ne signifie pas leur enseigner le machine learning. Cela signifie leur donner les réflexes pour identifier les tâches automatisables, utiliser les bons outils, et mesurer le gain.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 2 — LES SIGNAUX D'ALERTE -->
+<section class="section-dark">
+  <div class="section-inner">
+    <p class="eyebrow">Diagnostic</p>
+    <h2>6 signaux qui montrent que vos équipes ont besoin d'une formation IA</h2>
+    <p>Avant de définir un programme, identifier les points de douleur. Voici les 6 symptômes les plus fréquents dans les PME du Nord que nous accompagnons.</p>
+    <div class="signal-grid">
+      <div class="signal-card">
+        <span class="signal-card-icon">⏱️</span>
+        <h4>Tâches répétitives non automatisées</h4>
+        <p>Les mêmes actions sont faites à la main chaque semaine : export, saisie, relance, mise à jour de tableau.</p>
+      </div>
+      <div class="signal-card">
+        <span class="signal-card-icon">❓</span>
+        <h4>Méconnaissance des outils disponibles</h4>
+        <p>Les salariés ne savent pas que leur ERP ou leur suite Office contient déjà des fonctions IA utilisables immédiatement.</p>
+      </div>
+      <div class="signal-card">
+        <span class="signal-card-icon">🔄</span>
+        <h4>Processus non documentés</h4>
+        <p>Les procédures ne sont pas écrites. Impossible d'automatiser ce qu'on ne sait pas décrire clairement.</p>
+      </div>
+      <div class="signal-card">
+        <span class="signal-card-icon">📊</span>
+        <h4>Données non exploitées</h4>
+        <p>Des données clients, fournisseurs ou opérationnelles s'accumulent sans être analysées ni activées.</p>
+      </div>
+      <div class="signal-card">
+        <span class="signal-card-icon">🧱</span>
+        <h4>Silotage entre services</h4>
+        <p>Chaque service travaille dans son coin. L'IA ne peut pas connecter ce qui est cloisonné par des habitudes.</p>
+      </div>
+      <div class="signal-card">
+        <span class="signal-card-icon">😰</span>
+        <h4>Crainte de "perdre son travail"</h4>
+        <p>Sans formation, l'IA est perçue comme une menace. Avec, elle devient un levier de montée en compétences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — LA MÉTHODE DUNAI -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <p class="eyebrow">La méthode terrain</p>
+    <h2>Former ses équipes à l'IA : les 5 étapes qui fonctionnent</h2>
+    <p>
+      Chez Dunai, nous avons accompagné des équipes de 4 à 45 personnes dans des PME industrielles, logistiques et commerciales du Nord-Pas-de-Calais. Voici la structure qui génère des résultats en 6 semaines.
+    </p>
+    <ol class="process-list" style="color:#fff">
+      <li>
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h4 style="color:var(--noir)">Cartographie des tâches automatisables</h4>
+          <p style="color:var(--brun)">Avant toute formation, analyser 2 journées de travail par service. Identifier les tâches répétitives, chronophages, et à faible valeur stratégique. C'est la base du programme personnalisé.</p>
+        </div>
+      </li>
+      <li>
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h4 style="color:var(--noir)">Formation par cas d'usage métier</h4>
+          <p style="color:var(--brun)">Oublier la formation théorique. Former chaque équipe sur <em>ses propres cas</em> : le commercial apprend à générer des devis avec l'IA, l'ADV à traiter les relances, la compta à réconcilier les factures.</p>
+        </div>
+      </li>
+      <li>
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h4 style="color:var(--noir)">Déploiement d'un projet pilote</h4>
+          <p style="color:var(--brun)">Choisir UN processus à automatiser dans les 2 premières semaines. Mesurer le gain. Ce "quick win" crée l'adhésion et montre l'exemple à toute l'organisation.</p>
+        </div>
+      </li>
+      <li>
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h4 style="color:var(--noir)">Référents IA internes</h4>
+          <p style="color:var(--brun)">Former 1 à 2 personnes comme "champions IA" par service. Ils deviennent les relais naturels, répondent aux questions, et assurent la continuité après la formation initiale.</p>
+        </div>
+      </li>
+      <li>
+        <div class="process-num">5</div>
+        <div class="process-content">
+          <h4 style="color:var(--noir)">Suivi &amp; optimisation à 30-60 jours</h4>
+          <p style="color:var(--brun)">Revoir les indicateurs un mois après le déploiement. Ajuster les automatisations, identifier les nouveaux cas d'usage émergents, et décider de l'extension à d'autres services.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="info-box">
+      <strong>À retenir :</strong> la formation IA ne se fait pas en salle une seule fois. Elle se fait <em>sur le terrain, sur les vrais outils, sur les vrais processus</em> de votre entreprise. C'est la différence entre une formation qui ne change rien et une formation qui génère du ROI.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — AVANT / APRÈS -->
+<section class="section-white">
+  <div class="section-inner">
+    <p class="eyebrow">Impact concret</p>
+    <h2>Avant / après formation IA : ce qui change vraiment</h2>
+    <p>Ces données sont issues de nos accompagnements dans des PME des Hauts-de-France entre 6 et 45 salariés.</p>
+    <div class="ba-scroll">
+      <table class="ba-table" aria-label="Comparatif avant/après formation IA">
+        <thead>
+          <tr>
+            <th>Processus</th>
+            <th class="td-avant">Avant formation</th>
+            <th class="th-apres">Après formation IA</th>
+            <th class="th-gain">Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Création d'un devis</strong></td>
+            <td class="td-avant">45 à 90 min/devis, relecture manuelle</td>
+            <td>3 à 8 min, template IA + validation humaine</td>
+            <td class="td-gain">−88&nbsp;% de temps</td>
+          </tr>
+          <tr>
+            <td><strong>Relances clients</strong></td>
+            <td class="td-avant">1h/jour, copier-coller d'emails</td>
+            <td>Automatisées, personnalisées, planifiées</td>
+            <td class="td-gain">−95&nbsp;% d'effort</td>
+          </tr>
+          <tr>
+            <td><strong>Compte-rendu de réunion</strong></td>
+            <td class="td-avant">45 min de rédaction après chaque réunion</td>
+            <td>Transcription + résumé IA en 3 min</td>
+            <td class="td-gain">−93&nbsp;% de temps</td>
+          </tr>
+          <tr>
+            <td><strong>Réponse aux e-mails entrants</strong></td>
+            <td class="td-avant">2h/jour pour les équipes ADV et service client</td>
+            <td>Triage IA + templates suggérés, 30 min/jour</td>
+            <td class="td-gain">−75&nbsp;% de temps</td>
+          </tr>
+          <tr>
+            <td><strong>Reporting mensuel</strong></td>
+            <td class="td-avant">½ journée de collecte et mise en forme</td>
+            <td>Dashboard automatique, données en temps réel</td>
+            <td class="td-gain">−80&nbsp;% d'effort</td>
+          </tr>
+          <tr>
+            <td><strong>Onboarding nouveaux clients</strong></td>
+            <td class="td-avant">Processus papier, 3 jours de délai</td>
+            <td>Workflow IA, documents générés automatiquement</td>
+            <td class="td-gain">−73&nbsp;% de délai</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — CAS CLIENTS -->
+<section class="section-anth">
+  <div class="section-inner">
+    <p class="eyebrow">Cas clients Dunai</p>
+    <h2>Ce que nos formations ont changé dans des PME du Nord</h2>
+    <p>Des entreprises concrètes, des chiffres réels, des contextes similaires aux vôtres.</p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-card-label">Commerce — Hauts-de-France — 8 salariés</div>
+        <h4>Formation équipe commerciale : devis et suivi clients</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:0">Boutique de matériaux de construction. Les commerciaux passaient 45 min par devis. Formation de 2 jours sur l'IA générative + automatisation du suivi client.</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="lbl">Temps/devis</span>
+            <span class="val">45 min → 3 min</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">Gain trimestriel</span>
+            <span class="val vert">+9 800 €</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">Délai avant ROI</span>
+            <span class="val">4 semaines</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">Logistique — Dunkerque — 18 salariés</div>
+        <h4>Formation opérations : reporting, planning, relances</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:0">PME de transport régional. Équipe de 5 personnes formée à l'automatisation des tâches administratives et du suivi fournisseurs.</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="lbl">Heures récupérées</span>
+            <span class="val">+28 h/mois</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">Économies annuelles</span>
+            <span class="val vert">18 000 €/an</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">Délai avant ROI</span>
+            <span class="val">6 semaines</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">BTP — Nord — 22 salariés</div>
+        <h4>Formation chargés d'affaires : devis et suivi chantiers</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:0">Entreprise de second œuvre. Les chargés d'affaires passaient 60&nbsp;% de leur temps en administratif. Formation ciblée sur la génération de devis et le suivi de chantier.</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="lbl">Devis envoyés</span>
+            <span class="val">+28&nbsp;%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">CA signé</span>
+            <span class="val vert">+16&nbsp;%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">Délai avant ROI</span>
+            <span class="val">5 semaines</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-label">Santé — Dunkerque — 6 praticiens</div>
+        <h4>Formation accueil &amp; administratif : agenda et relances patients</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:0">Cabinet médical pluridisciplinaire. Le taux de no-show atteignait 28&nbsp;%. Formation de l'équipe administrative sur la gestion IA de l'agenda et des rappels automatiques.</p>
+        <div class="roi-results">
+          <div class="roi-result-item">
+            <span class="lbl">Taux no-show</span>
+            <span class="val">−62&nbsp;%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">CA mensuel</span>
+            <span class="val vert">+22&nbsp;%</span>
+          </div>
+          <div class="roi-result-item">
+            <span class="lbl">Délai avant ROI</span>
+            <span class="val">3 semaines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <blockquote>
+        "On pensait que nos équipes n'étaient pas 'tech'. En fait, elles avaient juste besoin qu'on leur montre les bons outils sur leurs vrais sujets. En 2 jours de formation, tout a changé."
+      </blockquote>
+      <cite>— Directeur général, PME industrielle de 18 salariés, Dunkerque</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — PROGRAMME FORMATION DUNAI -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <p class="eyebrow">Notre offre</p>
+    <h2>Ce que comprend une formation IA Dunai</h2>
+    <p>
+      Nos programmes de formation sont conçus pour des PME et ETI du Nord. Pas de slides génériques, pas de cas d'usage de Google ou Amazon. Des cas qui ressemblent aux vôtres.
+    </p>
+    <p>
+      <strong>Format standard :</strong> 1 à 2 jours en présentiel (ou hybride), par groupe de 4 à 12 personnes. Précédé d'un diagnostic de 2h pour cartographier vos cas d'usage réels.
+    </p>
+    <div class="info-box">
+      <strong>Inclus dans chaque formation :</strong>
+      <ul style="margin-top:10px;padding-left:20px;line-height:1.9">
+        <li>Diagnostic préalable des tâches automatisables dans votre contexte</li>
+        <li>Modules pratiques sur vos propres outils (ERP, CRM, suite Office, outils métier)</li>
+        <li>1 automatisation déployée en live pendant la formation</li>
+        <li>Guide de référence personnalisé remis à chaque participant</li>
+        <li>Suivi à 30 jours avec mesure des gains réels</li>
+        <li>Accès à notre réseau de référents IA Dunai pendant 3 mois</li>
+      </ul>
+    </div>
+    <p>
+      <strong>Éligibilité :</strong> nos formations sont éligibles aux financements OPCO, Plan de Développement des Compétences, et aux aides régionales Hauts-de-France. Dunai vous accompagne dans le montage du dossier de financement.
+    </p>
+
+    <h3 style="margin-top:32px">Quel budget prévoir ?</h3>
+    <p>
+      Une formation IA ciblée se rentabilise en moyenne en <strong>4 à 6 semaines</strong>. Pour une PME de 10 salariés avec une journée de formation, le gain typique dépasse 15&nbsp;000&nbsp;€ sur 12 mois. Le ROI moyen constaté chez nos clients est de <strong>×4 sur 12 mois</strong>.
+    </p>
+    <p>
+      Après financement OPCO, le reste à charge est souvent nul ou inférieur à 1&nbsp;500&nbsp;€ pour une PME de moins de 50 salariés.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 7 — ERREURS À ÉVITER -->
+<section class="section-dark">
+  <div class="section-inner">
+    <p class="eyebrow">Pièges courants</p>
+    <h2>3 erreurs qui font rater une formation IA en PME</h2>
+    <p>On les voit régulièrement. Les éviter change tout.</p>
+
+    <h3 style="margin-top:28px;color:#fff">1. Former sans audit préalable</h3>
+    <p>
+      Former des équipes sur des outils génériques sans avoir cartographié leurs vrais besoins, c'est dépenser de l'argent pour rien. Une formation efficace commence toujours par 2h de diagnostic terrain.
+    </p>
+
+    <h3 style="margin-top:24px;color:#fff">2. Viser trop large dès le début</h3>
+    <p>
+      Vouloir automatiser 10 processus en même temps garantit que rien ne sera réellement déployé. Choisir 1 processus pilote, mesurer le gain, puis étendre. C'est la seule méthode qui crée une adhésion durable.
+    </p>
+
+    <h3 style="margin-top:24px;color:#fff">3. Ne pas nommer de référent IA interne</h3>
+    <p>
+      Sans relais interne, les bonnes habitudes acquises en formation s'effacent en 3 mois. Former 1 ou 2 "champions IA" par service est le meilleur investissement de continuité que vous puissiez faire.
+    </p>
+
+    <div class="info-box-dark">
+      <strong>Règle Dunai :</strong> une formation sans projet pilote déployé dans les 2 semaines qui suivent = une formation qui ne génère pas de ROI. Nous garantissons le déploiement d'au moins une automatisation pendant la formation elle-même.
+    </div>
+  </div>
+</section>
+
+<!-- LIENS INTERNES -->
+<section class="section-white">
+  <div class="section-inner">
+    <div class="internal-links">
+      <h4>À lire aussi</h4>
+      <ul>
+        <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il révèle dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'IA : calculer vos gains réels sur 12 mois</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-automatisation-pme-dunkerque-2026.html">Automatisation des processus pour PME à Dunkerque</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-premier-projet-2026-05-18.html">Comment choisir son premier projet d'automatisation</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-1-agents-ia.html">Agents IA vs automatisation classique : quelle différence ?</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Prêt à former vos équipes à l'IA ?</h2>
+  <p>Audit de vos besoins offert. On identifie vos 3 premiers cas d'usage en 2h — sans jargon, sans engagement.</p>
+  <div class="cta-group">
+    <a class="btn-white" href="https://dunai.fr/#contact">Demander un audit gratuit</a>
+    <a class="btn-transparent" href="https://dunai.fr/#agents">Voir nos cas clients</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:12px">
+    <a href="https://dunai.fr">Dunai</a> — Agence IA &amp; Automatisation · Dunkerque, Hauts-de-France
+  </p>
+  <p>
+    <a href="https://dunai.fr/#contact">Contact</a> &nbsp;·&nbsp;
+    <a href="https://dunai.fr/blog">Blog</a> &nbsp;·&nbsp;
+    <a href="https://dunai.fr/#agents">Cas clients</a>
+  </p>
+  <p style="margin-top:16px;font-size:12px">
+    © 2026 Dunai. Tous droits réservés.
+  </p>
+</footer>
+
+</body>
+</html>
