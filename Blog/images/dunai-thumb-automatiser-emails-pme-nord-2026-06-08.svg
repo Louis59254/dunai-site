@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0C0A09" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1.5" fill="#EA580C" opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- Fond noir -->
+  <rect width="1200" height="630" fill="#0C0A09"/>
+
+  <!-- Glow radial flamme -->
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Motif points -->
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Barre verticale flamme à gauche -->
+  <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
+
+  <!-- Logo Dunai en haut à gauche -->
+  <text x="52" y="72" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="36" font-weight="800" letter-spacing="-1">
+    <tspan fill="#EA580C">Dun</tspan><tspan fill="#ffffff">ai</tspan>
+  </text>
+
+  <!-- Séparateur logo -->
+  <line x1="52" y1="90" x2="320" y2="90" stroke="#EA580C" stroke-width="2" opacity="0.4"/>
+
+  <!-- Catégorie -->
+  <text x="52" y="130" font-family="'DM Sans', Arial, sans-serif" font-size="18" font-weight="500" fill="#F97316" letter-spacing="2">IA &amp; PRODUCTIVITÉ · PME NORD-PAS-DE-CALAIS</text>
+
+  <!-- Titre principal -->
+  <text x="52" y="220" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-2">Automatiser sa boîte mail :</text>
+  <text x="52" y="295" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="58" font-weight="800" letter-spacing="-2">
+    <tspan fill="#ffffff">1 heure gagnée </tspan><tspan fill="#EA580C">chaque jour</tspan>
+  </text>
+
+  <!-- Sous-titre -->
+  <text x="52" y="365" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="300" fill="rgba(255,255,255,0.65)" letter-spacing="-0.3">Tri, réponses, relances : l'agent IA fait le travail à votre place.</text>
+
+  <!-- Séparateur bas -->
+  <line x1="52" y1="430" x2="600" y2="430" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- Stats -->
+  <text x="52" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">1h/jour</text>
+  <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">récupérée par salarié</text>
+
+  <text x="270" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
+  <text x="270" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tâches répétitives</text>
+
+  <text x="470" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
+  <text x="470" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">avant premiers gains</text>
+
+  <!-- URL dunai.fr en bas à droite -->
+  <text x="1148" y="590" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="600" fill="rgba(255,255,255,0.35)" text-anchor="end">dunai.fr</text>
+
+  <!-- Élément décoratif cercles -->
+  <circle cx="1100" cy="420" r="180" fill="#EA580C" opacity="0.06"/>
+  <circle cx="1100" cy="420" r="120" fill="#EA580C" opacity="0.06"/>
+  <circle cx="1100" cy="420" r="60" fill="#EA580C" opacity="0.08"/>
+</svg>
