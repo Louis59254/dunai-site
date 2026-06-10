@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design — Hero + Sélecteur de profil</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #1a1a1a; color: #fff; }
+
+/* FRAME */
+.frame-label { background: #2a2a2a; border-bottom: 1px solid #333; padding: 10px 20px; font-size: 12px; color: #888; display: flex; align-items: center; gap: 12px; }
+.frame-label strong { color: #f97316; }
+.tag { background: #f97316; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
+.tag-new { background: #16a34a; }
+.tag-improv { background: #2563eb; }
+
+/* MOCKUP CONTAINER */
+.mockup-wrap { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+/* HERO MOCKUP */
+.hero-mock { background: #0C0A09; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+.hero-nav { background: rgba(12,10,9,0.9); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
+.nav-logo-m { font-weight: 800; font-size: 15px; color: white; }
+.nav-logo-m span { color: #f97316; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-phone { font-size: 12px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 4px; }
+.nav-phone-icon { width: 14px; height: 14px; background: rgba(255,255,255,0.1); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 8px; }
+.nav-cta-m { background: #ea580c; color: white; font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 99px; }
+.new-badge { background: #16a34a; color: white; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 99px; vertical-align: top; margin-left: 4px; }
+
+.hero-body { padding: 32px 24px; }
+.hero-kicker-m { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: #f97316; text-transform: uppercase; margin-bottom: 12px; }
+.hero-h1 { font-size: 28px; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 12px; }
+.hero-h1 .hl { color: #f97316; }
+
+/* NEW: sous-titre avec les 3 profils */
+.hero-profiles { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.hero-profile-pill { font-size: 11px; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 5px; }
+.hero-profile-pill .dot { width: 5px; height: 5px; border-radius: 50%; background: #f97316; }
+
+.hero-sub-m { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; max-width: 480px; }
+.hero-cta-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-fire { background: #ea580c; color: white; font-size: 12px; font-weight: 600; padding: 10px 18px; border-radius: 8px; }
+.btn-ghost-m { background: transparent; color: rgba(255,255,255,0.6); font-size: 12px; padding: 10px 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); }
+
+/* SÉLECTEUR DE PROFIL */
+.selector-section { background: #FAFAF9; border-radius: 12px; overflow: hidden; border: 1px solid #e7e5e4; }
+.selector-header { padding: 16px 20px; border-bottom: 1px solid #e7e5e4; }
+.selector-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: #ea580c; text-transform: uppercase; margin-bottom: 4px; }
+.selector-title { font-size: 16px; font-weight: 800; color: #1c1917; letter-spacing: -0.5px; }
+.selector-sub { font-size: 12px; color: #78716c; margin-top: 2px; }
+.selector-tabs { display: flex; border-bottom: 1px solid #e7e5e4; }
+.sel-tab { flex: 1; padding: 12px 8px; text-align: center; font-size: 12px; font-weight: 600; color: #78716c; cursor: pointer; border-bottom: 2px solid transparent; }
+.sel-tab.active { color: #ea580c; border-bottom-color: #ea580c; background: #fff7ed; }
+.sel-tab .tab-icon { font-size: 16px; display: block; margin-bottom: 4px; }
+.sel-tab .tab-label { font-size: 11px; display: block; }
+.sel-tab .tab-desc { font-size: 9px; color: #a8a29e; display: block; margin-top: 1px; }
+
+.selector-content { padding: 16px 20px; background: white; }
+.sel-content-title { font-size: 13px; font-weight: 700; color: #1c1917; margin-bottom: 8px; }
+.sel-items { display: flex; flex-direction: column; gap: 6px; }
+.sel-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #57534e; }
+.sel-item::before { content: '→'; color: #ea580c; font-weight: 700; flex-shrink: 0; }
+.sel-cta-row { margin-top: 14px; display: flex; gap: 8px; align-items: center; }
+.sel-cta { background: #ea580c; color: white; font-size: 12px; font-weight: 600; padding: 9px 16px; border-radius: 8px; }
+.sel-link { font-size: 11px; color: #78716c; text-decoration: underline; }
+
+/* STICKY BUTTON */
+.sticky-mock { background: #1c1917; border-radius: 12px; border: 1px solid #333; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky-text { font-size: 12px; color: rgba(255,255,255,0.6); }
+.sticky-btn { background: #ea580c; color: white; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 99px; white-space: nowrap; }
+.sticky-phone { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+/* ANNOTATIONS */
+.annotation { background: #1e3a2f; border: 1px solid #16a34a; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #4ade80; line-height: 1.6; }
+.annotation.blue { background: #1e2a3a; border-color: #2563eb; color: #93c5fd; }
+.section-title { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #666; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+
+<div class="frame-label">
+  <strong>Design section 1/3 — Hero + Sélecteur de profil + Sticky CTA</strong>
+  <span class="tag tag-new">Nouveau</span>
+  <span class="tag tag-improv">Amélioré</span>
+  <span style="margin-left:auto;font-size:11px">Est-ce que cette direction te convient ?</span>
+</div>
+
+<div class="mockup-wrap">
+
+  <!-- 1. HERO AMÉLIORÉ -->
+  <div class="section-title">
+    <span class="tag tag-improv">Amélioré</span>
+    1 — Hero : mention explicite des 3 profils
+  </div>
+  <div class="hero-mock">
+    <div class="hero-nav">
+      <div class="nav-logo-m"><span>Dun</span>aı</div>
+      <div class="nav-right">
+        <div class="nav-phone">
+          <span class="nav-phone-icon">📞</span>
+          <span>03 XX XX XX XX <span class="new-badge">nouveau</span></span>
+        </div>
+        <div class="nav-cta-m">Audit gratuit</div>
+      </div>
+    </div>
+    <div class="hero-body">
+      <div class="hero-kicker-m">● Agence IA & Automatisation · Dunkerque</div>
+      <h1 class="hero-h1">Vos tâches répétitives,<br><span class="hl">automatisées.</span></h1>
+      <div class="hero-profiles">
+        <div class="hero-profile-pill"><span class="dot"></span> Dirigeant PME</div>
+        <div class="hero-profile-pill"><span class="dot"></span> Gérant TPE</div>
+        <div class="hero-profile-pill"><span class="dot"></span> Autoentrepreneur</div>
+      </div>
+      <p class="hero-sub-m">On vient dans vos locaux, on identifie ce qui vous fait perdre du temps, et on déploie les agents IA qui le récupèrent — en moins de 6 semaines.</p>
+      <div class="hero-cta-row">
+        <div class="btn-fire">Réserver mon audit gratuit →</div>
+        <div class="btn-ghost-m">Voir les résultats</div>
+      </div>
+    </div>
+  </div>
+  <div class="annotation blue">
+    <strong>Changements :</strong> ① Téléphone visible dans la nav. ② 3 pills sous le H1 pour que chaque profil se reconnaisse immédiatement. ③ Aucune autre modification du hero actuel.
+  </div>
+
+  <!-- 2. SÉLECTEUR DE PROFIL -->
+  <div class="section-title" style="margin-top:8px">
+    <span class="tag tag-new">Nouveau</span>
+    2 — Section "Je suis…" juste après le hero
+  </div>
+  <div class="selector-section">
+    <div class="selector-header">
+      <div class="selector-eyebrow">Personnalisez votre expérience</div>
+      <div class="selector-title">Quelle situation vous ressemble le plus ?</div>
+      <div class="selector-sub">Le contenu du site s'adapte à votre profil en un clic.</div>
+    </div>
+    <div class="selector-tabs">
+      <div class="sel-tab active">
+        <span class="tab-icon">🏢</span>
+        <span class="tab-label">PME</span>
+        <span class="tab-desc">10–50 salariés</span>
+      </div>
+      <div class="sel-tab">
+        <span class="tab-icon">🔧</span>
+        <span class="tab-label">TPE</span>
+        <span class="tab-desc">2–9 salariés</span>
+      </div>
+      <div class="sel-tab">
+        <span class="tab-icon">🧑‍💻</span>
+        <span class="tab-label">Autoentrepreneur</span>
+        <span class="tab-desc">Seul(e)</span>
+      </div>
+    </div>
+    <div class="selector-content">
+      <div class="sel-content-title">Ce que Dunai automatise pour vous :</div>
+      <div class="sel-items">
+        <div class="sel-item">Relances impayés et génération de devis automatiques</div>
+        <div class="sel-item">Reporting direction produit chaque lundi matin sans effort</div>
+        <div class="sel-item">Saisie ERP et transfert de documents à 0 min/jour</div>
+        <div class="sel-item">Onboarding RH et gestion congés en autonomie</div>
+      </div>
+      <div class="sel-cta-row">
+        <div class="sel-cta">Voir mes cas d'usage →</div>
+        <div class="sel-link">Ou commencer par l'audit gratuit</div>
+      </div>
+    </div>
+  </div>
+  <div class="annotation">
+    <strong>Fonctionnement :</strong> Au clic sur PME / TPE / AE, les témoignages visibles, les agents mis en avant et les exemples du calculateur changent via JavaScript. Même page, contenu adapté. Le profil choisi est retenu en localStorage.
+  </div>
+
+  <!-- 3. STICKY CTA -->
+  <div class="section-title" style="margin-top:8px">
+    <span class="tag tag-new">Nouveau</span>
+    3 — Bouton flottant permanent (bas de page)
+  </div>
+  <div class="sticky-mock">
+    <div>
+      <div class="sticky-text">Pas encore convaincu(e) ? L'audit est gratuit et sans engagement.</div>
+      <div class="sticky-phone">📞 03 XX XX XX XX — réponse en moins de 24h</div>
+    </div>
+    <div class="sticky-btn">Audit gratuit →</div>
+  </div>
+  <div class="annotation blue">
+    <strong>Comportement :</strong> Apparaît après 300px de scroll. Disparaît quand on est sur la section Contact. Présent sur toutes les "pages" (agents, roi, tarifs, blog). Remplace le besoin de naviguer jusqu'au bouton de la nav.
+  </div>
+
+</div>
+
+</body>
+</html>

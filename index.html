@@ -556,7 +556,9 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 .sticky-cta { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 150; background: var(--anthracite); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-xl); padding: 12px 16px 10px; display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.35); transition: transform .35s cubic-bezier(.4,0,.2,1), opacity .35s; opacity: 0; pointer-events: none; white-space: nowrap; }
 .sticky-cta.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
 .sticky-cta-text { font-size: 12px; color: rgba(255,255,255,0.5); }
-.sticky-cta-phone { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 1px; }
+.sticky-cta-phone { display: inline-block; font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 1px; text-decoration: none; }
+.sticky-cta-phone:hover { color: var(--blanc); }
+.mobile-menu-phone { margin-top: 12px; color: var(--flamme) !important; font-size: 16px !important; font-weight: 600; text-decoration: none; }
 .sticky-cta-btn { background: var(--flamme); color: var(--blanc); font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: var(--r-full); border: none; cursor: pointer; white-space: nowrap; transition: background .2s; flex-shrink: 0; }
 .sticky-cta-btn:hover { background: var(--flamme2); }
 @media (max-width: 639px) { .sticky-cta { bottom: 12px; padding: 10px 12px 8px; gap: 10px; } .sticky-cta-text { display: none; } }
@@ -650,9 +652,15 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
   .process3-grid { flex-direction: row; }
   .process3-item { flex-direction: column; flex: 1; gap: .875rem; }
   .process3-num { font-size: 2.25rem; }
-}</style>
+}
+/* Accessibilité : focus clavier visible + lien d'évitement */
+:focus-visible { outline: 2px solid var(--flamme); outline-offset: 2px; }
+.skip-link { position: absolute; left: -999px; top: 0; z-index: 200; background: var(--flamme); color: #fff; padding: 10px 18px; border-radius: 0 0 var(--r-md) 0; font-size: 14px; font-weight: 600; text-decoration: none; }
+.skip-link:focus { left: 0; }</style>
 </head>
 <body>
+<a class="skip-link" href="#page-home">Aller au contenu</a>
+<noscript><div style="background:#0C0A09;color:#FAFAF9;padding:1.25rem;text-align:center;font-family:sans-serif">Dunai — Agence IA &amp; automatisation à Dunkerque. Ce site nécessite JavaScript. Contactez-nous : <a href="tel:0646890887" style="color:#F97316">06 46 89 08 87</a> · <a href="mailto:contact@dunai.fr" style="color:#F97316">contact@dunai.fr</a></div></noscript>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
@@ -662,6 +670,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
   <a onclick="showPage('tarifs');closeMenu()">Tarifs</a>
   <a onclick="showPage('blog');closeMenu()">Blog</a>
   <a class="mobile-menu-cta" onclick="showPage('contact');closeMenu()">Audit gratuit →</a>
+  <a class="mobile-menu-phone" href="tel:0646890887">📞 06 46 89 08 87</a>
 </div>
 
 <!-- NAV -->
@@ -1044,7 +1053,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
           <li><a onclick="showPage('blog')">Blog</a></li>
         </ul>
       </div>
-      <div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div>
+      <div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div>
     </div>
   </footer>
 </div>
@@ -1085,7 +1094,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </section>
   <div class="final-cta"><h2>Un agent pour chaque tâche<br>qui vous coûte du temps.</h2><p>L'audit gratuit identifie lesquels sont les plus rentables pour vous — en 2h, rapport chiffré sous 48h.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
 </div>
 
 <!-- ══════════════════════ RÉSULTATS ══════════════════════ -->
@@ -1107,7 +1116,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     <div class="audit-panel" id="auditPanel"><div class="audit-panel-title" id="auditTitle">Exemple — PME Logistique 18 salariés</div><div id="auditFindings"><div class="audit-finding"><div class="finding-lbl">Opportunité n°1</div><div class="finding-txt">Relances clients : 3h/sem passées à envoyer des emails de relance manuelle depuis Outlook</div><div class="finding-gain">↑ Gain estimé : 3h/sem — ROI en 3 semaines</div></div><div class="audit-finding"><div class="finding-lbl">Opportunité n°2</div><div class="finding-txt">Bons de livraison : saisie manuelle dans le TMS depuis des PDF reçus chaque matin</div><div class="finding-gain">↑ Gain estimé : 1h30/jour — ROI en 5 semaines</div></div><div class="audit-finding"><div class="finding-lbl">Opportunité n°3</div><div class="finding-txt">Reporting hebdo : 4h chaque vendredi à compiler des tableaux Excel depuis 3 sources</div><div class="finding-gain">↑ Gain estimé : 4h/sem — ROI en 4 semaines</div></div></div><div class="audit-total"><span class="audit-total-lbl">Gain total estimé</span><span class="audit-total-n" id="auditTotal">+28h / mois</span></div></div>
   </div></section>
   <div class="final-cta"><h2>Votre entreprise mérite<br>le même résultat.</h2><p>L'audit est offert. La roadmap est incluse. Vous ne payez que ce que vous choisissez de déployer.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Je veux mon audit gratuit</button><button class="btn-transparent" onclick="showPage('tarifs')">Voir les tarifs →</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
 </div>
 
 <!-- ══════════════════════ TARIFS & OFFRES ══════════════════════ -->
@@ -1185,7 +1194,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </div></section>
   <div class="final-cta"><h2>On commence par l'audit.<br>Vous décidez du reste.</h2><p>2h de votre temps. Zéro euro. Un rapport complet pour décider en connaissance de cause.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver l'audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
 </div>
 
 <!-- ══════════════════════ CONTACT ══════════════════════ -->
@@ -1210,129 +1219,9 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
       <div class="form-reassurances"><span class="reassurance-item">✓ 100% gratuit, sans engagement</span><span class="reassurance-item">✓ Réponse sous 24h</span><span class="reassurance-item">✓ Présentiel ou visio</span></div>
     </div>
   </div></div></section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
 </div>
 
-<!-- ══════════════════════ BLOG ══════════════════════ -->
-<div id="page-blog" class="page" role="main">
-  <div class="page-hero-dark"><div class="section-inner"><span class="eyebrow">Ressources & Insights</span><h1 class="h2 h2-white">IA & Automatisation :<br>ce qui marche vraiment.</h1><p class="lead lead-white" style="max-width:520px;margin-top:.75rem;margin-bottom:0">Cas concrets, guides pratiques et retours terrain pour les PME du Nord.</p></div></div>
-  <section class="section" aria-label="Articles du blog"><div class="section-inner">
-    <nav aria-label="Filtrer les articles"><div class="blog-filter" role="list">
-      <button class="filter-btn active" role="listitem" onclick="filterBlog(this,'tous')" aria-pressed="true">Tous les articles</button>
-      <button class="filter-btn" role="listitem" onclick="filterBlog(this,'automatisation')" aria-pressed="false">Automatisation</button>
-      <button class="filter-btn" role="listitem" onclick="filterBlog(this,'agents-ia')" aria-pressed="false">Agents IA</button>
-      <button class="filter-btn" role="listitem" onclick="filterBlog(this,'roi')" aria-pressed="false">ROI & Chiffres</button>
-      <button class="filter-btn" role="listitem" onclick="filterBlog(this,'cas-client')" aria-pressed="false">Cas clients</button>
-    </div></nav>
-    <article class="blog-featured" data-cat="automatisation">
-      <div class="blog-featured-img"><div class="blog-featured-img-inner"></div><img src="Blog/images/dunai-thumb-facturation-relances-devis-2026-04-16.svg" alt="Automatiser facturation, relances et devis en PME" loading="lazy"></div>
-      <div class="blog-featured-body"><div class="blog-featured-meta"><span class="blog-tag">Automatisation</span><span class="blog-meta-sep">·</span><time class="blog-date" datetime="2026-04-16">16 avr. 2026</time><span class="blog-meta-sep">·</span><span class="blog-read-time">8 min de lecture</span></div><h2 class="blog-featured-title">Automatiser facturation, relances et devis en PME</h2><p class="blog-featured-excerpt">Comment automatiser sa facturation, ses relances clients et ses devis dans une PME des Hauts-de-France.</p><a class="blog-read-link" href="Blog/dunai-article-facturation-relances-devis-2026-04-16.html" target="_blank" rel="noopener noreferrer">Lire l'article →</a></div>
-    </article>
-    <div class="blog-grid" id="blogGrid">
-      <article class="blog-card" data-cat="automatisation">
-        <div class="blog-card-img" aria-hidden="true">
-          <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-          <img src="Blog/images/dunai-thumb-automatiser-emails-pme-nord-2026-06-08.svg" alt="Automatiser sa boîte mail : 1h gagnée par jour pour les PME du Nord" loading="lazy">
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-tag">IA &amp; Productivité</span>
-            <span class="blog-meta-sep" aria-hidden="true">·</span>
-            <time class="blog-read-time" datetime="2026-06-08">8 juin 2026</time>
-          </div>
-          <h3 class="blog-card-title">Automatiser sa boîte mail : 1h par jour gagnée en PME</h3>
-          <p class="blog-card-excerpt">Tri, réponses, relances, extraction de PDF : un agent IA gère votre messagerie et libère 1h/jour par salarié dans les PME du Nord...</p>
-        </div>
-        <div class="blog-card-footer">
-          <div class="blog-card-author">
-            <div class="author-avatar" aria-hidden="true">LS</div>
-            <span class="author-name">Louis Slosse</span>
-          </div>
-          <a class="blog-read-link" href="Blog/dunai-article-automatiser-emails-pme-nord-2026-06-08.html" target="_blank" style="font-size:13px">Lire →</a>
-        </div>
-      </article>
-      <article class="blog-card" data-cat="automatisation">
-        <div class="blog-card-img" aria-hidden="true">
-          <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-          <img src="Blog/images/dunai-thumb-ia-gestion-stocks-pme-nord-2026-06-01.svg" alt="IA et gestion des stocks : zéro rupture pour les PME du Nord" loading="lazy">
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-tag">IA &amp; Supply Chain</span>
-            <span class="blog-meta-sep" aria-hidden="true">·</span>
-            <time class="blog-read-time" datetime="2026-06-01">1 juin 2026</time>
-          </div>
-          <h3 class="blog-card-title">IA et gestion des stocks : zéro rupture, zéro sur-stock pour les PME du Nord</h3>
-          <p class="blog-card-excerpt">Réduisez votre capital immobilisé de 30 % et éliminez les ruptures grâce à l'IA prédictive — cas concrets de PME du Nord-Pas-de-Calais...</p>
-        </div>
-        <div class="blog-card-footer">
-          <div class="blog-card-author">
-            <div class="author-avatar" aria-hidden="true">LS</div>
-            <span class="author-name">Louis Slosse</span>
-          </div>
-          <a class="blog-read-link" href="Blog/dunai-article-ia-gestion-stocks-pme-nord-2026-06-01.html" target="_blank" style="font-size:13px">Lire →</a>
-        </div>
-      </article>
-      <article class="blog-card" data-cat="automatisation">
-        <div class="blog-card-img" aria-hidden="true">
-          <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-          <img src="Blog/images/dunai-thumb-formation-ia-2026-05-26.svg" alt="Formation IA des équipes en PME — Guide pratique 2026" loading="lazy">
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-tag">Formation IA</span>
-            <span class="blog-meta-sep" aria-hidden="true">·</span>
-            <time class="blog-read-time" datetime="2026-05-26">26 mai 2026</time>
-          </div>
-          <h3 class="blog-card-title">Formation IA des équipes : par où commencer</h3>
-          <p class="blog-card-excerpt">Former vos salariés à l'IA sans jargon : méthode terrain, cas d'usage métier, financement OPCO. ROI ×4 en 6 semaines dans les PME du Nord...</p>
-        </div>
-        <div class="blog-card-footer">
-          <div class="blog-card-author">
-            <div class="author-avatar" aria-hidden="true">LS</div>
-            <span class="author-name">Louis Slosse</span>
-          </div>
-          <a class="blog-read-link" href="Blog/dunai-article-formation-ia-2026-05-26.html" target="_blank" style="font-size:13px">Lire →</a>
-        </div>
-      </article>
-      <article class="blog-card" data-cat="automatisation"><div class="blog-card-img" aria-hidden="true"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-premier-projet-2026-05-18.svg" alt="Comment choisir son premier projet d'automatisation" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Automatisation</span><span class="blog-meta-sep" aria-hidden="true">·</span><time class="blog-read-time" datetime="2026-05-18">18 mai 2026</time></div><h3 class="blog-card-title">Comment choisir son premier projet d'automatisation</h3><p class="blog-card-excerpt">4 critères concrets pour ne pas se tromper de premier projet. Le guide que Dunai utilise avec chaque PME du Nord pour obtenir des résultats en moins de 6 semaines...</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar" aria-hidden="true">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-premier-projet-2026-05-18.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      
-        <article class="blog-card" data-cat="roi">
-          <div class="blog-card-img" aria-hidden="true">
-            <div class="blog-card-img-inner" style="background:#0C0A09"></div>
-            <img src="Blog/images/dunai-thumb-roi-ia-2026-04-28.svg" alt="ROI de l'IA en entreprise" loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-tag">ROI &amp; Chiffres</span>
-              <span class="blog-meta-sep" aria-hidden="true">·</span>
-              <time class="blog-read-time" datetime="2026-04-28">28 avr. 2026</time>
-            </div>
-            <h3 class="blog-card-title">Mesurer le vrai ROI de l'IA en entreprise</h3>
-            <p class="blog-card-excerpt">Comment calculer concrètement le retour sur investissement de l'IA dans votre PME. Méthode, chiffres réels et grille de calcul téléchargeable...</p>
-          </div>
-          <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="author-avatar" aria-hidden="true">LS</div>
-              <span class="author-name">Louis Slosse</span>
-            </div>
-            <a class="blog-read-link" href="Blog/dunai-article-roi-ia-2026-04-28.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a>
-          </div>
-        </article>
-<article class="blog-card" data-cat="automatisation"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-automatisation-pme-industri-nord-2026-04-20.svg" alt="Automatisation PME industrielle Nord" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Automatisation</span><span class="blog-meta-sep">·</span><time class="blog-read-time">20 avril 2026</time></div><h3 class="blog-card-title">Automatisation des processus pour PME industrielles du Nord</h3><p class="blog-card-excerpt">4,2h perdues par salarié chaque jour sur des tâches répétitives. Voici comment les PME industrielles du Nord les éliminent et atteignent un ROI ×4 en 12 mois...</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-automatisation-pme-industri-nord-2026-04-20.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="agents-ia"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-agent-ia-2026-04-19.svg" alt="Agent IA vs automatisation classique" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Agents IA</span><span class="blog-meta-sep">·</span><time class="blog-read-time">19 avril 2026</time></div><h3 class="blog-card-title">Agent IA vs automatisation classique : quelles différences pour une PME ?</h3><p class="blog-card-excerpt">Deux termes souvent confondus, deux réalités très différentes. Comprendre la distinction vous évitera de vous tromper d'investissement...</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-agent-ia-2026-04-19.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="cas-client"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-ia-logistique-dunkerque-2026-04-16.svg" alt="IA et logistique Dunkerque" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Logistique &amp; IA</span><span class="blog-meta-sep">·</span><time class="blog-read-time">16 avr. 2026</time></div><h3 class="blog-card-title">IA et logistique : cas concrets d'optimisation à Dunkerque</h3><p class="blog-card-excerpt">Suivi automatisé, relances transporteurs, traitement documentaire IA : comment les PME logistiques de Dunkerque récupèrent 28h/mois et 18 000€/an...</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-ia-logistique-dunkerque-2026-04-16.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="agents-ia"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-adoption-ia-pme-nord-2026-04-16.svg" alt="Adoption IA PME du Nord" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Agents IA</span><span class="blog-meta-sep">·</span><time class="blog-read-time">13 avr. 2026</time></div><h3 class="blog-card-title">PME du Nord et IA : pourquoi l'adoption accélère vraiment</h3><p class="blog-card-excerpt">Les PME des Hauts-de-France adoptent l'IA plus vite qu'on ne le pense. Découvrez les raisons concrètes, les secteurs leaders et les résultats mesurés...</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-adoption-ia-pme-nord-2026-04-16.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="cas-client"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-ia-commerce-2026-04-15.svg" alt="IA dans le commerce gains concrets" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Commerce</span><span class="blog-meta-sep">·</span><time class="blog-read-time">10 avr. 2026</time></div><h3 class="blog-card-title">IA dans le commerce : exemples de gains concrets</h3><p class="blog-card-excerpt">Comment les commerçants des Hauts-de-France utilisent l'IA pour gagner du temps, réduire les tâches répétitives et augmenter leur chiffre d'affaires.</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-ia-commerce-2026-04-15.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="cas-client"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-audit-ia-pme-2-jours-2026-04-15.svg" alt="Audit IA PME 2 jours" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Audit IA</span><span class="blog-meta-sep">·</span><time class="blog-read-time">7 avr. 2026</time></div><h3 class="blog-card-title">Audit IA : ce qu'il révèle dans une PME en 2 jours</h3><p class="blog-card-excerpt">Tâches répétitives, gains cachés, ROI estimé — voici ce qu'un audit terrain de 2 jours révèle concrètement dans une PME du Nord.</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="automatisation"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-automatisation-pme-dunkerque-2026.svg" alt="Automatisation PME Dunkerque 2026" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Automatisation</span><span class="blog-meta-sep">·</span><time class="blog-read-time">2 avr. 2026</time></div><h3 class="blog-card-title">Automatisation PME à Dunkerque : pourquoi 2026 change tout</h3><p class="blog-card-excerpt">68% des PME du Nord n'ont rien automatisé. Pendant ce temps, leurs concurrents gagnent 28h par mois. Voici pourquoi attendre coûte plus cher qu'agir.</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-automatisation-pme-dunkerque-2026.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="roi"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-2-roi-12-mois.svg" alt="ROI automatisation IA 12 mois" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">ROI & Chiffres</span><span class="blog-meta-sep">·</span><time class="blog-read-time">29 mars 2026</time></div><h3 class="blog-card-title">ROI de l'automatisation IA : ce qu'on observe vraiment sur 12 mois</h3><p class="blog-card-excerpt">Combien rapporte vraiment l'automatisation IA dans une PME ? Chiffres réels observés sur 12 mois : heures récupérées, économies, retour sur investissement.</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-2-roi-12-mois.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-      <article class="blog-card" data-cat="agents-ia"><div class="blog-card-img"><div class="blog-card-img-inner" style="background:#0C0A09"></div><img src="Blog/images/dunai-thumb-1-agents-ia.svg" alt="Agent IA tâches répétitives PME" loading="lazy"></div><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-tag">Agents IA</span><span class="blog-meta-sep">·</span><time class="blog-read-time">25 mars 2026</time></div><h3 class="blog-card-title">Agent IA : automatiser les tâches répétitives en entreprise</h3><p class="blog-card-excerpt">Un agent IA automatise vos tâches répétitives en quelques semaines. Découvrez comment ça marche concrètement, ce que ça rapporte, et par où commencer.</p></div><div class="blog-card-footer"><div class="blog-card-author"><div class="author-avatar">LS</div><span class="author-name">Louis Slosse</span></div><a class="blog-read-link" href="Blog/dunai-article-1-agents-ia.html" target="_blank" rel="noopener noreferrer" style="font-size:13px">Lire →</a></div></article>
-    </div>
-    <div class="blog-cta-banner"><div class="blog-cta-dots"></div><h3>Vous reconnaissez votre situation dans ces articles ?</h3><p>Un audit gratuit de 2h suffit pour identifier vos 5 premières automatisations et estimer le gain.</p><button class="blog-cta-btn" onclick="showPage('contact')">Réserver mon audit gratuit →</button></div>
-  </div></section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
-</div>
 
 <!-- ══════════════════════ CALCULATEUR ROI ══════════════════════ -->
 <div id="page-calculateur" class="page">
@@ -1377,14 +1266,14 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </div></section>
   <div class="final-cta"><h2>Un chiffre dans la tête ?<br>Vérifiez-le lors de l'audit.</h2><p>2h dans vos locaux. Rapport chiffré sous 48h. 100% gratuit et sans engagement.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · contact@dunai.fr</div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
 </div>
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="stickyCta" aria-label="Audit gratuit" aria-hidden="true">
   <div>
     <div class="sticky-cta-text">L'audit est gratuit et sans engagement.</div>
-    <div class="sticky-cta-phone">📞 06 46 89 08 87</div>
+    <a class="sticky-cta-phone" href="tel:0646890887">📞 06 46 89 08 87</a>
   </div>
   <button class="sticky-cta-btn" onclick="showPage('contact')">Audit gratuit →</button>
 </div>
@@ -1417,10 +1306,10 @@ window.addEventListener('popstate', e => {
 });
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu'); const btn = document.getElementById('hamburger');
-  const open = menu.classList.toggle('open'); btn.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : '';
+  const open = menu.classList.toggle('open'); btn.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : '';
 }
 function closeMenu() {
-  document.getElementById('mobileMenu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); document.body.style.overflow = '';
+  document.getElementById('mobileMenu').classList.remove('open'); const btn = document.getElementById('hamburger'); btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
 }
 
 const auditData = [
@@ -1505,33 +1394,21 @@ let _calcChecked = {};
 let _calcSliders = {};
 let _calcTaskIndex = [];
 
+// Accès localStorage sûr (navigation privée / stockage bloqué)
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch { return null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch {} }
+};
+
 function syncCalcProfile(p) {
   _calcProfile = p;
   _calcChecked = {};
   _calcSliders = {};
   _calcTaskIndex = [];
-  // Mettre à jour les tabs du calculateur
   document.querySelectorAll('#calcProfileTabs .calc-ptab').forEach(t => {
     t.classList.toggle('active', t.dataset.calcProfile === p);
   });
-  // Sync le sélecteur de profil principal si différent
-  const savedProfile = localStorage.getItem('dunai_profile');
-  if (savedProfile !== p) {
-    localStorage.setItem('dunai_profile', p);
-    document.querySelectorAll('#profileTabs .profile-tab').forEach(t => {
-      t.classList.toggle('active', t.dataset.profile === p);
-    });
-    if (typeof PROFILE_DATA !== 'undefined') {
-      const data = PROFILE_DATA[p];
-      const content = document.getElementById('profileContent');
-      if (content && data) {
-        content.innerHTML = `<div class="profile-content-title">${data.title}</div>
-          <div class="profile-use-cases">${data.cases.map(c=>`<div class="profile-use-case">${c}</div>`).join('')}</div>
-          <div class="profile-cta-row"><button type="button" class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
-          <button type="button" class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</button></div>`;
-      }
-    }
-  }
+  store.set('dunai_profile', p);
   renderCalcTasks();
   calcUpdateResult();
 }
@@ -1553,8 +1430,8 @@ function renderCalcTasks() {
       const row = document.createElement('div');
       row.className = 'calc-task';
       row.id = `ctask-${idx}`;
-      row.innerHTML = `<div class="calc-task-hdr" onclick="calcToggleTask(${idx})">
-        <input type="checkbox" class="calc-cb" id="ccb-${idx}" onchange="calcToggleTask(${idx},this.checked)" onclick="event.stopPropagation()">
+      row.innerHTML = `<div class="calc-task-hdr">
+        <input type="checkbox" class="calc-cb" id="ccb-${idx}" onchange="calcToggleTask(${idx},this.checked)">
         <label class="calc-task-label" for="ccb-${idx}">${t.label}</label>
         <span class="calc-task-hint" id="chint-${idx}">0 ${t.unit}</span>
       </div>
@@ -1611,7 +1488,7 @@ function calcUpdateResult() {
 
 // Init calculateur au chargement
 (function initCalc() {
-  const saved = localStorage.getItem('dunai_profile') || 'pme';
+  const saved = store.get('dunai_profile') || 'pme';
   syncCalcProfile(saved);
 })();
 
@@ -1753,89 +1630,6 @@ async function handleSubmit(btn) {
   }catch(err){btn.textContent='Erreur réseau — écrivez à contact@dunai.fr';btn.style.background='#DC2626';btn.disabled=false;}
 }
 
-function filterBlog(btn,cat) {
-  document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
-  btn.classList.add('active');btn.setAttribute('aria-pressed','true');
-  document.querySelectorAll('#blogGrid .blog-card').forEach(card=>{card.style.display=(cat==='tous'||card.dataset.cat===cat)?'':'none';});
-  const featured=document.querySelector('.blog-featured');
-  if(featured) featured.style.display=(cat==='tous'||featured.dataset.cat===cat)?'':'none';
-}
-
-const PROFILE_DATA = {
-  pme: {
-    title: 'Ce que Dunai automatise pour vous :',
-    cases: [
-      'Reporting direction produit chaque lundi — zéro intervention',
-      'Saisie ERP à 0 min/jour — transfert automatique',
-      'Onboarding RH en 4h au lieu de 2 jours',
-      'Rapport mensuel chiffré sans toucher à Excel',
-    ],
-  },
-  tpe: {
-    title: 'Ce que Dunai automatise pour vous :',
-    cases: [
-      'Devis générés en 3 min au lieu de 45',
-      'Relances impayés sans y penser',
-      'Prise de RDV + confirmations automatiques',
-      'Transfert factures fournisseurs à 0 min/jour',
-    ],
-  },
-  ae: {
-    title: 'Ce que Dunai automatise pour vous :',
-    cases: [
-      '8h/semaine récupérées sans embaucher',
-      'Relances clients 100% automatiques',
-      'Facturation et suivi sans effort',
-      'Posts réseaux sociaux générés chaque semaine',
-    ],
-  },
-};
-
-function setProfile(p) {
-  localStorage.setItem('dunai_profile', p);
-  // Mettre à jour les tabs
-  document.querySelectorAll('.profile-tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.profile === p);
-  });
-  // Mettre à jour le contenu
-  const data = PROFILE_DATA[p];
-  const content = document.getElementById('profileContent');
-  if (content && data) {
-    content.innerHTML = `
-      <div class="profile-content-title">${data.title}</div>
-      <div class="profile-use-cases">
-        ${data.cases.map(c => `<div class="profile-use-case">${c}</div>`).join('')}
-      </div>
-      <div class="profile-cta-row">
-        <button type="button" class="btn-primary" onclick="showPage('agents')" style="width:auto">Voir mes cas d'usage →</button>
-        <button type="button" class="profile-cta-link" onclick="showPage('contact')">Ou commencer par l'audit gratuit</button>
-      </div>`;
-  }
-  // Synchroniser le calculateur si présent
-  if (typeof syncCalcProfile === 'function') syncCalcProfile(p);
-  // Synchroniser les témoignages
-  if (typeof filterTemoByProfile === 'function') filterTemoByProfile(p);
-}
-
-function filterTemoByProfile(p) {
-  // Mettre à jour les tabs
-  document.querySelectorAll('#temoTabs .temo-tab').forEach(t => {
-    const onclick = t.getAttribute('onclick') || '';
-    t.classList.toggle('active', onclick.includes(`'${p}'`));
-  });
-  // Filtrer les cards
-  document.querySelectorAll('#temoGrid .temo-card').forEach(card => {
-    const show = p === 'all' || card.dataset.temoProfile === p;
-    card.style.display = show ? '' : 'none';
-  });
-}
-
-// Init au chargement
-(function initProfile() {
-  const saved = localStorage.getItem('dunai_profile') || 'pme';
-  setProfile(saved);
-})();
-
 (function initSticky() {
   const btn = document.getElementById('stickyCta');
   if (!btn) return;
@@ -1849,7 +1643,7 @@ function filterTemoByProfile(p) {
   window.addEventListener('scroll', updateSticky, { passive: true });
   // Re-vérifier au changement de page (hook sur showPage existant)
   const _orig = window.showPage;
-  window.showPage = function(p) { _orig(p); setTimeout(updateSticky, 50); };
+  window.showPage = function(...args) { _orig(...args); setTimeout(updateSticky, 50); };
   updateSticky();
 })();
 </script>

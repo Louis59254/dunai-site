@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur personnalisé par profil</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #292524; padding: 24px; min-height: 100vh; }
+
+.wrapper { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.page-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #78716c; margin-bottom: 4px; }
+
+/* CALC SECTION */
+.calc-wrap { background: #1C1917; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+
+/* PROFIL TABS */
+.profile-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.ptab { flex: 1; padding: 14px 10px; text-align: center; cursor: pointer; border-bottom: 2px solid transparent; transition: all .18s; }
+.ptab .ptab-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+.ptab .ptab-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.4); display: block; }
+.ptab .ptab-desc { font-size: 10px; color: rgba(255,255,255,0.2); display: block; margin-top: 1px; }
+.ptab.active { border-bottom-color: #EA580C; background: rgba(234,88,12,0.05); }
+.ptab.active .ptab-name { color: #EA580C; }
+.ptab.active .ptab-desc { color: rgba(234,88,12,0.6); }
+
+/* CALC BODY */
+.calc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+
+/* TASKS */
+.calc-tasks { padding: 20px; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 10px; }
+.calc-tasks-title { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+
+.task-row { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 12px 14px; transition: border-color .2s, background .2s; }
+.task-row.checked { border-color: rgba(234,88,12,0.35); background: rgba(234,88,12,0.05); }
+
+.task-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 0; }
+.task-cb { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; accent-color: #EA580C; flex-shrink: 0; cursor: pointer; }
+.task-label { font-size: 13px; color: rgba(255,255,255,0.75); flex: 1; }
+.task-default { font-size: 10px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
+.task-slider-wrap { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.06); display: none; }
+.task-row.checked .task-slider-wrap { display: block; }
+.slider-label { font-size: 11px; color: #EA580C; font-weight: 500; margin-bottom: 6px; }
+input[type=range] { width: 100%; accent-color: #EA580C; cursor: pointer; }
+
+/* RESULT */
+.calc-result { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.result-main { text-align: center; padding: 16px; background: #0C0A09; border-radius: 12px; border: 1px solid rgba(234,88,12,0.2); }
+.result-main-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+.result-main-amount { font-size: 40px; font-weight: 800; color: #EA580C; line-height: 1; letter-spacing: -2px; margin-bottom: 4px; }
+.result-main-sub { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+.result-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.res-item { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px; text-align: center; }
+.res-n { font-size: 22px; font-weight: 800; color: #4ADE80; line-height: 1; margin-bottom: 3px; }
+.res-l { font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.4; }
+
+/* Taux horaire perso */
+.hourly-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px 12px; }
+.hourly-label { font-size: 11px; color: rgba(255,255,255,0.4); flex: 1; }
+.hourly-val { font-size: 13px; font-weight: 700; color: #EA580C; white-space: nowrap; }
+
+.result-cta { background: #EA580C; color: white; border: none; padding: 13px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; width: 100%; }
+.result-disclaimer { font-size: 10px; color: rgba(255,255,255,0.2); line-height: 1.6; text-align: center; }
+
+/* ANNOTATION */
+.annotation { background: #1e3a2f; border: 1px solid #16a34a; border-radius: 8px; padding: 10px 16px; font-size: 12px; color: #4ade80; line-height: 1.6; }
+.annotation.blue { background: #1e2a3a; border-color: #2563eb; color: #93c5fd; }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+<div class="page-label">Calculateur personnalisé par profil — interactif (cliquez sur les tâches)</div>
+
+<div class="calc-wrap">
+
+  <!-- TABS PROFIL -->
+  <div class="profile-tabs">
+    <div class="ptab active" onclick="setProfile('pme', this)">
+      <span class="ptab-icon">🏢</span>
+      <span class="ptab-name">PME</span>
+      <span class="ptab-desc">10–50 salariés</span>
+    </div>
+    <div class="ptab" onclick="setProfile('tpe', this)">
+      <span class="ptab-icon">🔧</span>
+      <span class="ptab-name">TPE / Artisan</span>
+      <span class="ptab-desc">2–9 salariés</span>
+    </div>
+    <div class="ptab" onclick="setProfile('ae', this)">
+      <span class="ptab-icon">🧑‍💻</span>
+      <span class="ptab-name">Autoentrepreneur</span>
+      <span class="ptab-desc">Seul·e</span>
+    </div>
+  </div>
+
+  <div class="calc-body">
+
+    <!-- TÂCHES -->
+    <div class="calc-tasks">
+      <div class="calc-tasks-title">Cochez vos tâches chronophages</div>
+      <div id="tasks-container"></div>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <div class="calc-result">
+      <div class="result-main">
+        <div class="result-main-label">Vous perdez chaque année</div>
+        <div class="result-main-amount" id="res-annual">—</div>
+        <div class="result-main-sub">sur des tâches automatisables</div>
+      </div>
+      <div class="result-secondary">
+        <div class="res-item">
+          <div class="res-n" id="res-hours">—</div>
+          <div class="res-l">heures récupérables / mois</div>
+        </div>
+        <div class="res-item">
+          <div class="res-n" id="res-monthly">—</div>
+          <div class="res-l">économisés / mois</div>
+        </div>
+      </div>
+      <div class="hourly-row">
+        <div class="hourly-label">Votre coût horaire estimé</div>
+        <input type="range" id="hourly-slider" min="20" max="80" value="35" style="width:80px;flex-shrink:0" oninput="updateHourly(this.value)">
+        <div class="hourly-val" id="hourly-val">35 €/h</div>
+      </div>
+      <button class="result-cta" onclick="alert('→ Redirige vers la section Contact')">Confirmer lors de l'audit gratuit →</button>
+      <div class="result-disclaimer">Estimation à 80% de récupération. Vos gains réels estimés lors de l'audit.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="annotation blue">
+  <strong>Changements par rapport à l'actuel :</strong><br>
+  ① Tabs profil en haut — les tâches affichées changent selon le profil (PME voit reporting/ERP/RH, AE voit relances/facturation/réseaux).<br>
+  ② Curseur "Coût horaire" personnalisable (20–80€/h) — un AE à 80€/h voit un ROI bien plus fort qu'un salarié à 35€/h.<br>
+  ③ Le montant annuel reste en grand en premier.<br>
+  ④ Les tâches ont des valeurs par défaut adaptées au profil (un AE traite moins de relances qu'une PME de 20 personnes).
+</div>
+
+<div class="annotation">
+  <strong>À noter dans le spec :</strong> Les tâches et valeurs par défaut ci-dessous sont à valider avec toi avant implémentation — ce sont des estimations réalistes, pas des chiffres officiels.
+</div>
+
+</div>
+
+<script>
+const profiles = {
+  pme: [
+    { label: "Relances clients & impayés", unit: "h/sem", min: 1, max: 20, val: 5, hPerUnit: 1 },
+    { label: "Reporting & tableaux de bord direction", unit: "h/sem", min: 1, max: 15, val: 5, hPerUnit: 1 },
+    { label: "Saisie ERP / logiciels", unit: "h/sem", min: 1, max: 20, val: 6, hPerUnit: 1 },
+    { label: "Onboarding & gestion RH", unit: "h/sem", min: 1, max: 10, val: 3, hPerUnit: 1 },
+    { label: "Génération de devis", unit: "devis/sem", min: 1, max: 30, val: 8, hPerUnit: 0.75 },
+    { label: "Emails, archivage, classement", unit: "h/sem", min: 1, max: 10, val: 3, hPerUnit: 1 },
+  ],
+  tpe: [
+    { label: "Génération et envoi de devis", unit: "devis/sem", min: 1, max: 20, val: 5, hPerUnit: 0.75 },
+    { label: "Relances clients & impayés", unit: "h/sem", min: 1, max: 10, val: 3, hPerUnit: 1 },
+    { label: "Prise de RDV & confirmations", unit: "h/sem", min: 1, max: 8, val: 2, hPerUnit: 1 },
+    { label: "Transfert factures fournisseurs", unit: "h/sem", min: 1, max: 10, val: 4, hPerUnit: 1 },
+    { label: "Réponses emails & archivage", unit: "h/sem", min: 1, max: 8, val: 2, hPerUnit: 1 },
+  ],
+  ae: [
+    { label: "Relances clients & facturation", unit: "h/sem", min: 1, max: 8, val: 2, hPerUnit: 1 },
+    { label: "Génération de devis & propositions", unit: "devis/sem", min: 1, max: 10, val: 3, hPerUnit: 0.75 },
+    { label: "Prise de RDV & confirmations", unit: "h/sem", min: 1, max: 6, val: 2, hPerUnit: 1 },
+    { label: "Posts réseaux sociaux & newsletter", unit: "h/sem", min: 1, max: 8, val: 3, hPerUnit: 1 },
+    { label: "Emails, admin, classement", unit: "h/sem", min: 1, max: 6, val: 2, hPerUnit: 1 },
+  ]
+};
+
+let currentProfile = 'pme';
+let hourlyRate = 35;
+let checked = {};
+let sliderVals = {};
+
+function setProfile(p, el) {
+  currentProfile = p;
+  checked = {};
+  sliderVals = {};
+  document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderTasks();
+  updateResult();
+}
+
+function renderTasks() {
+  const tasks = profiles[currentProfile];
+  const container = document.getElementById('tasks-container');
+  container.innerHTML = '';
+  tasks.forEach((t, i) => {
+    sliderVals[i] = t.val;
+    const row = document.createElement('div');
+    row.className = 'task-row';
+    row.id = `task-${i}`;
+    row.innerHTML = `
+      <div class="task-hdr">
+        <input type="checkbox" class="task-cb" id="cb-${i}" onchange="toggleTask(${i}, this)">
+        <label class="task-label" for="cb-${i}">${t.label}</label>
+        <span class="task-default" id="hint-${i}">0 ${t.unit}</span>
+      </div>
+      <div class="task-slider-wrap">
+        <div class="slider-label" id="lbl-${i}">${t.val} ${t.unit}</div>
+        <input type="range" min="${t.min}" max="${t.max}" value="${t.val}" oninput="onSlider(${i}, this.value)">
+      </div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function toggleTask(i, cb) {
+  checked[i] = cb.checked;
+  const row = document.getElementById(`task-${i}`);
+  row.classList.toggle('checked', cb.checked);
+  const t = profiles[currentProfile][i];
+  document.getElementById(`hint-${i}`).textContent = cb.checked ? `${sliderVals[i]} ${t.unit}` : `0 ${t.unit}`;
+  updateResult();
+}
+
+function onSlider(i, val) {
+  sliderVals[i] = parseFloat(val);
+  const t = profiles[currentProfile][i];
+  document.getElementById(`lbl-${i}`).textContent = `${val} ${t.unit}`;
+  document.getElementById(`hint-${i}`).textContent = `${val} ${t.unit}`;
+  updateResult();
+}
+
+function updateHourly(val) {
+  hourlyRate = parseFloat(val);
+  document.getElementById('hourly-val').textContent = `${val} €/h`;
+  updateResult();
+}
+
+function updateResult() {
+  const tasks = profiles[currentProfile];
+  let totalHPerWeek = 0;
+  tasks.forEach((t, i) => {
+    if (checked[i]) totalHPerWeek += sliderVals[i] * t.hPerUnit;
+  });
+  const monthlyH = totalHPerWeek * 4.33;
+  const recoverableH = Math.round(monthlyH * 0.8);
+  const monthlyCost = Math.round(recoverableH * hourlyRate);
+  const annualCost = monthlyCost * 12;
+
+  if (recoverableH === 0) {
+    document.getElementById('res-annual').textContent = '—';
+    document.getElementById('res-hours').textContent = '—';
+    document.getElementById('res-monthly').textContent = '—';
+    return;
+  }
+  document.getElementById('res-annual').textContent = annualCost.toLocaleString('fr-FR') + ' €';
+  document.getElementById('res-hours').textContent = recoverableH + 'h';
+  document.getElementById('res-monthly').textContent = monthlyCost.toLocaleString('fr-FR') + ' €';
+}
+
+renderTasks();
+</script>
+</body>
+</html>

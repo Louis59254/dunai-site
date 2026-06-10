@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design — Logos visuels</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f5f4; color: #1c1917; padding: 20px; display: flex; flex-direction: column; gap: 24px; }
+
+.label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #a8a29e; margin-bottom: 10px; }
+.option-wrap { display: flex; flex-direction: column; gap: 10px; }
+.opt-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-bottom: 8px; cursor: pointer; }
+.opt-a { background: #f97316; color: white; }
+.opt-b { background: #2563eb; color: white; }
+.opt-c { background: #7c3aed; color: white; }
+.selected-ring { outline: 3px solid #f97316; outline-offset: 4px; border-radius: 14px; }
+
+/* OPTION A — Flat pills simples, style site actuel */
+.option-a { background: white; border: 1.5px solid #e7e5e4; border-radius: 12px; padding: 20px 24px; cursor: pointer; transition: border-color .2s; }
+.option-a:hover { border-color: #f97316; }
+.pills-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #a8a29e; text-align: center; margin-bottom: 14px; }
+.pills-wrap { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.spill { font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: 99px; background: #fafaf9; border: 1.5px solid #e7e5e4; color: #44403c; transition: border-color .2s; }
+
+/* OPTION B — Bande sombre minimaliste */
+.option-b { background: #0C0A09; border: 1.5px solid #333; border-radius: 12px; padding: 18px 24px; cursor: pointer; transition: border-color .2s; }
+.option-b:hover { border-color: #f97316; }
+.band-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 14px; }
+.band-row { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: center; align-items: center; }
+.band-tool { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.45); letter-spacing: -0.2px; }
+.band-sep { color: rgba(255,255,255,0.1); font-size: 16px; }
+
+/* OPTION C — Cards icônes avec nom en dessous */
+.option-c { background: white; border: 1.5px solid #e7e5e4; border-radius: 12px; padding: 20px 24px; cursor: pointer; transition: border-color .2s; }
+.option-c:hover { border-color: #f97316; }
+.cards-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #a8a29e; text-align: center; margin-bottom: 14px; }
+.cards-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.tool-card { background: #fafaf9; border: 1.5px solid #e7e5e4; border-radius: 10px; padding: 10px 14px; text-align: center; min-width: 80px; }
+.tool-icon { font-size: 20px; margin-bottom: 4px; }
+.tool-name { font-size: 10px; font-weight: 600; color: #57534e; }
+</style>
+</head>
+<body>
+
+<div class="label">Choisis le style visuel pour la section "outils compatibles"</div>
+
+<!-- OPTION A -->
+<div class="option-a" onclick="this.classList.toggle('selected-ring')">
+  <div class="opt-tag opt-a">A — Pills simples (dans le style du site actuel)</div>
+  <div class="pills-eyebrow">Fonctionne avec vos outils du quotidien</div>
+  <div class="pills-wrap">
+    <span class="spill">Excel</span>
+    <span class="spill">Google Sheets</span>
+    <span class="spill">Outlook</span>
+    <span class="spill">Gmail</span>
+    <span class="spill">Google Drive</span>
+    <span class="spill">Teams</span>
+    <span class="spill">HubSpot</span>
+    <span class="spill">Pipedrive</span>
+    <span class="spill">Sage</span>
+    <span class="spill">Cegid</span>
+    <span class="spill">EBP</span>
+    <span class="spill">Pennylane</span>
+    <span class="spill">Stripe</span>
+    <span class="spill">Sellsy</span>
+    <span class="spill">+ votre outil →</span>
+  </div>
+</div>
+
+<!-- OPTION B -->
+<div class="option-b" onclick="this.classList.toggle('selected-ring')">
+  <div class="opt-tag opt-b">B — Bande sombre épurée</div>
+  <div class="band-label">Compatible avec vos outils</div>
+  <div class="band-row">
+    <span class="band-tool">Excel</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Outlook</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Google Workspace</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">HubSpot</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Sage</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Cegid</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">EBP</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Pipedrive</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Pennylane</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Stripe</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Teams</span>
+    <span class="band-sep">·</span>
+    <span class="band-tool">Sellsy</span>
+  </div>
+</div>
+
+<!-- OPTION C -->
+<div class="option-c" onclick="this.classList.toggle('selected-ring')">
+  <div class="opt-tag opt-c">C — Cards avec icônes</div>
+  <div class="cards-eyebrow">Vos outils actuels restent en place</div>
+  <div class="cards-grid">
+    <div class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">Excel</div></div>
+    <div class="tool-card"><div class="tool-icon">📧</div><div class="tool-name">Outlook</div></div>
+    <div class="tool-card"><div class="tool-icon">📁</div><div class="tool-name">Google Drive</div></div>
+    <div class="tool-card"><div class="tool-icon">💬</div><div class="tool-name">Teams</div></div>
+    <div class="tool-card"><div class="tool-icon">🟢</div><div class="tool-name">HubSpot</div></div>
+    <div class="tool-card"><div class="tool-icon">🔶</div><div class="tool-name">Sage</div></div>
+    <div class="tool-card"><div class="tool-icon">🟤</div><div class="tool-name">Cegid</div></div>
+    <div class="tool-card"><div class="tool-icon">💜</div><div class="tool-name">Pennylane</div></div>
+    <div class="tool-card"><div class="tool-icon">🟣</div><div class="tool-name">EBP</div></div>
+    <div class="tool-card"><div class="tool-icon">🟠</div><div class="tool-name">Sellsy</div></div>
+  </div>
+</div>
+
+</body>
+</html>

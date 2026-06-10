@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design — Crédibilité & Preuve sociale</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #1a1a1a; color: #fff; }
+
+.frame-label { background: #2a2a2a; border-bottom: 1px solid #333; padding: 10px 20px; font-size: 12px; color: #888; display: flex; align-items: center; gap: 12px; }
+.frame-label strong { color: #f97316; }
+.tag { background: #f97316; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
+.tag-new { background: #16a34a; }
+.tag-improv { background: #2563eb; }
+.annotation { background: #1e3a2f; border: 1px solid #16a34a; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #4ade80; line-height: 1.6; }
+.annotation.blue { background: #1e2a3a; border-color: #2563eb; color: #93c5fd; }
+.section-title { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #666; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.mockup-wrap { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+/* LOGOS BAR */
+.logos-bar { background: #FAFAF9; border: 1px solid #e7e5e4; border-radius: 12px; padding: 16px 20px; }
+.logos-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: #a8a29e; text-transform: uppercase; text-align: center; margin-bottom: 14px; }
+.logos-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
+.logo-pill { background: white; border: 1px solid #e7e5e4; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: #57534e; }
+.logo-pill.highlight { border-color: #fed7aa; background: #fff7ed; color: #ea580c; }
+
+/* COMPTEURS */
+.counters { background: #1C1917; border-radius: 12px; padding: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; overflow: hidden; border: 1px solid #333; }
+.counter-item { background: #0C0A09; padding: 16px 10px; text-align: center; }
+.counter-n { font-size: 26px; font-weight: 800; color: #f97316; line-height: 1; margin-bottom: 4px; }
+.counter-l { font-size: 10px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+/* TÉMOIGNAGES ADAPTATIFS */
+.temo-section { background: #FAFAF9; border: 1px solid #e7e5e4; border-radius: 12px; overflow: hidden; }
+.temo-header { padding: 14px 18px; border-bottom: 1px solid #e7e5e4; background: white; }
+.temo-title { font-size: 14px; font-weight: 800; color: #1c1917; margin-bottom: 2px; }
+.temo-sub { font-size: 11px; color: #78716c; }
+.temo-profile-tabs { display: flex; background: white; border-bottom: 1px solid #e7e5e4; }
+.temo-tab { flex: 1; padding: 8px 10px; text-align: center; font-size: 11px; font-weight: 500; color: #a8a29e; border-bottom: 2px solid transparent; cursor: pointer; }
+.temo-tab.active { color: #ea580c; border-bottom-color: #ea580c; }
+.temo-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e7e5e4; }
+.temo-card { background: white; padding: 14px; }
+.temo-stars { color: #ea580c; font-size: 11px; margin-bottom: 8px; }
+.temo-quote { font-size: 12px; color: #1c1917; line-height: 1.65; font-style: italic; margin-bottom: 8px; }
+.temo-gain-badge { background: #dcfce7; border-radius: 6px; padding: 4px 8px; font-size: 11px; color: #16a34a; font-weight: 500; margin-bottom: 8px; display: inline-block; }
+.temo-author { font-size: 11px; font-weight: 600; color: #1c1917; }
+.temo-role { font-size: 10px; color: #78716c; }
+.temo-sector-badge { display: inline-block; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 99px; font-size: 9px; font-weight: 700; color: #ea580c; padding: 2px 7px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+
+/* FAQ */
+.faq-section { background: white; border: 1px solid #e7e5e4; border-radius: 12px; overflow: hidden; }
+.faq-header { padding: 14px 18px; border-bottom: 1px solid #e7e5e4; }
+.faq-title { font-size: 14px; font-weight: 800; color: #1c1917; }
+.faq-item { border-bottom: 1px solid #e7e5e4; padding: 12px 18px; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-size: 13px; font-weight: 600; color: #1c1917; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.faq-a { font-size: 12px; color: #57534e; line-height: 1.7; }
+.faq-profile-tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: .05em; }
+.tag-pme { background: #eff6ff; color: #2563eb; }
+.tag-tpe { background: #faf5ff; color: #7c3aed; }
+.tag-ae { background: #fff7ed; color: #ea580c; }
+.tag-all { background: #f0fdf4; color: #16a34a; }
+
+/* GARANTIE BADGE */
+.garantie-mock { background: #fff7ed; border: 2px solid #fed7aa; border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+.garantie-icon { font-size: 36px; flex-shrink: 0; }
+.garantie-title { font-size: 14px; font-weight: 800; color: #9a3412; margin-bottom: 4px; }
+.garantie-desc { font-size: 12px; color: #c2410c; line-height: 1.6; }
+.garantie-badge { display: inline-flex; align-items: center; gap: 6px; background: #16a34a; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 99px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="frame-label">
+  <strong>Design section 2/3 — Crédibilité & Preuve sociale</strong>
+  <span class="tag tag-new">Nouveau</span>
+  <span class="tag tag-improv">Amélioré</span>
+  <span style="margin-left:auto;font-size:11px">Est-ce que ça te convient ?</span>
+</div>
+
+<div class="mockup-wrap">
+
+  <!-- 1. BARRE DE LOGOS -->
+  <div class="section-title">
+    <span class="tag tag-new">Nouveau</span>
+    1 — Barre de logos partenaires / outils (juste après le sélecteur de profil)
+  </div>
+  <div class="logos-bar">
+    <div class="logos-eyebrow">Compatible avec vos outils actuels</div>
+    <div class="logos-row">
+      <div class="logo-pill highlight">Make</div>
+      <div class="logo-pill highlight">n8n</div>
+      <div class="logo-pill highlight">OpenAI</div>
+      <div class="logo-pill highlight">Claude AI</div>
+      <div class="logo-pill">HubSpot</div>
+      <div class="logo-pill">Sage</div>
+      <div class="logo-pill">Cegid</div>
+      <div class="logo-pill">Google Workspace</div>
+      <div class="logo-pill">Microsoft 365</div>
+      <div class="logo-pill">Pennylane</div>
+      <div class="logo-pill">Zapier</div>
+      <div class="logo-pill">Sellsy</div>
+      <div class="logo-pill">+ votre outil →</div>
+    </div>
+  </div>
+  <div class="annotation blue">
+    Actuellement les logos sont en bas de page dans une section "Stack". Les remonter juste après le héro ou le sélecteur les rend immédiatement rassurants — le visiteur voit que ses outils actuels sont compatibles avant même de lire le reste.
+  </div>
+
+  <!-- 2. COMPTEURS ANIMÉS -->
+  <div class="section-title" style="margin-top:4px">
+    <span class="tag tag-new">Nouveau</span>
+    2 — Compteurs animés (remplace ou complète la section "Urgence" actuelle)
+  </div>
+  <div class="counters">
+    <div class="counter-item">
+      <div class="counter-n">32+</div>
+      <div class="counter-l">audits réalisés<br>en Hauts-de-France</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-n">18</div>
+      <div class="counter-l">PME & TPE<br>accompagnées</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-n">+2 400h</div>
+      <div class="counter-l">récupérées<br>par nos clients</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-n">×3,2</div>
+      <div class="counter-l">ROI moyen<br>à 12 mois</div>
+    </div>
+  </div>
+  <div class="annotation">
+    ⚠️ Les chiffres doivent être réels — ou retirés si pas encore assez de clients. Si Dunai est récent, remplacer par les gains des projets pilotes avec des formulations comme "Dès le 1er déploiement" plutôt que "X clients".
+  </div>
+
+  <!-- 3. TÉMOIGNAGES ADAPTATIFS -->
+  <div class="section-title" style="margin-top:4px">
+    <span class="tag tag-improv">Amélioré</span>
+    3 — Témoignages : tabs par profil + badge secteur visible
+  </div>
+  <div class="temo-section">
+    <div class="temo-header">
+      <div class="temo-title">Ce qu'ils disent</div>
+      <div class="temo-sub">Filtrez par profil pour voir les retours qui vous ressemblent</div>
+    </div>
+    <div class="temo-profile-tabs">
+      <div class="temo-tab active">Tous</div>
+      <div class="temo-tab">PME</div>
+      <div class="temo-tab">TPE / Artisan</div>
+      <div class="temo-tab">Autoentrepreneur</div>
+    </div>
+    <div class="temo-cards">
+      <div class="temo-card">
+        <div class="temo-sector-badge">Transport · PME</div>
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-quote">L'audit m'a ouvert les yeux. Voir les chiffres écrits noir sur blanc — 28h par mois sur des tâches automatisables — ça m'a décidé en 5 minutes.</p>
+        <div class="temo-gain-badge">28h/mois récupérées · 14 000€/an économisés</div>
+        <div class="temo-author">Directeur général</div>
+        <div class="temo-role">Transport & logistique · 18 salariés · Dunkerque</div>
+      </div>
+      <div class="temo-card">
+        <div class="temo-sector-badge">BTP · Artisan</div>
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-quote">Dunai parle le même langage que nous. Pas de blabla tech. Juste : voilà ce qu'on peut faire, voilà ce que vous gagnez.</p>
+        <div class="temo-gain-badge">Devis 45 min → 3 min · 0 relance manuelle</div>
+        <div class="temo-author">Gérant</div>
+        <div class="temo-role">Artisan BTP · 3 collaborateurs · Région Dunkerquoise</div>
+      </div>
+    </div>
+  </div>
+  <div class="annotation blue">
+    Changements : ① Badge secteur visible (BTP, Transport, Médical…) pour que le visiteur se reconnaisse. ② Tabs pour filtrer par profil. ③ Le gain est mis en badge vert bien visible avant la citation. ④ Même contenu que maintenant, juste mieux présenté.
+  </div>
+
+  <!-- 4. FAQ ENRICHIE -->
+  <div class="section-title" style="margin-top:4px">
+    <span class="tag tag-improv">Amélioré</span>
+    4 — FAQ enrichie avec les vraies objections par profil
+  </div>
+  <div class="faq-section">
+    <div class="faq-header">
+      <div class="faq-title">Vos questions, nos réponses vraies</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-profile-tag tag-ae">AE</span> Je travaille seul — "vos équipes libérées" ne me parle pas vraiment.</div>
+      <div class="faq-a">C'est votre temps à vous qu'on libère. En solo, chaque heure gagnée sur des tâches répétitives est une heure que vous réinvestissez en clients, en CA ou en vie. Nos clients autoentrepreneurs récupèrent en moyenne 8h/semaine.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-profile-tag tag-tpe">TPE</span> 2 990€ c'est beaucoup pour une petite structure comme la mienne.</div>
+      <div class="faq-a">C'est exactement pourquoi on valide le ROI avant de vous proposer quoi que ce soit. Si votre automatisation ne rembourse pas au moins 3× l'investissement dans les 12 mois, on ne vous la propose pas. Et le paiement en 3× est disponible.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-profile-tag tag-pme">PME</span> Mon équipe va résister au changement.</div>
+      <div class="faq-a">C'est la première crainte qu'on entend. En pratique, les agents IA ne remplacent pas vos salariés — ils leur retirent les tâches ennuyeuses. Après 6 semaines, nos clients nous disent que leurs équipes ne veulent plus revenir en arrière.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-profile-tag tag-all">Tous</span> Et si ça ne fonctionne pas après le déploiement ?</div>
+      <div class="faq-a">30 jours de support inclus. Si un agent dysfonctionne dans ce délai, on intervient sans surcoût. Au-delà, une maintenance mensuelle est disponible.</div>
+    </div>
+  </div>
+  <div class="annotation">
+    Nouvelles questions ajoutées : "Je travaille seul" (AE), "2990€ c'est trop cher" (TPE), "Mon équipe va résister" (PME). Ces 3 objections bloquent des conversions — les répondre dans la FAQ lève les freins avant même que le visiteur contacte.
+  </div>
+
+  <!-- 5. GARANTIE VISIBLE -->
+  <div class="section-title" style="margin-top:4px">
+    <span class="tag tag-improv">Amélioré</span>
+    5 — Garantie : badge "Satisfait ou remboursé" ajouté
+  </div>
+  <div class="garantie-mock">
+    <div class="garantie-icon">🛡️</div>
+    <div>
+      <div class="garantie-title">Zéro risque — ROI garanti avant démarrage</div>
+      <div class="garantie-desc">On ne démarre pas si le ROI estimé n'est pas au moins 3× votre investissement à 12 mois. L'audit est gratuit et sans engagement.</div>
+      <div class="garantie-badge">✓ Satisfait ou remboursé 30 jours</div>
+    </div>
+  </div>
+  <div class="annotation blue">
+    Le badge vert "Satisfait ou remboursé 30 jours" est le seul ajout. La section garantie existe déjà — on renforce juste le signal de confiance avec ce badge plus visible. À placer aussi juste au-dessus du formulaire de contact.
+  </div>
+
+</div>
+</body>
+</html>
