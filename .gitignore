@@ -1,2 +1,6 @@
-.worktrees/
-index-v3-backup.html
+# Tooling / local artifacts (not part of the site)
+.claude/
+.superpowers/
+docs/superpowers/
+.DS_Store
+**/.DS_Store
