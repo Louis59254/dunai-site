@@ -485,6 +485,37 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
 .rf-2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 /* ── tarifs : toggle abonnement/achat + grille 3 paliers ── */
 [hidden]{display:none!important}
+/* ── explorateur de fonctionnalités (cliquable) ── */
+.explorer{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.25rem}
+.exp-tabs{display:flex;flex-direction:row;gap:.6rem;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.exp-tab{flex:0 0 auto;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--sable);border-radius:var(--r-md);padding:12px 13px;cursor:pointer;font-family:inherit;text-align:left;transition:border-color .16s,background .16s;min-width:215px}
+.exp-tab:hover{border-color:var(--flamme-mid)}
+.exp-tab.on{border-color:var(--flamme);background:var(--flamme-pale)}
+.exp-tab .et-ic{font-size:19px;flex-shrink:0}
+.exp-tab .et-t{font-weight:700;font-size:13px;color:var(--encre);line-height:1.2}
+.exp-tab .et-pl{margin-left:auto;font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:3px 7px;border-radius:var(--r-full);white-space:nowrap}
+.pl-ess{background:var(--creme2);color:var(--gris)}
+.pl-pro{background:var(--flamme-pale);color:var(--flamme);border:1px solid var(--flamme-mid)}
+.pl-prem{background:var(--noir);color:#fff}
+.exp-panel{background:#fff;border:1.5px solid var(--sable);border-radius:var(--r-xl);padding:1.75rem;box-shadow:var(--shadow-sm)}
+.ep-top{display:flex;align-items:center;gap:14px;margin-bottom:.5rem}
+.ep-ic{width:54px;height:54px;border-radius:15px;background:var(--flamme-pale);display:flex;align-items:center;justify-content:center;font-size:27px;flex-shrink:0}
+.ep-h{font-size:1.35rem;font-weight:800;color:var(--noir);letter-spacing:-.02em;line-height:1.1}
+.ep-tag{color:var(--flamme);font-weight:700;font-size:14.5px;margin-bottom:.75rem}
+.ep-desc{color:var(--gris);font-size:14.5px;line-height:1.6;margin-bottom:1.25rem}
+.ep-bullets{display:grid;grid-template-columns:1fr;gap:.55rem;margin-bottom:1.25rem}
+.ep-b{display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--encre);font-weight:500}
+.ep-b::before{content:"✓";color:var(--flamme);font-weight:800;flex-shrink:0}
+.ep-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid var(--sable);padding-top:1.1rem}
+.ep-incl{font-size:13px;color:var(--gris)}
+.ep-incl b{color:var(--encre)}
+@media(min-width:860px){
+  .explorer{grid-template-columns:330px 1fr;gap:1.5rem;align-items:start}
+  .exp-tabs{flex-direction:column;overflow:visible;padding:0;max-height:560px;overflow-y:auto}
+  .exp-tab{min-width:0}
+  .exp-panel{position:sticky;top:90px}
+  .ep-bullets{grid-template-columns:1fr 1fr;gap:.55rem .9rem}
+}
 .pay-toggle{display:inline-flex;gap:4px;background:var(--creme2);border:1px solid var(--sable);border-radius:var(--r-full);padding:5px;margin-top:1.5rem}
 .pt-btn{font-family:inherit;font-weight:700;font-size:14px;color:var(--gris);background:none;border:none;padding:11px 22px;border-radius:var(--r-full);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .18s,color .18s}
 .pt-btn.on{background:var(--noir);color:#fff}
@@ -667,14 +698,15 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
       </div>
     </div>
 
-    <!-- aussi inclus -->
-    <div class="more">
-      <div class="more-i rv"><span class="mi-ic">🎨</span><div><div class="mi-t">100 % à votre marque</div><div class="mi-d">Votre logo, vos couleurs, vos polices sur devis, factures et e-mails.</div></div></div>
-      <div class="more-i rv"><span class="mi-ic">📱</span><div><div class="mi-t">Sur tous vos écrans</div><div class="mi-d">Application installable sur smartphone (PWA) + notifications.</div></div></div>
-      <div class="more-i rv"><span class="mi-ic">📊</span><div><div class="mi-t">Pilotez votre activité</div><div class="mi-d">Tableau de bord, chiffre d'affaires, statistiques par période.</div></div></div>
-      <div class="more-i rv"><span class="mi-ic">📦</span><div><div class="mi-t">Fournisseurs & bons de commande</div><div class="mi-d">Générés automatiquement depuis vos événements.</div></div></div>
-      <div class="more-i rv"><span class="mi-ic">🥗</span><div><div class="mi-t">Ressources & stock</div><div class="mi-d">Matériel, denrées, personnel : ce qu'il faut, quand il faut.</div></div></div>
-      <div class="more-i rv"><span class="mi-ic">👥</span><div><div class="mi-t">Multi-comptes équipe</div><div class="mi-d">Plusieurs accès avec rôles. Avoirs, clients & données exportables à tout moment.</div></div></div>
+    <!-- explorateur de fonctionnalités -->
+    <div class="s-head rv" style="margin:4rem auto 1.5rem">
+      <span class="eyebrow">Et tout le reste, en détail</span>
+      <h2 class="h2">On vous montre l'intérieur de l'outil</h2>
+      <p class="lead">Cliquez sur une brique : vous verrez concrètement ce qu'elle fait, et dans quelle formule elle est incluse.</p>
+    </div>
+    <div class="explorer rv" id="explorer">
+      <div class="exp-tabs" id="expTabs" role="tablist" aria-label="Fonctionnalités du CRM"></div>
+      <div class="exp-panel" id="expPanel" role="tabpanel" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -1006,6 +1038,68 @@ function calc(){
   document.getElementById('dStatut').textContent=sent?'À traiter · reçu':'Nouveau dossier';
 }
 calc();
+
+// ── explorateur de fonctionnalités ──
+(function(){
+  const F=[
+    {ic:'🎨',t:'100 % à votre marque',pl:'ess',tag:`Vos clients voient VOUS, jamais Dunai.`,
+      desc:`Votre logo, vos couleurs et vos polices s'appliquent partout : devis, factures, e-mails, formulaire public et même l'application mobile. Une image pro et cohérente sur chaque point de contact.`,
+      bul:[`Logo, couleurs &amp; polices`,`Devis &amp; factures PDF à votre charte`,`E-mails envoyés à votre nom`,`Formulaire public à votre image`]},
+    {ic:'🧾',t:'Formulaire de devis dynamique',pl:'ess',tag:`Le client compose, la demande arrive déjà chiffrée.`,
+      desc:`À intégrer sur votre site, vos réseaux ou via un QR code. Le client choisit sa formule, ses convives et ses options ; le prix se calcule (TVA mets/alcool gérée) et la demande tombe dans votre CRM, prête à devenir un devis.`,
+      bul:[`Sans code, intégrable partout`,`Calcul automatique multi-TVA`,`Estimation d'acompte`,`Demande pré-remplie dans le CRM`]},
+    {ic:'📱',t:'Sur tous vos écrans',pl:'ess',tag:`Votre CRM dans la poche, même les mains dans le buffet.`,
+      desc:`Installez l'application sur smartphone et tablette comme une vraie app (PWA), avec notifications push : nouvelle demande, devis signé, paiement reçu. Au bureau comme sur le terrain.`,
+      bul:[`App installable iOS &amp; Android`,`Notifications push en temps réel`,`Agenda synchronisé Google / iPhone`,`Dossiers consultables en mobilité`]},
+    {ic:'📊',t:'Pilotez votre marge',pl:'pro',tag:`Vous savez enfin ce qui rapporte vraiment.`,
+      desc:`Au-delà du chiffre d'affaires, suivez la marge prévisionnelle ET réelle de chaque événement, la répartition par type de prestation et la saisonnalité sur 12 mois. Vous décidez avec des chiffres, pas au feeling.`,
+      bul:[`CA encaissé vs facturé`,`Marge réelle par dossier`,`Répartition par prestation`,`Saisonnalité sur 12 mois`]},
+    {ic:'⚙️',t:'Le moteur : recettes &amp; coûts',pl:'pro',tag:`Vos recettes calculent vos coûts toutes seules.`,
+      desc:`Renseignez vos recettes une fois. Le moteur déduit les quantités selon le nombre de convives, calcule le coût matière et le reporte sur la marge du dossier. Fini les estimations à la louche.`,
+      bul:[`Bibliothèque de recettes`,`Quantités calculées au couvert`,`Coût matière automatique`,`Reporté sur la marge réelle`]},
+    {ic:'📦',t:'Fournisseurs &amp; bons de commande',pl:'pro',tag:`Les bons de commande s'éditent tout seuls.`,
+      desc:`À partir des recettes et des volumes, le CRM génère les bons de commande par fournisseur, prêts à envoyer. Vous commandez juste ce qu'il faut, sans oubli ni surplus.`,
+      bul:[`BC générés par fournisseur`,`Quantités justes, zéro oubli`,`Suivi des réceptions`,`Coûts d'achat reportés sur la marge`]},
+    {ic:'🥗',t:'Ressources &amp; stock',pl:'pro',tag:`Le bon matériel et les bonnes équipes, au bon moment.`,
+      desc:`Affectez matériel, denrées et personnel à chaque événement. Le CRM repère les conflits de ressources avant le jour J, pour ne jamais promettre deux fois la même nappe ou le même serveur.`,
+      bul:[`Matériel, denrées &amp; personnel`,`Affectation par événement`,`Alerte conflit de ressources`,`Inventaire à jour`]},
+    {ic:'👥',t:'Multi-utilisateurs + vue salarié',pl:'pro',tag:`Votre équipe, chacun à sa place.`,
+      desc:`Donnez des accès avec rôles et permissions. La « vue salarié » n'expose que le nécessaire (mission, planning), jamais vos marges ni vos prix d'achat. Vos données restent exportables à tout moment.`,
+      bul:[`Accès multiples + rôles`,`Vue salarié restreinte`,`Avoirs &amp; fiches clients`,`Export de vos données quand vous voulez`]},
+    {ic:'🤖',t:'Assistant intelligent',pl:'pro',tag:`Il relance pour vous, vous encaissez.`,
+      desc:`Devis sans réponse à J+15, facture impayée, demande d'avis après l'événement : l'assistant s'en occupe automatiquement et vous liste les actions importantes du jour dès l'ouverture du CRM.`,
+      bul:[`Relances devis &amp; impayés`,`Demande d'avis Google`,`Rappels &amp; alertes du jour`,`Suggestions d'actions prioritaires`]},
+    {ic:'🗓️',t:'Planning complet',pl:'prem',tag:`Camions, matériel, équipes : zéro double-booking.`,
+      desc:`Au-delà de l'agenda, planifiez l'affectation des véhicules, du gros matériel et des équipes sur chaque prestation. Indispensable quand trois événements tombent le même samedi de juin.`,
+      bul:[`Camions &amp; véhicules`,`Gros matériel`,`Équipes &amp; extras`,`Vue planning consolidée`]},
+    {ic:'📣',t:'Marketing &amp; mailing intégré',pl:'prem',tag:`Vos clients reviennent, sans outil externe.`,
+      desc:`Éditeur d'e-mails visuel, segments (VIP, inactifs, par type d'événement), campagnes et automatisations, demande d'avis Google : toute la fidélisation depuis le CRM, sans logiciel d'e-mailing à côté.`,
+      bul:[`Éditeur d'e-mails visuel`,`Segments clients (VIP, inactifs…)`,`Campagnes &amp; automatisations`,`Avis Google après prestation`]},
+    {ic:'🛡️',t:'Conformité 2027',pl:'prem',tag:`Prêt pour la facturation électronique.`,
+      desc:`Anticipez la réforme de la facture électronique : formats conformes, archivage légal, transmission. Vous serez en règle le jour J sans rien changer à vos habitudes.`,
+      bul:[`Facture électronique`,`Formats conformes`,`Archivage légal`,`Mises à jour incluses`]},
+  ];
+  const plLabel={ess:'Essentiel',pro:'Pro',prem:'Premium'};
+  const tabs=document.getElementById('expTabs'),panel=document.getElementById('expPanel');
+  if(!tabs||!panel) return;
+  F.forEach((f,i)=>{
+    const b=document.createElement('button');
+    b.className='exp-tab'+(i===0?' on':''); b.type='button'; b.setAttribute('role','tab'); b.setAttribute('aria-selected',String(i===0));
+    b.innerHTML=`<span class="et-ic">${f.ic}</span><span class="et-t">${f.t}</span><span class="et-pl pl-${f.pl}">${plLabel[f.pl]}</span>`;
+    b.addEventListener('click',()=>sel(i));
+    tabs.appendChild(b);
+  });
+  function sel(i){
+    tabs.querySelectorAll('.exp-tab').forEach((b,j)=>{const on=j===i;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on));});
+    const f=F[i];
+    panel.innerHTML=`<div class="ep-top"><div class="ep-ic">${f.ic}</div><div class="ep-h">${f.t}</div></div>
+      <div class="ep-tag">${f.tag}</div>
+      <p class="ep-desc">${f.desc}</p>
+      <div class="ep-bullets">${f.bul.map(x=>`<div class="ep-b">${x}</div>`).join('')}</div>
+      <div class="ep-foot"><span class="ep-incl">Inclus à partir de la formule <b>${plLabel[f.pl]}</b></span><a class="btn btn-ghost" href="#tarifs" style="width:auto;padding:10px 18px;font-size:13px">Voir les formules →</a></div>`;
+  }
+  sel(0);
+})();
 
 // ── tarifs : bascule abonnement / achat ──
 (function(){
