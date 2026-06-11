@@ -22,7 +22,7 @@
 <link rel="icon" href="/images/logo-favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -369,6 +369,89 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
   .testi-stats{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}.float-1,.float-2,.hero-badge .pulse{animation:none}}
+
+/* ══ THÈME PRODUIT RÉEL (charte du SaaS : bordeaux + or + crème) ══
+   Le chrome de la landing reste Dunai (orange). Les mockups reprennent
+   l'identité réelle du CRM/formulaire pour coller au produit livré. */
+:root{
+  --bx:#7B1C2E;--bx2:#4A0F1A;--bxl:#F9F0F2;--sidebar:#3E0C16;--sidebar2:#2E0810;
+  --gold:#C4973A;--gold2:#D4AF6A;--goldl:#FBF5E8;--goldb:#F5E6C0;--goldd:#8B6820;
+  --cream:#F4F0EA;--cream2:#F0EAE1;--prodbd:#E7DFD4;
+  --st-ok:#1E9E5A;--st-okl:#EAFAF1;--st-warn:#C77A1E;--st-warnl:#FBF1E5;
+}
+.serif{font-family:'Playfair Display',Georgia,serif}
+/* dashboard mockup → CRM réel */
+.mock-side{background:var(--sidebar)}
+.mock-side .ms-brand .ai{color:var(--gold2)}
+.mock-side .ms-i.on{background:rgba(196,151,58,.18);color:#fff}
+.mock-side .ms-i.on .dot{background:var(--gold)}
+.mock-main{background:var(--cream)}
+.mock-h .b{background:var(--bx)}
+.mock-kpi .k-n.fl{color:var(--bx)}
+.mock-row .av{background:var(--bxl);color:var(--bx)}
+.mock-row .st.ok{background:var(--st-okl);color:#15803d}
+.mock-row .st.wait{background:var(--goldl);color:var(--goldd)}
+.mock-row .st.warn{background:var(--st-warnl);color:var(--st-warn)}
+/* pdf mockup */
+.pdf-top{border-bottom-color:var(--bx)}
+.pdf-logo{font-family:'Playfair Display',Georgia,serif;color:var(--bx)}
+.pdf-logo .ai{color:var(--gold)}
+.pdf-tot b{color:var(--bx)}
+.pdf-sign{background:var(--bx)}
+/* agenda mockup */
+.ag-d.busy{background:var(--bx);color:#fff}
+.ag-d.busy2{background:var(--bxl);color:var(--bx);border-color:var(--goldb)}
+.ag-note b{color:var(--bx)}
+.agenda-h{color:var(--bx2)}
+/* ── démo : formulaire public (charte traiteur) ── */
+.demo-card.pubform{background:var(--cream);border-color:var(--prodbd)}
+.pub-hd{background:linear-gradient(135deg,var(--bx),var(--bx2));color:#fff;padding:1.3rem 1.4rem;position:relative;overflow:hidden}
+.pub-hd::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(212,175,106,.18) 1px,transparent 0);background-size:18px 18px;opacity:.5}
+.pub-est{position:relative;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2)}
+.pub-ttl{position:relative;font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:700;color:#fff;line-height:1.1;margin-top:3px}
+.pub-ttl i{color:var(--gold2)}
+.pub-meta{position:relative;display:flex;flex-wrap:wrap;gap:7px;margin-top:.7rem}
+.pub-pill{font-size:11px;font-weight:600;color:var(--gold2);background:rgba(212,175,106,.12);border:1px solid rgba(212,175,106,.3);padding:4px 10px;border-radius:var(--r-full)}
+.pub-steps{display:flex;gap:4px;padding:.8rem 1.4rem;background:var(--bx2);border-bottom:1px solid rgba(255,255,255,.08)}
+.pub-step{flex:1;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.45);text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+.pub-step .sn{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:10px}
+.pub-step.on{color:var(--gold2)}.pub-step.on .sn{background:var(--gold);color:var(--bx2)}
+.pub-step.done .sn{background:var(--st-ok);color:#fff}
+.demo-card.pubform .demo-body{padding:1.3rem 1.4rem;background:var(--cream)}
+.demo-card.pubform .dfield label{color:var(--bx2)}
+.seg-prod button{background:#fff;border-color:var(--prodbd);color:var(--g)}
+.seg-prod button.on{background:var(--bxl);border-color:var(--bx);color:var(--bx)}
+.seg-prod button:hover{border-color:var(--gold)}
+.fchoice{display:flex;flex-direction:column;gap:8px}
+.fopt{display:flex;align-items:flex-start;gap:11px;background:#fff;border:1.5px solid var(--prodbd);border-radius:var(--r-md);padding:11px 13px;cursor:pointer;transition:.16s}
+.fopt:hover{border-color:var(--gold)}
+.fopt.on{border-color:var(--bx);background:var(--bxl)}
+.fopt .radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--prodbd);flex-shrink:0;margin-top:1px;position:relative}
+.fopt.on .radio{border-color:var(--bx)}
+.fopt.on .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--bx)}
+.fopt .fl{flex:1}
+.fopt .fn{font-weight:700;font-size:13.5px;color:var(--bx2);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.fopt .fd{font-size:11.5px;color:var(--g);margin-top:2px}
+.fopt .fp{font-weight:800;font-size:13px;color:var(--bx);white-space:nowrap}
+.fbadge{font-size:9.5px;font-weight:800;letter-spacing:.03em;padding:2px 7px;border-radius:var(--r-full);background:var(--goldl);color:var(--goldd);border:1px solid var(--goldb)}
+.demo-card.pubform .couverts-val{color:var(--bx)}
+.demo-card.pubform input[type=range]{background:var(--cream2)}
+.demo-card.pubform input[type=range]::-webkit-slider-thumb{background:var(--bx);box-shadow:0 1px 5px rgba(123,28,46,.5)}
+.demo-card.pubform input[type=range]::-moz-range-thumb{background:var(--bx);box-shadow:0 1px 5px rgba(123,28,46,.5)}
+.addon-opt{display:flex;align-items:center;gap:11px;font-size:13.5px;font-weight:600;color:var(--bx2);cursor:pointer;padding:11px 13px;border:1.5px solid var(--prodbd);border-radius:var(--r-md);background:#fff;transition:.16s}
+.addon-opt:hover{border-color:var(--gold)}
+.addon-opt.on{border-color:var(--gold);background:var(--goldl)}
+.addon-opt input{width:18px;height:18px;accent-color:var(--bx);cursor:pointer}
+.addon-opt .price{margin-left:auto;color:var(--g);font-weight:700;font-size:12.5px}
+.demo-card.pubform .demo-total{background:linear-gradient(135deg,var(--bx),var(--bx2))}
+.demo-card.pubform .demo-total .dn{color:var(--gold2)}
+.demo-card.pubform .demo-send{background:var(--gold);color:var(--bx2);box-shadow:0 14px 30px -12px rgba(196,151,58,.6)}
+.demo-card.pubform .demo-send:hover{background:#b8862e}
+.tva-note{font-size:11px;color:var(--g);text-align:center;margin-top:.5rem}
+/* CRM result card stays dark (Dunai side) but accent burgundy dossier */
+.demo-result .dav{background:var(--bx)}
+.demo-result .dline .lv.fl{color:var(--gold2)}
+.demo-result .dbadge{background:rgba(196,151,58,.15);color:var(--gold2);border-color:rgba(196,151,58,.3)}
 </style>
 </head>
 <body>
@@ -429,24 +512,26 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
         </div>
         <div class="mock-app">
           <aside class="mock-side">
-            <div class="ms-brand">Dun<span class="ai">ai</span></div>
+            <div class="ms-brand">Lefebvre</div>
             <div class="ms-i on"><span class="dot"></span>Tableau de bord</div>
             <div class="ms-i"><span class="dot"></span>Devis</div>
-            <div class="ms-i"><span class="dot"></span>Événements</div>
-            <div class="ms-i"><span class="dot"></span>Clients</div>
             <div class="ms-i"><span class="dot"></span>Factures</div>
+            <div class="ms-i"><span class="dot"></span>Dossiers</div>
+            <div class="ms-i"><span class="dot"></span>Agenda</div>
+            <div class="ms-i"><span class="dot"></span>Clients</div>
+            <div class="ms-i"><span class="dot"></span>Catalogue</div>
           </aside>
           <div class="mock-main">
             <div class="mock-h"><span class="t">Bonjour Grégory 👋</span><span class="b">+ Nouveau devis</span></div>
             <div class="mock-kpis">
-              <div class="mock-kpi"><div class="k-l">CA du mois</div><div class="k-n fl">24 850 €</div></div>
-              <div class="mock-kpi"><div class="k-l">Devis en attente</div><div class="k-n">7</div></div>
-              <div class="mock-kpi"><div class="k-l">Événements</div><div class="k-n">12</div></div>
+              <div class="mock-kpi"><div class="k-l">CA ce mois</div><div class="k-n fl">24 850 €</div></div>
+              <div class="mock-kpi"><div class="k-l">Encaissé</div><div class="k-n">18 200 €</div></div>
+              <div class="mock-kpi"><div class="k-l">À relancer</div><div class="k-n">3</div></div>
             </div>
             <div class="mock-list">
-              <div class="mock-row"><span class="av">💍</span><div><div class="nm">Mariage Lefèvre</div><div class="dt">14 juin · 120 couverts</div></div><span class="st ok">Signé</span></div>
-              <div class="mock-row"><span class="av">🥂</span><div><div class="nm">Cocktail Groupe Hennion</div><div class="dt">22 juin · 60 pers.</div></div><span class="st wait">Devis envoyé</span></div>
-              <div class="mock-row"><span class="av">🍽️</span><div><div class="nm">Repas séminaire Aclux</div><div class="dt">28 juin · 45 couverts</div></div><span class="st wait">À relancer</span></div>
+              <div class="mock-row"><span class="av">💍</span><div><div class="nm">Mariage Lefèvre</div><div class="dt">14 juin · 120 convives · Plateau Prestige</div></div><span class="st ok">Accepté</span></div>
+              <div class="mock-row"><span class="av">🥂</span><div><div class="nm">Cocktail Hennion</div><div class="dt">22 juin · 60 convives · Vin d'honneur</div></div><span class="st wait">Envoyé</span></div>
+              <div class="mock-row"><span class="av">🍽️</span><div><div class="nm">Séminaire Aclux</div><div class="dt">28 juin · 45 convives · Repas chaud</div></div><span class="st warn">À relancer</span></div>
             </div>
           </div>
         </div>
@@ -508,10 +593,10 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
         </div>
         <div class="agenda" style="box-shadow:var(--shadow-md)">
           <div class="agenda-h">Demande reçue<span class="nav-mini">il y a 2 min</span></div>
-          <div class="mock-row" style="border:none;padding:6px 0"><span class="av">🥂</span><div><div class="nm">Cocktail dînatoire · 80 personnes</div><div class="dt">Samedi 6 septembre</div></div></div>
-          <div class="pdf-line" style="margin-top:.4rem"><span>Formule Prestige × 80</span><span class="q">4 400 €</span></div>
-          <div class="pdf-line"><span>Vin d'honneur × 80</span><span class="q">960 €</span></div>
-          <div class="pdf-tot"><span>Demande estimée</span><b>5 360 €</b></div>
+          <div class="mock-row" style="border:none;padding:6px 0"><span class="av">💍</span><div><div class="nm">Mariage · 80 convives</div><div class="dt">Samedi 6 septembre · Bourbourg</div></div></div>
+          <div class="pdf-line" style="margin-top:.4rem"><span>Plateau Prestige × 80</span><span class="q">2 372 € HT</span></div>
+          <div class="pdf-line"><span>Vin d'honneur / Cocktail × 80</span><span class="q">1 116 € HT</span></div>
+          <div class="pdf-tot"><span>Estimation</span><b>3 488 € HT</b></div>
         </div>
       </div>
     </div>
@@ -522,12 +607,13 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
         <h3>Devis & factures pro</h3>
         <p>PDF à votre charte (logo, couleurs), envoi en un clic, et <b>signature en ligne</b> : le client accepte d'un clic, vous êtes notifié.</p>
         <div class="pdf">
-          <div class="pdf-top"><div class="pdf-logo">Greg<span class="ai"> Traiteur</span></div><div class="pdf-meta">Devis #2048<br>06/09/2026</div></div>
-          <div class="pdf-line"><span>Formule Prestige</span><span class="q">× 80 · 4 400 €</span></div>
-          <div class="pdf-line"><span>Vin d'honneur</span><span class="q">× 80 · 960 €</span></div>
-          <div class="pdf-line"><span>Service & personnel</span><span class="q">640 €</span></div>
-          <div class="pdf-tot"><span>Total TTC</span><b>6 000 €</b></div>
-          <div class="pdf-sign">✓ Signer le devis en ligne</div>
+          <div class="pdf-top"><div class="pdf-logo">Lefebvre<span class="ai"> Traiteur</span></div><div class="pdf-meta">Devis #2048<br>Bourbourg · 06/09/2026</div></div>
+          <div class="pdf-line"><span>Plateau Prestige</span><span class="q">× 80 · 2 372 € HT</span></div>
+          <div class="pdf-line"><span>Vin d'honneur / Cocktail</span><span class="q">× 80 · 1 116 € HT</span></div>
+          <div class="pdf-line"><span>Total HT</span><span class="q">3 488 €</span></div>
+          <div class="pdf-line"><span>TVA (mets 10% · alcool 20%)</span><span class="q">460 €</span></div>
+          <div class="pdf-tot"><span>Total TTC</span><b>3 948 €</b></div>
+          <div class="pdf-sign">✓ Accepter & signer en ligne</div>
         </div>
       </div>
 
@@ -617,66 +703,79 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
       <p class="lead">Composez une prestation comme le ferait un client. Regardez la demande arriver, déjà chiffrée, dans votre CRM.</p>
     </div>
     <div class="demo-wrap">
-      <!-- public form -->
-      <div class="demo-card rv">
-        <div class="demo-hd"><span class="pubdot"></span><span class="ht">Demander un devis</span><span class="hs">greg-traiteur.fr</span></div>
+      <!-- public form, à la charte du traiteur -->
+      <div class="demo-card pubform rv">
+        <div class="pub-hd">
+          <div class="pub-est">✦ Tarifs 2027 / 2028</div>
+          <div class="pub-ttl">Votre <i>devis</i> personnalisé</div>
+          <div class="pub-meta">
+            <span class="pub-pill">⏱ 4 à 5 minutes</span>
+            <span class="pub-pill">📞 03 28 20 63 26</span>
+            <span class="pub-pill">💾 Sauvegarde auto</span>
+          </div>
+        </div>
+        <div class="pub-steps">
+          <div class="pub-step done"><span class="sn">✓</span>Coordonnées</div>
+          <div class="pub-step done"><span class="sn">✓</span>Événement</div>
+          <div class="pub-step on"><span class="sn">3</span>Formule</div>
+          <div class="pub-step"><span class="sn">4</span>Options</div>
+          <div class="pub-step"><span class="sn">€</span>Total</div>
+        </div>
         <div class="demo-body">
           <div class="dfield">
             <label>Type d'événement</label>
-            <div class="seg" id="segType">
+            <div class="seg seg-prod" id="segType">
               <button class="on" data-type="Mariage" data-emoji="💍">💍 Mariage</button>
-              <button data-type="Cocktail dînatoire" data-emoji="🥂">🥂 Cocktail</button>
+              <button data-type="Anniversaire" data-emoji="🎉">🎉 Anniversaire</button>
               <button data-type="Repas d'entreprise" data-emoji="🍽️">🍽️ Entreprise</button>
             </div>
           </div>
           <div class="dfield">
-            <div class="couverts-row"><label style="margin:0">Nombre de couverts</label><span class="couverts-val"><span id="cvVal">80</span></span></div>
-            <input type="range" id="cv" min="20" max="300" value="80" step="10">
+            <div class="couverts-row"><label style="margin:0">Nombre de convives</label><span class="couverts-val"><span id="cvVal">80</span></span></div>
+            <input type="range" id="cv" min="20" max="300" value="80" step="5">
           </div>
           <div class="dfield">
-            <label>Formule</label>
-            <div class="seg" id="segFormule">
-              <button data-f="Essentielle" data-p="35">Essentielle · 35€</button>
-              <button class="on" data-f="Prestige" data-p="55">Prestige · 55€</button>
-              <button data-f="Gastronomique" data-p="85">Gastro · 85€</button>
+            <label>Formule principale <span style="font-weight:600;color:var(--g);font-size:11px">· 1 seul choix</span></label>
+            <div class="fchoice" id="fchoice">
+              <div class="fopt" data-f="Plateau Tradition" data-p="20.85"><span class="radio"></span><div class="fl"><div class="fn">Plateau Tradition</div><div class="fd">4 menus au choix · 5 compartiments · kit couvert</div></div><div class="fp">20,85 €<br><span style="font-weight:600;color:var(--g);font-size:10px">HT / pers</span></div></div>
+              <div class="fopt on" data-f="Plateau Prestige" data-p="29.65"><span class="radio"></span><div class="fl"><div class="fn">Plateau Prestige <span class="fbadge">✦ Prestige</span></div><div class="fd">3 menus gastronomiques · bouteille d'eau incluse</div></div><div class="fp">29,65 €<br><span style="font-weight:600;color:var(--g);font-size:10px">HT / pers</span></div></div>
+              <div class="fopt" data-f="Repas chaud" data-p="32.95"><span class="radio"></span><div class="fl"><div class="fn">Repas chaud <span class="fbadge" style="background:var(--st-okl);color:#15803d;border-color:#A9DFBF">Menu assis</span></div><div class="fd">Entrée, plat, garniture, fromage, dessert</div></div><div class="fp">32,95 €<br><span style="font-weight:600;color:var(--g);font-size:10px">HT / pers</span></div></div>
+              <div class="fopt" data-f="BBQ Brasero Mechoui" data-p="21.95"><span class="radio"></span><div class="fl"><div class="fn">BBQ Brasero Mechoui</div><div class="fd">Grillades sur feu · min 25 pers · 4 accompagnements</div></div><div class="fp">21,95 €<br><span style="font-weight:600;color:var(--g);font-size:10px">HT / pers</span></div></div>
             </div>
           </div>
           <div class="dfield">
-            <label>Options</label>
-            <div class="opts" id="opts">
-              <label class="opt"><input type="checkbox" data-opt="Vin d'honneur" data-p="12" checked> Vin d'honneur <span class="price">+12 €/couvert</span></label>
-              <label class="opt"><input type="checkbox" data-opt="Service & personnel" data-p="8"> Service & personnel <span class="price">+8 €/couvert</span></label>
-              <label class="opt"><input type="checkbox" data-opt="Dressage & déco" data-p="6"> Dressage & déco <span class="price">+6 €/couvert</span></label>
-            </div>
+            <label>En complément</label>
+            <label class="addon-opt on" id="addonVH"><input type="checkbox" checked> 🥂 Vin d'honneur / Cocktail <span class="price">+13,95 € / pers</span></label>
           </div>
           <div class="demo-total">
-            <div><div class="dl">Estimation</div><div class="dn"><span id="demoTotal">5 360</span> €</div></div>
-            <button class="btn btn-primary demo-send" id="demoSend" style="width:auto">Envoyer ma demande →</button>
+            <div><div class="dl">Estimation</div><div class="dn"><span id="demoTotal">3 488</span> € HT</div></div>
+            <button class="btn demo-send" id="demoSend" style="width:auto">Envoyer ma demande →</button>
           </div>
+          <p class="tva-note">TVA appliquée automatiquement dans le devis (mets 10% · alcool 20%).</p>
         </div>
       </div>
 
       <!-- CRM incoming -->
       <div class="demo-card demo-result rv">
-        <div class="demo-hd"><span class="pubdot"></span><span class="ht">Votre CRM · Nouvelle demande</span><span class="hs" id="incomingWhen">en attente…</span></div>
+        <div class="demo-hd"><span class="pubdot"></span><span class="ht">CRM Lefebvre · Nouvelle demande</span><span class="hs" id="incomingWhen">en attente…</span></div>
         <div class="crm-incoming">
-          <div class="crm-arrow">↓ la demande arrive ici, automatiquement</div>
+          <div class="crm-arrow">↓ la demande arrive ici, déjà chiffrée</div>
           <div class="dossier">
-            <div class="dh"><div class="dav" id="dAv">💍</div><div><div class="dnm" id="dType">Mariage</div><div class="dsub" id="dCouverts">80 couverts</div></div></div>
-            <div class="dline"><span class="ll">Formule</span><span class="lv" id="dFormule">Prestige</span></div>
-            <div class="dline"><span class="ll">Options</span><span class="lv" id="dOptions">Vin d'honneur</span></div>
-            <div class="dline"><span class="ll">Montant estimé</span><span class="lv fl" id="dMontant">5 360 €</span></div>
+            <div class="dh"><div class="dav" id="dAv">💍</div><div><div class="dnm" id="dType">Mariage</div><div class="dsub" id="dCouverts">80 convives</div></div></div>
+            <div class="dline"><span class="ll">Formule</span><span class="lv" id="dFormule">Plateau Prestige</span></div>
+            <div class="dline"><span class="ll">Complément</span><span class="lv" id="dOptions">Vin d'honneur / Cocktail</span></div>
+            <div class="dline"><span class="ll">Estimation HT</span><span class="lv fl" id="dMontant">3 488 € HT</span></div>
             <div class="dline"><span class="ll">Statut</span><span class="lv" id="dStatut">Nouveau dossier</span></div>
             <div class="dbadges">
-              <span class="dbadge">🔔 Relance auto activée</span>
-              <span class="dbadge">📅 Créneau pré-réservé</span>
+              <span class="dbadge">🔔 Relance auto J+15</span>
+              <span class="dbadge">📅 Créneau pré-bloqué</span>
               <span class="dbadge">📄 Devis prêt à envoyer</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <p class="demo-note">Exemple de tarification. Dans votre espace, vous fixez vos formules, options et TVA.</p>
+    <p class="demo-note">Formules et tarifs réels de Gregory Lefebvre Traiteur (Bourbourg). Dans votre espace, vous fixez vos propres formules, options et TVA.</p>
   </div>
 </section>
 
@@ -837,40 +936,46 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-// ── interactive devis demo ──
-const fmt=n=>n.toLocaleString('fr-FR');
-const emojiByType={'Mariage':'💍','Cocktail dînatoire':'🥂','Repas d\'entreprise':'🍽️'};
-let dType='Mariage', dFormulePrice=55, dFormuleName='Prestige', dCouverts=80, sent=false;
+// ── démo devis (formules & tarifs réels Lefebvre Traiteur) ──
+const fmt=n=>Math.round(n).toLocaleString('fr-FR');
+const emojiByType={'Mariage':'💍','Anniversaire':'🎉','Repas d\'entreprise':'🍽️'};
+const VH_PRICE=13.95; // vin d'honneur / cocktail · €/pers
+let dType='Mariage', dFormulePrice=29.65, dFormuleName='Plateau Prestige', dCouverts=80, sent=false;
 
-function segPick(group, btn, cb){
-  group.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on'); cb(btn);
-}
+// type d'événement (segmented)
 document.querySelectorAll('#segType button').forEach(b=>b.addEventListener('click',()=>{
-  segPick(document.getElementById('segType'),b,()=>{dType=b.dataset.type;});calc();
+  document.querySelectorAll('#segType button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); dType=b.dataset.type; calc();
 }));
-document.querySelectorAll('#segFormule button').forEach(b=>b.addEventListener('click',()=>{
-  segPick(document.getElementById('segFormule'),b,()=>{dFormulePrice=+b.dataset.p;dFormuleName=b.dataset.f;});calc();
+// formule (radios)
+document.querySelectorAll('#fchoice .fopt').forEach(o=>o.addEventListener('click',()=>{
+  document.querySelectorAll('#fchoice .fopt').forEach(x=>x.classList.remove('on'));
+  o.classList.add('on'); dFormulePrice=parseFloat(o.dataset.p); dFormuleName=o.dataset.f; calc();
 }));
+// convives
 document.getElementById('cv').addEventListener('input',e=>{dCouverts=+e.target.value;document.getElementById('cvVal').textContent=dCouverts;calc();});
-document.querySelectorAll('#opts input').forEach(i=>i.addEventListener('change',calc));
-document.getElementById('demoSend').addEventListener('click',()=>{sent=true;document.getElementById('incomingWhen').textContent='à l\'instant';calc();
-  const card=document.querySelector('.demo-result .dossier');card.animate([{transform:'scale(.98)',opacity:.6},{transform:'scale(1)',opacity:1}],{duration:350,easing:'cubic-bezier(.4,0,.2,1)'});
+// addon vin d'honneur
+const vh=document.querySelector('#addonVH input');
+vh.addEventListener('change',()=>{document.getElementById('addonVH').classList.toggle('on',vh.checked);calc();});
+// envoi
+document.getElementById('demoSend').addEventListener('click',()=>{
+  sent=true; document.getElementById('incomingWhen').textContent='à l\'instant'; calc();
+  const card=document.querySelector('.demo-result .dossier');
+  card.animate([{transform:'scale(.98)',opacity:.6},{transform:'scale(1)',opacity:1}],{duration:350,easing:'cubic-bezier(.4,0,.2,1)'});
 });
 
 function calc(){
-  let optTotal=0; const optNames=[];
-  document.querySelectorAll('#opts input').forEach(i=>{if(i.checked){optTotal+=(+i.dataset.p);optNames.push(i.dataset.opt);}});
-  const perCouvert=dFormulePrice+optTotal;
-  const total=dCouverts*perCouvert;
-  document.getElementById('demoTotal').textContent=fmt(total);
-  // mirror into CRM card
+  const vhOn=vh.checked;
+  const perPers=dFormulePrice+(vhOn?VH_PRICE:0);
+  const totalHT=dCouverts*perPers;
+  document.getElementById('demoTotal').textContent=fmt(totalHT);
+  // miroir CRM
   document.getElementById('dAv').textContent=emojiByType[dType]||'🍽️';
   document.getElementById('dType').textContent=dType;
-  document.getElementById('dCouverts').textContent=dCouverts+(dType==='Cocktail dînatoire'?' personnes':' couverts');
+  document.getElementById('dCouverts').textContent=dCouverts+' convives';
   document.getElementById('dFormule').textContent=dFormuleName;
-  document.getElementById('dOptions').textContent=optNames.length?optNames.join(', '):'Aucune';
-  document.getElementById('dMontant').textContent=fmt(total)+' €';
+  document.getElementById('dOptions').textContent=vhOn?'Vin d\'honneur / Cocktail':'Aucun';
+  document.getElementById('dMontant').textContent=fmt(totalHT)+' € HT';
   document.getElementById('dStatut').textContent=sent?'À traiter · reçu':'Nouveau dossier';
 }
 calc();
