@@ -40,12 +40,20 @@ Une fois ce fallback en place :
 (`/agents/index.html`, etc.), chacune avec `title`/`meta`/`canonical`/JSON-LD propres.
 Meilleur référencement, mais maintenance d'un shell dupliqué (ou génération au build).
 
-## À compléter (données client)
+## Identité légale (renseignée)
 
-- **Mentions légales / confidentialité** (`#page-mentions`, `#page-confidentialite`) :
-  remplacer les `[à compléter]` — forme juridique, SIRET, RCS, TVA, adresse du siège,
-  directeur de publication, hébergeur (nom + adresse), durée de conservation des données.
-- **JSON-LD** (`index.html` `<head>`) : ajouter `postalCode`, `sameAs` (LinkedIn…) une fois connus.
+Louis Slosse, entrepreneur individuel (« Dunai ») · SIREN 792 902 892 ·
+SIRET 792 902 892 00019 · TVA FR95792902892 · 78 rue Marceau, 59240 Dunkerque.
+Mentions légales + politique de confidentialité remplies ; JSON-LD avec NAP complet.
+
+## À vérifier / compléter
+
+- **Hébergeur** : mentions légales indiquent Hostinger (déduit de Coolify→Hostinger).
+  À corriger si le VPS Coolify est chez un autre fournisseur (OVH, Hetzner…).
+- **Code APE 9329Z** (« Autres activités récréatives et de loisirs ») au registre :
+  ne correspond pas à l'activité IA/conseil — envisager une mise à jour auprès de l'INSEE/URSSAF
+  (point administratif, sans impact sur le site).
+- **`sameAs` JSON-LD** : ajouter l'URL LinkedIn de l'entreprise une fois connue.
 - **n8n** (`WEBHOOK_URL`) : endpoint public sans auth — ajouter rate-limiting / honeypot côté n8n.
 - **« Satisfait ou remboursé sans conditions »** : à encadrer par des CGV.
 
