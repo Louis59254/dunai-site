@@ -462,6 +462,19 @@ nav > * { pointer-events: all; }
 .field-input, .field-select, .field-textarea { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--anthracite); background: var(--creme); border: 1.5px solid var(--border-light); border-radius: var(--r-sm); padding: 10px 13px; outline: none; transition: border-color .2s; -webkit-appearance: none; appearance: none; }
 .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: var(--flamme); background: var(--blanc); }
 .field-textarea { resize: vertical; min-height: 100px; }
+.field-consent { display: flex; gap: .625rem; align-items: flex-start; margin: 1rem 0 .25rem; font-size: 12px; line-height: 1.5; color: var(--brun); cursor: pointer; }
+.field-consent input { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--flamme); cursor: pointer; }
+.field-consent a { color: var(--flamme); text-decoration: underline; }
+.legal-wrap { max-width: 760px; }
+.legal-wrap h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--noir); margin: 1.75rem 0 .5rem; }
+.legal-wrap h2:first-child { margin-top: 0; }
+.legal-wrap p { font-size: 14px; color: var(--anthracite); line-height: 1.7; margin-bottom: .5rem; }
+.legal-wrap a { color: var(--flamme); }
+.legal-wrap em { color: var(--brun); font-style: italic; }
+.legal-back { margin-top: 2.5rem; }
+.footer-legal { display: inline-block; margin-top: 6px; font-size: 12px; }
+.footer-legal a { color: rgba(255,255,255,0.55); cursor: pointer; text-decoration: none; }
+.footer-legal a:hover { color: var(--blanc); text-decoration: underline; }
 .field-submit { width: 100%; background: var(--flamme); color: var(--blanc); border: none; padding: 14px; border-radius: var(--r-md); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: background .2s; margin-top: .25rem; }
 .field-submit:hover { background: var(--flamme2); }
 .form-reassurances { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: .875rem; }
@@ -1161,7 +1174,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </section>
   <div class="final-cta"><h2>Un agent pour chaque tâche<br>qui vous coûte du temps.</h2><p>L'audit gratuit identifie lesquels sont les plus rentables pour vous — en 2h, rapport chiffré sous 48h.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ RÉSULTATS ══════════════════════ -->
@@ -1183,7 +1196,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     <div class="audit-panel" id="auditPanel"><div class="audit-panel-title" id="auditTitle">Exemple — PME Logistique 18 salariés</div><div id="auditFindings"><div class="audit-finding"><div class="finding-lbl">Opportunité n°1</div><div class="finding-txt">Relances clients : 3h/sem passées à envoyer des emails de relance manuelle depuis Outlook</div><div class="finding-gain">↑ Gain estimé : 3h/sem — ROI en 3 semaines</div></div><div class="audit-finding"><div class="finding-lbl">Opportunité n°2</div><div class="finding-txt">Bons de livraison : saisie manuelle dans le TMS depuis des PDF reçus chaque matin</div><div class="finding-gain">↑ Gain estimé : 1h30/jour — ROI en 5 semaines</div></div><div class="audit-finding"><div class="finding-lbl">Opportunité n°3</div><div class="finding-txt">Reporting hebdo : 4h chaque vendredi à compiler des tableaux Excel depuis 3 sources</div><div class="finding-gain">↑ Gain estimé : 4h/sem — ROI en 4 semaines</div></div></div><div class="audit-total"><span class="audit-total-lbl">Gain total estimé</span><span class="audit-total-n" id="auditTotal">+28h / mois</span></div></div>
   </div></section>
   <div class="final-cta"><h2>Votre entreprise mérite<br>le même résultat.</h2><p>L'audit est offert. La roadmap est incluse. Vous ne payez que ce que vous choisissez de déployer.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Je veux mon audit gratuit</button><button class="btn-transparent" onclick="showPage('tarifs')">Voir les tarifs →</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ TARIFS & OFFRES ══════════════════════ -->
@@ -1261,7 +1274,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </div></section>
   <div class="final-cta"><h2>On commence par l'audit.<br>Vous décidez du reste.</h2><p>2h de votre temps. Zéro euro. Un rapport complet pour décider en connaissance de cause.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver l'audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ CONTACT ══════════════════════ -->
@@ -1282,11 +1295,12 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
       <div class="field-group"><label class="field-label">Secteur d'activité</label><select class="field-select"><option value="">Sélectionner...</option><option>Industrie / Manufacture</option><option>Logistique / Transport</option><option>Commerce / Distribution</option><option>Services aux entreprises</option><option>BTP / Construction</option><option>Santé / Médical</option><option>Tourisme / Activités</option><option>Restauration / Traiteur</option><option>Beauté / Bien-être</option><option>Sport / Coaching</option><option>Association / Collectivité</option><option>Autre</option></select></div>
       <div class="field-group"><label class="field-label">Taille de votre entreprise</label><select class="field-select"><option value="">Sélectionner...</option><option>Indépendant / 0 salarié</option><option>1 à 5 salariés</option><option>6 à 20 salariés</option><option>21 à 50 salariés</option><option>51 à 200 salariés</option><option>200+ salariés</option></select></div>
       <div class="field-group"><label class="field-label">Quelle tâche vous coûte le plus de temps en ce moment ?</label><textarea class="field-textarea" placeholder="Ex : Je passe 3h par semaine à relancer mes clients impayés et mes devis prennent 45 min chacun..."></textarea></div>
+      <label class="field-consent"><input type="checkbox" id="rgpdConsent"><span>J'accepte d'être recontacté(e) par Dunai au sujet de ma demande. Mes données ne sont ni revendues ni cédées. <a onclick="showPage('confidentialite')">Politique de confidentialité</a>.</span></label>
       <button class="field-submit" onclick="handleSubmit(this)">Réserver mon audit gratuit →</button>
       <div class="form-reassurances"><span class="reassurance-item">✓ 100% gratuit, sans engagement</span><span class="reassurance-item">✓ Réponse sous 24h</span><span class="reassurance-item">✓ Présentiel ou visio</span></div>
     </div>
   </div></div></section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 
@@ -1333,7 +1347,70 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </div></section>
   <div class="final-cta"><h2>Un chiffre dans la tête ?<br>Vérifiez-le lors de l'audit.</h2><p>2h dans vos locaux. Rapport chiffré sous 48h. 100% gratuit et sans engagement.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+</div>
+
+<!-- ══════════════════════ MENTIONS LÉGALES ══════════════════════ -->
+<div id="page-mentions" class="page">
+  <div class="page-hero-dark"><div class="section-inner"><span class="eyebrow">Informations légales</span><h1 class="h2 h2-white">Mentions légales</h1></div></div>
+  <section class="section" style="background:var(--blanc)"><div class="section-inner legal-wrap">
+    <h2>Éditeur du site</h2>
+    <p>Le site <strong>dunai.fr</strong> est édité par <strong>Dunai</strong>, [forme juridique — ex. SAS / EI — <em>à compléter</em>] au capital de [montant — <em>à compléter</em>].<br>
+    Siège social : [adresse complète — <em>à compléter</em>], Dunkerque, Hauts-de-France.<br>
+    SIRET : [n° SIRET — <em>à compléter</em>] · RCS : [ville + n° — <em>à compléter</em>] · TVA intracommunautaire : [n° — <em>à compléter</em>].<br>
+    Contact : <a href="mailto:contact@dunai.fr">contact@dunai.fr</a> · <a href="tel:0646890887">06 46 89 08 87</a>.</p>
+
+    <h2>Directeur de la publication</h2>
+    <p>[Nom du responsable de publication — <em>à compléter</em>].</p>
+
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé par [nom de l'hébergeur — ex. Hostinger International Ltd — <em>à compléter</em>], [adresse de l'hébergeur — <em>à compléter</em>].</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus (textes, visuels, logos, code) présents sur dunai.fr est la propriété exclusive de Dunai, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+
+    <h2>Responsabilité</h2>
+    <p>Les informations diffusées sont fournies à titre indicatif. Les estimations de gains (calculateur, exemples chiffrés) sont des ordres de grandeur non contractuels, validés au cas par cas lors de l'audit. Dunai ne saurait être tenue responsable de l'usage qui en est fait.</p>
+
+    <h2>Données personnelles</h2>
+    <p>Le traitement des données collectées via le formulaire de contact est détaillé dans notre <a onclick="showPage('confidentialite')" style="color:var(--flamme);cursor:pointer;text-decoration:underline">politique de confidentialité</a>.</p>
+
+    <h2>Droit applicable</h2>
+    <p>Le présent site est soumis au droit français. Tout litige relève des juridictions compétentes du ressort du siège social de Dunai.</p>
+
+    <div class="legal-back"><button class="btn-primary" style="width:auto" onclick="showPage('home')">← Retour à l'accueil</button></div>
+  </div></section>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+</div>
+
+<!-- ══════════════════════ POLITIQUE DE CONFIDENTIALITÉ ══════════════════════ -->
+<div id="page-confidentialite" class="page">
+  <div class="page-hero-dark"><div class="section-inner"><span class="eyebrow">RGPD</span><h1 class="h2 h2-white">Politique de confidentialité</h1><p class="lead lead-white" style="max-width:560px;margin-top:.75rem">Comment Dunai collecte, utilise et protège vos données personnelles.</p></div></div>
+  <section class="section" style="background:var(--blanc)"><div class="section-inner legal-wrap">
+    <h2>Responsable du traitement</h2>
+    <p>Dunai, [forme juridique — <em>à compléter</em>], Dunkerque (Hauts-de-France). Contact : <a href="mailto:contact@dunai.fr">contact@dunai.fr</a>.</p>
+
+    <h2>Données collectées</h2>
+    <p>Via le formulaire « Audit gratuit », nous collectons : prénom, nom, nom de l'entreprise, adresse email, numéro de téléphone, secteur d'activité, taille de l'entreprise et le message décrivant votre besoin. Aucune donnée sensible n'est demandée.</p>
+
+    <h2>Finalités &amp; base légale</h2>
+    <p>Ces données servent uniquement à vous recontacter et à préparer votre audit (mesures précontractuelles) et reposent sur votre <strong>consentement</strong>, recueilli via la case à cocher du formulaire. Elles ne sont utilisées à aucune autre fin.</p>
+
+    <h2>Destinataires &amp; sous-traitants</h2>
+    <p>Vos données sont accessibles à l'équipe Dunai et transitent par notre outil d'automatisation interne (n8n, auto-hébergé) ainsi que notre messagerie. Elles ne sont <strong>jamais revendues ni cédées</strong> à des tiers à des fins commerciales.</p>
+
+    <h2>Durée de conservation</h2>
+    <p>Les données sont conservées [durée — ex. 3 ans après le dernier contact — <em>à compléter/valider</em>], puis supprimées ou anonymisées.</p>
+
+    <h2>Vos droits</h2>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité de vos données. Pour les exercer : <a href="mailto:contact@dunai.fr">contact@dunai.fr</a>. Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a>.</p>
+
+    <h2>Cookies &amp; traceurs</h2>
+    <p>Le site n'utilise pas de cookies publicitaires ni de traceurs tiers. Seul un stockage technique local (préférence de profil du calculateur) est utilisé pour le confort de navigation ; il ne permet aucune identification. [Si un outil de mesure d'audience est ajouté, cette section devra être mise à jour — <em>à compléter</em>.]</p>
+
+    <div class="legal-back"><button class="btn-primary" style="width:auto" onclick="showPage('contact')">Réserver mon audit gratuit →</button></div>
+  </div></section>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- STICKY CTA -->
@@ -1346,9 +1423,9 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 </div>
 
 <script>
-const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', tarifs:'Tarifs', blog:'Blog', contact:'Audit gratuit', calculateur:'Calculateur ROI' };
-const slugMap  = { home:'/', agents:'/agents', roi:'/roi', tarifs:'/tarifs', contact:'/contact', calculateur:'/calculateur' };
-const urlToPage = { '/':'home','':'home','/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact','/calculateur':'calculateur' };
+const pageMap = { home:'Accueil', agents:'Agents IA', roi:'Résultats', tarifs:'Tarifs', blog:'Blog', contact:'Audit gratuit', calculateur:'Calculateur ROI', mentions:'Mentions légales', confidentialite:'Politique de confidentialité' };
+const slugMap  = { home:'/', agents:'/agents', roi:'/roi', tarifs:'/tarifs', contact:'/contact', calculateur:'/calculateur', mentions:'/mentions-legales', confidentialite:'/confidentialite' };
+const urlToPage = { '/':'home','':'home','/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact','/calculateur':'calculateur','/mentions-legales':'mentions','/confidentialite':'confidentialite' };
 
 function showPage(id, push=true) {
   // Blog → full navigation (standalone page served by Nginx)
@@ -1394,7 +1471,7 @@ function selectStep(el,idx) {
 
 let countersStarted=false;
 document.addEventListener('DOMContentLoaded',()=>{
-  const pathMap = {'/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact','/calculateur':'calculateur'};
+  const pathMap = {'/agents':'agents','/roi':'roi','/tarifs':'tarifs','/contact':'contact','/calculateur':'calculateur','/mentions-legales':'mentions','/confidentialite':'confidentialite'};
   const initPage = pathMap[location.pathname] || 'home';
   showPage(initPage, false);
 });
@@ -1682,10 +1759,14 @@ const WEBHOOK_URL='https://n8n.dunai.fr/webhook/dunai-contact';
 async function handleSubmit(btn) {
   const form=btn.closest('.contact-form');
   const getValue=ph=>{const el=form.querySelector(`[placeholder*="${ph}"]`);return el?el.value.trim():'';};
-  const payload={prenom:getValue('Marie'),nom:getValue('Dupont'),entreprise:getValue('Nom de'),email:getValue('marie@'),telephone:getValue('06'),secteur:form.querySelector('.field-select')?.value||'',taille:form.querySelectorAll('.field-select')[1]?.value||'',message:form.querySelector('.field-textarea')?.value.trim()||'',source:'Site dunai.fr',date:new Date().toLocaleString('fr-FR')};
+  const consent=form.querySelector('#rgpdConsent');
+  const payload={prenom:getValue('Marie'),nom:getValue('Dupont'),entreprise:getValue('Nom de'),email:getValue('marie@'),telephone:getValue('06'),secteur:form.querySelector('.field-select')?.value||'',taille:form.querySelectorAll('.field-select')[1]?.value||'',message:form.querySelector('.field-textarea')?.value.trim()||'',consentement:!!(consent&&consent.checked),source:'Site dunai.fr',date:new Date().toLocaleString('fr-FR')};
+  const showErr=msg=>{const errMsg=form.querySelector('.form-error')||((()=>{const d=document.createElement('p');d.className='form-error';d.style.cssText='color:#DC2626;font-size:13px;margin-top:8px;';btn.parentNode.insertBefore(d,btn.nextSibling);return d;})());errMsg.textContent=msg;};
   if(!payload.email.includes('@')||!payload.entreprise){
-    const errMsg=form.querySelector('.form-error')||((()=>{const d=document.createElement('p');d.className='form-error';d.style.cssText='color:#DC2626;font-size:13px;margin-top:8px;';btn.parentNode.insertBefore(d,btn.nextSibling);return d;})());
-    errMsg.textContent='⚠ Merci de renseigner votre email et le nom de votre entreprise.';return;
+    showErr('⚠ Merci de renseigner votre email et le nom de votre entreprise.');return;
+  }
+  if(!payload.consentement){
+    showErr('⚠ Merci d’accepter la politique de confidentialité pour être recontacté(e).');return;
   }
   const prevErr=form.querySelector('.form-error');if(prevErr)prevErr.remove();
   btn.textContent='Envoi en cours…';btn.disabled=true;
