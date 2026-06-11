@@ -452,6 +452,19 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
 .demo-result .dav{background:var(--bx)}
 .demo-result .dline .lv.fl{color:var(--gold2)}
 .demo-result .dbadge{background:rgba(196,151,58,.15);color:var(--gold2);border-color:rgba(196,151,58,.3)}
+/* ── vraies captures du CRM (charte Dunai orange/noir) ── */
+.frame{border:1px solid var(--sable);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:#fff}
+.frame img{display:block;width:100%;height:auto}
+.shotrow{display:grid;grid-template-columns:1fr;gap:1.75rem;align-items:center;margin-bottom:2.5rem}
+.shotrow:last-child{margin-bottom:0}
+.shot-txt .f-ic{width:48px;height:48px;border-radius:14px;background:var(--flamme-pale);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:1rem}
+.shot-txt h3{font-size:1.4rem;margin-bottom:.6rem}
+.shot-txt p{color:var(--gris);font-size:15px;margin-bottom:1rem}
+.shotcap{font-size:12px;color:var(--gris2);text-align:center;margin-top:.6rem;font-style:italic}
+@media(min-width:860px){
+  .shotrow{grid-template-columns:1fr 1.25fr;gap:2.5rem}
+  .shotrow.rev .shot-txt{order:2}.shotrow.rev .frame{order:1}
+}
 /* ── le formulaire public reprend la vraie charte : police Jost + accordéon à bandeaux bordeaux ── */
 .demo-card.pubform,.demo-card.pubform .demo-body,.demo-card.pubform input,.demo-card.pubform select,.demo-card.pubform button{font-family:'Jost',sans-serif}
 .demo-card.pubform .pub-ttl,.demo-card.pubform .pub-ttl i{font-family:'Playfair Display',Georgia,serif}
@@ -526,31 +539,7 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
           <span class="mock-dot r"></span><span class="mock-dot y"></span><span class="mock-dot g"></span>
           <span class="mock-url">app-traiteur.dunai.fr</span>
         </div>
-        <div class="mock-app">
-          <aside class="mock-side">
-            <div class="ms-brand">Lefebvre</div>
-            <div class="ms-i on"><span class="dot"></span>Tableau de bord</div>
-            <div class="ms-i"><span class="dot"></span>Devis</div>
-            <div class="ms-i"><span class="dot"></span>Factures</div>
-            <div class="ms-i"><span class="dot"></span>Dossiers</div>
-            <div class="ms-i"><span class="dot"></span>Agenda</div>
-            <div class="ms-i"><span class="dot"></span>Clients</div>
-            <div class="ms-i"><span class="dot"></span>Catalogue</div>
-          </aside>
-          <div class="mock-main">
-            <div class="mock-h"><span class="t">Bonjour Grégory 👋</span><span class="b">+ Nouveau devis</span></div>
-            <div class="mock-kpis">
-              <div class="mock-kpi"><div class="k-l">CA ce mois</div><div class="k-n fl">24 850 €</div></div>
-              <div class="mock-kpi"><div class="k-l">Encaissé</div><div class="k-n">18 200 €</div></div>
-              <div class="mock-kpi"><div class="k-l">À relancer</div><div class="k-n">3</div></div>
-            </div>
-            <div class="mock-list">
-              <div class="mock-row"><span class="av">💍</span><div><div class="nm">Mariage Lefèvre</div><div class="dt">14 juin · 120 convives · Plateau Prestige</div></div><span class="st ok">Accepté</span></div>
-              <div class="mock-row"><span class="av">🥂</span><div><div class="nm">Cocktail Hennion</div><div class="dt">22 juin · 60 convives · Vin d'honneur</div></div><span class="st wait">Envoyé</span></div>
-              <div class="mock-row"><span class="av">🍽️</span><div><div class="nm">Séminaire Aclux</div><div class="dt">28 juin · 45 convives · Repas chaud</div></div><span class="st warn">À relancer</span></div>
-            </div>
-          </div>
-        </div>
+        <img src="img/01-tableau-de-bord.png" alt="Tableau de bord du CRM Traiteur : CA, rappels et alertes, devis en attente, graphique chiffre d'affaires" loading="eager" width="2640" height="1712" style="display:block;width:100%;height:auto">
       </div>
       <div class="float-card float-1"><span class="ic" style="background:var(--vert-pale)">✅</span>Devis signé en ligne</div>
       <div class="float-card float-2"><span class="ic" style="background:var(--flamme-pale)">🔔</span>Relance envoyée auto.</div>
@@ -596,90 +585,69 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
       <p class="lead">Pensé pour les traiteurs : formules, cocktails, couverts, service et TVA. Rien à bricoler.</p>
     </div>
 
-    <!-- feature highlight: formulaire de devis -->
-    <div class="feat lg rv" style="margin-bottom:1.25rem">
-      <div class="feat-split">
-        <div>
-          <div class="f-ic">🧾</div>
-          <h3>Le formulaire de devis en ligne, sur-mesure</h3>
-          <p>Vos clients composent leur prestation depuis votre site : type d'événement, nombre de couverts, formules, options. La demande arrive <b>déjà chiffrée</b> dans votre CRM. Vous n'avez plus qu'à valider.</p>
-          <div class="tag-row">
-            <span class="tagx">Sans code</span><span class="tagx">À votre marque</span><span class="tagx">Demande chiffrée</span>
-          </div>
-        </div>
-        <div class="agenda" style="box-shadow:var(--shadow-md)">
-          <div class="agenda-h">Demande reçue<span class="nav-mini">il y a 2 min</span></div>
-          <div class="mock-row" style="border:none;padding:6px 0"><span class="av">💍</span><div><div class="nm">Mariage · 80 convives</div><div class="dt">Samedi 6 septembre · Bourbourg</div></div></div>
-          <div class="pdf-line" style="margin-top:.4rem"><span>Plateau Prestige × 80</span><span class="q">2 372 € HT</span></div>
-          <div class="pdf-line"><span>Vin d'honneur / Cocktail × 80</span><span class="q">1 116 € HT</span></div>
-          <div class="pdf-tot"><span>Estimation</span><b>3 488 € HT</b></div>
-        </div>
+    <!-- lignes alternées : vraies captures du CRM -->
+    <div class="shotrow rv">
+      <div class="shot-txt">
+        <div class="f-ic">📁</div>
+        <h3>Chaque événement, du devis au paiement</h3>
+        <p>Un dossier par prestation : devis, signature en ligne, acompte, marge réelle, bons de commande. Vous voyez où en est chaque événement d'un coup d'œil.</p>
+        <div class="tag-row"><span class="tagx">Pipeline clair</span><span class="tagx">Signature en ligne</span><span class="tagx">Marge en direct</span></div>
+      </div>
+      <div>
+        <div class="frame"><img src="img/04-fiche-dossier.png" alt="Fiche dossier : mariage 140 couverts, pipeline devis→envoyé→accepté→confirmé→réalisé→facturé→payé, marge réelle 82%, signature en ligne" loading="lazy" width="2640" height="1712"></div>
+        <div class="shotcap">Capture réelle du CRM · fiche dossier</div>
       </div>
     </div>
 
-    <div class="feat-grid">
-      <div class="feat rv">
-        <div class="f-ic">📄</div>
-        <h3>Devis & factures pro</h3>
-        <p>PDF à votre charte (logo, couleurs), envoi en un clic, et <b>signature en ligne</b> : le client accepte d'un clic, vous êtes notifié.</p>
-        <div class="pdf">
-          <div class="pdf-top"><div class="pdf-logo">Lefebvre<span class="ai"> Traiteur</span></div><div class="pdf-meta">Devis #2048<br>Bourbourg · 06/09/2026</div></div>
-          <div class="pdf-line"><span>Plateau Prestige</span><span class="q">× 80 · 2 372 € HT</span></div>
-          <div class="pdf-line"><span>Vin d'honneur / Cocktail</span><span class="q">× 80 · 1 116 € HT</span></div>
-          <div class="pdf-line"><span>Total HT</span><span class="q">3 488 €</span></div>
-          <div class="pdf-line"><span>TVA (mets 10% · alcool 20%)</span><span class="q">460 €</span></div>
-          <div class="pdf-tot"><span>Total TTC</span><b>3 948 €</b></div>
-          <div class="pdf-sign">✓ Accepter & signer en ligne</div>
-        </div>
-      </div>
-
-      <div class="feat rv">
+    <div class="shotrow rev rv">
+      <div class="shot-txt">
         <div class="f-ic">📅</div>
-        <h3>Agenda & dossiers anti-surbooking</h3>
-        <p>Pipeline clair, créneaux bloqués automatiquement dès qu'un devis est signé. Synchronisé avec Google Agenda et iPhone.</p>
-        <div class="agenda">
-          <div class="agenda-h">Septembre<span class="nav-mini">‹ ›</span></div>
-          <div class="ag-week">
-            <div class="ag-d">L</div><div class="ag-d">M</div><div class="ag-d">M</div><div class="ag-d">J</div><div class="ag-d">V</div><div class="ag-d busy">S</div><div class="ag-d busy2">D</div>
-          </div>
-          <div class="ag-note">🔒 <span><b>Samedi bloqué</b> : Mariage Lefèvre, 120 couverts</span></div>
-        </div>
+        <h3>Fini le surbooking</h3>
+        <p>Dès qu'un devis est accepté, le créneau se bloque tout seul. Vue mois, semaine, jour, jours « complets » signalés, synchro Google Agenda et iPhone.</p>
+        <div class="tag-row"><span class="tagx">Créneaux bloqués auto</span><span class="tagx">Jour complet (max)</span><span class="tagx">Sync Google / iPhone</span></div>
       </div>
-
-      <div class="feat rv">
-        <div class="f-ic">🔔</div>
-        <h3>L'assistant qui relance pour vous</h3>
-        <p>Devis sans réponse à J+15, facture impayée, demande d'avis Google après l'événement : il s'en occupe, automatiquement.</p>
-        <div class="more" style="grid-template-columns:1fr;margin-top:0;gap:8px">
-          <div class="more-i" style="padding:.7rem .9rem"><span class="mi-ic">⏰</span><div><div class="mi-t">Devis oublié · J+15</div><div class="mi-d">Relance polie envoyée à votre place</div></div></div>
-          <div class="more-i" style="padding:.7rem .9rem"><span class="mi-ic">💶</span><div><div class="mi-t">Facture impayée</div><div class="mi-d">Rappel automatique au bon moment</div></div></div>
-          <div class="more-i" style="padding:.7rem .9rem"><span class="mi-ic">⭐</span><div><div class="mi-t">Avis Google</div><div class="mi-d">Demandé après chaque prestation réussie</div></div></div>
-        </div>
+      <div>
+        <div class="frame"><img src="img/03-agenda.png" alt="Agenda mensuel du CRM avec créneaux bloqués, événements confirmés et à confirmer, panneau des créneaux à venir" loading="lazy" width="2640" height="1712"></div>
+        <div class="shotcap">Capture réelle du CRM · agenda</div>
       </div>
+    </div>
 
-      <div class="feat rv">
-        <div class="f-ic">🧩</div>
-        <h3>Votre catalogue, sans code</h3>
-        <p>Formules, options, cocktails, vin d'honneur, TVA mets / alcool, service, couverts : vous construisez votre offre vous-même, en quelques minutes.</p>
-        <div class="tag-row" style="margin-top:1rem">
-          <span class="tagx">Formules</span><span class="tagx">Options</span><span class="tagx">TVA mets / alcool</span><span class="tagx">Couverts</span><span class="tagx">Service</span>
-        </div>
+    <div class="shotrow rv">
+      <div class="shot-txt">
+        <div class="f-ic">📄</div>
+        <h3>Devis & factures, signés en ligne</h3>
+        <p>PDF à votre charte, envoi en un clic, signature électronique, acompte payé en ligne (Stripe). Les impayés et devis sans réponse sont relancés automatiquement.</p>
+        <div class="tag-row"><span class="tagx">PDF à votre marque</span><span class="tagx">Acompte Stripe</span><span class="tagx">Relances auto</span></div>
       </div>
-
-      <div class="feat rv">
-        <div class="f-ic">💳</div>
-        <h3>Encaissez l'acompte en ligne</h3>
-        <p>Un lien de paiement (Stripe, SumUp, PayPal) joint au devis. Acompte à la signature, solde le jour J : tout est suivi.</p>
-        <div class="more-i" style="margin-top:1rem"><span class="mi-ic">🔗</span><div><div class="mi-t">Acompte 30 % à la signature</div><div class="mi-d">Payé en ligne, sans relance, sans chèque</div></div></div>
+      <div>
+        <div class="frame"><img src="img/05-factures.png" alt="Vue factures du CRM Traiteur : suivi des paiements, factures payées et impayées, relances" loading="lazy" width="2640" height="1712"></div>
+        <div class="shotcap">Capture réelle du CRM · factures</div>
       </div>
+    </div>
 
-      <div class="feat rv">
+    <div class="shotrow rev rv">
+      <div class="shot-txt">
+        <div class="f-ic">📊</div>
+        <h3>Pilotez votre marge, pas juste votre CA</h3>
+        <p>Chiffre d'affaires, marge prévisionnelle et réelle, répartition par type de prestation, saisonnalité. Vous savez ce qui rapporte vraiment.</p>
+        <div class="tag-row"><span class="tagx">CA & marge</span><span class="tagx">Par prestation</span><span class="tagx">Saisonnalité</span></div>
+      </div>
+      <div>
+        <div class="frame"><img src="img/02-statistiques.png" alt="Statistiques du CRM : chiffre d'affaires, marge, répartition des prestations" loading="lazy" width="2640" height="1712"></div>
+        <div class="shotcap">Capture réelle du CRM · statistiques</div>
+      </div>
+    </div>
+
+    <div class="shotrow rv">
+      <div class="shot-txt">
         <div class="f-ic">📣</div>
-        <h3>Marketing & fidélisation</h3>
-        <p>Campagnes e-mail avec éditeur visuel, segments (VIP, inactifs), avis Google, modèles personnalisables. Vos clients reviennent.</p>
-        <div class="tag-row" style="margin-top:1rem">
-          <span class="tagx">E-mailing</span><span class="tagx">Segments VIP</span><span class="tagx">Modèles</span>
-        </div>
+        <h3>Fidélisez sans y penser</h3>
+        <p>Campagnes e-mail avec éditeur visuel, segments (VIP, inactifs), demande d'avis Google après chaque prestation. Vos clients reviennent, et ils vous recommandent.</p>
+        <div class="tag-row"><span class="tagx">E-mailing</span><span class="tagx">Segments VIP</span><span class="tagx">Avis Google auto</span></div>
+      </div>
+      <div>
+        <div class="frame"><img src="img/06-marketing.png" alt="Module marketing du CRM : campagnes e-mail, segments clients, demande d'avis Google" loading="lazy" width="2640" height="1712"></div>
+        <div class="shotcap">Capture réelle du CRM · marketing</div>
       </div>
     </div>
 
