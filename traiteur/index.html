@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logiciel CRM pour traiteurs : devis, factures & événements | Dunai</title>
+<meta name="description" content="Le CRM tout-en-un des traiteurs : formulaire de devis en ligne, factures, agenda anti-surbooking, relances automatiques. Essai gratuit 14 jours. Made in France, RGPD.">
+<link rel="canonical" href="https://dunai.fr/traiteur/">
+<meta property="og:title" content="Le CRM des traiteurs : devis, événements et clients réunis">
+<meta property="og:description" content="De la demande de devis au paiement, tout au même endroit, sans tableur. Essai gratuit 14 jours. Made in France, RGPD.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Dunai">
+<meta property="og:url" content="https://dunai.fr/traiteur/">
+<meta property="og:image" content="https://dunai.fr/images/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le CRM des traiteurs : devis, événements et clients réunis">
+<meta name="twitter:description" content="De la demande de devis au paiement, tout au même endroit, sans tableur. Essai gratuit 14 jours.">
+<meta name="twitter:image" content="https://dunai.fr/images/og-cover.png">
+<link rel="icon" href="/images/logo-favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "CRM Traiteur par Dunai",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android (PWA)",
+      "description": "CRM tout-en-un pour traiteurs : formulaire de devis en ligne, devis et factures, agenda anti-surbooking, relances automatiques, encaissement d'acompte.",
+      "url": "https://dunai.fr/traiteur/",
+      "inLanguage": "fr-FR",
+      "offers": [
+        { "@type": "Offer", "name": "Standard", "price": "39", "priceCurrency": "EUR", "description": "Devis, factures, dossiers, agenda, clients, marketing." },
+        { "@type": "Offer", "name": "Pro", "price": "79", "priceCurrency": "EUR", "description": "Tout Standard + fournisseurs, ressources & stock, multi-comptes." }
+      ],
+      "publisher": { "@type": "Organization", "name": "Dunai", "url": "https://dunai.fr/" }
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+  --noir:#0C0A09; --encre:#1C1917; --creme:#FAFAF9; --creme2:#F5F5F4;
+  --gris:#78716C; --gris2:#A8A29E; --sable:#E7E5E4; --blanc:#fff;
+  --vert:#16A34A; --vert-pale:#DCFCE7;
+  --r-sm:8px; --r-md:12px; --r-lg:18px; --r-xl:26px; --r-full:999px;
+  --shadow-sm:0 1px 2px rgba(12,10,9,.06),0 1px 1px rgba(12,10,9,.04);
+  --shadow-md:0 10px 30px -8px rgba(12,10,9,.14),0 4px 8px -4px rgba(12,10,9,.08);
+  --shadow-lg:0 30px 60px -18px rgba(12,10,9,.22),0 12px 24px -10px rgba(12,10,9,.12);
+  --shadow-orange:0 18px 40px -12px rgba(234,88,12,.45);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--creme);color:var(--encre);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--flamme)}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.08;color:var(--noir)}
+.h1{font-size:clamp(2.3rem,5.5vw,4rem)}
+.h2{font-size:clamp(1.9rem,4vw,2.9rem)}
+.lead{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--gris);line-height:1.55;font-weight:500}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:700;font-size:15px;border:none;border-radius:var(--r-md);cursor:pointer;transition:transform .18s cubic-bezier(.4,0,.2,1),box-shadow .18s,background .18s;white-space:nowrap}
+.btn-primary{background:var(--flamme);color:#fff;padding:15px 26px;box-shadow:var(--shadow-orange)}
+.btn-primary:hover{transform:translateY(-2px);background:#d24f0a;box-shadow:0 22px 46px -12px rgba(234,88,12,.55)}
+.btn-ghost{background:#fff;color:var(--encre);padding:14px 24px;border:1.5px solid var(--sable);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{border-color:var(--flamme);color:var(--flamme);transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--flamme);padding:15px 28px;box-shadow:var(--shadow-md)}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-lg{padding:17px 32px;font-size:16px}
+
+/* header */
+header{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.82);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+header.scrolled{border-color:var(--sable);box-shadow:0 4px 20px -12px rgba(12,10,9,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:11px}
+.wordmark{font-weight:800;font-size:24px;letter-spacing:-.04em;color:var(--noir)}
+.wordmark .ai{color:var(--flamme)}
+.brand-sep{width:1px;height:22px;background:var(--sable)}
+.brand-prod{font-size:13px;font-weight:700;color:var(--gris);letter-spacing:.01em}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a.lnk{padding:9px 14px;font-size:14px;font-weight:600;color:var(--encre);border-radius:var(--r-full);transition:background .18s,color .18s}
+.nav-links a.lnk:hover{background:var(--creme2);color:var(--flamme)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.nav-login{font-size:14px;font-weight:600;color:var(--gris);padding:9px 12px}
+.nav-login:hover{color:var(--flamme)}
+.burger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:20px;height:2px;background:var(--noir);border-radius:2px;transition:.25s}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:0 1.25rem 1rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:13px 14px;font-weight:600;border-radius:var(--r-md)}
+.mobile-menu a:hover{background:var(--creme2)}
+.mobile-menu .btn{margin-top:8px}
+
+/* hero */
+.hero{position:relative;padding:4.5rem 0 3rem;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(1100px 460px at 78% -8%,rgba(249,115,22,.16),transparent 60%),
+  radial-gradient(700px 380px at 10% 110%,rgba(234,88,12,.07),transparent 60%);
+  z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--sable);box-shadow:var(--shadow-sm);padding:7px 14px;border-radius:var(--r-full);font-size:12.5px;font-weight:600;color:var(--encre);margin-bottom:1.25rem}
+.hero-badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--vert);box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}70%{box-shadow:0 0 0 8px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+.hero h1{margin-bottom:1.1rem}
+.hero h1 .hl{color:var(--flamme)}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--gris);font-weight:500;max-width:560px;margin-bottom:1.75rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.875rem;margin-bottom:1.1rem}
+.hero-reass{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;font-size:13px;color:var(--gris);font-weight:600}
+.hero-reass span{display:inline-flex;align-items:center;gap:7px}
+.hero-reass .ck{color:var(--vert)}
+
+/* dashboard mockup */
+.mockup{background:#fff;border:1px solid var(--sable);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;position:relative}
+.mock-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--creme2);border-bottom:1px solid var(--sable)}
+.mock-dot{width:11px;height:11px;border-radius:50%}
+.mock-dot.r{background:#FF5F57}.mock-dot.y{background:#FEBC2E}.mock-dot.g{background:#28C840}
+.mock-url{margin-left:10px;font-size:11px;color:var(--gris2);background:#fff;border:1px solid var(--sable);border-radius:var(--r-full);padding:3px 12px;font-weight:600}
+.mock-app{display:grid;grid-template-columns:148px 1fr;min-height:340px}
+.mock-side{background:var(--noir);padding:16px 12px;display:flex;flex-direction:column;gap:4px}
+.mock-side .ms-brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:-.03em;padding:4px 8px 12px}
+.mock-side .ms-brand .ai{color:var(--flamme)}
+.mock-side .ms-i{display:flex;align-items:center;gap:9px;padding:8px 9px;border-radius:8px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.6)}
+.mock-side .ms-i.on{background:rgba(234,88,12,.18);color:#fff}
+.mock-side .ms-i .dot{width:15px;height:15px;border-radius:5px;background:rgba(255,255,255,.14);flex-shrink:0}
+.mock-side .ms-i.on .dot{background:var(--flamme)}
+.mock-main{padding:16px;background:var(--creme)}
+.mock-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.mock-h .t{font-weight:800;font-size:15px;color:var(--noir)}
+.mock-h .b{font-size:10.5px;font-weight:700;color:#fff;background:var(--flamme);padding:5px 11px;border-radius:var(--r-full)}
+.mock-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:13px}
+.mock-kpi{background:#fff;border:1px solid var(--sable);border-radius:10px;padding:11px}
+.mock-kpi .k-l{font-size:9.5px;font-weight:700;color:var(--gris2);text-transform:uppercase;letter-spacing:.05em}
+.mock-kpi .k-n{font-size:18px;font-weight:800;color:var(--noir);letter-spacing:-.03em;margin-top:3px}
+.mock-kpi .k-n.fl{color:var(--flamme)}
+.mock-list{background:#fff;border:1px solid var(--sable);border-radius:10px;overflow:hidden}
+.mock-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--creme2);font-size:11.5px}
+.mock-row:last-child{border-bottom:none}
+.mock-row .av{width:26px;height:26px;border-radius:7px;background:var(--flamme-pale);color:var(--flamme);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.mock-row .nm{font-weight:700;color:var(--encre)}
+.mock-row .dt{color:var(--gris2);font-weight:600}
+.mock-row .st{margin-left:auto;font-size:10px;font-weight:700;padding:3px 9px;border-radius:var(--r-full)}
+.mock-row .st.ok{background:var(--vert-pale);color:#15803d}
+.mock-row .st.wait{background:var(--flamme-pale);color:#9A3412}
+.float-card{position:absolute;background:#fff;border:1px solid var(--sable);border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:11px 13px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600}
+.float-card .ic{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.float-1{right:-14px;top:64px;animation:float1 5s ease-in-out infinite}
+.float-2{left:-18px;bottom:42px;animation:float1 6s ease-in-out infinite .5s}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* trust bar */
+.trust{padding:1.5rem 0;border-top:1px solid var(--sable);border-bottom:1px solid var(--sable);background:#fff}
+.trust-in{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1rem 2.25rem;text-align:center}
+.trust-claim{font-weight:700;color:var(--encre);font-size:14.5px}
+.trust-badges{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+.badge-pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--gris);background:var(--creme);border:1px solid var(--sable);padding:7px 13px;border-radius:var(--r-full)}
+
+/* sections */
+section.s{padding:5rem 0}
+.s-head{max-width:660px;margin:0 auto 3rem;text-align:center}
+.s-head .lead{margin-top:.875rem}
+
+/* problem */
+.prob{background:var(--noir);color:#fff}
+.prob h2,.prob .s-head .lead{color:#fff}
+.prob .s-head .lead{color:rgba(255,255,255,.62)}
+.prob-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;margin-bottom:2.5rem}
+.prob-card{background:var(--encre);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:1.6rem}
+.prob-card .pe{font-size:30px;margin-bottom:.75rem;display:block}
+.prob-card h3{color:#fff;font-size:1.15rem;margin-bottom:.5rem}
+.prob-card p{color:rgba(255,255,255,.6);font-size:14.5px}
+.prob-kicker{text-align:center;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;letter-spacing:-.02em;color:#fff}
+.prob-kicker b{color:var(--flamme)}
+
+/* features */
+.feat-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+.feat{background:#fff;border:1px solid var(--sable);border-radius:var(--r-xl);padding:1.75rem;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden}
+.feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--flamme-mid)}
+.feat .f-ic{width:48px;height:48px;border-radius:14px;background:var(--flamme-pale);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:1.1rem}
+.feat h3{font-size:1.25rem;margin-bottom:.5rem}
+.feat p{color:var(--gris);font-size:14.5px;margin-bottom:1.1rem}
+.feat.lg{grid-column:1/-1}
+.feat-split{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
+.tagx{font-size:12px;font-weight:700;color:var(--flamme);background:var(--flamme-pale);border:1px solid var(--flamme-mid);padding:5px 11px;border-radius:var(--r-full)}
+
+/* devis pdf mini-mockup */
+.pdf{background:#fff;border:1px solid var(--sable);border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:1.1rem;font-size:12px}
+.pdf-top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--noir);padding-bottom:.75rem;margin-bottom:.75rem}
+.pdf-logo{font-weight:800;font-size:15px;color:var(--noir)}
+.pdf-logo .ai{color:var(--flamme)}
+.pdf-meta{text-align:right;color:var(--gris);font-weight:600;font-size:10.5px}
+.pdf-line{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--sable);color:var(--encre);font-weight:600}
+.pdf-line .q{color:var(--gris2);font-weight:600}
+.pdf-tot{display:flex;justify-content:space-between;margin-top:.6rem;font-weight:800;font-size:15px;color:var(--noir)}
+.pdf-tot b{color:var(--flamme)}
+.pdf-sign{margin-top:.9rem;display:flex;align-items:center;justify-content:center;gap:7px;background:var(--vert);color:#fff;font-weight:700;font-size:12px;padding:9px;border-radius:8px}
+
+/* agenda mini */
+.agenda{background:#fff;border:1px solid var(--sable);border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:1rem;font-size:12px}
+.agenda-h{font-weight:800;color:var(--noir);margin-bottom:.6rem;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.agenda-h .nav-mini{color:var(--gris2);font-weight:700}
+.ag-week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
+.ag-d{padding:8px 4px;border-radius:7px;font-weight:700;font-size:11px;color:var(--gris);background:var(--creme)}
+.ag-d.busy{background:var(--flamme);color:#fff}
+.ag-d.busy2{background:var(--flamme-pale);color:var(--flamme);border:1.5px solid var(--flamme-mid)}
+.ag-note{margin-top:.7rem;font-size:11px;color:var(--gris);display:flex;align-items:center;gap:7px}
+.ag-note b{color:var(--flamme)}
+
+/* "aussi inclus" grid */
+.more{display:grid;grid-template-columns:1fr;gap:.75rem;margin-top:1.5rem}
+.more-i{display:flex;align-items:flex-start;gap:11px;background:#fff;border:1px solid var(--sable);border-radius:var(--r-md);padding:1rem 1.1rem;box-shadow:var(--shadow-sm)}
+.more-i .mi-ic{font-size:19px;flex-shrink:0}
+.more-i .mi-t{font-weight:700;font-size:14px;color:var(--encre)}
+.more-i .mi-d{font-size:12.5px;color:var(--gris)}
+
+/* how */
+.how{background:var(--creme2)}
+.how-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;counter-reset:step}
+.how-step{position:relative;background:#fff;border:1px solid var(--sable);border-radius:var(--r-lg);padding:1.75rem;box-shadow:var(--shadow-sm)}
+.how-step .num{font-weight:800;font-size:2.4rem;color:var(--flamme-mid);line-height:1;letter-spacing:-.04em}
+.how-step h3{font-size:1.15rem;margin:.5rem 0}
+.how-step p{color:var(--gris);font-size:14px}
+
+/* demo */
+.demo-wrap{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:stretch}
+.demo-card{background:#fff;border:1px solid var(--sable);border-radius:var(--r-xl);box-shadow:var(--shadow-md);overflow:hidden;display:flex;flex-direction:column}
+.demo-hd{padding:1.1rem 1.4rem;border-bottom:1px solid var(--sable);display:flex;align-items:center;gap:10px}
+.demo-hd .pubdot{width:9px;height:9px;border-radius:50%;background:var(--vert)}
+.demo-hd .ht{font-weight:800;font-size:15px}
+.demo-hd .hs{font-size:11.5px;color:var(--gris2);font-weight:600;margin-left:auto}
+.demo-body{padding:1.4rem;display:flex;flex-direction:column;gap:1.1rem;flex:1}
+.dfield label{display:block;font-size:13px;font-weight:700;color:var(--encre);margin-bottom:.5rem}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{flex:1;min-width:90px;font-family:inherit;font-size:13px;font-weight:700;color:var(--gris);background:var(--creme);border:1.5px solid var(--sable);border-radius:var(--r-md);padding:11px 8px;cursor:pointer;transition:.16s}
+.seg button.on{background:var(--flamme-pale);border-color:var(--flamme);color:var(--flamme)}
+.seg button:hover{border-color:var(--flamme-mid)}
+.couverts-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem}
+.couverts-val{font-weight:800;color:var(--flamme);font-size:17px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--sable);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--flamme);border:3px solid #fff;box-shadow:0 1px 5px rgba(234,88,12,.5);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--flamme);border:3px solid #fff;box-shadow:0 1px 5px rgba(234,88,12,.5);cursor:pointer}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:11px;font-size:13.5px;font-weight:600;color:var(--encre);cursor:pointer;padding:9px 12px;border:1.5px solid var(--sable);border-radius:var(--r-md);transition:.16s}
+.opt:hover{border-color:var(--flamme-mid)}
+.opt input{width:18px;height:18px;accent-color:var(--flamme);cursor:pointer}
+.opt .price{margin-left:auto;color:var(--gris);font-weight:700;font-size:12.5px}
+.demo-total{margin-top:auto;background:var(--noir);color:#fff;border-radius:var(--r-lg);padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between}
+.demo-total .dl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5)}
+.demo-total .dn{font-size:2rem;font-weight:800;color:var(--flamme2);letter-spacing:-.03em;line-height:1}
+.demo-send{width:100%;margin-top:.4rem}
+/* result card */
+.demo-result{background:linear-gradient(160deg,#1C1917,#0C0A09);color:#fff;border:1px solid rgba(255,255,255,.08)}
+.demo-result .demo-hd{border-color:rgba(255,255,255,.1)}
+.demo-result .ht{color:#fff}
+.crm-incoming{padding:1.4rem;display:flex;flex-direction:column;gap:1rem}
+.crm-arrow{text-align:center;color:rgba(255,255,255,.4);font-size:12px;font-weight:700;letter-spacing:.05em}
+.dossier{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:1.2rem}
+.dossier .dh{display:flex;align-items:center;gap:11px;margin-bottom:1rem}
+.dossier .dav{width:42px;height:42px;border-radius:12px;background:var(--flamme);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px}
+.dossier .dnm{font-weight:800;font-size:15px;color:#fff}
+.dossier .dsub{font-size:12px;color:rgba(255,255,255,.5);font-weight:600}
+.dline{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.dline:last-child{border:none}
+.dline .ll{color:rgba(255,255,255,.55);font-weight:600}
+.dline .lv{color:#fff;font-weight:700}
+.dline .lv.fl{color:var(--flamme2)}
+.dbadges{display:flex;flex-wrap:wrap;gap:7px;margin-top:1rem}
+.dbadge{font-size:11px;font-weight:700;padding:6px 11px;border-radius:var(--r-full);background:rgba(234,88,12,.15);color:var(--flamme2);border:1px solid rgba(234,88,12,.3)}
+.demo-note{text-align:center;font-size:13px;color:var(--gris);margin-top:1.5rem}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:820px;margin:0 auto;align-items:stretch}
+.pcard{background:#fff;border:1.5px solid var(--sable);border-radius:var(--r-xl);padding:2rem 1.75rem;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow-sm)}
+.pcard.feat{border-color:var(--flamme);box-shadow:var(--shadow-md)}
+.pcard .pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--flamme);color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;padding:5px 16px;border-radius:var(--r-full);white-space:nowrap}
+.pcard .ptier{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--flamme)}
+.pcard .pprice{font-size:2.6rem;font-weight:800;color:var(--noir);letter-spacing:-.03em;margin:.4rem 0 .1rem;line-height:1}
+.pcard .pprice span{font-size:1rem;font-weight:600;color:var(--gris)}
+.pcard .pyear{font-size:12.5px;color:var(--gris);font-weight:600;margin-bottom:1.25rem}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem;flex:1}
+.pcard li{font-size:14px;color:var(--encre);display:flex;gap:9px;align-items:flex-start;font-weight:500}
+.pcard li::before{content:"✓";color:var(--flamme);font-weight:800;flex-shrink:0}
+.pcard .btn{width:100%}
+.price-foot{text-align:center;margin-top:1.75rem;font-size:13px;color:var(--gris)}
+.price-foot b{color:var(--encre)}
+
+/* testimonial */
+.testi{background:var(--noir);color:#fff}
+.testi-card{max-width:760px;margin:0 auto;text-align:center}
+.testi-stars{color:var(--flamme2);font-size:20px;letter-spacing:3px;margin-bottom:1.1rem}
+.testi-q{font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:700;line-height:1.4;color:#fff;letter-spacing:-.01em;margin-bottom:1.5rem}
+.testi-q .hl{color:var(--flamme2)}
+.testi-author{display:flex;align-items:center;justify-content:center;gap:13px}
+.testi-av{width:50px;height:50px;border-radius:14px;background:var(--flamme);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.testi-meta{text-align:left}
+.testi-meta .tn{font-weight:800;color:#fff}
+.testi-meta .tr{font-size:13px;color:rgba(255,255,255,.55);font-weight:600}
+.testi-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:620px;margin:2.5rem auto 0}
+.testi-stat{text-align:center}
+.testi-stat .ts-n{font-size:2rem;font-weight:800;color:var(--flamme2);letter-spacing:-.03em}
+.testi-stat .ts-l{font-size:12.5px;color:rgba(255,255,255,.55);font-weight:600}
+
+/* faq */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:#fff;border:1px solid var(--sable);border-radius:var(--r-md);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.faq-item.open{border-color:var(--flamme-mid);box-shadow:var(--shadow-sm)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.3rem;cursor:pointer;font-weight:700;font-size:15.5px;color:var(--encre)}
+.faq-q .ico{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--creme2);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--flamme);transition:transform .25s,background .2s}
+.faq-item.open .ico{transform:rotate(45deg);background:var(--flamme-pale)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--gris);font-size:14.5px;line-height:1.6}
+.faq-a div{padding:0 1.3rem 1.2rem}
+
+/* final cta */
+.final{padding:5.5rem 0;background:linear-gradient(135deg,#EA580C,#F97316);text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% -20%,rgba(255,255,255,.25),transparent 60%)}
+.final-in{position:relative}
+.final h2{color:#fff;font-size:clamp(1.9rem,4vw,3rem);margin-bottom:1rem}
+.final p{color:rgba(255,255,255,.92);font-size:1.15rem;font-weight:500;margin-bottom:2rem;max-width:540px;margin-left:auto;margin-right:auto}
+.final .hero-reass{justify-content:center;color:rgba(255,255,255,.9);margin-top:1.25rem}
+.final .hero-reass .ck{color:#fff}
+
+/* footer */
+footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25rem}
+.foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;margin-bottom:2.5rem}
+.foot-brand .wordmark{color:#fff;font-size:26px}
+.foot-tag{font-size:13px;color:rgba(255,255,255,.45);margin-top:.5rem;line-height:1.6}
+.foot-col h4{color:#fff;font-size:13px;font-weight:800;margin-bottom:.875rem;letter-spacing:.02em}
+.foot-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);padding:5px 0;transition:color .18s}
+.foot-col a:hover{color:var(--flamme2)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;font-size:12.5px;color:rgba(255,255,255,.4);display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;justify-content:space-between}
+.foot-bottom a{color:rgba(255,255,255,.5)}
+.foot-bottom a:hover{color:#fff}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(min-width:760px){
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .prob-grid{grid-template-columns:repeat(3,1fr)}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-split{grid-template-columns:1.1fr .9fr}
+  .feat-split.rev{direction:rtl}.feat-split.rev>*{direction:ltr}
+  .more{grid-template-columns:repeat(2,1fr)}
+  .how-grid{grid-template-columns:repeat(3,1fr)}
+  .demo-wrap{grid-template-columns:1fr 1fr}
+  .price-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1000px){
+  .more{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:759px){
+  .nav-links,.nav-login{display:none}
+  .burger{display:flex}
+  .float-card{display:none}
+  .testi-stats{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}.float-1,.float-2,.hero-badge .pulse{animation:none}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Dunai, CRM Traiteur">
+      <span class="wordmark">Dun<span class="ai">ai</span></span>
+      <span class="brand-sep"></span>
+      <span class="brand-prod">CRM Traiteur</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation">
+      <a class="lnk" href="#fonctionnalites">Fonctionnalités</a>
+      <a class="lnk" href="#demo">Démo</a>
+      <a class="lnk" href="#tarifs">Tarifs</a>
+      <a class="lnk" href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-login" href="https://app-traiteur.dunai.fr" rel="noopener">Connexion</a>
+      <a class="btn btn-primary" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Essai gratuit</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#fonctionnalites">Fonctionnalités</a>
+    <a href="#demo">Démo</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://app-traiteur.dunai.fr" rel="noopener">Connexion</a>
+    <a class="btn btn-primary" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Essayer gratuitement 14 jours</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-badge"><span class="pulse"></span>Conçu avec un traiteur, pour les traiteurs</span>
+      <h1 class="h1">Le CRM des traiteurs.<br>Devis, événements et clients <span class="hl">enfin réunis.</span></h1>
+      <p class="hero-sub">De la demande de devis au paiement : tout au même endroit, sans tableur. Vous gagnez des heures chaque semaine et vous ne perdez plus jamais un devis.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Démarrer gratuitement →</a>
+        <a class="btn btn-ghost btn-lg" href="#demo">Voir le formulaire de devis en action</a>
+      </div>
+      <div class="hero-reass">
+        <span><span class="ck">✓</span> Sans engagement</span>
+        <span><span class="ck">✓</span> Hébergé en France</span>
+        <span><span class="ck">✓</span> RGPD</span>
+      </div>
+    </div>
+    <div class="rv in" style="position:relative">
+      <div class="mockup">
+        <div class="mock-bar">
+          <span class="mock-dot r"></span><span class="mock-dot y"></span><span class="mock-dot g"></span>
+          <span class="mock-url">app-traiteur.dunai.fr</span>
+        </div>
+        <div class="mock-app">
+          <aside class="mock-side">
+            <div class="ms-brand">Dun<span class="ai">ai</span></div>
+            <div class="ms-i on"><span class="dot"></span>Tableau de bord</div>
+            <div class="ms-i"><span class="dot"></span>Devis</div>
+            <div class="ms-i"><span class="dot"></span>Événements</div>
+            <div class="ms-i"><span class="dot"></span>Clients</div>
+            <div class="ms-i"><span class="dot"></span>Factures</div>
+          </aside>
+          <div class="mock-main">
+            <div class="mock-h"><span class="t">Bonjour Grégory 👋</span><span class="b">+ Nouveau devis</span></div>
+            <div class="mock-kpis">
+              <div class="mock-kpi"><div class="k-l">CA du mois</div><div class="k-n fl">24 850 €</div></div>
+              <div class="mock-kpi"><div class="k-l">Devis en attente</div><div class="k-n">7</div></div>
+              <div class="mock-kpi"><div class="k-l">Événements</div><div class="k-n">12</div></div>
+            </div>
+            <div class="mock-list">
+              <div class="mock-row"><span class="av">💍</span><div><div class="nm">Mariage Lefèvre</div><div class="dt">14 juin · 120 couverts</div></div><span class="st ok">Signé</span></div>
+              <div class="mock-row"><span class="av">🥂</span><div><div class="nm">Cocktail Groupe Hennion</div><div class="dt">22 juin · 60 pers.</div></div><span class="st wait">Devis envoyé</span></div>
+              <div class="mock-row"><span class="av">🍽️</span><div><div class="nm">Repas séminaire Aclux</div><div class="dt">28 juin · 45 couverts</div></div><span class="st wait">À relancer</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-card float-1"><span class="ic" style="background:var(--vert-pale)">✅</span>Devis signé en ligne</div>
+      <div class="float-card float-2"><span class="ic" style="background:var(--flamme-pale)">🔔</span>Relance envoyée auto.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap trust-in">
+    <span class="trust-claim">🇫🇷 Conçu avec un traiteur, pour les traiteurs</span>
+    <div class="trust-badges">
+      <span class="badge-pill">💳 Paiements Stripe</span>
+      <span class="badge-pill">🔒 Hébergé en France · RGPD</span>
+      <span class="badge-pill">📱 Installable sur mobile</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="s prob">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="eyebrow" style="color:var(--flamme2)">Le quotidien d'un traiteur</span>
+      <h2 class="h2">Votre talent est en cuisine.<br>Pas dans un tableur.</h2>
+      <p class="lead">En haute saison, l'administratif déborde. Et chaque oubli coûte un événement.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card rv"><span class="pe">📝</span><h3>Des devis faits à la main</h3><p>Word, Excel, calculs de couverts et de TVA repris à chaque fois. 45 minutes par devis, et un rendu qui ne reflète pas votre niveau.</p></div>
+      <div class="prob-card rv"><span class="pe">📵</span><h3>Des relances oubliées</h3><p>Un devis envoyé, jamais relancé. Une facture impayée qui traîne. Des ventes qui partent à la concurrence sans que vous le sachiez.</p></div>
+      <div class="prob-card rv"><span class="pe">📅</span><h3>Le risque de surbooking</h3><p>Deux événements le même samedi, repérés trop tard. L'agenda papier ne pardonne pas en pleine saison des mariages.</p></div>
+    </div>
+    <p class="prob-kicker rv">Vous méritez mieux qu'un tableur. <b>Vous méritez un outil à votre métier.</b></p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="s" id="fonctionnalites">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="eyebrow">Tout ce qu'il vous faut</span>
+      <h2 class="h2">Un seul outil, du premier contact au paiement</h2>
+      <p class="lead">Pensé pour les traiteurs : formules, cocktails, couverts, service et TVA. Rien à bricoler.</p>
+    </div>
+
+    <!-- feature highlight: formulaire de devis -->
+    <div class="feat lg rv" style="margin-bottom:1.25rem">
+      <div class="feat-split">
+        <div>
+          <div class="f-ic">🧾</div>
+          <h3>Le formulaire de devis en ligne, sur-mesure</h3>
+          <p>Vos clients composent leur prestation depuis votre site : type d'événement, nombre de couverts, formules, options. La demande arrive <b>déjà chiffrée</b> dans votre CRM. Vous n'avez plus qu'à valider.</p>
+          <div class="tag-row">
+            <span class="tagx">Sans code</span><span class="tagx">À votre marque</span><span class="tagx">Demande chiffrée</span>
+          </div>
+        </div>
+        <div class="agenda" style="box-shadow:var(--shadow-md)">
+          <div class="agenda-h">Demande reçue<span class="nav-mini">il y a 2 min</span></div>
+          <div class="mock-row" style="border:none;padding:6px 0"><span class="av">🥂</span><div><div class="nm">Cocktail dînatoire · 80 personnes</div><div class="dt">Samedi 6 septembre</div></div></div>
+          <div class="pdf-line" style="margin-top:.4rem"><span>Formule Prestige × 80</span><span class="q">4 400 €</span></div>
+          <div class="pdf-line"><span>Vin d'honneur × 80</span><span class="q">960 €</span></div>
+          <div class="pdf-tot"><span>Demande estimée</span><b>5 360 €</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat rv">
+        <div class="f-ic">📄</div>
+        <h3>Devis & factures pro</h3>
+        <p>PDF à votre charte (logo, couleurs), envoi en un clic, et <b>signature en ligne</b> : le client accepte d'un clic, vous êtes notifié.</p>
+        <div class="pdf">
+          <div class="pdf-top"><div class="pdf-logo">Greg<span class="ai"> Traiteur</span></div><div class="pdf-meta">Devis #2048<br>06/09/2026</div></div>
+          <div class="pdf-line"><span>Formule Prestige</span><span class="q">× 80 · 4 400 €</span></div>
+          <div class="pdf-line"><span>Vin d'honneur</span><span class="q">× 80 · 960 €</span></div>
+          <div class="pdf-line"><span>Service & personnel</span><span class="q">640 €</span></div>
+          <div class="pdf-tot"><span>Total TTC</span><b>6 000 €</b></div>
+          <div class="pdf-sign">✓ Signer le devis en ligne</div>
+        </div>
+      </div>
+
+      <div class="feat rv">
+        <div class="f-ic">📅</div>
+        <h3>Agenda & dossiers anti-surbooking</h3>
+        <p>Pipeline clair, créneaux bloqués automatiquement dès qu'un devis est signé. Synchronisé avec Google Agenda et iPhone.</p>
+        <div class="agenda">
+          <div class="agenda-h">Septembre<span class="nav-mini">‹ ›</span></div>
+          <div class="ag-week">
+            <div class="ag-d">L</div><div class="ag-d">M</div><div class="ag-d">M</div><div class="ag-d">J</div><div class="ag-d">V</div><div class="ag-d busy">S</div><div class="ag-d busy2">D</div>
+          </div>
+          <div class="ag-note">🔒 <span><b>Samedi bloqué</b> : Mariage Lefèvre, 120 couverts</span></div>
+        </div>
+      </div>
+
+      <div class="feat rv">
+        <div class="f-ic">🔔</div>
+        <h3>L'assistant qui relance pour vous</h3>
+        <p>Devis sans réponse à J+15, facture impayée, demande d'avis Google après l'événement : il s'en occupe, automatiquement.</p>
+        <div class="more" style="grid-template-columns:1fr;margin-top:0;gap:8px">
+          <div class="more-i" style="padding:.7rem .9rem"><span class="mi-ic">⏰</span><div><div class="mi-t">Devis oublié · J+15</div><div class="mi-d">Relance polie envoyée à votre place</div></div></div>
+          <div class="more-i" style="padding:.7rem .9rem"><span class="mi-ic">💶</span><div><div class="mi-t">Facture impayée</div><div class="mi-d">Rappel automatique au bon moment</div></div></div>
+          <div class="more-i" style="padding:.7rem .9rem"><span class="mi-ic">⭐</span><div><div class="mi-t">Avis Google</div><div class="mi-d">Demandé après chaque prestation réussie</div></div></div>
+        </div>
+      </div>
+
+      <div class="feat rv">
+        <div class="f-ic">🧩</div>
+        <h3>Votre catalogue, sans code</h3>
+        <p>Formules, options, cocktails, vin d'honneur, TVA mets / alcool, service, couverts : vous construisez votre offre vous-même, en quelques minutes.</p>
+        <div class="tag-row" style="margin-top:1rem">
+          <span class="tagx">Formules</span><span class="tagx">Options</span><span class="tagx">TVA mets / alcool</span><span class="tagx">Couverts</span><span class="tagx">Service</span>
+        </div>
+      </div>
+
+      <div class="feat rv">
+        <div class="f-ic">💳</div>
+        <h3>Encaissez l'acompte en ligne</h3>
+        <p>Un lien de paiement (Stripe, SumUp, PayPal) joint au devis. Acompte à la signature, solde le jour J : tout est suivi.</p>
+        <div class="more-i" style="margin-top:1rem"><span class="mi-ic">🔗</span><div><div class="mi-t">Acompte 30 % à la signature</div><div class="mi-d">Payé en ligne, sans relance, sans chèque</div></div></div>
+      </div>
+
+      <div class="feat rv">
+        <div class="f-ic">📣</div>
+        <h3>Marketing & fidélisation</h3>
+        <p>Campagnes e-mail avec éditeur visuel, segments (VIP, inactifs), avis Google, modèles personnalisables. Vos clients reviennent.</p>
+        <div class="tag-row" style="margin-top:1rem">
+          <span class="tagx">E-mailing</span><span class="tagx">Segments VIP</span><span class="tagx">Modèles</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- aussi inclus -->
+    <div class="more">
+      <div class="more-i rv"><span class="mi-ic">🎨</span><div><div class="mi-t">100 % à votre marque</div><div class="mi-d">Votre logo, vos couleurs, vos polices sur devis, factures et e-mails.</div></div></div>
+      <div class="more-i rv"><span class="mi-ic">📱</span><div><div class="mi-t">Sur tous vos écrans</div><div class="mi-d">Application installable sur smartphone (PWA) + notifications.</div></div></div>
+      <div class="more-i rv"><span class="mi-ic">📊</span><div><div class="mi-t">Pilotez votre activité</div><div class="mi-d">Tableau de bord, chiffre d'affaires, statistiques par période.</div></div></div>
+      <div class="more-i rv"><span class="mi-ic">📦</span><div><div class="mi-t">Fournisseurs & bons de commande</div><div class="mi-d">Générés automatiquement depuis vos événements.</div></div></div>
+      <div class="more-i rv"><span class="mi-ic">🥗</span><div><div class="mi-t">Ressources & stock</div><div class="mi-d">Matériel, denrées, personnel : ce qu'il faut, quand il faut.</div></div></div>
+      <div class="more-i rv"><span class="mi-ic">👥</span><div><div class="mi-t">Multi-comptes équipe</div><div class="mi-d">Plusieurs accès avec rôles. Avoirs, clients & données exportables à tout moment.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="s how">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="eyebrow">Prêt en un après-midi</span>
+      <h2 class="h2">Trois étapes, et vous êtes lancé</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step rv"><div class="num">1</div><h3>Créez votre espace</h3><p>Inscription en deux minutes. Votre espace traiteur est prêt, à votre nom.</p></div>
+      <div class="how-step rv"><div class="num">2</div><h3>Construisez votre offre</h3><p>Formules, options, formulaire de devis : vous les composez vous-même, sans code.</p></div>
+      <div class="how-step rv"><div class="num">3</div><h3>Recevez et gérez</h3><p>Les demandes arrivent chiffrées. Vous validez, signez, encaissez. Tout suit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="s" id="demo">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="eyebrow">Démo en direct</span>
+      <h2 class="h2">Le formulaire que vos clients vont adorer</h2>
+      <p class="lead">Composez une prestation comme le ferait un client. Regardez la demande arriver, déjà chiffrée, dans votre CRM.</p>
+    </div>
+    <div class="demo-wrap">
+      <!-- public form -->
+      <div class="demo-card rv">
+        <div class="demo-hd"><span class="pubdot"></span><span class="ht">Demander un devis</span><span class="hs">greg-traiteur.fr</span></div>
+        <div class="demo-body">
+          <div class="dfield">
+            <label>Type d'événement</label>
+            <div class="seg" id="segType">
+              <button class="on" data-type="Mariage" data-emoji="💍">💍 Mariage</button>
+              <button data-type="Cocktail dînatoire" data-emoji="🥂">🥂 Cocktail</button>
+              <button data-type="Repas d'entreprise" data-emoji="🍽️">🍽️ Entreprise</button>
+            </div>
+          </div>
+          <div class="dfield">
+            <div class="couverts-row"><label style="margin:0">Nombre de couverts</label><span class="couverts-val"><span id="cvVal">80</span></span></div>
+            <input type="range" id="cv" min="20" max="300" value="80" step="10">
+          </div>
+          <div class="dfield">
+            <label>Formule</label>
+            <div class="seg" id="segFormule">
+              <button data-f="Essentielle" data-p="35">Essentielle · 35€</button>
+              <button class="on" data-f="Prestige" data-p="55">Prestige · 55€</button>
+              <button data-f="Gastronomique" data-p="85">Gastro · 85€</button>
+            </div>
+          </div>
+          <div class="dfield">
+            <label>Options</label>
+            <div class="opts" id="opts">
+              <label class="opt"><input type="checkbox" data-opt="Vin d'honneur" data-p="12" checked> Vin d'honneur <span class="price">+12 €/couvert</span></label>
+              <label class="opt"><input type="checkbox" data-opt="Service & personnel" data-p="8"> Service & personnel <span class="price">+8 €/couvert</span></label>
+              <label class="opt"><input type="checkbox" data-opt="Dressage & déco" data-p="6"> Dressage & déco <span class="price">+6 €/couvert</span></label>
+            </div>
+          </div>
+          <div class="demo-total">
+            <div><div class="dl">Estimation</div><div class="dn"><span id="demoTotal">5 360</span> €</div></div>
+            <button class="btn btn-primary demo-send" id="demoSend" style="width:auto">Envoyer ma demande →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRM incoming -->
+      <div class="demo-card demo-result rv">
+        <div class="demo-hd"><span class="pubdot"></span><span class="ht">Votre CRM · Nouvelle demande</span><span class="hs" id="incomingWhen">en attente…</span></div>
+        <div class="crm-incoming">
+          <div class="crm-arrow">↓ la demande arrive ici, automatiquement</div>
+          <div class="dossier">
+            <div class="dh"><div class="dav" id="dAv">💍</div><div><div class="dnm" id="dType">Mariage</div><div class="dsub" id="dCouverts">80 couverts</div></div></div>
+            <div class="dline"><span class="ll">Formule</span><span class="lv" id="dFormule">Prestige</span></div>
+            <div class="dline"><span class="ll">Options</span><span class="lv" id="dOptions">Vin d'honneur</span></div>
+            <div class="dline"><span class="ll">Montant estimé</span><span class="lv fl" id="dMontant">5 360 €</span></div>
+            <div class="dline"><span class="ll">Statut</span><span class="lv" id="dStatut">Nouveau dossier</span></div>
+            <div class="dbadges">
+              <span class="dbadge">🔔 Relance auto activée</span>
+              <span class="dbadge">📅 Créneau pré-réservé</span>
+              <span class="dbadge">📄 Devis prêt à envoyer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="demo-note">Exemple de tarification. Dans votre espace, vous fixez vos formules, options et TVA.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="s how" id="tarifs">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="eyebrow">Tarifs simples</span>
+      <h2 class="h2">Essayez 14 jours. Décidez ensuite.</h2>
+      <p class="lead">Sans carte bancaire pour démarrer. Sans engagement. Résiliable à tout moment.</p>
+    </div>
+    <div class="price-grid">
+      <div class="pcard rv">
+        <div class="ptier">Standard</div>
+        <div class="pprice">39 €<span> / mois</span></div>
+        <div class="pyear">soit 390 € / an (2 mois offerts)</div>
+        <ul>
+          <li>Formulaire de devis en ligne</li>
+          <li>Devis & factures à votre charte + signature</li>
+          <li>Agenda, dossiers & anti-surbooking</li>
+          <li>Clients, relances automatiques</li>
+          <li>Encaissement d'acompte en ligne</li>
+          <li>Marketing e-mail & avis Google</li>
+          <li>Application mobile (PWA)</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Commencer l'essai gratuit</a>
+      </div>
+      <div class="pcard feat rv">
+        <div class="pbadge">★ Le plus complet</div>
+        <div class="ptier">Pro</div>
+        <div class="pprice">79 €<span> / mois</span></div>
+        <div class="pyear">soit 790 € / an (2 mois offerts)</div>
+        <ul>
+          <li><b>Tout le plan Standard</b>, plus :</li>
+          <li>Fournisseurs & bons de commande automatiques</li>
+          <li>Ressources & gestion du stock</li>
+          <li>Multi-comptes équipe (jusqu'à 10) avec rôles</li>
+          <li>Statistiques avancées</li>
+          <li>Support prioritaire</li>
+        </ul>
+        <a class="btn btn-primary" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Commencer l'essai gratuit</a>
+      </div>
+    </div>
+    <p class="price-foot"><b>Prix nets, TVA non applicable (art. 293 B du CGI).</b> Paiement sécurisé Stripe. Vos données restent les vôtres, exportables à tout moment.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="s testi">
+  <div class="wrap">
+    <div class="testi-card rv">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-q">« Avant, je passais mes dimanches sur des devis Excel. Maintenant, la demande arrive déjà chiffrée et <span class="hl">je signe en deux clics.</span> J'ai retrouvé mes week-ends. »</p>
+      <div class="testi-author">
+        <div class="testi-av">G</div>
+        <div class="testi-meta">
+          <div class="tn">Grégory</div>
+          <div class="tr">Traiteur · Bourbourg (59)</div>
+        </div>
+      </div>
+      <div class="testi-stats">
+        <div class="testi-stat"><div class="ts-n">6 h</div><div class="ts-l">gagnées par semaine</div></div>
+        <div class="testi-stat"><div class="ts-n">0</div><div class="ts-l">devis oublié</div></div>
+        <div class="testi-stat"><div class="ts-n">2 clics</div><div class="ts-l">pour signer un devis</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s" id="faq">
+  <div class="wrap">
+    <div class="s-head rv">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2 class="h2">Tout ce que vous vous demandez</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Y a-t-il un engagement ?<span class="ico">+</span></div><div class="faq-a"><div>Aucun. Vous testez 14 jours gratuitement, puis vous choisissez votre formule au mois. Vous résiliez quand vous voulez, en un clic, sans justification.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je récupère mes données si je pars ?<span class="ico">+</span></div><div class="faq-a"><div>Oui. Vos clients, devis, factures et événements sont exportables à tout moment. Vos données vous appartiennent, sans condition.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Où sont hébergées mes données ?<span class="ico">+</span></div><div class="faq-a"><div>En France, sur une infrastructure conforme RGPD. Vos informations et celles de vos clients ne quittent pas le territoire et ne sont jamais revendues.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Ça remplace vraiment mon tableur ?<span class="ico">+</span></div><div class="faq-a"><div>Oui, et bien plus. Devis, factures, agenda, clients, relances et paiements sont réunis au même endroit. Fini les fichiers éparpillés et les doubles saisies.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Gère-t-il la TVA mets et alcool ?<span class="ico">+</span></div><div class="faq-a"><div>Oui. Vous paramétrez vos taux de TVA par type de prestation (mets, boissons, service). Les devis et factures les appliquent automatiquement.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Et si je ne suis pas à l'aise avec l'informatique ?<span class="ico">+</span></div><div class="faq-a"><div>L'outil est conçu pour être simple. Prise en main rapide, application sur votre téléphone, et un support humain pour vous accompagner au démarrage.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap final-in">
+    <h2 class="rv">Prêt à reprendre le contrôle de vos événements ?</h2>
+    <p class="rv">Lancez votre espace traiteur aujourd'hui. Vos prochains devis arriveront tout seuls, déjà chiffrés.</p>
+    <a class="btn btn-white btn-lg rv" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Essayer gratuitement 14 jours →</a>
+    <div class="hero-reass rv">
+      <span><span class="ck">✓</span> Sans carte bancaire</span>
+      <span><span class="ck">✓</span> Sans engagement</span>
+      <span><span class="ck">✓</span> Prêt en un après-midi</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="wordmark">Dun<span class="ai">ai</span></span>
+        <p class="foot-tag">CRM Traiteur, par Dunai.<br>IA & Automatisation pour les pros.<br>Dunkerque, Hauts-de-France.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Produit</h4>
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#demo">Démo</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Essai gratuit</a>
+      </div>
+      <div class="foot-col">
+        <h4>Dunai</h4>
+        <a href="https://dunai.fr/" rel="noopener">Site Dunai</a>
+        <a href="https://dunai.fr/agents" rel="noopener">Agents IA</a>
+        <a href="mailto:contact@dunai.fr">contact@dunai.fr</a>
+      </div>
+      <div class="foot-col">
+        <h4>Légal</h4>
+        <a href="https://dunai.fr/mentions-legales" rel="noopener">Mentions légales</a>
+        <a href="https://dunai.fr/confidentialite" rel="noopener">Confidentialité</a>
+        <a href="https://dunai.fr/confidentialite" rel="noopener">CGV</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dunai · CRM Traiteur · Hébergé en France · RGPD</span>
+      <span><a href="mailto:contact@dunai.fr">contact@dunai.fr</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// header shadow on scroll
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+// mobile menu
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{const o=mm.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o));});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.closest('.faq-item'),a=item.querySelector('.faq-a'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// ── interactive devis demo ──
+const fmt=n=>n.toLocaleString('fr-FR');
+const emojiByType={'Mariage':'💍','Cocktail dînatoire':'🥂','Repas d\'entreprise':'🍽️'};
+let dType='Mariage', dFormulePrice=55, dFormuleName='Prestige', dCouverts=80, sent=false;
+
+function segPick(group, btn, cb){
+  group.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); cb(btn);
+}
+document.querySelectorAll('#segType button').forEach(b=>b.addEventListener('click',()=>{
+  segPick(document.getElementById('segType'),b,()=>{dType=b.dataset.type;});calc();
+}));
+document.querySelectorAll('#segFormule button').forEach(b=>b.addEventListener('click',()=>{
+  segPick(document.getElementById('segFormule'),b,()=>{dFormulePrice=+b.dataset.p;dFormuleName=b.dataset.f;});calc();
+}));
+document.getElementById('cv').addEventListener('input',e=>{dCouverts=+e.target.value;document.getElementById('cvVal').textContent=dCouverts;calc();});
+document.querySelectorAll('#opts input').forEach(i=>i.addEventListener('change',calc));
+document.getElementById('demoSend').addEventListener('click',()=>{sent=true;document.getElementById('incomingWhen').textContent='à l\'instant';calc();
+  const card=document.querySelector('.demo-result .dossier');card.animate([{transform:'scale(.98)',opacity:.6},{transform:'scale(1)',opacity:1}],{duration:350,easing:'cubic-bezier(.4,0,.2,1)'});
+});
+
+function calc(){
+  let optTotal=0; const optNames=[];
+  document.querySelectorAll('#opts input').forEach(i=>{if(i.checked){optTotal+=(+i.dataset.p);optNames.push(i.dataset.opt);}});
+  const perCouvert=dFormulePrice+optTotal;
+  const total=dCouverts*perCouvert;
+  document.getElementById('demoTotal').textContent=fmt(total);
+  // mirror into CRM card
+  document.getElementById('dAv').textContent=emojiByType[dType]||'🍽️';
+  document.getElementById('dType').textContent=dType;
+  document.getElementById('dCouverts').textContent=dCouverts+(dType==='Cocktail dînatoire'?' personnes':' couverts');
+  document.getElementById('dFormule').textContent=dFormuleName;
+  document.getElementById('dOptions').textContent=optNames.length?optNames.join(', '):'Aucune';
+  document.getElementById('dMontant').textContent=fmt(total)+' €';
+  document.getElementById('dStatut').textContent=sent?'À traiter · reçu':'Nouveau dossier';
+}
+calc();
+</script>
+</body>
+</html>
