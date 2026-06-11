@@ -1286,19 +1286,19 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
       <p>L'audit Dunai n'est pas une présentation commerciale. On vient observer votre fonctionnement réel, on identifie les tâches automatisables, et on vous remet un rapport chiffré sous 48h. Sans engagement, sans condition.</p>
       <div class="audit-inclus"><h4>Ce que vous obtenez — gratuitement</h4><div class="sub">Dans les 48h suivant l'audit</div><ul><li>Cartographie de vos processus clés</li><li>Top 5 des tâches automatisables</li><li>Estimation du gain de temps / mois</li><li>Estimation du gain financier / an</li><li>Présentation des agents IA adaptés</li><li>Rapport PDF envoyé à votre équipe</li><li>Identification des financements disponibles (France Num, OPCO…)</li></ul></div>
     </div>
-    <div class="contact-form">
+    <form class="contact-form" id="auditForm" onsubmit="handleSubmit(event);return false;" novalidate>
       <div class="satisfait-badge-small" style="margin-bottom:.875rem">Satisfait ou remboursé 30 jours — sans conditions</div>
       <div class="form-title">Réserver mon audit gratuit</div>
-      <div class="field-row"><div class="field-group"><label class="field-label">Prénom</label><input class="field-input" type="text" placeholder="Marie"></div><div class="field-group"><label class="field-label">Nom</label><input class="field-input" type="text" placeholder="Dupont"></div></div>
-      <div class="field-group"><label class="field-label">Entreprise</label><input class="field-input" type="text" placeholder="Nom de votre société"></div>
-      <div class="field-row"><div class="field-group"><label class="field-label">Email</label><input class="field-input" type="email" placeholder="marie@société.fr"></div><div class="field-group"><label class="field-label">Téléphone</label><input class="field-input" type="tel" placeholder="06 XX XX XX XX"></div></div>
-      <div class="field-group"><label class="field-label">Secteur d'activité</label><select class="field-select"><option value="">Sélectionner...</option><option>Industrie / Manufacture</option><option>Logistique / Transport</option><option>Commerce / Distribution</option><option>Services aux entreprises</option><option>BTP / Construction</option><option>Santé / Médical</option><option>Tourisme / Activités</option><option>Restauration / Traiteur</option><option>Beauté / Bien-être</option><option>Sport / Coaching</option><option>Association / Collectivité</option><option>Autre</option></select></div>
-      <div class="field-group"><label class="field-label">Taille de votre entreprise</label><select class="field-select"><option value="">Sélectionner...</option><option>Indépendant / 0 salarié</option><option>1 à 5 salariés</option><option>6 à 20 salariés</option><option>21 à 50 salariés</option><option>51 à 200 salariés</option><option>200+ salariés</option></select></div>
-      <div class="field-group"><label class="field-label">Quelle tâche vous coûte le plus de temps en ce moment ?</label><textarea class="field-textarea" placeholder="Ex : Je passe 3h par semaine à relancer mes clients impayés et mes devis prennent 45 min chacun..."></textarea></div>
-      <label class="field-consent"><input type="checkbox" id="rgpdConsent"><span>J'accepte d'être recontacté(e) par Dunai au sujet de ma demande. Mes données ne sont ni revendues ni cédées. <a onclick="showPage('confidentialite')">Politique de confidentialité</a>.</span></label>
-      <button class="field-submit" onclick="handleSubmit(this)">Réserver mon audit gratuit →</button>
+      <div class="field-row"><div class="field-group"><label class="field-label" for="f-prenom">Prénom</label><input class="field-input" id="f-prenom" name="prenom" type="text" autocomplete="given-name" placeholder="Marie"></div><div class="field-group"><label class="field-label" for="f-nom">Nom</label><input class="field-input" id="f-nom" name="nom" type="text" autocomplete="family-name" placeholder="Dupont"></div></div>
+      <div class="field-group"><label class="field-label" for="f-entreprise">Entreprise</label><input class="field-input" id="f-entreprise" name="entreprise" type="text" autocomplete="organization" required placeholder="Nom de votre société"></div>
+      <div class="field-row"><div class="field-group"><label class="field-label" for="f-email">Email</label><input class="field-input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="marie@société.fr"></div><div class="field-group"><label class="field-label" for="f-telephone">Téléphone</label><input class="field-input" id="f-telephone" name="telephone" type="tel" autocomplete="tel" placeholder="06 XX XX XX XX"></div></div>
+      <div class="field-group"><label class="field-label" for="f-secteur">Secteur d'activité</label><select class="field-select" id="f-secteur" name="secteur"><option value="">Sélectionner...</option><option>Industrie / Manufacture</option><option>Logistique / Transport</option><option>Commerce / Distribution</option><option>Services aux entreprises</option><option>BTP / Construction</option><option>Santé / Médical</option><option>Tourisme / Activités</option><option>Restauration / Traiteur</option><option>Beauté / Bien-être</option><option>Sport / Coaching</option><option>Association / Collectivité</option><option>Autre</option></select></div>
+      <div class="field-group"><label class="field-label" for="f-taille">Taille de votre entreprise</label><select class="field-select" id="f-taille" name="taille"><option value="">Sélectionner...</option><option>Indépendant / 0 salarié</option><option>1 à 5 salariés</option><option>6 à 20 salariés</option><option>21 à 50 salariés</option><option>51 à 200 salariés</option><option>200+ salariés</option></select></div>
+      <div class="field-group"><label class="field-label" for="f-message">Quelle tâche vous coûte le plus de temps en ce moment ?</label><textarea class="field-textarea" id="f-message" name="message" placeholder="Ex : Je passe 3h par semaine à relancer mes clients impayés et mes devis prennent 45 min chacun..."></textarea></div>
+      <label class="field-consent" for="rgpdConsent"><input type="checkbox" id="rgpdConsent" name="consentement"><span>J'accepte d'être recontacté(e) par Dunai au sujet de ma demande. Mes données ne sont ni revendues ni cédées. <a onclick="showPage('confidentialite')">Politique de confidentialité</a>.</span></label>
+      <button class="field-submit" type="submit">Réserver mon audit gratuit →</button>
       <div class="form-reassurances"><span class="reassurance-item">✓ 100% gratuit, sans engagement</span><span class="reassurance-item">✓ Réponse sous 24h</span><span class="reassurance-item">✓ Présentiel ou visio</span></div>
-    </div>
+    </form>
   </div></div></section>
   <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai — IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
@@ -1756,26 +1756,48 @@ function toggleFaq(el) {
 }
 
 const WEBHOOK_URL='https://n8n.dunai.fr/webhook/dunai-contact';
-async function handleSubmit(btn) {
-  const form=btn.closest('.contact-form');
-  const getValue=ph=>{const el=form.querySelector(`[placeholder*="${ph}"]`);return el?el.value.trim():'';};
-  const consent=form.querySelector('#rgpdConsent');
-  const payload={prenom:getValue('Marie'),nom:getValue('Dupont'),entreprise:getValue('Nom de'),email:getValue('marie@'),telephone:getValue('06'),secteur:form.querySelector('.field-select')?.value||'',taille:form.querySelectorAll('.field-select')[1]?.value||'',message:form.querySelector('.field-textarea')?.value.trim()||'',consentement:!!(consent&&consent.checked),source:'Site dunai.fr',date:new Date().toLocaleString('fr-FR')};
-  const showErr=msg=>{const errMsg=form.querySelector('.form-error')||((()=>{const d=document.createElement('p');d.className='form-error';d.style.cssText='color:#DC2626;font-size:13px;margin-top:8px;';btn.parentNode.insertBefore(d,btn.nextSibling);return d;})());errMsg.textContent=msg;};
-  if(!payload.email.includes('@')||!payload.entreprise){
-    showErr('⚠ Merci de renseigner votre email et le nom de votre entreprise.');return;
+async function handleSubmit(arg) {
+  // accepte un Event (onsubmit) ou le bouton (rétrocompat)
+  const form = arg && arg.target && arg.target.closest ? arg.target.closest('.contact-form')
+    : (arg && arg.closest ? arg.closest('.contact-form') : document.getElementById('auditForm'));
+  if (arg && arg.preventDefault) arg.preventDefault();
+  if (!form) return;
+  const btn = form.querySelector('.field-submit');
+  const val = id => { const el = form.querySelector('#'+id); return el ? el.value.trim() : ''; };
+  const consent = form.querySelector('#rgpdConsent');
+  const payload = {
+    prenom: val('f-prenom'), nom: val('f-nom'), entreprise: val('f-entreprise'),
+    email: val('f-email'), telephone: val('f-telephone'),
+    secteur: form.querySelector('#f-secteur')?.value || '',
+    taille: form.querySelector('#f-taille')?.value || '',
+    message: val('f-message'),
+    consentement: !!(consent && consent.checked),
+    source: 'Site dunai.fr', date: new Date().toLocaleString('fr-FR')
+  };
+  const showErr = msg => { const e = form.querySelector('.form-error') || (()=>{const d=document.createElement('p');d.className='form-error';d.style.cssText='color:#DC2626;font-size:13px;margin-top:8px;';btn.parentNode.insertBefore(d,btn.nextSibling);return d;})(); e.innerHTML = msg; };
+  if (!payload.email.includes('@') || !payload.entreprise) { showErr('⚠ Merci de renseigner votre email et le nom de votre entreprise.'); return; }
+  if (!payload.consentement) { showErr('⚠ Merci d’accepter la politique de confidentialité pour être recontacté(e).'); return; }
+  const prevErr = form.querySelector('.form-error'); if (prevErr) prevErr.remove();
+  const original = btn.textContent;
+  btn.textContent = 'Envoi en cours…'; btn.disabled = true;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 12000);
+  try {
+    const response = await fetch(WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:ctrl.signal });
+    if (!response.ok) throw new Error('HTTP '+response.status);
+    btn.textContent = '✓ Demande reçue — on revient vers vous sous 24h !'; btn.style.background = '#16A34A';
+    setTimeout(() => {
+      form.querySelectorAll('.field-input,.field-textarea').forEach(el => el.value = '');
+      form.querySelectorAll('.field-select').forEach(el => el.value = '');
+      if (consent) consent.checked = false;
+      btn.textContent = original; btn.style.background = ''; btn.disabled = false;
+    }, 3000);
+  } catch (err) {
+    showErr('Erreur réseau — réessayez ou écrivez-nous à <a href="mailto:contact@dunai.fr" style="color:#DC2626;text-decoration:underline">contact@dunai.fr</a>.');
+    btn.textContent = original; btn.disabled = false;
+  } finally {
+    clearTimeout(timer);
   }
-  if(!payload.consentement){
-    showErr('⚠ Merci d’accepter la politique de confidentialité pour être recontacté(e).');return;
-  }
-  const prevErr=form.querySelector('.form-error');if(prevErr)prevErr.remove();
-  btn.textContent='Envoi en cours…';btn.disabled=true;
-  try{
-    const response=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    if(!response.ok) throw new Error('HTTP '+response.status);
-    btn.textContent='✓ Demande reçue — on revient vers vous sous 24h !';btn.style.background='#16A34A';
-    setTimeout(()=>{form.querySelectorAll('.field-input,.field-textarea').forEach(el=>el.value='');form.querySelectorAll('.field-select').forEach(el=>el.value='');},2000);
-  }catch(err){btn.textContent='Erreur réseau — écrivez à contact@dunai.fr';btn.style.background='#DC2626';btn.disabled=false;}
 }
 
 (function initSticky() {
