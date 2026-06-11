@@ -36,8 +36,9 @@
       "url": "https://dunai.fr/traiteur/",
       "inLanguage": "fr-FR",
       "offers": [
-        { "@type": "Offer", "name": "Standard", "price": "39", "priceCurrency": "EUR", "description": "Devis, factures, dossiers, agenda, clients, marketing." },
-        { "@type": "Offer", "name": "Pro", "price": "79", "priceCurrency": "EUR", "description": "Tout Standard + fournisseurs, ressources & stock, multi-comptes." }
+        { "@type": "Offer", "name": "Essentiel (abonnement)", "price": "49", "priceCurrency": "EUR", "description": "CRM de base : demandes, devis, factures, relances, tableau de bord, charte, module de devis dynamique. 49 €/mois + 490 € de mise en place." },
+        { "@type": "Offer", "name": "Pro (abonnement)", "price": "89", "priceCurrency": "EUR", "description": "Tout Essentiel + moteur recettes, fournisseurs, bons de commande auto, marge en temps réel, multi-utilisateurs. 89 €/mois + 890 € de mise en place." },
+        { "@type": "Offer", "name": "Premium (abonnement)", "price": "149", "priceCurrency": "EUR", "description": "Tout Pro + conformité 2027, planning complet (matériel, camions, équipes), support prioritaire. 149 €/mois + 1 490 € de mise en place." }
       ],
       "publisher": { "@type": "Organization", "name": "Dunai", "url": "https://dunai.fr/" }
     }
@@ -374,7 +375,7 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
    Le chrome de la landing reste Dunai (orange). Les mockups reprennent
    l'identité réelle du CRM/formulaire pour coller au produit livré. */
 :root{
-  /* charte Dunai (orange/encre) — plus de bordeaux */
+  /* charte Dunai (orange/encre), plus de bordeaux */
   --bx:#EA580C;--bx2:#1C1917;--bxl:#FFF4ED;--sidebar:#1C1917;--sidebar2:#0C0A09;
   --gold:#EA580C;--gold2:#F97316;--goldl:#FFF4ED;--goldb:#FED7AA;--goldd:#9A3412;
   --cream:#FAFAF9;--cream2:#F5F5F4;--prodbd:#E7E5E4;
@@ -482,6 +483,20 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
 .rf-select{width:100%;font-family:'Jost',sans-serif;font-size:14px;color:var(--n);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23EA580C' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;border:1.5px solid var(--prodbd);border-radius:var(--r-sm);padding:11px 34px 11px 12px;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer}
 .rf-select:focus{border-color:var(--bx)}
 .rf-2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+/* ── tarifs : toggle abonnement/achat + grille 3 paliers ── */
+[hidden]{display:none!important}
+.pay-toggle{display:inline-flex;gap:4px;background:var(--creme2);border:1px solid var(--sable);border-radius:var(--r-full);padding:5px;margin-top:1.5rem}
+.pt-btn{font-family:inherit;font-weight:700;font-size:14px;color:var(--gris);background:none;border:none;padding:11px 22px;border-radius:var(--r-full);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .18s,color .18s}
+.pt-btn.on{background:var(--noir);color:#fff}
+.pt-tag{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:var(--flamme);color:#fff;padding:2px 7px;border-radius:var(--r-full)}
+.price-grid3{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:1060px;margin:2.25rem auto 0;align-items:stretch}
+.price-grid3 .pprice{margin:.45rem 0 .1rem;line-height:1}
+.price-grid3 .pprice b{font-size:2.4rem;font-weight:800;color:var(--noir);letter-spacing:-.03em}
+.price-grid3 .pprice span{font-size:.95rem;font-weight:600;color:var(--gris)}
+.pcard .psetup{font-size:12.5px;color:var(--gris);font-weight:600;margin-bottom:1.25rem}
+.pcard .psetup b{color:var(--encre)}
+.pcard .pcta{margin-top:auto}
+@media(min-width:760px){.price-grid3{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -772,43 +787,66 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
 <section class="s how" id="tarifs">
   <div class="wrap">
     <div class="s-head rv">
-      <span class="eyebrow">Tarifs simples</span>
-      <h2 class="h2">Essayez 14 jours. Décidez ensuite.</h2>
-      <p class="lead">Sans carte bancaire pour démarrer. Sans engagement. Résiliable à tout moment.</p>
-    </div>
-    <div class="price-grid">
-      <div class="pcard rv">
-        <div class="ptier">Standard</div>
-        <div class="pprice">39 €<span> / mois</span></div>
-        <div class="pyear">soit 390 € / an (2 mois offerts)</div>
-        <ul>
-          <li>Formulaire de devis en ligne</li>
-          <li>Devis & factures à votre charte + signature</li>
-          <li>Agenda, dossiers & anti-surbooking</li>
-          <li>Clients, relances automatiques</li>
-          <li>Encaissement d'acompte en ligne</li>
-          <li>Marketing e-mail & avis Google</li>
-          <li>Application mobile (PWA)</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Commencer l'essai gratuit</a>
+      <span class="eyebrow">Tarifs</span>
+      <h2 class="h2">Deux façons de démarrer</h2>
+      <p class="lead">En abonnement, sans grosse avance et résiliable à tout moment. Ou en achat, si vous préférez posséder votre outil.</p>
+      <div class="pay-toggle" id="payToggle" role="tablist">
+        <button class="pt-btn on" data-mode="sub" role="tab" aria-selected="true">Abonnement <span class="pt-tag">recommandé</span></button>
+        <button class="pt-btn" data-mode="buy" role="tab" aria-selected="false">Achat</button>
       </div>
-      <div class="pcard feat rv">
-        <div class="pbadge">★ Le plus complet</div>
-        <div class="ptier">Pro</div>
-        <div class="pprice">79 €<span> / mois</span></div>
-        <div class="pyear">soit 790 € / an (2 mois offerts)</div>
+    </div>
+    <div class="price-grid3" id="priceGrid">
+      <!-- Essentiel -->
+      <div class="pcard rv">
+        <div class="ptier">Essentiel</div>
+        <div class="pprice"><span class="m-sub"><b>49 €</b><span> / mois</span></span><span class="m-buy" hidden><b>1 490 €</b><span> une fois</span></span></div>
+        <div class="psetup"><span class="m-sub">+ <b>490 €</b> de mise en place</span><span class="m-buy" hidden>+ <b>190 € / an</b> de maintenance</span></div>
         <ul>
-          <li><b>Tout le plan Standard</b>, plus :</li>
-          <li>Fournisseurs & bons de commande automatiques</li>
-          <li>Ressources & gestion du stock</li>
-          <li>Multi-comptes équipe (jusqu'à 10) avec rôles</li>
-          <li>Statistiques avancées</li>
+          <li>Demandes, devis, factures & relances</li>
+          <li>Tableau de bord</li>
+          <li>À votre charte (logo, couleurs)</li>
+          <li>Module de devis dynamique, à intégrer où vous voulez</li>
+        </ul>
+        <div class="pcta">
+          <a class="btn btn-ghost m-sub" href="https://app-traiteur.dunai.fr/signUp" rel="noopener" style="width:100%">Essai gratuit 14 jours</a>
+          <a class="btn btn-ghost m-buy" href="https://app-traiteur.dunai.fr/signUp" rel="noopener" style="width:100%" hidden>Demander un devis</a>
+        </div>
+      </div>
+      <!-- Pro -->
+      <div class="pcard feat rv">
+        <div class="pbadge">★ Le plus choisi</div>
+        <div class="ptier">Pro</div>
+        <div class="pprice"><span class="m-sub"><b>89 €</b><span> / mois</span></span><span class="m-buy" hidden><b>2 490 €</b><span> une fois</span></span></div>
+        <div class="psetup"><span class="m-sub">+ <b>890 €</b> de mise en place</span><span class="m-buy" hidden>+ <b>290 € / an</b> de maintenance</span></div>
+        <ul>
+          <li><b>Tout Essentiel, plus :</b></li>
+          <li>Le moteur : recettes, fournisseurs & bons de commande automatiques</li>
+          <li>Marge en temps réel</li>
+          <li>Multi-utilisateurs + vue salarié</li>
+        </ul>
+        <div class="pcta">
+          <a class="btn btn-primary m-sub" href="https://app-traiteur.dunai.fr/signUp" rel="noopener" style="width:100%">Essai gratuit 14 jours</a>
+          <a class="btn btn-primary m-buy" href="https://app-traiteur.dunai.fr/signUp" rel="noopener" style="width:100%" hidden>Demander un devis</a>
+        </div>
+      </div>
+      <!-- Premium -->
+      <div class="pcard rv">
+        <div class="ptier">Premium</div>
+        <div class="pprice"><span class="m-sub"><b>149 €</b><span> / mois</span></span><span class="m-buy" hidden><b>3 900 €</b><span> une fois</span></span></div>
+        <div class="psetup"><span class="m-sub">+ <b>1 490 €</b> de mise en place</span><span class="m-buy" hidden>+ <b>490 € / an</b> de maintenance</span></div>
+        <ul>
+          <li><b>Tout Pro, plus :</b></li>
+          <li>Conformité 2027</li>
+          <li>Planning complet : matériel, camions, équipes</li>
           <li>Support prioritaire</li>
         </ul>
-        <a class="btn btn-primary" href="https://app-traiteur.dunai.fr/signUp" rel="noopener">Commencer l'essai gratuit</a>
+        <div class="pcta">
+          <a class="btn btn-ghost m-sub" href="https://app-traiteur.dunai.fr/signUp" rel="noopener" style="width:100%">Essai gratuit 14 jours</a>
+          <a class="btn btn-ghost m-buy" href="https://app-traiteur.dunai.fr/signUp" rel="noopener" style="width:100%" hidden>Demander un devis</a>
+        </div>
       </div>
     </div>
-    <p class="price-foot"><b>Prix nets, TVA non applicable (art. 293 B du CGI).</b> Paiement sécurisé Stripe. Vos données restent les vôtres, exportables à tout moment.</p>
+    <p class="price-foot"><b>Prix nets, TVA non applicable (art. 293 B du CGI).</b> Abonnement sans engagement, résiliable à tout moment · paiement Stripe. En achat, la licence est à vous. Vos données restent les vôtres, exportables à tout moment.</p>
   </div>
 </section>
 
@@ -966,6 +1004,18 @@ function calc(){
   document.getElementById('dStatut').textContent=sent?'À traiter · reçu':'Nouveau dossier';
 }
 calc();
+
+// ── tarifs : bascule abonnement / achat ──
+(function(){
+  const tg=document.getElementById('payToggle'); if(!tg) return;
+  function setPay(mode){
+    tg.querySelectorAll('.pt-btn').forEach(b=>{const on=b.dataset.mode===mode;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on));});
+    document.querySelectorAll('#priceGrid .m-sub').forEach(e=>e.hidden=(mode!=='sub'));
+    document.querySelectorAll('#priceGrid .m-buy').forEach(e=>e.hidden=(mode!=='buy'));
+  }
+  tg.querySelectorAll('.pt-btn').forEach(b=>b.addEventListener('click',()=>setPay(b.dataset.mode)));
+  setPay('sub');
+})();
 </script>
 </body>
 </html>
