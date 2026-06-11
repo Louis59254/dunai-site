@@ -742,7 +742,21 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 /* Accessibilité : focus clavier visible + lien d'évitement */
 :focus-visible { outline: 2px solid var(--flamme); outline-offset: 2px; }
 .skip-link { position: absolute; left: -999px; top: 0; z-index: 200; background: var(--flamme); color: #fff; padding: 10px 18px; border-radius: 0 0 var(--r-md) 0; font-size: 14px; font-weight: 600; text-decoration: none; }
-.skip-link:focus { left: 0; }</style>
+.skip-link:focus { left: 0; }
+/* Logiciels & CRM sur mesure */
+.swgrid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2rem; }
+.swcard { display: flex; flex-direction: column; background: var(--blanc); border: 1.5px solid var(--border-light); border-radius: var(--r-xl); overflow: hidden; text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.swcard:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -18px rgba(12,10,9,.18); border-color: var(--flamme-mid); }
+.sw-thumb { background: var(--noir); border-bottom: 1.5px solid var(--border-light); aspect-ratio: 16/9; overflow: hidden; }
+.sw-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.sw-body { padding: 1.5rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.sw-badge { align-self: flex-start; font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 5px 11px; border-radius: var(--r-full); background: var(--vert-pale); color: #15803d; }
+.sw-badge.alt { background: var(--flamme-pale); color: var(--flamme); border: 1px solid var(--flamme-mid); }
+.swcard h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--noir); letter-spacing: -.02em; }
+.swcard .sw-body p { font-size: 14.5px; color: var(--brun); line-height: 1.6; flex: 1; }
+.sw-link { font-weight: 700; font-size: 14px; color: var(--flamme); margin-top: .25rem; }
+.swcard:hover .sw-link { text-decoration: underline; }
+@media (min-width: 760px) { .swgrid { grid-template-columns: 1fr 1fr; align-items: stretch; } }</style>
 </head>
 <body>
 <a class="skip-link" href="#page-home">Aller au contenu</a>
@@ -754,6 +768,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
   <a onclick="showPage('agents');closeMenu()">Agents IA</a>
   <a onclick="showPage('roi');closeMenu()">Résultats</a>
   <a onclick="showPage('tarifs');closeMenu()">Tarifs</a>
+  <a href="/traiteur/">CRM Traiteur</a>
   <a onclick="showPage('blog');closeMenu()">Blog</a>
   <a class="mobile-menu-cta" onclick="showPage('contact');closeMenu()">Audit gratuit →</a>
   <a class="mobile-menu-phone" href="tel:0646890887">📞 06 46 89 08 87</a>
@@ -770,6 +785,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
       <li><a onclick="showPage('agents')">Agents IA</a></li>
       <li><a onclick="showPage('roi')">Résultats</a></li>
       <li><a onclick="showPage('tarifs')">Tarifs</a></li>
+      <li><a href="/traiteur/">CRM Traiteur</a></li>
       <li><a onclick="showPage('blog')">Blog</a></li>
     </ul>
     <a href="tel:0646890887" class="nav-phone">
@@ -946,6 +962,35 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
       </div>
       <div style="text-align:center;margin-top:2rem">
         <button onclick="showPage('agents')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:10px 24px;border-radius:var(--r-full);font-size:13px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.6)'">Voir les 7 agents et tous les cas d'usage →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGICIELS / CRM SUR MESURE -->
+  <section class="section" style="background:var(--creme2)">
+    <div class="section-inner">
+      <span class="eyebrow">Au-delà des agents</span>
+      <h2 class="h2">On crée aussi votre<br>logiciel métier sur mesure.</h2>
+      <p class="lead">Parfois, un agent ne suffit pas : il vous faut un vrai outil de gestion. Dunai conçoit des CRM et logiciels métier taillés pour votre activité. Pour les traiteurs, il est déjà prêt à l'emploi.</p>
+      <div class="swgrid">
+        <a href="/traiteur/" class="swcard">
+          <div class="sw-thumb"><img src="/traiteur/img/01-tableau-de-bord.png" alt="Aperçu du CRM Traiteur Dunai : tableau de bord, devis, factures, agenda" loading="lazy" width="2640" height="1712"></div>
+          <div class="sw-body">
+            <span class="sw-badge">✅ Déjà prêt</span>
+            <h3>CRM Traiteur</h3>
+            <p>Formulaire de devis dynamique, factures, agenda anti-surbooking, signature en ligne, marge en temps réel. Le logiciel tout-en-un des traiteurs, à votre marque.</p>
+            <span class="sw-link">Découvrir le CRM Traiteur →</span>
+          </div>
+        </a>
+        <div class="swcard">
+          <div class="sw-body">
+            <span class="sw-badge alt">Sur mesure</span>
+            <h3>Votre logiciel métier</h3>
+            <p>Cabinet, agence, négoce, services, artisanat… On conçoit le CRM ou l'outil de gestion adapté à vos processus, de A à Z. Connecté à vos agents IA, hébergé en France.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0 1rem"><span class="sector-pill">CRM métier</span><span class="sector-pill">Portail client</span><span class="sector-pill">Appli interne</span><span class="sector-pill">Tableau de bord</span></div>
+            <button class="btn-primary" style="width:auto" onclick="showPage('contact')">En parler lors de l'audit gratuit →</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1136,6 +1181,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
           <li><a onclick="showPage('roi')">Résultats</a></li>
           <li><a onclick="showPage('tarifs')">Tarifs</a></li>
           <li><a onclick="showPage('contact')">Contact</a></li>
+          <li><a href="/traiteur/">CRM Traiteur</a></li>
           <li><a onclick="showPage('blog')">Blog</a></li>
         </ul>
       </div>
@@ -1181,7 +1227,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </section>
   <div class="final-cta"><h2>Un agent pour chaque tâche<br>qui vous coûte du temps.</h2><p>L'audit gratuit identifie lesquels sont les plus rentables pour vous, en 2h, rapport chiffré sous 48h.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ RÉSULTATS ══════════════════════ -->
@@ -1203,7 +1249,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     <div class="audit-panel" id="auditPanel"><div class="audit-panel-title" id="auditTitle">Exemple : PME Logistique 18 salariés</div><div id="auditFindings"><div class="audit-finding"><div class="finding-lbl">Opportunité n°1</div><div class="finding-txt">Relances clients : 3h/sem passées à envoyer des emails de relance manuelle depuis Outlook</div><div class="finding-gain">↑ Gain estimé : 3h/sem · ROI en 3 semaines</div></div><div class="audit-finding"><div class="finding-lbl">Opportunité n°2</div><div class="finding-txt">Bons de livraison : saisie manuelle dans le TMS depuis des PDF reçus chaque matin</div><div class="finding-gain">↑ Gain estimé : 1h30/jour · ROI en 5 semaines</div></div><div class="audit-finding"><div class="finding-lbl">Opportunité n°3</div><div class="finding-txt">Reporting hebdo : 4h chaque vendredi à compiler des tableaux Excel depuis 3 sources</div><div class="finding-gain">↑ Gain estimé : 4h/sem · ROI en 4 semaines</div></div></div><div class="audit-total"><span class="audit-total-lbl">Gain total estimé</span><span class="audit-total-n" id="auditTotal">+28h / mois</span></div></div>
   </div></section>
   <div class="final-cta"><h2>Votre entreprise mérite<br>le même résultat.</h2><p>L'audit est offert. La roadmap est incluse. Vous ne payez que ce que vous choisissez de déployer.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Je veux mon audit gratuit</button><button class="btn-transparent" onclick="showPage('tarifs')">Voir les tarifs →</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ TARIFS & OFFRES ══════════════════════ -->
@@ -1281,7 +1327,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </div></section>
   <div class="final-cta"><h2>On commence par l'audit.<br>Vous décidez du reste.</h2><p>2h de votre temps. Zéro euro. Un rapport complet pour décider en connaissance de cause.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver l'audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ CONTACT ══════════════════════ -->
@@ -1307,7 +1353,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
       <div class="form-reassurances"><span class="reassurance-item">✓ 100% gratuit, sans engagement</span><span class="reassurance-item">✓ Réponse sous 24h</span><span class="reassurance-item">✓ Présentiel ou visio</span></div>
     </form>
   </div></div></section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 
@@ -1354,7 +1400,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
     </div>
   </div></section>
   <div class="final-cta"><h2>Un chiffre dans la tête ?<br>Vérifiez-le lors de l'audit.</h2><p>2h sur site ou en visio. Rapport chiffré sous 48h. 100% gratuit et sans engagement.</p><div class="final-cta-actions"><button class="btn-white" onclick="showPage('contact')">Réserver mon audit gratuit</button></div></div>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('roi')">Résultats</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA & Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ MENTIONS LÉGALES ══════════════════════ -->
@@ -1388,7 +1434,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 
     <div class="legal-back"><button class="btn-primary" style="width:auto" onclick="showPage('home')">← Retour à l'accueil</button></div>
   </div></section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- ══════════════════════ POLITIQUE DE CONFIDENTIALITÉ ══════════════════════ -->
@@ -1418,7 +1464,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 
     <div class="legal-back"><button class="btn-primary" style="width:auto" onclick="showPage('contact')">Réserver mon audit gratuit →</button></div>
   </div></section>
-  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
+  <footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a onclick="showPage('home')">Accueil</a></li><li><a onclick="showPage('agents')">Agents IA</a></li><li><a onclick="showPage('tarifs')">Tarifs</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="/traiteur/">CRM Traiteur</a></li></ul></div><div class="footer-copy">© 2026 Dunai · IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a onclick="showPage('mentions')">Mentions légales</a> · <a onclick="showPage('confidentialite')">Confidentialité</a></span></div></div></footer>
 </div>
 
 <!-- STICKY CTA -->
