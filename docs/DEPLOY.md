@@ -68,9 +68,11 @@ Mentions légales + politique de confidentialité remplies ; JSON-LD avec NAP co
 7 liens cassés blog corrigés, /blog→/Blog/ normalisé partout, canonical doublon ROI → pilier,
 /traiteur/ ajouté au sitemap, title traiteur ≤60.
 
-**Chantier n°1 (à exécuter)** : éclater la SPA en vraies pages statiques
-(/agents/ /roi/ /tarifs/ /contact/ /calculateur/ + légales), nav en <a href>, titles/metas dédiés
-(carte mots-clés dans la revue), sitemap complet, 301 nginx des routes sans slash.
+**Chantier n°1 : FAIT (2026-06-12, commits c07bb93 + d894562)** : SPA éclatée en vraies pages
+(/agents/ /roi/ /tarifs/ /contact/ /calculateur/ /mentions-legales/ /confidentialite/ + /agence-ia-dunkerque/),
+assets partagés (assets/site.css, assets/site.js), nav crawlable, titles/metas/JSON-LD par page,
+sitemap 25 URLs, chiffre canon 28h=11 800 €/an, compteurs requalifiés.
+Anciennes routes sans slash : 301 automatique nginx (redirect dossier).
 
 **Google Business Profile (Louis, levier n°1 local)** :
 - Créer la fiche : catégorie « Consultant en informatique », zone desservie Dunkerque + CUD + Nord.
@@ -91,3 +93,23 @@ témoignage NOMMÉ avec photo (Louis) ; vraies CGV encadrant « satisfait ou rem
 - Chiffre canon témoignage : 28h/mois = 14 000 €/an (home) vs 18 000 €/an (blog ×12) vs 11 760 € (cohérent 35 €/h). Recommandation : ~11 800 €/an partout.
 - Compteurs « 4800 emails / 340h / 1200 devis » : à requalifier ou retirer tant que pas de volume réel.
 - WebP pour les 6 PNG traiteur (2,5 MB → ~300 KB).
+
+## Recherche concurrence 2026-06-12 (résumé actionnable)
+
+Marché fragmenté, aucun leader. À Dunkerque : QUE des pages SEO fantômes d'agences distantes
+(Synapze/Var, NexFlow…) → /agence-ia-dunkerque/ créée pour prendre la place. Seul vrai concurrent
+régional : Les Entrecodeurs (Lille) — forts (secteurs, certifs, tarifs partiels) mais 0 blog, 0 avis.
+
+Standards du marché à matcher : calculateur ROI (on l'a), diagnostic en ligne multi-étapes (à faire),
+Calendly (à faire, compte Louis), audit gratuit (on l'a).
+Gaps que PERSONNE ne couvre (à prendre) : témoignages vidéo, tarifs transparents (on les a → marteler),
+livre blanc téléchargeable, blog fourni (eux : 3-6 articles).
+CRM Traiteur : créneau « IA » totalement vierge chez les logiciels traiteur (MobiChef, DigiFactory…),
+tous opaques sur les prix sauf DigiFactory 10 €/mois/user. Angle gagnant : « CRM traiteur augmenté par
+l'IA » + page comparatif transparent (« logiciel traiteur prix », « DigiFactory avis », « MobiChef tarif »).
+
+Backlog contenu (ordre) : pages secteurs (BTP, logistique/port, commerce, services) ·
+/agence-ia-lille/ + /automatisation-ia-hauts-de-france/ · 10 articles (3 supports traiteur :
+« logiciel pour traiteur », « comment faire un devis traiteur », « gestion événements traiteur ») ·
+comparatif « n8n vs Make vs Zapier » · « combien coûte l'automatisation » · livre blanc PDF.
+Villes sans concurrent : Gravelines, Grande-Synthe, Bergues, Hazebrouck, Cassel (longue traîne).
