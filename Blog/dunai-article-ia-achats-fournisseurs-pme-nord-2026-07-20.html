@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatiser ses achats avec l'IA : PME du Nord | Dunai</title>
+  <meta name="description" content="Commandes, factures fournisseurs, litiges, relances : comment l'IA automatise le back-office achat des PME du Nord. Cas concrets, chiffres et ROI mesuré.">
+  <meta property="og:title" content="Achats et fournisseurs : ce que l'IA fait gagner aux PME du Nord">
+  <meta property="og:description" content="Bons de commande saisis à la main, factures fournisseurs qui ne collent pas, litiges qui traînent. Voici comment l'IA remet de l'ordre dans les achats d'une PME du Nord.">
+  <meta property="og:image" content="https://dunai.fr/Blog/images/dunai-thumb-ia-achats-fournisseurs-pme-nord-2026-07-20.svg">
+  <meta name="twitter:image" content="https://dunai.fr/Blog/images/dunai-thumb-ia-achats-fournisseurs-pme-nord-2026-07-20.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dunai.fr/Blog/dunai-article-ia-achats-fournisseurs-pme-nord-2026-07-20.html">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--noir); background: var(--creme); line-height: 1.75; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12,10,9,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .btn-nav {
+      background: #F54800; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 13px; padding: 9px 20px; border-radius: var(--r-full);
+      text-decoration: none; letter-spacing: 0.3px; transition: opacity .2s;
+    }
+    .btn-nav:hover { opacity: .85; }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar {
+      background: var(--anthracite); padding: 12px 40px; margin-top: 64px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .breadcrumb {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--flamme2); }
+    .breadcrumb .sep { opacity: .4; }
+    .breadcrumb .current { color: rgba(255,255,255,0.7); }
+
+    /* HERO */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(234,88,12,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--flamme2); margin-bottom: 24px;
+    }
+    .kicker-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--flamme);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.75); }
+    }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(32px, 5vw, 52px); letter-spacing: -1.5px; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+    }
+    .hero h1 .hl { color: var(--flamme); }
+    .hero-sub {
+      font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.65);
+      line-height: 1.7; max-width: 640px; margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 40px;
+    }
+    .hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border-dark); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); overflow: hidden;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.03); padding: 20px 24px;
+    }
+    .hero-stat .val {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: 28px; color: var(--flamme); letter-spacing: -1px; display: block;
+    }
+    .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; display: block; }
+
+    /* SECTIONS */
+    .section-white { background: #fff; padding: 72px 40px; }
+    .section-dark { background: var(--anthracite); padding: 72px 40px; }
+    .section-cream2 { background: var(--creme2); padding: 72px 40px; }
+    .section-anth { background: var(--dark2); padding: 72px 40px; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--flamme); margin-bottom: 14px; display: block;
+    }
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(24px, 3.5vw, 36px); letter-spacing: -1px; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-dark h2, .section-anth h2 { color: #fff; }
+    .section-dark .eyebrow, .section-anth .eyebrow { color: var(--flamme2); }
+    .section-dark p, .section-anth p { color: rgba(255,255,255,0.7); }
+    p { line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
+    p:last-child { margin-bottom: 0; }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--flamme-pale); border-left: 3px solid var(--flamme);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .info-box strong { font-weight: 700; color: var(--flamme); }
+    .info-box-dark {
+      background: rgba(234,88,12,0.08); border-left: 3px solid var(--flamme);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px;
+      margin: 28px 0; color: rgba(255,255,255,0.8);
+    }
+    .info-box-dark strong { color: var(--flamme2); }
+
+    /* SIGNAL GRID */
+    .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+    .signal-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); padding: 20px 22px;
+    }
+    .signal-card .sc-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+    .signal-card .sc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 6px; }
+    .signal-card .sc-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    /* PROCESS LIST */
+    .process-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 0; }
+    .process-item { display: flex; gap: 20px; position: relative; padding-bottom: 32px; }
+    .process-item:last-child { padding-bottom: 0; }
+    .process-item:not(:last-child)::before {
+      content: ''; position: absolute; left: 19px; top: 44px; bottom: 0;
+      width: 2px; background: rgba(234,88,12,0.2);
+    }
+    .process-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--flamme); color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .process-content .pc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; margin-bottom: 6px; color: #fff; }
+    .process-content .pc-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* BA TABLE */
+    .ba-scroll { overflow-x: auto; margin: 32px 0; border-radius: var(--r-lg); border: 1px solid var(--border-dark); }
+    .ba-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    .ba-table thead tr { background: var(--anthracite); }
+    .ba-table th {
+      padding: 14px 20px; text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px;
+      color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase;
+    }
+    .ba-table th.th-after { color: var(--flamme); }
+    .ba-table th.th-gain { color: var(--vert); }
+    .ba-table td { padding: 14px 20px; font-size: 14px; border-top: 1px solid var(--border-dark); }
+    .ba-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .ba-table td.td-label { font-weight: 600; color: rgba(255,255,255,0.85); }
+    .ba-table td.td-before { color: rgba(255,255,255,0.45); }
+    .ba-table td.td-after { color: var(--flamme2); font-weight: 600; }
+    .ba-table td.td-gain { color: var(--vert); font-weight: 700; }
+
+    /* ROI GRID */
+    .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+    .roi-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-xl); padding: 28px;
+    }
+    .roi-card .rc-tag {
+      display: inline-block; background: rgba(234,88,12,0.15); color: var(--flamme2);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: var(--r-full); margin-bottom: 14px;
+    }
+    .roi-card .rc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; color: #fff; margin-bottom: 8px; }
+    .roi-card .rc-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; }
+    .roi-results { background: var(--noir); border-radius: var(--r-md); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+    .roi-result-row { display: flex; justify-content: space-between; align-items: center; }
+    .roi-result-row .rr-lbl { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .roi-result-row .rr-val { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: var(--flamme); }
+
+    /* QUOTE BLOCK */
+    .quote-block {
+      border-left: 3px solid var(--flamme); padding: 20px 28px;
+      background: rgba(234,88,12,0.06); border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      margin: 32px 0;
+    }
+    .quote-block blockquote { font-size: 18px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 12px; }
+    .quote-block cite { font-size: 13px; color: var(--flamme2); font-style: normal; font-weight: 600; }
+
+    /* INTERNAL LINKS */
+    .internal-links { background: var(--creme2); border: 1px solid var(--border-light); border-radius: var(--r-xl); padding: 28px 32px; margin: 40px 0; }
+    .internal-links h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 16px; color: var(--noir); }
+    .internal-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .internal-links li a {
+      color: var(--flamme); font-size: 14px; font-weight: 500; text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .internal-links li a:hover { text-decoration: underline; }
+    .internal-links li a::before { content: '→'; opacity: .6; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--flamme); padding: 72px 40px; text-align: center; }
+    .final-cta h2 { color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(26px, 4vw, 40px); letter-spacing: -1px; margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 560px; margin: 0 auto 32px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--flamme); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: var(--r-full); text-decoration: none; transition: opacity .2s; }
+    .btn-white:hover { opacity: .9; }
+    .btn-transparent { background: transparent; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: var(--r-full); text-decoration: none; border: 2px solid rgba(255,255,255,0.4); transition: border-color .2s; }
+    .btn-transparent:hover { border-color: rgba(255,255,255,0.8); }
+
+    /* FOOTER */
+    footer { background: var(--noir); padding: 40px; text-align: center; border-top: 1px solid var(--border-dark); }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: var(--flamme2); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 60px 20px 52px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .section-white, .section-dark, .section-cream2, .section-anth { padding: 52px 20px; }
+      .signal-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: 1fr; }
+      .final-cta { padding: 52px 20px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BlogPosting",
+   "@id": "https://dunai.fr/Blog/dunai-article-ia-achats-fournisseurs-pme-nord-2026-07-20.html#article",
+   "headline": "Achats et fournisseurs : ce que l'IA fait gagner aux PME du Nord",
+   "description": "Commandes, factures fournisseurs, litiges, relances : comment l'IA automatise le back-office achat des PME du Nord. Cas concrets, chiffres et ROI mesuré.",
+   "image": "https://dunai.fr/Blog/images/dunai-thumb-ia-achats-fournisseurs-pme-nord-2026-07-20.svg",
+   "datePublished": "2026-07-20",
+   "dateModified": "2026-07-20",
+   "inLanguage": "fr-FR",
+   "mainEntityOfPage": "https://dunai.fr/Blog/dunai-article-ia-achats-fournisseurs-pme-nord-2026-07-20.html",
+   "author": { "@type": "Organization", "name": "Dunai", "url": "https://dunai.fr/" },
+   "publisher": { "@id": "https://dunai.fr/#business" }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dunai.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://dunai.fr/Blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Achats et fournisseurs assistés par IA" }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai, agence IA Dunkerque">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="22" viewBox="0 0 600 180" aria-hidden="true" focusable="false">
+      <text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9">
+        <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">a&#305;</tspan>
+      </text>
+      <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
+    </svg>
+  </a>
+  <a class="btn-nav" href="https://dunai.fr/contact/">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <a href="https://dunai.fr">Dunai</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="https://dunai.fr/Blog/">Blog</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="current">Achats et fournisseurs assist&eacute;s par IA</span>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">
+      <span class="kicker-dot"></span>
+      IA &amp; Achats · Dunkerque, Hauts-de-France
+    </div>
+    <h1>Achats et fournisseurs : ce que l'IA fait <span class="hl">r&eacute;ellement gagner</span> &agrave; une PME du Nord</h1>
+    <p class="hero-sub">
+      Bons de commande ressaisis trois fois, factures fournisseurs qui ne correspondent pas &agrave; la livraison, litiges qui tra&icirc;nent six semaines, prix qui grimpent sans qu'on s'en aper&ccedil;oive. Dans l'industrie et la logistique du Dunkerquois, le back-office achat co&ucirc;te bien plus cher que la ligne budg&eacute;taire ne le montre. L'IA ne renegocie pas &agrave; votre place — elle supprime la saisie, d&eacute;tecte les &eacute;carts et vous rend la visibilit&eacute;. Premiers gains d&egrave;s 6 semaines.
+    </p>
+    <div class="hero-meta">
+      <span>Dunai</span>
+      <span class="dot"></span>
+      <span>20 juillet 2026</span>
+      <span class="dot"></span>
+      <span>8 min de lecture</span>
+      <span class="dot"></span>
+      <span>IA &amp; Achats</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="val">4,2h</span><span class="lbl">perdues / salari&eacute; / jour</span></div>
+      <div class="hero-stat"><span class="val">&minus;73 %</span><span class="lbl">de t&acirc;ches r&eacute;p&eacute;titives</span></div>
+      <div class="hero-stat"><span class="val">&times;4</span><span class="lbl">ROI sur 12 mois</span></div>
+      <div class="hero-stat"><span class="val">6 sem.</span><span class="lbl">avant premiers gains</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 1 -->
+<section class="section-white">
+  <div class="section-inner">
+    <span class="eyebrow">Le probl&egrave;me</span>
+    <h2>Le co&ucirc;t invisible des achats dans une PME du Nord</h2>
+    <p>
+      Une PME industrielle de Grande-Synthe commande chaque semaine des consommables &agrave; huit fournisseurs diff&eacute;rents. Un transporteur du port de Dunkerque ach&egrave;te du carburant, des pi&egrave;ces, de la palette. Un commerce de Saint-Omer r&eacute;approvisionne quarante r&eacute;f&eacute;rences chez six grossistes. Dans les trois cas, la commande elle-m&ecirc;me prend cinq minutes. C'est tout ce qui vient apr&egrave;s qui co&ucirc;te cher.
+    </p>
+    <p>
+      Car une commande fournisseur d&eacute;clenche une cha&icirc;ne enti&egrave;re de t&acirc;ches manuelles : ressaisir le bon de commande dans le logiciel de gestion, v&eacute;rifier &agrave; la r&eacute;ception que la livraison correspond, rapprocher la facture du bon de livraison, relancer quand il manque une palette, contester un prix qui a bougé sans pr&eacute;venir, classer le tout pour la compta. Chaque &eacute;tape est simple. Mises bout &agrave; bout, elles absorbent des journ&eacute;es enti&egrave;res. Rappelons le chiffre : un salari&eacute; de PME perd en moyenne <strong>4,2 heures par jour</strong> sur des t&acirc;ches r&eacute;p&eacute;titives, et le traitement des documents d'achat en repr&eacute;sente une part majeure.
+    </p>
+    <p>
+      Le vrai co&ucirc;t est ailleurs. C'est la facture pay&eacute;e deux fois parce que personne n'a vu le doublon. C'est l'augmentation tarifaire de 6 % accept&eacute;e sans discussion parce qu'elle est pass&eacute;e inaper&ccedil;ue dans le flux. C'est le litige de 800 € abandonn&eacute; parce que le rapprochement demandait trop de travail. C'est la rupture de stock &agrave; l'atelier parce que la commande de r&eacute;appro n'est jamais partie. Dans une PME de vingt salari&eacute;s, ces fuites repr&eacute;sentent facilement plusieurs milliers d'euros par an.
+    </p>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <span class="sc-icon">&#128221;</span>
+        <div class="sc-title">La m&ecirc;me donn&eacute;e saisie trois fois</div>
+        <div class="sc-desc">Devis fournisseur, bon de commande, facture : la m&ecirc;me r&eacute;f&eacute;rence est retap&eacute;e dans trois outils. Chaque ressaisie est une occasion de se tromper.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">&#9878;</span>
+        <div class="sc-title">Des &eacute;carts factures jamais d&eacute;tect&eacute;s</div>
+        <div class="sc-desc">Prix modifi&eacute;, quantit&eacute; incompl&egrave;te, frais de port ajout&eacute;s : sans rapprochement automatique, l'&eacute;cart passe et se paie.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">&#128340;</span>
+        <div class="sc-title">Des litiges qui tra&icirc;nent des semaines</div>
+        <div class="sc-desc">Retrouver le bon de livraison, le mail de commande, la photo de la palette ab&icirc;m&eacute;e : le temps de reconstituer le dossier, on abandonne.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">&#128202;</span>
+        <div class="sc-title">Aucune vision consolid&eacute;e des d&eacute;penses</div>
+        <div class="sc-desc">Impossible de dire combien on a d&eacute;pens&eacute; chez tel fournisseur cette ann&eacute;e, ni si ses prix ont d&eacute;riv&eacute;. Donc impossible de n&eacute;gocier.</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Chiffre cl&eacute; :</strong> <strong>68 % des PME fran&ccedil;aises n'ont encore rien automatis&eacute;</strong>. Le traitement des documents fournisseurs est pourtant l'un des processus les plus r&eacute;guliers, les plus structur&eacute;s et donc les plus faciles &agrave; automatiser d'une entreprise — avec un retour sur investissement mesurable d&egrave;s les premi&egrave;res semaines.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section-dark">
+  <div class="section-inner">
+    <span class="eyebrow">La solution IA</span>
+    <h2>Comment l'IA reprend la cha&icirc;ne achat, de la commande au paiement</h2>
+    <p>
+      Automatiser ses achats ne veut pas dire laisser une machine choisir ses fournisseurs. Les relations commerciales, la n&eacute;gociation, le choix d'un partenaire local : cela reste votre m&eacute;tier. L'IA prend en charge le travail documentaire qui entoure chaque commande — lire, comparer, v&eacute;rifier, alerter, classer. Voici le d&eacute;roul&eacute; concret d'une cha&icirc;ne achat automatis&eacute;e.
+    </p>
+
+    <ul class="process-list">
+      <li class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <div class="pc-title">Lire et int&eacute;grer chaque document fournisseur</div>
+          <div class="pc-desc">Devis PDF re&ccedil;u par mail, facture scann&eacute;e, bon de livraison photographi&eacute; &agrave; l'atelier : l'IA extrait les r&eacute;f&eacute;rences, quantit&eacute;s, prix et &eacute;ch&eacute;ances, puis alimente directement votre outil de gestion. Plus aucune ressaisie manuelle.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <div class="pc-title">Rapprocher automatiquement commande, livraison et facture</div>
+          <div class="pc-desc">Le fameux rapprochement &agrave; trois niveaux, fait en quelques secondes au lieu d'une matin&eacute;e. Si tout concorde, la facture part en validation. Sinon, vous recevez une alerte pr&eacute;cise : quelle ligne, quel &eacute;cart, quel montant.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <div class="pc-title">D&eacute;tecter les d&eacute;rives de prix et les doublons</div>
+          <div class="pc-desc">L'IA compare chaque prix factur&eacute; &agrave; l'historique du fournisseur et &agrave; votre tarif n&eacute;goci&eacute;. Hausse non annonc&eacute;e, frais ajout&eacute;s, facture d&eacute;j&agrave; pay&eacute;e : l'anomalie remonte avant le r&egrave;glement, pas six mois apr&egrave;s.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <div class="pc-title">Relancer, r&eacute;approvisionner, documenter les litiges</div>
+          <div class="pc-desc">Livraison en retard, reliquat non re&ccedil;u, seuil de stock atteint : la relance ou la commande part toute seule, avec le dossier complet en pi&egrave;ce jointe. Le litige est mont&eacute; en deux minutes au lieu de deux heures.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">5</div>
+        <div class="process-content">
+          <div class="pc-title">Consolider la vision d&eacute;penses</div>
+          <div class="pc-desc">Un tableau de bord &agrave; jour en permanence : d&eacute;penses par fournisseur, par famille d'achat, &eacute;volution des prix sur douze mois. De quoi arriver pr&eacute;par&eacute; &agrave; la prochaine n&eacute;gociation annuelle — chiffres en main.</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="info-box-dark">
+      <strong>Vous gardez la main :</strong> aucune facture n'est pay&eacute;e et aucune commande n'est pass&eacute;e sans votre validation. L'IA pr&eacute;pare le dossier, signale ce qui cloche et propose l'action. La d&eacute;cision — et la relation fournisseur — restent enti&egrave;rement les v&ocirc;tres.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <span class="eyebrow">R&eacute;sultats mesur&eacute;s</span>
+    <h2>Avant et apr&egrave;s : la cha&icirc;ne achat d'une PME assist&eacute;e par IA</h2>
+    <p>
+      Voici les indicateurs observ&eacute;s chez les PME des Hauts-de-France ayant automatis&eacute; leur traitement des documents fournisseurs, compar&eacute;s &agrave; leur situation de d&eacute;part en gestion enti&egrave;rement manuelle.
+    </p>
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Avant l'IA</th>
+            <th class="th-after">Apr&egrave;s l'IA (12 mois)</th>
+            <th class="th-gain">Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-label">Traitement d'une facture fournisseur</td><td class="td-before">8 &agrave; 12 min</td><td class="td-after">&lt; 1 min</td><td class="td-gain">&minus;90 %</td></tr>
+          <tr><td class="td-label">Rapprochement commande / livraison / facture</td><td class="td-before">une matin&eacute;e / semaine</td><td class="td-after">automatique</td><td class="td-gain">temps rendu</td></tr>
+          <tr><td class="td-label">T&acirc;ches administratives achat</td><td class="td-before">r&eacute;f&eacute;rence</td><td class="td-after">automatis&eacute;es</td><td class="td-gain">&minus;73 %</td></tr>
+          <tr><td class="td-label">&Eacute;carts de prix d&eacute;tect&eacute;s</td><td class="td-before">au hasard</td><td class="td-after">syst&eacute;matiquement</td><td class="td-gain">avant paiement</td></tr>
+          <tr><td class="td-label">D&eacute;lai de r&eacute;solution d'un litige</td><td class="td-before">plusieurs semaines</td><td class="td-after">quelques jours</td><td class="td-gain">dossier pr&ecirc;t</td></tr>
+          <tr><td class="td-label">Visibilit&eacute; sur les d&eacute;penses</td><td class="td-before">en fin d'exercice</td><td class="td-after">temps r&eacute;el</td><td class="td-gain">n&eacute;gociation arm&eacute;e</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px; color:var(--brun); margin-top:8px;">
+      * Moyennes observ&eacute;es sur un panel de PME du Nord-Pas-de-Calais de 6 &agrave; 30 salari&eacute;s, secteurs industrie, logistique, commerce, BTP et services.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section-dark">
+  <div class="section-inner">
+    <span class="eyebrow">Cas clients r&eacute;els</span>
+    <h2>Des entreprises du Nord qui ont repris le contr&ocirc;le de leurs achats</h2>
+    <p>Deux exemples concrets d'entreprises proches de chez vous, avec des chiffres r&eacute;els mesur&eacute;s sur douze mois.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <span class="rc-tag">Logistique · Dunkerque</span>
+        <div class="rc-title">PME logistique, 18 salari&eacute;s</div>
+        <div class="rc-desc">Transporteur-stockeur du port de Dunkerque, une trentaine de fournisseurs actifs. Les factures &eacute;taient ressaisies &agrave; la main et rapproch&eacute;es des bons de livraison une fois par semaine, souvent en retard. L'IA traite d&eacute;sormais chaque document &agrave; l'arriv&eacute;e et signale les &eacute;carts avant validation.</div>
+        <div class="roi-results">
+          <div class="roi-result-row"><span class="rr-lbl">Temps gagn&eacute;</span><span class="rr-val">+28 h/mois</span></div>
+          <div class="roi-result-row"><span class="rr-lbl">&Eacute;conomies annuelles</span><span class="rr-val">18 000 €/an</span></div>
+          <div class="roi-result-row"><span class="rr-lbl">T&acirc;ches r&eacute;p&eacute;titives</span><span class="rr-val">&minus;73 %</span></div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <span class="rc-tag">BTP · Hauts-de-France</span>
+        <div class="rc-title">Entreprise BTP, 22 salari&eacute;s</div>
+        <div class="rc-desc">Achats mat&eacute;riaux &eacute;clat&eacute;s entre plusieurs chantiers et n&eacute;goces. Sans rapprochement fiable, les &eacute;carts de facturation passaient et le suivi des co&ucirc;ts par chantier &eacute;tait approximatif. L'automatisation a redonn&eacute; de la marge et acc&eacute;l&eacute;r&eacute; tout le cycle commercial.</div>
+        <div class="roi-results">
+          <div class="roi-result-row"><span class="rr-lbl">Devis envoy&eacute;s</span><span class="rr-val">+28 %</span></div>
+          <div class="roi-result-row"><span class="rr-lbl">CA sign&eacute;</span><span class="rr-val">+16 %</span></div>
+          <div class="roi-result-row"><span class="rr-lbl">ROI sur 12 mois</span><span class="rr-val">&times;4</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"Avant, on d&eacute;couvrait les hausses de prix au bilan. Maintenant, l'&eacute;cart remonte le jour o&ugrave; la facture arrive, avec le bon de commande en face. On a r&eacute;cup&eacute;r&eacute; une matin&eacute;e par semaine, et on n&eacute;gocie enfin avec des chiffres pr&eacute;cis."</blockquote>
+      <cite>Dirigeante, PME logistique · Dunkerque</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section-white">
+  <div class="section-inner">
+    <span class="eyebrow">Par o&ugrave; commencer</span>
+    <h2>3 questions pour automatiser vos achats</h2>
+    <p>
+      On imagine souvent un logiciel d'achat complet, cher et long &agrave; d&eacute;ployer. L'approche Dunai est l'inverse : on d&eacute;marre par le document qui vous co&ucirc;te le plus de temps — g&eacute;n&eacute;ralement la facture fournisseur — on automatise son traitement, on prouve le gain chiffr&eacute;, puis on &eacute;tend au reste de la cha&icirc;ne. Trois questions pour partir du bon pied.
+    </p>
+
+    <div class="info-box">
+      <strong>1. Combien de documents fournisseurs traitez-vous par mois ?</strong><br>
+      Comptez les factures, bons de livraison et devis re&ccedil;us. Au-del&agrave; de cinquante par mois, l'automatisation du traitement se rentabilise presque toujours en moins d'un trimestre.
+    </div>
+
+    <div class="info-box">
+      <strong>2. Par o&ugrave; arrivent ces documents ?</strong><br>
+      Bo&icirc;te mail, courrier scann&eacute;, portail fournisseur, photo prise &agrave; l'atelier : on cartographie chaque canal d'entr&eacute;e pour que l'IA y capte les documents automatiquement, sans changer les habitudes de vos &eacute;quipes.
+    </div>
+
+    <div class="info-box">
+      <strong>3. Qui valide quoi, et &agrave; partir de quel montant ?</strong><br>
+      D&eacute;finir vos r&egrave;gles de validation et vos seuils de tol&eacute;rance permet &agrave; l'IA de laisser passer ce qui est conforme et de n'alerter que sur ce qui m&eacute;rite votre attention.
+    </div>
+
+    <p>
+      Avec ces bases, un <strong>audit IA de 2 jours</strong> suffit &agrave; cartographier votre cha&icirc;ne achat, &agrave; identifier ce qui est automatisable d&egrave;s demain et &agrave; b&acirc;tir un plan priorit&eacute; par priorit&eacute;. Le premier flux tourne en <strong>6 semaines</strong>, et les gains se mesurent imm&eacute;diatement : des factures trait&eacute;es en moins d'une minute, des &eacute;carts d&eacute;tect&eacute;s avant paiement, des litiges document&eacute;s en deux clics.
+    </p>
+
+    <p>
+      La majorit&eacute; de nos clients des Hauts-de-France atteignent un <strong>retour sur investissement &times;4 sur 12 mois</strong>, en &eacute;liminant jusqu'&agrave; <strong>73 % des t&acirc;ches r&eacute;p&eacute;titives</strong> li&eacute;es &agrave; leurs achats. Le temps r&eacute;cup&eacute;r&eacute; repart o&ugrave; il cr&eacute;e de la valeur : n&eacute;gocier, s&eacute;curiser les approvisionnements, servir les clients — au lieu de ressaisir des lignes de facture.
+    </p>
+
+    <div class="internal-links">
+      <h3>&Agrave; lire aussi</h3>
+      <ul>
+        <li><a href="https://dunai.fr/Blog/dunai-article-facturation-relances-devis-2026-04-16.html">Automatiser sa facturation, ses relances, ses devis</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-ia-logistique-dunkerque-2026-04-16.html">IA et logistique : cas concrets d'optimisation &agrave; Dunkerque</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il r&eacute;v&egrave;le dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'IA : comment mesurer les gains r&eacute;els sur 12 mois</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Combien vous co&ucirc;tent vraiment vos factures fournisseurs ?</h2>
+  <p>En 2 jours, notre &eacute;quipe analyse votre cha&icirc;ne achat et vos outils, puis vous remet un plan d'automatisation chiffr&eacute;. Gratuit et sans engagement.</p>
+  <div class="cta-btns">
+    <a class="btn-white" href="https://dunai.fr/contact/">Demander mon audit gratuit</a>
+    <a class="btn-transparent" href="https://dunai.fr/agents/">Voir nos cas clients</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="https://dunai.fr">Dunai</a>, Agence IA &amp; Automatisation · Dunkerque, Hauts-de-France ·
+    <a href="https://dunai.fr/Blog/">Blog</a> ·
+    <a href="https://dunai.fr/contact/">Contact</a>
+  </p>
+  <p style="margin-top:8px;">© 2026 Dunai. Tous droits r&eacute;serv&eacute;s.</p>
+</footer>
+
+</body>
+</html>
