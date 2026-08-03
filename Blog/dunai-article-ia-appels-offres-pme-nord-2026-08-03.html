@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA et appels d'offres : répondre plus vite en PME | Dunai</title>
+  <meta name="description" content="Détection, tri, mémoire technique, chiffrage : comment l'IA aide les PME du Nord à répondre plus vite aux appels d'offres et à gagner plus de marchés. Cas concrets.">
+  <meta property="og:title" content="IA et appels d'offres : répondre plus vite, gagner plus de marchés">
+  <meta property="og:description" content="Veille, tri, mémoire technique, chiffrage : comment l'IA reprend la réponse aux appels d'offres d'une PME du Nord, du repérage au dépôt. Cas concrets et chiffres.">
+  <meta property="og:image" content="https://dunai.fr/Blog/images/dunai-thumb-ia-appels-offres-pme-nord-2026-08-03.svg">
+  <meta name="twitter:image" content="https://dunai.fr/Blog/images/dunai-thumb-ia-appels-offres-pme-nord-2026-08-03.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dunai.fr/Blog/dunai-article-ia-appels-offres-pme-nord-2026-08-03.html">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--noir); background: var(--creme); line-height: 1.75; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12,10,9,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .btn-nav {
+      background: #F54800; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 13px; padding: 9px 20px; border-radius: var(--r-full);
+      text-decoration: none; letter-spacing: 0.3px; transition: opacity .2s;
+    }
+    .btn-nav:hover { opacity: .85; }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar {
+      background: var(--anthracite); padding: 12px 40px; margin-top: 64px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .breadcrumb {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--flamme2); }
+    .breadcrumb .sep { opacity: .4; }
+    .breadcrumb .current { color: rgba(255,255,255,0.7); }
+
+    /* HERO */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(234,88,12,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--flamme2); margin-bottom: 24px;
+    }
+    .kicker-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--flamme);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.75); }
+    }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(32px, 5vw, 52px); letter-spacing: -1.5px; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+    }
+    .hero h1 .hl { color: var(--flamme); }
+    .hero-sub {
+      font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.65);
+      line-height: 1.7; max-width: 640px; margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 40px;
+    }
+    .hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border-dark); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); overflow: hidden;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.03); padding: 20px 24px;
+    }
+    .hero-stat .val {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: 28px; color: var(--flamme); letter-spacing: -1px; display: block;
+    }
+    .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; display: block; }
+
+    /* SECTIONS */
+    .section-white { background: #fff; padding: 72px 40px; }
+    .section-dark { background: var(--anthracite); padding: 72px 40px; }
+    .section-cream2 { background: var(--creme2); padding: 72px 40px; }
+    .section-anth { background: var(--dark2); padding: 72px 40px; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--flamme); margin-bottom: 14px; display: block;
+    }
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(24px, 3.5vw, 36px); letter-spacing: -1px; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-dark h2, .section-anth h2 { color: #fff; }
+    .section-dark .eyebrow, .section-anth .eyebrow { color: var(--flamme2); }
+    .section-dark p, .section-anth p { color: rgba(255,255,255,0.7); }
+    p { line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
+    p:last-child { margin-bottom: 0; }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--flamme-pale); border-left: 3px solid var(--flamme);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .info-box strong { font-weight: 700; color: var(--flamme); }
+    .info-box-dark {
+      background: rgba(234,88,12,0.08); border-left: 3px solid var(--flamme);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px;
+      margin: 28px 0; color: rgba(255,255,255,0.8);
+    }
+    .info-box-dark strong { color: var(--flamme2); }
+
+    /* SIGNAL GRID */
+    .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+    .signal-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); padding: 20px 22px;
+    }
+    .signal-card .sc-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+    .signal-card .sc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 6px; }
+    .signal-card .sc-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    /* PROCESS LIST */
+    .process-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 0; }
+    .process-item { display: flex; gap: 20px; position: relative; padding-bottom: 32px; }
+    .process-item:last-child { padding-bottom: 0; }
+    .process-item:not(:last-child)::before {
+      content: ''; position: absolute; left: 19px; top: 44px; bottom: 0;
+      width: 2px; background: rgba(234,88,12,0.2);
+    }
+    .process-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--flamme); color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .process-content .pc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; margin-bottom: 6px; color: #fff; }
+    .process-content .pc-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* BA TABLE */
+    .ba-scroll { overflow-x: auto; margin: 32px 0; border-radius: var(--r-lg); border: 1px solid var(--border-dark); }
+    .ba-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    .ba-table thead tr { background: var(--anthracite); }
+    .ba-table th {
+      padding: 14px 20px; text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px;
+      color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase;
+    }
+    .ba-table th.th-after { color: var(--flamme); }
+    .ba-table th.th-gain { color: var(--vert); }
+    .ba-table td { padding: 14px 20px; font-size: 14px; border-top: 1px solid var(--border-dark); }
+    .ba-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .ba-table td.td-label { font-weight: 600; color: rgba(255,255,255,0.85); }
+    .ba-table td.td-before { color: rgba(255,255,255,0.45); }
+    .ba-table td.td-after { color: var(--flamme2); font-weight: 600; }
+    .ba-table td.td-gain { color: var(--vert); font-weight: 700; }
+
+    /* ROI GRID */
+    .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+    .roi-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-xl); padding: 28px;
+    }
+    .roi-card .rc-tag {
+      display: inline-block; background: rgba(234,88,12,0.15); color: var(--flamme2);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: var(--r-full); margin-bottom: 14px;
+    }
+    .roi-card .rc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; color: #fff; margin-bottom: 8px; }
+    .roi-card .rc-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; }
+    .roi-results { background: var(--noir); border-radius: var(--r-md); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+    .roi-result-row { display: flex; justify-content: space-between; align-items: center; }
+    .roi-result-row .rr-lbl { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .roi-result-row .rr-val { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: var(--flamme); }
+
+    /* QUOTE BLOCK */
+    .quote-block {
+      border-left: 3px solid var(--flamme); padding: 20px 28px;
+      background: rgba(234,88,12,0.06); border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      margin: 32px 0;
+    }
+    .quote-block blockquote { font-size: 18px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 12px; }
+    .quote-block cite { font-size: 13px; color: var(--flamme2); font-style: normal; font-weight: 600; }
+
+    /* INTERNAL LINKS */
+    .internal-links { background: var(--creme2); border: 1px solid var(--border-light); border-radius: var(--r-xl); padding: 28px 32px; margin: 40px 0; }
+    .internal-links h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 16px; color: var(--noir); }
+    .internal-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .internal-links li a {
+      color: var(--flamme); font-size: 14px; font-weight: 500; text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .internal-links li a:hover { text-decoration: underline; }
+    .internal-links li a::before { content: '→'; opacity: .6; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--flamme); padding: 72px 40px; text-align: center; }
+    .final-cta h2 { color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(26px, 4vw, 40px); letter-spacing: -1px; margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 560px; margin: 0 auto 32px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--flamme); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: var(--r-full); text-decoration: none; transition: opacity .2s; }
+    .btn-white:hover { opacity: .9; }
+    .btn-transparent { background: transparent; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: var(--r-full); text-decoration: none; border: 2px solid rgba(255,255,255,0.4); transition: border-color .2s; }
+    .btn-transparent:hover { border-color: rgba(255,255,255,0.8); }
+
+    /* FOOTER */
+    footer { background: var(--noir); padding: 40px; text-align: center; border-top: 1px solid var(--border-dark); }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: var(--flamme2); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 60px 20px 52px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .section-white, .section-dark, .section-cream2, .section-anth { padding: 52px 20px; }
+      .signal-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: 1fr; }
+      .final-cta { padding: 52px 20px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BlogPosting",
+   "@id": "https://dunai.fr/Blog/dunai-article-ia-appels-offres-pme-nord-2026-08-03.html#article",
+   "headline": "IA et appels d'offres : répondre plus vite, gagner plus de marchés",
+   "description": "Détection, tri, mémoire technique, chiffrage : comment l'IA aide les PME du Nord à répondre plus vite aux appels d'offres et à gagner plus de marchés.",
+   "image": "https://dunai.fr/Blog/images/dunai-thumb-ia-appels-offres-pme-nord-2026-08-03.svg",
+   "datePublished": "2026-08-03",
+   "dateModified": "2026-08-03",
+   "inLanguage": "fr-FR",
+   "mainEntityOfPage": "https://dunai.fr/Blog/dunai-article-ia-appels-offres-pme-nord-2026-08-03.html",
+   "author": {
+    "@type": "Organization",
+    "name": "Dunai",
+    "url": "https://dunai.fr/"
+   },
+   "publisher": {
+    "@id": "https://dunai.fr/#business"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Accueil",
+     "item": "https://dunai.fr/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://dunai.fr/Blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "IA et appels d'offres pour les PME du Nord"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai, agence IA Dunkerque">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="22" viewBox="0 0 600 180" aria-hidden="true" focusable="false">
+      <text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9">
+        <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
+      </text>
+      <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
+    </svg>
+  </a>
+  <a class="btn-nav" href="https://dunai.fr/contact/">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <a href="https://dunai.fr">Dunai</a>
+    <span class="sep">›</span>
+    <a href="https://dunai.fr/Blog/">Blog</a>
+    <span class="sep">›</span>
+    <span class="current">IA et appels d'offres</span>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">
+      <span class="kicker-dot"></span>
+      IA &amp; Commercial · Dunkerque, Hauts-de-France
+    </div>
+    <h1>Appels d'offres : répondre plus vite, <span class="hl">gagner plus de marchés</span></h1>
+    <p class="hero-sub">
+      Une PME du Nord laisse passer des marchés qu'elle aurait pu remporter : dossiers repérés trop tard, mémoire technique à réécrire à chaque fois, chiffrage bâclé faute de temps. L'IA reprend la partie la plus chronophage de la réponse aux appels d'offres — veille, tri, rédaction du dossier, contrôle des pièces — pour que vous répondiez à plus de consultations, plus vite, et sans y sacrifier vos soirées. Premiers gains dès 6 semaines.
+    </p>
+    <div class="hero-meta">
+      <span>Dunai</span>
+      <span class="dot"></span>
+      <span>3 août 2026</span>
+      <span class="dot"></span>
+      <span>8 min de lecture</span>
+      <span class="dot"></span>
+      <span>IA &amp; Commercial</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="val">4,2h</span>
+        <span class="lbl">perdues / salarié / jour</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">−73 %</span>
+        <span class="lbl">de tâches répétitives</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">×4</span>
+        <span class="lbl">ROI sur 12 mois</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">6 sem.</span>
+        <span class="lbl">avant premiers gains</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 1, LE PROBLÈME -->
+<section class="section-white">
+  <div class="section-inner">
+    <span class="eyebrow">Le problème</span>
+    <h2>La réponse aux appels d'offres coûte trop cher en temps</h2>
+    <p>
+      Autour de Dunkerque, du port au Dunkerquois industriel, en passant par les intercommunalités, les bailleurs et les grands donneurs d'ordre, les marchés publics et privés ne manquent pas. Une entreprise de BTP de Grande-Synthe, un prestataire de maintenance industrielle de Gravelines, une société de nettoyage de Saint-Omer ou un bureau d'études de Lille voient passer des dizaines de consultations chaque mois. Le problème n'est pas le manque d'opportunités — c'est le temps qu'il faut pour y répondre correctement.
+    </p>
+    <p>
+      Car une réponse à un appel d'offres, c'est un marathon administratif : surveiller les plateformes de dématérialisation, lire un règlement de consultation de trente pages, remplir le DC1, le DC2, le DUME, retrouver les attestations à jour, rédiger un mémoire technique adapté, chiffrer le bordereau des prix, vérifier que rien ne manque avant le dépôt. Un salarié de PME perd déjà en moyenne <strong>4,2 heures par jour</strong> sur des tâches administratives répétitives ; monter un dossier de candidature en mobilise plusieurs journées entières.
+    </p>
+    <p>
+      Résultat : on trie par instinct, on renonce à des marchés faute de temps, on recopie un vieux mémoire technique sans le remettre au niveau, et on découvre l'oubli d'une pièce une fois le dossier rejeté. Pendant que le dirigeant ou le responsable d'affaires reconstitue un dossier à la main, il ne prospecte pas, ne chiffre pas les chantiers en cours, et laisse filer des consultations parfaitement dans ses cordes.
+    </p>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <span class="sc-icon">🔍</span>
+        <div class="sc-title">Des marchés repérés trop tard</div>
+        <div class="sc-desc">Les bonnes consultations se perdent dans le flux des plateformes. On les découvre à trois jours de la clôture, ou pas du tout.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">📄</span>
+        <div class="sc-title">Le mémoire technique réécrit à chaque fois</div>
+        <div class="sc-desc">À chaque dossier, on repart d'une page presque blanche ou d'un copier-coller mal adapté, au lieu de capitaliser sur ce qu'on a déjà écrit.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">🧩</span>
+        <div class="sc-title">Des pièces manquantes au dépôt</div>
+        <div class="sc-desc">Une attestation périmée, un formulaire oublié, une signature manquante : le dossier est écarté sur la forme, avant même d'être jugé sur le fond.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">⏳</span>
+        <div class="sc-title">Trop peu de réponses envoyées</div>
+        <div class="sc-desc">Faute de temps, on ne répond qu'à une fraction des marchés accessibles. Moins de dépôts, c'est mécaniquement moins de marchés gagnés.</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Chiffre clé :</strong> <strong>68 % des PME françaises n'ont encore rien automatisé</strong> et traitent leurs appels d'offres entièrement à la main. Pourtant, la veille, le tri et la préparation des pièces font partie des tâches les plus faciles à confier à l'IA — et parmi celles au retour sur investissement le plus rapide.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2, CE QUE L'IA CHANGE -->
+<section class="section-dark">
+  <div class="section-inner">
+    <span class="eyebrow">La solution IA</span>
+    <h2>Comment l'IA reprend la réponse aux appels d'offres</h2>
+    <p>
+      Automatiser sa réponse aux appels d'offres ne veut pas dire laisser une machine décider à votre place ni signer un dossier à l'aveugle. Il s'agit de confier à l'IA la partie lourde et répétitive — chercher, lire, trier, préparer, rédiger un premier jet, contrôler — pour que votre équipe se concentre sur ce qui fait gagner : la stratégie de prix, l'argument différenciant, la relation avec le donneur d'ordre. Voici le déroulé concret.
+    </p>
+
+    <ul class="process-list">
+      <li class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <div class="pc-title">Surveiller les plateformes et détecter les bons marchés</div>
+          <div class="pc-desc">L'IA scrute en continu les plateformes de dématérialisation et les publications de marchés, filtre selon vos codes CPV, votre zone et vos seuils, et vous remonte chaque matin les consultations qui vous concernent vraiment. Fini les marchés découverts trop tard.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <div class="pc-title">Lire le dossier et en sortir l'essentiel</div>
+          <div class="pc-desc">Règlement de consultation, CCTP, critères de notation : l'IA lit les documents à votre place et produit une synthèse claire — pièces exigées, dates clés, critères de sélection, points de vigilance — pour décider en dix minutes si le marché vaut le coup.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <div class="pc-title">Rédiger un premier mémoire technique à partir de votre historique</div>
+          <div class="pc-desc">L'IA puise dans vos réponses passées, vos références de chantiers et vos moyens humains et matériels pour rédiger un premier jet de mémoire technique adapté au cahier des charges. Vous ne partez plus de zéro : vous relisez, ajustez, personnalisez.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <div class="pc-title">Contrôler les pièces et sécuriser le dépôt</div>
+          <div class="pc-desc">Avant l'envoi, l'IA vérifie la liste des pièces attendues, repère une attestation périmée ou un formulaire manquant et vous alerte. Le dossier part complet, dans les temps, sans le stress du contrôle de dernière minute.</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="info-box-dark">
+      <strong>Intégration sans tout changer :</strong> l'IA se greffe sur vos outils actuels — messagerie, espace de stockage des dossiers, logiciel de devis, base de références — sans migration ni nouveau système à apprendre. La décision de répondre, le prix final et la signature restent entre vos mains. L'IA prépare, vous décidez.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3, AVANT / APRÈS -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <span class="eyebrow">Résultats mesurés</span>
+    <h2>Avant et après : la réponse aux marchés assistée par IA</h2>
+    <p>
+      Voici les indicateurs observés chez les PME des Hauts-de-France qui ont automatisé la préparation de leurs appels d'offres, comparés à leur situation de départ, tout en traitement manuel.
+    </p>
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Avant l'IA</th>
+            <th class="th-after">Après l'IA (12 mois)</th>
+            <th class="th-gain">Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-label">Temps de montage d'un dossier</td>
+            <td class="td-before">2 à 3 jours</td>
+            <td class="td-after">&lt; 1 jour</td>
+            <td class="td-gain">−60 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Détection des marchés pertinents</td>
+            <td class="td-before">au hasard</td>
+            <td class="td-after">chaque matin</td>
+            <td class="td-gain">quotidienne</td>
+          </tr>
+          <tr>
+            <td class="td-label">Tâches répétitives de préparation</td>
+            <td class="td-before">référence</td>
+            <td class="td-after">automatisées</td>
+            <td class="td-gain">−73 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Nombre de réponses déposées</td>
+            <td class="td-before">référence</td>
+            <td class="td-after">2 à 3 fois plus</td>
+            <td class="td-gain">+150 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Dossiers écartés pour pièce manquante</td>
+            <td class="td-before">fréquents</td>
+            <td class="td-after">quasi nuls</td>
+            <td class="td-gain">−95 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Taux de succès sur les dépôts</td>
+            <td class="td-before">subi</td>
+            <td class="td-after">en hausse</td>
+            <td class="td-gain">+CA signé</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px; color:var(--brun); margin-top:8px;">
+      * Moyennes observées sur un panel de PME du Nord-Pas-de-Calais de 6 à 30 salariés, secteurs BTP, industrie, propreté et services aux entreprises.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 4, CAS CLIENTS -->
+<section class="section-dark">
+  <div class="section-inner">
+    <span class="eyebrow">Cas clients réels</span>
+    <h2>Des entreprises du Nord qui décrochent plus de marchés</h2>
+    <p>Des entreprises proches de chez vous ont déjà automatisé la préparation de leurs appels d'offres. Voici deux exemples concrets, avec des chiffres réels.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <span class="rc-tag">BTP · Hauts-de-France</span>
+        <div class="rc-title">Entreprise de BTP, 22 salariés</div>
+        <div class="rc-desc">Le responsable d'affaires montait chaque dossier à la main et renonçait à la moitié des consultations faute de temps. Avec une veille automatisée et un mémoire technique pré-rédigé par IA à partir de ses références, il envoie beaucoup plus de devis, plus vite.</div>
+        <div class="roi-results">
+          <div class="roi-result-row">
+            <span class="rr-lbl">Devis / offres envoyés</span>
+            <span class="rr-val">+28 %</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">CA signé</span>
+            <span class="rr-val">+16 %</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Montage de dossier</span>
+            <span class="rr-val">2 fois plus rapide</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <span class="rc-tag">Logistique · Dunkerque</span>
+        <div class="rc-title">PME logistique, 18 salariés</div>
+        <div class="rc-desc">Prestataire du port de Dunkerque, répondant régulièrement à des consultations de transport et de stockage. La veille et la préparation des pièces mobilisaient des heures chaque semaine. L'automatisation a supprimé la ressaisie et fiabilisé chaque dépôt.</div>
+        <div class="roi-results">
+          <div class="roi-result-row">
+            <span class="rr-lbl">Temps gagné</span>
+            <span class="rr-val">+28 h/mois</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Économies annuelles</span>
+            <span class="rr-val">18 000 €/an</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Tâches répétitives</span>
+            <span class="rr-val">−73 %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"Avant, je passais mes week-ends sur les dossiers et je laissais tomber la moitié des marchés. Aujourd'hui, l'IA me sort les consultations qui me concernent, me prépare le mémoire technique et vérifie mes pièces. Je réponds à deux fois plus d'appels d'offres, et j'en gagne plus."</blockquote>
+      <cite>Responsable d'affaires, entreprise de BTP · Hauts-de-France</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5, PAR OÙ COMMENCER -->
+<section class="section-white">
+  <div class="section-inner">
+    <span class="eyebrow">Par où commencer</span>
+    <h2>3 questions pour automatiser vos appels d'offres</h2>
+    <p>
+      On imagine souvent un projet lourd, avec un gros logiciel et des mois de mise en place. La réalité est l'inverse : on commence par l'étape qui vous coûte le plus de temps — souvent la veille ou le mémoire technique — on l'automatise, on prouve le gain, puis on étend au reste du processus. La méthode Dunai consiste à démarrer petit et concret. Trois questions pour partir du bon pied.
+    </p>
+
+    <div class="info-box">
+      <strong>1. Combien de marchés laissez-vous passer chaque mois ?</strong><br>
+      Si vous ne répondez qu'à une fraction des consultations accessibles, c'est le premier gisement. Une veille automatisée et un tri intelligent vous rendent visibles tous les marchés dans vos cordes — et vous font répondre à ceux que vous ignoriez.
+    </div>
+
+    <div class="info-box">
+      <strong>2. Quelle étape vous prend le plus de temps ?</strong><br>
+      Lecture du règlement, mémoire technique, chiffrage, contrôle des pièces : identifiez le maillon qui vous ralentit le plus. C'est celui qu'on automatise en premier, pour le retour sur investissement le plus rapide.
+    </div>
+
+    <div class="info-box">
+      <strong>3. Où sont vos réponses passées et vos références ?</strong><br>
+      Anciens mémoires, fiches de références, attestations : cette matière existe déjà, éparpillée dans vos dossiers. En la rassemblant, l'IA peut rédiger des premiers jets solides et ne plus jamais vous faire repartir d'une page blanche.
+    </div>
+
+    <p>
+      Avec ces bases, un <strong>audit IA de 2 jours</strong> suffit à cartographier votre processus de réponse, à repérer ce qui est automatisable et à définir un plan priorisé. La première automatisation — veille, synthèse de dossier ou aide à la rédaction — est opérationnelle en <strong>6 semaines</strong>, et les gains se mesurent dès les premières consultations : des marchés repérés à temps, des dossiers montés deux fois plus vite, plus de réponses déposées.
+    </p>
+
+    <p>
+      La majorité de nos clients des Hauts-de-France atteignent un <strong>retour sur investissement ×4 sur 12 mois</strong>, en éliminant jusqu'à <strong>73 % des tâches répétitives</strong> de préparation et en récupérant plusieurs heures chaque semaine. Le temps regagné repart vers ce qui fait gagner un marché : soigner l'offre, ajuster le prix, cultiver la relation — au lieu de courir après les pièces manquantes.
+    </p>
+
+    <div class="internal-links">
+      <h3>À lire aussi</h3>
+      <ul>
+        <li><a href="https://dunai.fr/Blog/dunai-article-facturation-relances-devis-2026-04-16.html">Automatiser sa facturation, ses relances, ses devis</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'IA : comment mesurer les gains réels sur 12 mois</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il révèle dans une PME en 2 jours</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-1-agents-ia.html">Agents IA &amp; automatisation : ce qui change pour une PME</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Combien de marchés laissez-vous passer faute de temps ?</h2>
+  <p>En 2 jours, notre équipe analyse votre processus de réponse aux appels d'offres et vous remet un plan d'automatisation chiffré. Gratuit et sans engagement.</p>
+  <div class="cta-btns">
+    <a class="btn-white" href="https://dunai.fr/contact/">Demander mon audit gratuit</a>
+    <a class="btn-transparent" href="https://dunai.fr/agents/">Voir nos cas clients</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="https://dunai.fr">Dunai</a>, Agence IA &amp; Automatisation · Dunkerque, Hauts-de-France ·
+    <a href="https://dunai.fr/Blog/">Blog</a> ·
+    <a href="https://dunai.fr/contact/">Contact</a>
+  </p>
+  <p style="margin-top:8px;">© 2026 Dunai. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
