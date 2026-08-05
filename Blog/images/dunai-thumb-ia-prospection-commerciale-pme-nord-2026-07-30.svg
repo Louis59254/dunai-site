@@ -861,7 +861,7 @@
   <line x1="52" y1="430" x2="600" y2="430" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
   <text x="52" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">4,2h</text>
   <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">perdues/salari&#233;/jour</text>
-  <text x="230" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">&#215;4</text>
+  <text x="230" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">&#215;3</text>
   <text x="230" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">ROI sur 12 mois</text>
   <text x="370" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
   <text x="370" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">avant premiers gains</text>

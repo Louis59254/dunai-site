@@ -20,10 +20,10 @@
   <text x="52" y="192" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
     <tspan fill="#ffffff">ce qu'il </tspan><tspan fill="#EA580C">révèle</tspan>
   </text>
-  <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce qu'un audit révèle dans une PME en 2 jours</text>
+  <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Ce qu'un audit révèle dans une PME en 2h</text>
   <line x1="52" y1="310" x2="580" y2="310" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="52" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">2 jours</text>
-  <text x="52" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">pour tout cartographier</text>
+  <text x="52" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">2h</text>
+  <text x="52" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur site ou en visio</text>
   <text x="230" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">48h</text>
   <text x="230" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">rapport chiffré remis</text>
   <text x="370" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#4ADE80">100%</text>

@@ -113,3 +113,28 @@ Backlog contenu (ordre) : pages secteurs (BTP, logistique/port, commerce, servic
 « logiciel pour traiteur », « comment faire un devis traiteur », « gestion événements traiteur ») ·
 comparatif « n8n vs Make vs Zapier » · « combien coûte l'automatisation » · livre blanc PDF.
 Villes sans concurrent : Gravelines, Grande-Synthe, Bergues, Hazebrouck, Cassel (longue traîne).
+
+## Vignettes de blog — contrôle qualité permanent (2026-08-05)
+
+Chaque article a une vignette `Blog/images/dunai-thumb-<slug>.svg` (cards du site)
+et son jumeau `.png` 1200×630 (og:image / twitter:image, les réseaux sociaux ne
+rendent pas le SVG).
+
+**Contrôle : `python3 tools/check-thumbs.py`** (toutes) ou avec un fichier en
+argument. Vérifie : XML, viewBox 1200×630, marque `dunai.fr`, chiffres canon
+(ROI ×3 jamais ×4, 11 800 €/an jamais 18 000), zéro tiret cadratin, accents
+français obligatoires, pas de « garanti » ni de formulation anxiogène, pas de
+« 2 jours » (l'audit réel dure 2h), débordements et collisions de texte.
+
+**Automatisation en place** (hooks `~/.claude/settings.json`) :
+1. Toute écriture d'un `dunai-thumb-*.svg` déclenche le check ; si défaut,
+   l'agent reçoit la liste des erreurs et doit corriger avant publication.
+   Si OK, le PNG og:image est régénéré automatiquement (Chrome headless).
+2. Le hook de publication d'articles réécrit les og:image `.svg` → `.png`,
+   et n'ajoute la vignette au commit que si le check passe.
+
+Audit du 2026-08-05 : les 23 vignettes revues visuellement (planches lot par
+lot) et corrigées : ×4→×3, 18 000→11 800 €/an, accents restaurés (appels
+d'offres, recrutement, reporting, service client), tirets cadratins supprimés,
+« 2 jours »→2h, « ROI garanti » supprimé, label collé décollé (Dunkerque),
+label erroné facturation, pied dunai.fr ajouté sur IA Act. 23/23 vertes.

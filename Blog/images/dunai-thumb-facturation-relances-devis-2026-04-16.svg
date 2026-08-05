@@ -26,11 +26,11 @@
   <line x1="52" y1="346" x2="720" y2="346" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <text x="52"  y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">-93%</text>
   <text x="52"  y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">temps de devis</text>
-  <text x="210" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">18 000€/an</text>
-  <text x="210" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">économisés (logistique)</text>
+  <text x="210" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">11 800€/an</text>
+  <text x="210" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">économisés / an</text>
   <text x="470" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">6 sem.</text>
   <text x="470" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">avant 1ers gains</text>
-  <text x="650" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="650" y="394" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">×3 ROI</text>
   <text x="650" y="420" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
   <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
 </svg>

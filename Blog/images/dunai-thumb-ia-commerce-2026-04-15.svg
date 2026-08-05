@@ -61,7 +61,7 @@
   <text x="270" y="408" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">temps de devis</text>
 
   <!-- Stat 3 -->
-  <text x="520" y="380" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="520" y="380" font-family="Arial Black, sans-serif" font-size="34" font-weight="800" fill="#EA580C">×3 ROI</text>
   <text x="520" y="408" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
 
   <!-- Tag article -->

@@ -22,4 +22,6 @@
   <text x="52" y="430" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="76" font-weight="800" fill="#ffffff" letter-spacing="-2">à une PME</text>
   <rect x="52" y="490" width="560" height="66" rx="33" fill="#EA580C"/>
   <text x="86" y="533" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Depuis le 2 août 2026 · le vrai calendrier</text>
+  <text x="1148" y="590" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="600"
+        fill="rgba(255,255,255,0.35)" text-anchor="end">dunai.fr</text>
 </svg>

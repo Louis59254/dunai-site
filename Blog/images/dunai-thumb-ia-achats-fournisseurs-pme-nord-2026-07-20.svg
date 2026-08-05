@@ -855,11 +855,11 @@
   <text x="52" y="130" font-family="'DM Sans', Arial, sans-serif" font-size="18" font-weight="500" fill="#F97316" letter-spacing="2">IA &amp; ACHATS · PME NORD</text>
   <text x="52" y="220" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-2">Achats et fournisseurs :</text>
   <text x="52" y="295" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="58" font-weight="800" letter-spacing="-2"><tspan fill="#ffffff">ce que l'IA </tspan><tspan fill="#EA580C">fait gagner</tspan></text>
-  <text x="52" y="365" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="300" fill="rgba(255,255,255,0.65)" letter-spacing="-0.3">Commandes, factures, litiges : le back-office achat automatise</text>
+  <text x="52" y="365" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="300" fill="rgba(255,255,255,0.65)" letter-spacing="-0.3">Commandes, factures, litiges : le back-office achats, automatisé</text>
   <line x1="52" y1="430" x2="600" y2="430" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
   <text x="52" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">4,2h</text>
   <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">perdues/salarié/jour</text>
-  <text x="230" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4</text>
+  <text x="230" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×3</text>
   <text x="230" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">ROI sur 12 mois</text>
   <text x="370" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
   <text x="370" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">avant premiers gains</text>

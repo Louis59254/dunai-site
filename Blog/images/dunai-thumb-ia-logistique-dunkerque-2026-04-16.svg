@@ -25,11 +25,11 @@
   <line x1="52" y1="316" x2="700" y2="316" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <text x="52"  y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">+28h/mois</text>
   <text x="52"  y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">temps récupéré (18 sal.)</text>
-  <text x="280" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">18 000€/an</text>
+  <text x="280" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">11 800€/an</text>
   <text x="280" y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">économisés</text>
   <text x="520" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
   <text x="520" y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
-  <text x="680" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×4 ROI</text>
+  <text x="680" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×3 ROI</text>
   <text x="680" y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
   <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
 </svg>

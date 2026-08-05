@@ -18,13 +18,13 @@
   <text x="52" y="68" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#F97316" letter-spacing="2">ROI &amp; CHIFFRES · PME NORD</text>
   <text x="52" y="120" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-2">ROI de l'IA :</text>
   <text x="52" y="192" font-family="Arial Black, sans-serif" font-size="56" font-weight="800" letter-spacing="-2">
-    <tspan fill="#EA580C">×4</tspan><tspan fill="#ffffff"> sur 12 mois</tspan>
+    <tspan fill="#EA580C">×3</tspan><tspan fill="#ffffff"> sur 12 mois</tspan>
   </text>
   <text x="52" y="258" font-family="Arial, sans-serif" font-size="23" font-weight="300" fill="rgba(255,255,255,0.6)" letter-spacing="-0.3">Chiffres réels observés sur 12 mois d'automatisation</text>
   <line x1="52" y1="310" x2="580" y2="310" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
   <text x="52" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">+28h</text>
   <text x="52" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">récupérées / mois</text>
-  <text x="210" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">18k€</text>
+  <text x="210" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#EA580C">11,8k€</text>
   <text x="210" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">économisés / an</text>
   <text x="370" y="378" font-family="Arial Black, sans-serif" font-size="30" font-weight="800" fill="#4ADE80">68%</text>
   <text x="370" y="406" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.45)">PME non automatisées</text>

@@ -42,13 +42,13 @@
   </text>
   <text x="52" y="295" font-family="'Plus Jakarta Sans', Arial Black, sans-serif"
         font-size="58" font-weight="800" letter-spacing="-2">
-    <tspan fill="#ffffff">se met a jour </tspan><tspan fill="#EA580C">tout seul</tspan>
+    <tspan fill="#ffffff">se met à jour </tspan><tspan fill="#EA580C">tout seul</tspan>
   </text>
 
   <!-- Sous-titre -->
   <text x="52" y="365" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="300"
         fill="rgba(255,255,255,0.65)" letter-spacing="-0.3">
-    Reporting automatise par IA pour dirigeants de PME du Nord
+    Reporting automatisé par IA pour dirigeants de PME du Nord
   </text>
 
   <!-- Separateur bas -->
@@ -56,9 +56,9 @@
 
   <!-- Stats -->
   <text x="52" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">4,2h</text>
-  <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">perdues/salarie/jour</text>
+  <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">perdues/salarié/jour</text>
 
-  <text x="300" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">&#215;4</text>
+  <text x="300" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">&#215;3</text>
   <text x="300" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">ROI sur 12 mois</text>
 
   <text x="460" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">6 sem.</text>
