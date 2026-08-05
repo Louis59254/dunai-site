@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://dunai.fr/traiteur/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -111,13 +111,13 @@
   </url>
   <url>
     <loc>https://dunai.fr/tarifs/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dunai.fr/contact/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -156,5 +156,41 @@
     <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dunai.fr/Blog/dunai-article-service-client-ia-pme-nord-2026-06-29.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dunai.fr/Blog/dunai-article-ia-maintenance-predictive-industrie-nord-2026-06-15.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dunai.fr/Blog/dunai-article-reporting-ia-pme-nord-2026-07-06.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dunai.fr/Blog/dunai-article-ia-recrutement-rh-pme-nord-2026-07-13.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dunai.fr/Blog/dunai-article-ia-achats-fournisseurs-pme-nord-2026-07-20.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dunai.fr/Blog/dunai-article-ia-appels-offres-pme-nord-2026-08-03.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
