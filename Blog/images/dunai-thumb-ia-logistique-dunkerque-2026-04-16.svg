@@ -1,35 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <radialGradient id="glow" cx="30%" cy="50%" r="62%">
-      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.27"/>
+    <radialGradient id="glow" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.25"/>
       <stop offset="100%" stop-color="#0C0A09" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1.5" fill="#EA580C" opacity="0.13"/>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#EA580C" opacity="0.12"/>
     </pattern>
   </defs>
   <rect width="1200" height="630" fill="#0C0A09"/>
   <rect width="1200" height="630" fill="url(#dots)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
-  <circle cx="1070" cy="370" r="240" fill="#EA580C" opacity="0.04"/>
-  <circle cx="1070" cy="370" r="155" fill="#EA580C" opacity="0.05"/>
-  <circle cx="1070" cy="370" r="72"  fill="#EA580C" opacity="0.08"/>
   <rect x="0" y="0" width="8" height="630" fill="#EA580C"/>
-  <line x1="52" y1="38" x2="340" y2="38" stroke="#EA580C" stroke-width="1.5" opacity="0.35"/>
-  <text x="52" y="58" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#F97316" letter-spacing="2.5">LOGISTIQUE · DUNKERQUE · IA</text>
-  <text x="52" y="128" font-family="Arial Black, sans-serif" font-size="62" font-weight="800" fill="#ffffff" letter-spacing="-2">IA et logistique :</text>
-  <text x="52" y="204" font-family="Arial Black, sans-serif" font-size="62" font-weight="800" letter-spacing="-2">
-    <tspan fill="rgba(255,255,255,0.9)">cas concrets </tspan><tspan fill="#EA580C">Dunkerque</tspan>
+  <!-- Logo Dunai en haut a gauche -->
+  <text x="52" y="72" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="36" font-weight="800" letter-spacing="-1">
+    <tspan fill="#ffffff">Dun</tspan><tspan fill="#EA580C">ai</tspan>
   </text>
-  <text x="52" y="272" font-family="Arial, sans-serif" font-size="22" font-weight="300" fill="rgba(255,255,255,0.54)" letter-spacing="-0.3">Optimisation de flux, traçabilité et gains mesurés sur le terrain</text>
-  <line x1="52" y1="316" x2="700" y2="316" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="52"  y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">+28h/mois</text>
-  <text x="52"  y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">temps récupéré (18 sal.)</text>
-  <text x="280" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">11 800€/an</text>
-  <text x="280" y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">économisés</text>
-  <text x="520" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
-  <text x="520" y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">tâches répétitives</text>
-  <text x="680" y="378" font-family="Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×3 ROI</text>
-  <text x="680" y="406" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">sur 12 mois</text>
-  <text x="1148" y="598" font-family="Arial, sans-serif" font-size="19" font-weight="600" fill="rgba(255,255,255,0.3)" text-anchor="end">dunai.fr</text>
+  <line x1="52" y1="90" x2="320" y2="90" stroke="#EA580C" stroke-width="2" opacity="0.4"/>
+  <text x="52" y="130" font-family="'DM Sans', Arial, sans-serif" font-size="18" font-weight="500" fill="#F97316" letter-spacing="2">LOGISTIQUE · DUNKERQUE · IA</text>
+  <text x="52" y="220" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="58" font-weight="800" letter-spacing="-2"><tspan fill="#ffffff">IA et logistique :</tspan></text>
+  <text x="52" y="295" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="58" font-weight="800" letter-spacing="-2"><tspan fill="rgba(255,255,255,0.9)">cas concrets </tspan><tspan fill="#EA580C">Dunkerque</tspan></text>
+  <text x="52" y="365" font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="300" fill="rgba(255,255,255,0.65)" letter-spacing="-0.3">Optimisation de flux, traçabilité et gains mesurés sur le terrain</text>
+  <line x1="52" y1="430" x2="600" y2="430" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="52" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">+28h/mois</text>
+  <text x="52" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">temps récupéré (18 sal.)</text>
+  <text x="296" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">11 800€/an</text>
+  <text x="296" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">économisés</text>
+  <text x="534" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">-73%</text>
+  <text x="534" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">tâches répétitives</text>
+  <text x="728" y="490" font-family="'Plus Jakarta Sans', Arial Black, sans-serif" font-size="32" font-weight="800" fill="#EA580C">×3 ROI</text>
+  <text x="728" y="520" font-family="'DM Sans', Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">sur 12 mois</text>
+  <text x="1148" y="590" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="600" fill="rgba(255,255,255,0.35)" text-anchor="end">dunai.fr</text>
+  <circle cx="1100" cy="420" r="180" fill="#EA580C" opacity="0.06"/>
+  <circle cx="1100" cy="420" r="120" fill="#EA580C" opacity="0.06"/>
+  <circle cx="1100" cy="420" r="60" fill="#EA580C" opacity="0.08"/>
 </svg>

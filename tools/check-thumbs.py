@@ -53,7 +53,50 @@ UNACCENTED = [
     "a votre place", "deja", "grace a",
 ]
 
-BRAND_REQUIRED = ["dunai.fr"]
+BRAND_REQUIRED = ["dunai.fr", ">dun<"]  # pied de page + logo Dunai en haut
+
+# Règles pour les ARTICLES HTML (contenu) : mêmes canons, sans les
+# faux positifs des textes longs (« 2 jours » de formation est légitime,
+# « garanti » n'est interdit qu'accolé au ROI).
+ARTICLE_FORBIDDEN = [
+    (re.compile(r" — "), "tiret cadratin (interdit sur tout le site)"),
+    (re.compile(r"(?<![\w/#-])[x×]4(?![0-9A-Za-z])"), "ROI ×4 : le chiffre canon est ×3"),
+    (re.compile(r"&#215;4"), "ROI ×4 (entité) : le chiffre canon est ×3"),
+    (re.compile(r"ROI\s+(×\d\s+)?garanti", re.I), "« ROI garanti » : promesse interdite"),
+    (re.compile(r"ne ratez pas|vous êtes en retard|trop tard pour", re.I),
+     "formulation anxiogène (ligne éditoriale : jamais de peur)"),
+    (re.compile(r"audit[^.<]{0,25}2 jours|2 jours[^.<]{0,20}d'audit", re.I),
+     "audit « 2 jours » : l'offre réelle est 2h sur site ou en visio"),
+]
+
+
+def check_article(path: Path):
+    """Contrôle de contenu d'un article ou index de blog."""
+    errors = []
+    raw = path.read_text(encoding="utf-8")
+    plain = decode(raw)
+    for rx, why in ARTICLE_FORBIDDEN:
+        m = rx.search(plain)
+        if m:
+            errors.append(f"contenu interdit « {m.group(0).strip()} » : {why}")
+    # Accents : uniquement sur le texte visible (pas les classes CSS ni les slugs),
+    # avec frontière de mot (« préqualifie » ne doit pas matcher « qualifie »)
+    visible = re.sub(r"<(?:style|script)[^>]*>.*?</(?:style|script)>", " ",
+                     plain, flags=re.S)
+    visible = re.sub(r"<[^>]+>", " ", visible).lower()
+    # « qualifie(s) » est aussi un verbe correctement orthographié sans accent
+    for w in UNACCENTED:
+        if w.strip() in ("qualifie", "qualifies"):
+            continue
+        if re.search(r"\b" + re.escape(w.strip()) + r"\b", visible):
+            errors.append(f"accent manquant : « {w.strip()} » trouvé sans accent")
+    # 18 000 € lié au canon 28h/mois (42h → 18k€ reste légitime)
+    for m in re.finditer(r"18\s?000\s?€|18\s?k€", plain):
+        win = plain[max(0, m.start() - 450):m.start()]
+        near = plain[max(0, m.start() - 160):m.start()]
+        if ("28h" in win or "28 h" in win or "18 sal" in win) and "42h" not in near and "42 h" not in near:
+            errors.append("« 18 000 € » associé à 28h/mois : le canon est 11 800 €/an")
+    return errors
 
 
 def decode(s: str) -> str:
@@ -223,22 +266,26 @@ def main():
         except Exception:
             sys.exit(0)
         fp = (payload.get("tool_input") or {}).get("file_path", "")
-        if not re.search(r"dunai-thumb-.*\.svg$", fp):
+        is_thumb = bool(re.search(r"dunai-thumb-.*\.svg$", fp))
+        is_article = bool(re.search(r"[Bb]log/.*\.html$", fp))
+        if not (is_thumb or is_article):
             sys.exit(0)
         path = Path(fp)
         if not path.exists():
             sys.exit(0)
-        errs = check_file(path)
+        errs = check_file(path) if is_thumb else check_article(path)
         if errs:
-            print(f"Vignette {path.name} refusée par tools/check-thumbs.py :",
+            kind = "Vignette" if is_thumb else "Article"
+            print(f"{kind} {path.name} refusé par tools/check-thumbs.py :",
                   file=sys.stderr)
             for e in errs:
                 print(f"  - {e}", file=sys.stderr)
-            print("Corrige le SVG puis réécris-le : le visuel doit être parfait "
-                  "avant publication.", file=sys.stderr)
+            print("Corrige le fichier puis réécris-le : contenu et visuel doivent "
+                  "être parfaits avant publication.", file=sys.stderr)
             sys.exit(2)  # exit 2 = feedback bloquant renvoyé à l'agent
-        # Vignette valide : génère le PNG jumeau pour l'og:image des réseaux sociaux
-        render_png(path)
+        if is_thumb:
+            # Vignette valide : génère le PNG jumeau pour l'og:image des réseaux sociaux
+            render_png(path)
         sys.exit(0)
 
     if args:
