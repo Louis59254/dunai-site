@@ -8,9 +8,9 @@ function closeMenu() {
 }
 
 const auditData = [
-  { title:'Exemple : PME Logistique 18 salariés', findings:[{label:'Opportunité n°1',text:'Relances clients : 3h/sem passées à envoyer des emails de relance manuelle depuis Outlook',gain:'↑ Gain estimé : 3h/sem · ROI en 3 semaines'},{label:'Opportunité n°2',text:'Bons de livraison : saisie manuelle dans le TMS depuis des PDF reçus chaque matin',gain:'↑ Gain estimé : 1h30/jour · ROI en 5 semaines'},{label:'Opportunité n°3',text:'Reporting hebdo : 4h chaque vendredi à compiler des tableaux Excel depuis 3 sources',gain:'↑ Gain estimé : 4h/sem · ROI en 4 semaines'}], total:'+28h / mois'},
+  { title:'Exemple : PME Logistique 18 salariés', findings:[{label:'Opportunité n°1',text:'Relances clients : 3h/sem passées à envoyer des emails de relance manuelle depuis Outlook',gain:'↑ Gain estimé : 3h/sem · remboursé en 3 semaines'},{label:'Opportunité n°2',text:'Bons de livraison : saisie manuelle dans le TMS depuis des PDF reçus chaque matin',gain:'↑ Gain estimé : 1h30/jour · remboursé en 5 semaines'},{label:'Opportunité n°3',text:'Reporting hebdo : 4h chaque vendredi à compiler des tableaux Excel depuis 3 sources',gain:'↑ Gain estimé : 4h/sem · remboursé en 4 semaines'}], total:'+28h / mois'},
   { title:'Cartographie : PME Commerce 12 salariés', findings:[{label:'Flux A',text:'Commandes reçues par email → saisie manuelle dans le logiciel de gestion',gain:'↑ Volume : 40 commandes/sem · 20 min chacune = 13h/sem'},{label:'Flux B',text:'Confirmations de livraison saisies 2× (email + ERP), doublon chronophage',gain:'↑ Gain estimé : 3h/sem en automatisant la synchro'},{label:'Flux C',text:'Inventaire mensuel : comptage + Excel + mise à jour ERP = 2 jours',gain:'↑ Gain estimé : 1,5 jour/mois par automatisation'}], total:'+18h / mois'},
-  { title:'Priorisation : Cabinet services 8 salariés', findings:[{label:'🔥 Impact fort · Faisabilité haute',text:'Automatisation devis (45 min → 3 min) · Intégration Make + GPT + envoi auto',gain:'↑ ROI estimé : 6 semaines · Gain : 12h/sem'},{label:'🟠 Impact moyen · Faisabilité haute',text:'Relances impayés : séquence auto J+30/60/90 · Stripe + Gmail',gain:'↑ ROI estimé : 3 semaines · Gain : 2h/sem'},{label:'🟡 Impact fort · Faisabilité moyenne',text:'Reporting mensuel : consolidation multi-sources + envoi dirigeants',gain:'↑ ROI estimé : 8 semaines · Gain : 4h/mois'}], total:'+14h / semaine'},
+  { title:'Priorisation : Cabinet services 8 salariés', findings:[{label:'🔥 Impact fort · Faisabilité haute',text:'Automatisation devis (45 min → 3 min) · Intégration Make + GPT + envoi auto',gain:'↑ remboursé en ≈ 6 semaines · Gain : 12h/sem'},{label:'🟠 Impact moyen · Faisabilité haute',text:'Relances impayés : séquence auto J+30/60/90 · Stripe + Gmail',gain:'↑ remboursé en ≈ 3 semaines · Gain : 2h/sem'},{label:'🟡 Impact fort · Faisabilité moyenne',text:'Reporting mensuel : consolidation multi-sources + envoi dirigeants',gain:'↑ remboursé en ≈ 8 semaines · Gain : 4h/mois'}], total:'+14h / semaine'},
   { title:'Rapport final : Recommandations prioritaires', findings:[{label:'Action immédiate (sem. 1–2)',text:'Agent commercial : relances + devis. Intégration en 5 jours sur votre CRM.',gain:'↑ Gain immédiat : 12h/sem dès la 3e semaine'},{label:'Action court terme (mois 2)',text:'Agent administratif : factures + saisie ERP. Compatible Sage/Cegid.',gain:'↑ +8h/sem · 9 600€/an économisés'},{label:'Action moyen terme (mois 3–4)',text:'Agent reporting + dashboard dirigeants. Connexion à vos 3 sources.',gain:'↑ 4h libérées/sem · décisions plus rapides'}], total:'ROI estimé ×3 à ×4 sur 12 mois'}
 ];
 function selectStep(el,idx) {
@@ -166,6 +166,8 @@ function calcUpdateResult() {
     document.getElementById('calcAnnual').textContent = annual.toLocaleString('fr-FR') + ' €';
     document.getElementById('calcHours').textContent = recH + 'h';
     document.getElementById('calcMonthly').textContent = monthly.toLocaleString('fr-FR') + ' €';
+    const cpb = document.getElementById('calcPayback');
+    if (cpb && monthly > 0) { cpb.textContent = Math.max(1, Math.ceil(2990 / monthly)) + ' mois'; }
   }
 }
 
@@ -276,6 +278,8 @@ function mcRender(hpw) {
   // détail
   document.getElementById('mcBdTime').textContent = hpw + ' h/sem · ~' + Math.round(monthlyTotal) + ' h/mois';
   document.getElementById('mcBdAuto').textContent = monthlyRec + ' h/mois récupérables';
+  const pb = document.getElementById('mcPaybackMonths');
+  if (pb && monthlyCost > 0) { const mo = Math.max(1, Math.ceil(2990 / monthlyCost)); pb.textContent = mo + (mo > 1 ? ' mois' : ' mois'); }
   document.getElementById('mcBdMonthly').textContent = monthlyCost.toLocaleString('fr-FR') + ' €/mois';
   document.getElementById('mcBdAnnual').textContent = annual.toLocaleString('fr-FR') + ' €/an';
 
@@ -310,6 +314,7 @@ async function handleSubmit(arg) {
     secteur: form.querySelector('#f-secteur')?.value || '',
     taille: form.querySelector('#f-taille')?.value || '',
     message: val('f-message'),
+    objet: form.querySelector('#f-objet')?.value || '',
     consentement: !!(consent && consent.checked),
     source: 'Site dunai.fr', date: new Date().toLocaleString('fr-FR')
   };
@@ -353,3 +358,12 @@ async function handleSubmit(arg) {
   updateSticky();
 })();
 
+
+// préremplissage de l'objet via ?objet=
+(function () {
+  const sel = document.getElementById('f-objet');
+  if (!sel) return;
+  const o = new URLSearchParams(location.search).get('objet');
+  if (o === 'formation') sel.value = 'Formation IA';
+  else if (o === 'logiciel') sel.value = 'Logiciel sur mesure';
+})();
