@@ -663,3 +663,12 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 .sw-link { font-weight: 700; font-size: 14px; color: var(--flamme); margin-top: .25rem; }
 .swcard:hover .sw-link { text-decoration: underline; }
 @media (min-width: 760px) { .swgrid { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+
+
+/* ── Footer SEO : zones, secteurs, solutions ── */
+.footer-seo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 1.75rem 0; margin-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.08); }
+.footer-seo-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .65rem; }
+.footer-seo-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .35rem; }
+.footer-seo-grid a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; transition: color .15s; }
+.footer-seo-grid a:hover { color: var(--flamme-soft, #F97316); }
+@media (max-width: 720px) { .footer-seo-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
