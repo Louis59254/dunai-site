@@ -138,3 +138,23 @@ lot) et corrigées : ×4→×3, 18 000→11 800 €/an, accents restaurés (appe
 d'offres, recrutement, reporting, service client), tirets cadratins supprimés,
 « 2 jours »→2h, « ROI garanti » supprimé, label collé décollé (Dunkerque),
 label erroné facturation, pied dunai.fr ajouté sur IA Act. 23/23 vertes.
+
+## Passe SEO Hauts-de-France (2026-08-05, commit 025aef9)
+
+20 nouvelles pages, contenu différencié (pas des clones) :
+- **9 villes** : /agence-ia-{lille,calais,boulogne-sur-mer,saint-omer,hazebrouck,arras,lens,valenciennes,amiens}/
+  (tissu éco local réel, cas d'usage adaptés, FAQ locale, Service JSON-LD areaServed ville).
+  Dunkerque conservée telle quelle (page historique).
+- **8 secteurs** : /ia-{industrie,logistique-transport,btp-artisans,commerce,restauration-traiteurs,professions-liberales,sante,services-b2b}/
+  (douleurs, chiffres canon mesurés uniquement, 3 articles blog liés chacun, FAQ métier).
+- **3 offres** : /crm-sur-mesure/ (tarifs = catalogue traiteur en référence),
+  /accompagnement-ia/ (audit → Pack Déclic → suivi mensuel ; Référent IA 3 900 € déductible),
+  /automatisation-ia-hauts-de-france/ (pilier : liens villes+secteurs+solutions).
+- **Maillage** : footer 3 colonnes (Zones/Secteurs/Solutions, 27 liens) sur toutes les pages
+  standard + ligne SEO sur /traiteur/ ; section « Hauts-de-France » sur la home (18 pills liens) ;
+  areaServed business élargi (10 villes + Nord/Pas-de-Calais/Somme) ; sitemap 53 URLs.
+- Générateurs : /tmp/seo/*.py (jetables). Article prospection inexistant (vignette orpheline
+  dunai-thumb-ia-prospection-*) : lien remplacé, article à écrire (candidat plan édito).
+
+Louis (rappel toujours en attente) : GA4, Search Console + soumission sitemap (53 URLs
+maintenant), Google Business Profile. Ces trois-là comptent plus que tout pour le local.
