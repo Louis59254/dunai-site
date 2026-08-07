@@ -672,3 +672,23 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 .footer-seo-grid a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; transition: color .15s; }
 .footer-seo-grid a:hover { color: var(--flamme-soft, #F97316); }
 @media (max-width: 720px) { .footer-seo-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+
+/* ── Optimisations mobile (lisibilité + conversion) ── */
+@media (max-width: 640px) {
+  /* iOS ne zoome plus au focus : 16px minimum sur les champs de saisie */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select, textarea { font-size: 16px !important; }
+  .field-checkbox input[type="checkbox"], #rgpdConsent { width: 20px; height: 20px; }
+  /* Pills de liens : cible tactile confortable */
+  a.sector-pill { font-size: 13px; padding: 8px 14px; display: inline-block; }
+  /* Mockup du hero : micro-textes lisibles */
+  .atask-desc, .atask-gain, .af-label { font-size: 11px; }
+  /* Tableau avant/après (home) : colonne secteur masquée, table plus compacte */
+  .ba-table-home th:nth-child(2), .ba-table-home td:nth-child(2) { display: none; }
+  .ba-table-home { min-width: 430px; }
+  /* Tableau des tarifs : colonne durée masquée, les prix restent entiers */
+  .prix-table th:nth-child(2), .prix-table td:nth-child(2) { display: none; }
+  .prix-table { min-width: 0 !important; }
+  /* Indice de glissement sur tout tableau scrollable */
+  .ba-scroll::before { content: "◂ faites glisser ▸"; position: sticky; left: 8px; display: inline-block; font-size: 11px; color: var(--brun); padding: 6px 8px 2px; }
+}

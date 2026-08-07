@@ -540,6 +540,9 @@ footer{background:var(--noir);color:rgba(255,255,255,.6);padding:3.5rem 0 2.25re
 .pcard .psetup b{color:var(--encre)}
 .pcard .pcta{margin-top:auto}
 @media(min-width:760px){.price-grid3{grid-template-columns:repeat(3,1fr)}}
+
+/* zoom iOS : 16px minimum sur les champs en mobile */
+@media (max-width:640px){ input:not([type=checkbox]):not([type=radio]), select, textarea { font-size:16px !important } }
 </style>
 </head>
 <body>
