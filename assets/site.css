@@ -19,10 +19,10 @@ button, a { cursor: pointer; }
 /* NAV */
 nav { position: fixed; top: 12px; left: 0; right: 0; z-index: 200; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
 nav > * { pointer-events: all; }
-.nav-logo { cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(12,10,9,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); padding: 7px 16px; border-radius: var(--r-full); transition: border-color .2s; }
+.nav-logo { cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; background: rgba(12,10,9,0.92); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); padding: 8px 18px; border-radius: var(--r-full); transition: border-color .2s, box-shadow .2s; box-shadow: 0 8px 28px rgba(12,10,9,0.22), inset 0 1px 0 rgba(255,255,255,0.06); }
 .nav-logo:hover { border-color: rgba(255,255,255,0.2); }
-.nav-logo img { height: 28px; width: auto; display: block; }
-.nav-pill { display: flex; align-items: center; gap: 4px; background: rgba(12,10,9,0.85); backdrop-filter: blur(20px); border: 1px solid var(--border-dark); border-radius: var(--r-full); padding: 4px 5px; }
+.nav-logo img { height: 24px; width: auto; display: block; }
+.nav-pill { display: flex; align-items: center; gap: 4px; background: rgba(12,10,9,0.92); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-full); padding: 4px 5px; box-shadow: 0 8px 28px rgba(12,10,9,0.22), inset 0 1px 0 rgba(255,255,255,0.06); }
 .nav-links-desktop { display: none; gap: 2px; list-style: none; align-items: center; }
 .nav-links-desktop a { font-size: 13px; color: rgba(255,255,255,0.64); text-decoration: none; cursor: pointer; font-weight: 400; padding: 7px 13px; border-radius: var(--r-full); display: block; transition: all .18s; white-space: nowrap; }
 .nav-links-desktop a:hover { color: var(--blanc); background: rgba(255,255,255,0.08); }
@@ -41,7 +41,7 @@ nav > * { pointer-events: all; }
 .mobile-menu-cta { margin-top: 16px; background: var(--flamme); color: var(--blanc) !important; font-size: 18px !important; font-weight: 600 !important; padding: 16px 32px !important; border-radius: var(--r-full) !important; }
 
 /* PAGES */
-.page { display: none; padding-top: 60px; animation: fadeUp .35s ease; }
+.page { display: none; padding-top: 0; animation: fadeUp .35s ease; }
 .page.active { display: block; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
 .section { padding: 3.5rem 1.25rem; }
@@ -64,7 +64,7 @@ nav > * { pointer-events: all; }
 .btn-transparent:hover { border-color: white; color: white; }
 
 /* HERO */
-.hero { background: var(--noir); min-height: 100svh; padding: 5rem 1.25rem 3rem; position: relative; overflow: hidden; display: flex; align-items: center; }
+.hero { background: var(--noir); min-height: 100svh; padding: 7rem 1.25rem 3rem; position: relative; overflow: hidden; display: flex; align-items: center; }
 .hero-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(234,88,12,0.13) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
 .hero-glow { position: absolute; top: -150px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(234,88,12,0.18) 0%, transparent 70%); pointer-events: none; }
 .hero-inner { max-width: 1160px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
@@ -419,7 +419,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 .counter-l { font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.5; }
 
 /* PAGE HERO */
-.page-hero-dark { background: var(--noir); padding: 5rem 1.25rem 3.5rem; }
+.page-hero-dark { background: var(--noir); padding: 7rem 1.25rem 3.5rem; }
 
 /* BLOG */
 .blog-filter { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; margin-top: .5rem; }
@@ -463,7 +463,7 @@ footer { background: var(--noir); padding: 3.5rem 1.25rem 2.25rem; border-top: 1
 /* RESPONSIVE 640px */
 @media (min-width: 640px) {
   .section { padding: 4rem 2rem; }
-  .hero { padding: 5rem 2rem 3rem; }
+  .hero { padding: 7.5rem 2rem 3rem; }
   .urgence { padding: 2rem; }
   .urgence-inner { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 2rem; }
   .urgence-stats { grid-template-columns: auto auto auto auto; }
