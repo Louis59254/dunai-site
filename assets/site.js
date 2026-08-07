@@ -329,13 +329,8 @@ async function handleSubmit(arg) {
   try {
     const response = await fetch(WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:ctrl.signal });
     if (!response.ok) throw new Error('HTTP '+response.status);
-    btn.textContent = '✓ Demande reçue, on revient vers vous sous 24h !'; btn.style.background = '#16A34A';
-    setTimeout(() => {
-      form.querySelectorAll('.field-input,.field-textarea').forEach(el => el.value = '');
-      form.querySelectorAll('.field-select').forEach(el => el.value = '');
-      if (consent) consent.checked = false;
-      btn.textContent = original; btn.style.background = ''; btn.disabled = false;
-    }, 3000);
+    btn.textContent = '✓ Demande reçue !'; btn.style.background = '#16A34A';
+    setTimeout(() => { window.location.href = '/merci/'; }, 600);
   } catch (err) {
     showErr('Erreur réseau, réessayez ou écrivez-nous à <a href="mailto:contact@dunai.fr" style="color:#DC2626;text-decoration:underline">contact@dunai.fr</a>.');
     btn.textContent = original; btn.disabled = false;
@@ -359,11 +354,115 @@ async function handleSubmit(arg) {
 })();
 
 
-// préremplissage de l'objet via ?objet=
+// préremplissage de l'objet via ?objet= et de l'estimation via ?estimation=
 (function () {
+  const params = new URLSearchParams(location.search);
   const sel = document.getElementById('f-objet');
-  if (!sel) return;
-  const o = new URLSearchParams(location.search).get('objet');
-  if (o === 'formation') sel.value = 'Formation IA';
-  else if (o === 'logiciel') sel.value = 'Logiciel sur mesure';
+  if (sel) {
+    const o = params.get('objet');
+    if (o === 'formation') sel.value = 'Formation IA';
+    else if (o === 'logiciel') sel.value = 'Logiciel sur mesure';
+  }
+  const est = params.get('estimation');
+  const msg = document.getElementById('f-message');
+  if (est && msg && !msg.value) {
+    const parts = est.split('|');
+    msg.value = "D'après le calculateur : " + (parts[0] || 'tâches répétitives') +
+      (parts[1] ? ', environ ' + parts[1] + ' h/semaine' : '') +
+      (parts[2] ? ', soit ' + parts[2] + ' €/an.' : '.');
+  }
+})();
+
+// CTA du calculateur : transmet l'estimation au formulaire
+window.calcGoContact = function () {
+  try {
+    const total = document.getElementById('calcTotal') || document.getElementById('calcAnnual') || document.querySelector('.calc-result-n');
+    const val = total ? total.textContent.replace(/[^0-9 ]/g, '').trim() : '';
+    window.location.href = '/contact/?estimation=' + encodeURIComponent('tâches sélectionnées||' + val);
+  } catch (e) { window.location.href = '/contact/'; }
+};
+
+
+// envoi de l'estimation du calculateur par email (webhook n8n, type=estimation)
+window.calcSendEstimate = async function () {
+  const input = document.getElementById('calcEmail');
+  const msg = document.getElementById('calcEmailMsg');
+  if (!input || !input.value.includes('@')) { if (input) input.style.borderColor = '#DC2626'; return; }
+  input.style.borderColor = '';
+  const total = document.getElementById('calcTotal') || document.getElementById('calcAnnual') || document.querySelector('.calc-result-n');
+  try {
+    await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'estimation', email: input.value.trim(),
+        estimation: total ? total.textContent.trim() : '',
+        source: 'Calculateur dunai.fr', date: new Date().toLocaleString('fr-FR') }) });
+    if (msg) msg.style.display = 'block';
+    input.value = '';
+  } catch (e) {
+    if (msg) { msg.style.display = 'block'; msg.style.color = '#DC2626'; msg.textContent = "Erreur réseau : réessayez ou écrivez à contact@dunai.fr"; }
+  }
+};
+
+
+// ── Reveal on scroll + compteurs animés (revue 2026-08-07) ──
+(function initReveal() {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const SELECTORS = '.reconnait-item, .reconnait-card, .agent-card, .temo-card, .tarif-card, .roi-card, .process3-item, .garantie-item, .blog-card, .swcard, .pourquoi-col, .counter-item, .minicalc-box, .faq-item';
+  const cards = document.querySelectorAll(SELECTORS);
+  cards.forEach(el => el.classList.add('reveal'));
+
+  function animateCount(el) {
+    const raw = el.textContent.trim();
+    const m = raw.match(/^([^0-9]*)([\d\s.,]+)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[2].replace(/\s/g, '').replace(',', '.'));
+    if (!isFinite(target) || target === 0) return;
+    const decimals = (m[2].includes(',') || m[2].includes('.')) ? 1 : 0;
+    const dur = 900, t0 = performance.now();
+    function frame(t) {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      let val = (target * eased).toFixed(decimals);
+      val = decimals ? val.replace('.', ',') : Number(val).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g, ' ');
+      el.textContent = m[1] + val + m[3];
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = raw;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const counted = new WeakSet();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      if (el.classList.contains('reveal')) {
+        const siblings = Array.from(el.parentElement ? el.parentElement.children : []).filter(c => c.classList.contains('reveal'));
+        const idx = Math.min(siblings.indexOf(el), 5);
+        el.style.transitionDelay = (idx > 0 ? idx * 70 : 0) + 'ms';
+        el.classList.add('in');
+        setTimeout(() => { el.style.transitionDelay = ''; }, 950);
+      }
+      el.querySelectorAll('.stat-n, .counter-n, .u-stat .n').forEach(n => {
+        if (!counted.has(n)) { counted.add(n); animateCount(n); }
+      });
+      io.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
+
+  cards.forEach(el => io.observe(el));
+  document.querySelectorAll('.hero-stats, .counter-grid').forEach(el => io.observe(el));
+
+  // filet de sécurité : si l'observer ne répond pas (navigateur exotique),
+  // tout redevient visible après 1,8 s — personne ne doit voir une page vide
+  let ioAlive = false;
+  const orig = io.takeRecords.bind(io);
+  const markAlive = () => { ioAlive = true; };
+  document.addEventListener('scroll', () => {}, { passive: true, once: true });
+  const guard = new IntersectionObserver(() => { ioAlive = true; guard.disconnect(); });
+  guard.observe(document.body);
+  setTimeout(() => {
+    if (!ioAlive) cards.forEach(el => { el.classList.add('in'); });
+  }, 1800);
 })();

@@ -158,3 +158,30 @@ label erroné facturation, pied dunai.fr ajouté sur IA Act. 23/23 vertes.
 
 Louis (rappel toujours en attente) : GA4, Search Console + soumission sitemap (53 URLs
 maintenant), Google Business Profile. Ces trois-là comptent plus que tout pour le local.
+
+## Bloc nginx à coller dans Coolify (revue 2026-08-07, item 4)
+
+Dans Coolify > service dunai.fr > configuration nginx personnalisée :
+
+```nginx
+# vraies 404 (fin du soft-404 hérité de la SPA)
+try_files $uri $uri/ =404;
+error_page 404 /404.html;
+autoindex off;
+
+# blog : casse unifiée
+location = /blog { return 301 /Blog/; }
+location ~ ^/blog/(.+)$ { return 301 /Blog/$1; }
+
+# cache long sur les assets versionnés (?v=), no-cache sur le HTML
+location ~* \.(css|js|svg|webp|png|jpg|woff2)$ {
+  add_header Cache-Control "public, max-age=31536000, immutable";
+}
+location ~* \.html$ {
+  add_header Cache-Control "no-cache";
+}
+```
+
+Après application : tester `curl -I https://dunai.fr/page-inexistante/` (attendu 404),
+`curl -I https://dunai.fr/blog/ai-act-pme-2026/` (attendu 301 → /Blog/...),
+`curl -sI https://dunai.fr/assets/site.css | grep -i cache` (attendu max-age=31536000).
