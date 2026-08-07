@@ -256,6 +256,15 @@
       .final-cta { padding: 52px 20px; }
       footer { padding: 32px 20px; }
     }
+  
+    .footer-seo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 1.75rem 0; margin-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-seo-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .65rem; }
+    .footer-seo-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .35rem; }
+    .footer-seo-grid a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; transition: color .15s; }
+    .footer-seo-grid a:hover { color: #F97316; }
+    .footer-legal a { color: inherit; }
+    @media (max-width: 720px) { .footer-seo-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+
   </style>
 <script type="application/ld+json">
 {
@@ -566,14 +575,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <p>
-    <a href="https://dunai.fr">Dunai</a>, Agence IA &amp; Automatisation · Dunkerque, Hauts-de-France ·
-    <a href="https://dunai.fr/Blog/">Blog</a> ·
-    <a href="https://dunai.fr/contact/">Contact</a>
-  </p>
-  <p style="margin-top:8px;">© 2026 Dunai. Tous droits r&eacute;serv&eacute;s.</p>
-</footer>
+<footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a href="/">Accueil</a></li><li><a href="/agents/">Agents IA</a></li><li><a href="/roi/">Résultats</a></li><li><a href="/tarifs/">Tarifs</a></li><li><a href="/contact/">Contact</a></li><li><a href="/formation-ia/">Formation IA</a></li><li><a href="/Blog/">Blog</a></li></ul></div><div class="footer-seo-grid"><div><p class="footer-seo-title">Zones d'intervention</p><ul><li><a href="/agence-ia-dunkerque/">Dunkerque</a></li><li><a href="/agence-ia-lille/">Lille</a></li><li><a href="/agence-ia-calais/">Calais</a></li><li><a href="/agence-ia-boulogne-sur-mer/">Boulogne-sur-Mer</a></li><li><a href="/agence-ia-saint-omer/">Saint-Omer</a></li><li><a href="/agence-ia-hazebrouck/">Hazebrouck</a></li><li><a href="/agence-ia-arras/">Arras</a></li><li><a href="/agence-ia-lens/">Lens</a></li><li><a href="/agence-ia-valenciennes/">Valenciennes</a></li><li><a href="/agence-ia-amiens/">Amiens</a></li><li><a href="/automatisation-ia-hauts-de-france/">Toute la région</a></li></ul></div><div><p class="footer-seo-title">Secteurs</p><ul><li><a href="/ia-industrie/">Industrie</a></li><li><a href="/ia-logistique-transport/">Logistique & transport</a></li><li><a href="/ia-btp-artisans/">BTP & artisans</a></li><li><a href="/ia-commerce/">Commerce</a></li><li><a href="/ia-restauration-traiteurs/">Restauration & traiteurs</a></li><li><a href="/ia-professions-liberales/">Professions libérales</a></li><li><a href="/ia-sante/">Cabinets de santé</a></li><li><a href="/ia-services-b2b/">Services B2B</a></li></ul></div><div><p class="footer-seo-title">Solutions</p><ul><li><a href="/contact/">Audit IA gratuit</a></li><li><a href="/agents/">Agents IA</a></li><li><a href="/formation-ia/">Formation IA</a></li><li><a href="/crm-sur-mesure/">CRM sur mesure</a></li><li><a href="/traiteur/">CRM Traiteur</a></li><li><a href="/accompagnement-ia/">Accompagnement IA</a></li><li><a href="/calculateur/">Calculateur de gains</a></li><li><a href="/tarifs/">Tarifs</a></li></ul></div></div><div class="footer-copy">© 2026 Dunai · IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a><br><span class="footer-legal"><a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Confidentialité</a></span></div></div></footer>
 
 </body>
 </html>

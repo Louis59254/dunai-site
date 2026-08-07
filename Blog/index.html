@@ -236,6 +236,15 @@
       .blog-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 900px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+  
+    /* Footer SEO : zones, secteurs, solutions */
+    .footer-seo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 1.75rem 0; margin-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-seo-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .65rem; }
+    .footer-seo-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .35rem; }
+    .footer-seo-grid a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; transition: color .15s; }
+    .footer-seo-grid a:hover { color: #F97316; }
+    @media (max-width: 720px) { .footer-seo-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+    
   </style>
 <link rel="icon" href="/images/logo-favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/images/logo-favicon.svg">
