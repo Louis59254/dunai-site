@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion documentaire : ce que l'IA change en PME | Dunai</title>
+  <meta name="description" content="Contrats, bons de livraison, PV, PDF perdus : comment l'IA classe et exploite les documents d'une PME du Nord. Cas concrets, chiffres et ROI mesuré.">
+  <meta property="og:title" content="Gestion documentaire : l'IA range et retrouve">
+  <meta property="og:description" content="Contrats, bons de livraison, PV de chantier, factures fournisseurs : comment l'IA classe, extrait et retrouve les documents d'une PME du Nord. Cas concrets et chiffres.">
+  <meta property="og:image" content="https://dunai.fr/Blog/images/dunai-thumb-ia-gestion-documentaire-pme-nord-2026-08-17.png">
+  <meta name="twitter:image" content="https://dunai.fr/Blog/images/dunai-thumb-ia-gestion-documentaire-pme-nord-2026-08-17.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dunai.fr/Blog/dunai-article-ia-gestion-documentaire-pme-nord-2026-08-17.html">
+  <link rel="stylesheet" href="/assets/fonts.css?v=1">
+
+  <style>
+    :root {
+      --noir:#0C0A09; --anthracite:#1C1917; --dark2:#292524; --dark3:#3C3734;
+      --flamme:#EA580C; --flamme2:#F97316; --flamme-pale:#FFF7ED; --flamme-mid:#FED7AA;
+      --creme:#FAFAF9; --creme2:#F5F5F4; --brun:#78716C; --blanc:#ffffff;
+      --vert:#16A34A; --vert-pale:#DCFCE7;
+      --border-dark:rgba(255,255,255,0.08); --border-light:#E7E5E4;
+      --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:9999px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--noir); background: var(--creme); line-height: 1.75; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12,10,9,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .btn-nav {
+      background: #F54800; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 13px; padding: 9px 20px; border-radius: var(--r-full);
+      text-decoration: none; letter-spacing: 0.3px; transition: opacity .2s;
+    }
+    .btn-nav:hover { opacity: .85; }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar {
+      background: var(--anthracite); padding: 12px 40px; margin-top: 64px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .breadcrumb {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--flamme2); }
+    .breadcrumb .sep { opacity: .4; }
+    .breadcrumb .current { color: rgba(255,255,255,0.7); }
+
+    /* HERO */
+    .hero {
+      background: var(--noir);
+      padding: 80px 40px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(234,88,12,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--flamme2); margin-bottom: 24px;
+    }
+    .kicker-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--flamme);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.75); }
+    }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(32px, 5vw, 52px); letter-spacing: -1.5px; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+    }
+    .hero h1 .hl { color: var(--flamme); }
+    .hero-sub {
+      font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.65);
+      line-height: 1.7; max-width: 640px; margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 40px;
+    }
+    .hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border-dark); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); overflow: hidden;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.03); padding: 20px 24px;
+    }
+    .hero-stat .val {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: 28px; color: var(--flamme); letter-spacing: -1px; display: block;
+    }
+    .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; display: block; }
+
+    /* SECTIONS */
+    .section-white { background: #fff; padding: 72px 40px; }
+    .section-dark { background: var(--anthracite); padding: 72px 40px; }
+    .section-cream2 { background: var(--creme2); padding: 72px 40px; }
+    .section-anth { background: var(--dark2); padding: 72px 40px; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--flamme); margin-bottom: 14px; display: block;
+    }
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(24px, 3.5vw, 36px); letter-spacing: -1px; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-dark h2, .section-anth h2 { color: #fff; }
+    .section-dark .eyebrow, .section-anth .eyebrow { color: var(--flamme2); }
+    .section-dark p, .section-anth p { color: rgba(255,255,255,0.7); }
+    p { line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
+    p:last-child { margin-bottom: 0; }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--flamme-pale); border-left: 3px solid var(--flamme);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .info-box strong { font-weight: 700; color: var(--flamme); }
+    .info-box-dark {
+      background: rgba(234,88,12,0.08); border-left: 3px solid var(--flamme);
+      border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px;
+      margin: 28px 0; color: rgba(255,255,255,0.8);
+    }
+    .info-box-dark strong { color: var(--flamme2); }
+
+    /* SIGNAL GRID */
+    .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+    .signal-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-lg); padding: 20px 22px;
+    }
+    .signal-card .sc-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+    .signal-card .sc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 6px; }
+    .signal-card .sc-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    /* PROCESS LIST */
+    .process-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 0; }
+    .process-item { display: flex; gap: 20px; position: relative; padding-bottom: 32px; }
+    .process-item:last-child { padding-bottom: 0; }
+    .process-item:not(:last-child)::before {
+      content: ''; position: absolute; left: 19px; top: 44px; bottom: 0;
+      width: 2px; background: rgba(234,88,12,0.2);
+    }
+    .process-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--flamme); color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .process-content .pc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; margin-bottom: 6px; color: #fff; }
+    .process-content .pc-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* BA TABLE */
+    .ba-scroll { overflow-x: auto; margin: 32px 0; border-radius: var(--r-lg); border: 1px solid var(--border-dark); }
+    .ba-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    .ba-table thead tr { background: var(--anthracite); }
+    .ba-table th {
+      padding: 14px 20px; text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px;
+      color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase;
+    }
+    .ba-table th.th-after { color: var(--flamme); }
+    .ba-table th.th-gain { color: var(--vert); }
+    .ba-table td { padding: 14px 20px; font-size: 14px; border-top: 1px solid var(--border-dark); }
+    .ba-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .ba-table td.td-label { font-weight: 600; color: rgba(255,255,255,0.85); }
+    .ba-table td.td-before { color: rgba(255,255,255,0.45); }
+    .ba-table td.td-after { color: var(--flamme2); font-weight: 600; }
+    .ba-table td.td-gain { color: var(--vert); font-weight: 700; }
+
+    /* ROI GRID */
+    .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+    .roi-card {
+      background: var(--dark2); border: 1px solid var(--border-dark);
+      border-radius: var(--r-xl); padding: 28px;
+    }
+    .roi-card .rc-tag {
+      display: inline-block; background: rgba(234,88,12,0.15); color: var(--flamme2);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: var(--r-full); margin-bottom: 14px;
+    }
+    .roi-card .rc-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; color: #fff; margin-bottom: 8px; }
+    .roi-card .rc-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; }
+    .roi-results { background: var(--noir); border-radius: var(--r-md); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+    .roi-result-row { display: flex; justify-content: space-between; align-items: center; }
+    .roi-result-row .rr-lbl { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .roi-result-row .rr-val { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: var(--flamme); }
+
+    /* QUOTE BLOCK */
+    .quote-block {
+      border-left: 3px solid var(--flamme); padding: 20px 28px;
+      background: rgba(234,88,12,0.06); border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      margin: 32px 0;
+    }
+    .quote-block blockquote { font-size: 18px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 12px; }
+    .quote-block cite { font-size: 13px; color: var(--flamme2); font-style: normal; font-weight: 600; }
+
+    /* INTERNAL LINKS */
+    .internal-links { background: var(--creme2); border: 1px solid var(--border-light); border-radius: var(--r-xl); padding: 28px 32px; margin: 40px 0; }
+    .internal-links h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 16px; color: var(--noir); }
+    .internal-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .internal-links li a {
+      color: var(--flamme); font-size: 14px; font-weight: 500; text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .internal-links li a:hover { text-decoration: underline; }
+    .internal-links li a::before { content: '→'; opacity: .6; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--flamme); padding: 72px 40px; text-align: center; }
+    .final-cta h2 { color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(26px, 4vw, 40px); letter-spacing: -1px; margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 560px; margin: 0 auto 32px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--flamme); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: var(--r-full); text-decoration: none; transition: opacity .2s; }
+    .btn-white:hover { opacity: .9; }
+    .btn-transparent { background: transparent; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: var(--r-full); text-decoration: none; border: 2px solid rgba(255,255,255,0.4); transition: border-color .2s; }
+    .btn-transparent:hover { border-color: rgba(255,255,255,0.8); }
+
+    /* FOOTER */
+    footer { background: var(--noir); padding: 40px; text-align: center; border-top: 1px solid var(--border-dark); }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: var(--flamme2); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 60px 20px 52px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .section-white, .section-dark, .section-cream2, .section-anth { padding: 52px 20px; }
+      .signal-grid { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: 1fr; }
+      .final-cta { padding: 52px 20px; }
+      footer { padding: 32px 20px; }
+    }
+
+    .footer-seo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 1.75rem 0; margin-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-seo-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .65rem; }
+    .footer-seo-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .35rem; }
+    .footer-seo-grid a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; transition: color .15s; }
+    .footer-seo-grid a:hover { color: #F97316; }
+    .footer-legal a { color: inherit; }
+    @media (max-width: 720px) { .footer-seo-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+
+  </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BlogPosting",
+   "@id": "https://dunai.fr/Blog/dunai-article-ia-gestion-documentaire-pme-nord-2026-08-17.html#article",
+   "headline": "Gestion documentaire : ce que l'IA change dans une PME du Nord",
+   "description": "Contrats, bons de livraison, PV, PDF perdus : comment l'IA classe et exploite les documents d'une PME du Nord. Cas concrets, chiffres et ROI mesuré.",
+   "image": "https://dunai.fr/Blog/images/dunai-thumb-ia-gestion-documentaire-pme-nord-2026-08-17.svg",
+   "datePublished": "2026-08-17",
+   "dateModified": "2026-08-17",
+   "inLanguage": "fr-FR",
+   "mainEntityOfPage": "https://dunai.fr/Blog/dunai-article-ia-gestion-documentaire-pme-nord-2026-08-17.html",
+   "author": {
+    "@type": "Organization",
+    "name": "Dunai",
+    "url": "https://dunai.fr/"
+   },
+   "publisher": {
+    "@id": "https://dunai.fr/#business"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Accueil",
+     "item": "https://dunai.fr/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://dunai.fr/Blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Gestion documentaire et IA"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link rel="icon" href="/images/logo-favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://dunai.fr" aria-label="Dunai, agence IA Dunkerque">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="22" viewBox="0 0 600 180" aria-hidden="true" focusable="false">
+      <text font-family="'Space Grotesk','Plus Jakarta Sans',sans-serif" font-weight="700" font-size="72" y="115.9">
+        <tspan x="201.3" fill="#F54800">Dun</tspan><tspan fill="#ffffff">aı</tspan>
+      </text>
+      <circle cx="390.1" cy="71.3" r="5.2" fill="#F54800"/>
+    </svg>
+  </a>
+  <a class="btn-nav" href="https://dunai.fr/contact/">Audit gratuit</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <a href="https://dunai.fr">Dunai</a>
+    <span class="sep">›</span>
+    <a href="https://dunai.fr/Blog/">Blog</a>
+    <span class="sep">›</span>
+    <span class="current">Gestion documentaire et IA</span>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">
+      <span class="kicker-dot"></span>
+      IA &amp; Gestion documentaire · Dunkerque, Hauts-de-France
+    </div>
+    <h1>Documents en pagaille : <span class="hl">l'IA range et retrouve</span></h1>
+    <p class="hero-sub">
+      Contrats fournisseurs dans un classeur, bons de livraison scannés dans une boîte mail, PV de chantier sur un téléphone, factures dans trois dossiers différents : dans une PME du Nord, l'information existe, mais personne ne la retrouve. L'IA lit, classe, extrait et restitue vos documents pour que la bonne pièce arrive en dix secondes au lieu de vingt minutes. Premiers gains dès 6 semaines.
+    </p>
+    <div class="hero-meta">
+      <span>Dunai</span>
+      <span class="dot"></span>
+      <span>17 août 2026</span>
+      <span class="dot"></span>
+      <span>8 min de lecture</span>
+      <span class="dot"></span>
+      <span>IA &amp; Gestion documentaire</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="val">4,2h</span>
+        <span class="lbl">perdues / salarié / jour</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">−73 %</span>
+        <span class="lbl">de tâches répétitives</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">×3</span>
+        <span class="lbl">ROI sur 12 mois</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">6 sem.</span>
+        <span class="lbl">avant premiers gains</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 1, LE PROBLÈME -->
+<section class="section-white">
+  <div class="section-inner">
+    <span class="eyebrow">Le problème</span>
+    <h2>Vos documents ne sont pas perdus, ils sont introuvables</h2>
+    <p>
+      Dans une PME du Dunkerquois, la matière documentaire est partout. Un transporteur du port accumule des CMR, des bons d'enlèvement et des lettres de voiture. Un industriel de Grande-Synthe empile des fiches de sécurité, des rapports de contrôle et des contrats de sous-traitance. Une entreprise de BTP de Saint-Omer stocke des PV de réception, des plans, des devis signés et des photos de chantier. Un cabinet de santé conserve des ordonnances, des conventions et des attestations. Tout cela existe. Le problème n'est pas la conservation, c'est la restitution.
+    </p>
+    <p>
+      Parce que dans les faits, ces documents vivent dans quatre endroits à la fois : un serveur partagé où chacun a créé son arborescence, une boîte mail où la pièce jointe fait foi, un dossier « Scans » qui contient trois cents fichiers nommés <em>scan_0043.pdf</em>, et le téléphone d'un salarié qui a photographié le bon de livraison sur le quai. Quand un client conteste une livraison, quand l'assureur demande un PV, quand le comptable réclame la facture fournisseur du mois de mars, quelqu'un part à la chasse. Ce quelqu'un est rarement la personne la moins chère de l'entreprise.
+    </p>
+    <p>
+      Un salarié de PME perd déjà en moyenne <strong>4,2 heures par jour</strong> sur des tâches administratives répétitives, et la recherche documentaire en représente une part que personne ne mesure : dix minutes ici, une relance fournisseur là, une ressaisie de références dans le logiciel de gestion, une pièce justificative envoyée deux fois parce que la première s'est perdue. Additionné sur une année et sur une équipe, c'est un poste à temps partiel entier consacré à retrouver ce que l'entreprise possède déjà.
+    </p>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <span class="sc-icon">🗂️</span>
+        <div class="sc-title">Quatre classements pour une seule entreprise</div>
+        <div class="sc-desc">Serveur, boîte mail, cloud personnel, papier : chaque service a sa logique. Personne ne sait où se trouve la version qui fait foi, ni si elle est à jour.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">⌨️</span>
+        <div class="sc-title">Des données ressaisies à la main</div>
+        <div class="sc-desc">Numéro de commande, quantités, dates, références fournisseur : les mêmes informations sont retapées depuis un PDF dans le logiciel de gestion, avec les erreurs qui vont avec.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">⏱️</span>
+        <div class="sc-title">Des recherches qui durent</div>
+        <div class="sc-desc">Retrouver un bon de livraison de l'an dernier prend quinze à trente minutes, mobilise deux personnes et interrompt une réponse client qui attend.</div>
+      </div>
+      <div class="signal-card">
+        <span class="sc-icon">⚖️</span>
+        <div class="sc-title">Des litiges perdus faute de preuve</div>
+        <div class="sc-desc">Le document existait, il n'a pas été retrouvé à temps. Une réserve non tracée, un PV manquant, et c'est l'entreprise qui paie la casse.</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Chiffre clé :</strong> <strong>68 % des PME françaises n'ont encore rien automatisé</strong> et gèrent leurs documents au dossier partagé et à la mémoire des anciens. Pourtant, la lecture et le classement automatiques font partie des automatisations les plus simples à poser, et parmi celles dont le gain se voit dès la première semaine.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2, CE QUE L'IA CHANGE -->
+<section class="section-dark">
+  <div class="section-inner">
+    <span class="eyebrow">La solution IA</span>
+    <h2>Comment l'IA reprend la chaîne documentaire</h2>
+    <p>
+      Automatiser sa gestion documentaire ne veut pas dire acheter une GED à 40 000 € et migrer quinze ans d'archives un week-end. Il s'agit de poser une couche d'IA sur ce que vous avez déjà : votre boîte mail, votre serveur, votre cloud, vos scans. L'IA lit chaque document, comprend de quoi il s'agit, en extrait les informations utiles, le range au bon endroit et le rend interrogeable en langage courant. Voici le déroulé concret, tel qu'on le déploie chez nos clients des Hauts-de-France.
+    </p>
+
+    <ul class="process-list">
+      <li class="process-item">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <div class="pc-title">Capter le document là où il arrive</div>
+          <div class="pc-desc">Pièce jointe d'un mail, scan de la photocopieuse, photo prise sur le quai ou sur le chantier, dépôt dans un dossier partagé : l'IA récupère le document au moment où il entre dans l'entreprise, sans changer les habitudes des équipes.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <div class="pc-title">Lire et qualifier, y compris le manuscrit</div>
+          <div class="pc-desc">L'IA reconnaît le type de pièce, facture fournisseur, bon de livraison, contrat, PV, attestation, et lit le contenu même sur un scan tordu ou une signature manuscrite en bas de page. Chaque document sort avec sa nature, sa date, son émetteur et son affaire de rattachement.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <div class="pc-title">Extraire les données et alimenter vos outils</div>
+          <div class="pc-desc">Numéro de commande, montants, quantités, références, échéances : les champs utiles partent directement dans votre logiciel de gestion, votre compta ou votre tableur, sans ressaisie. Les écarts entre commande, bon de livraison et facture sont signalés au lieu d'être découverts trois mois plus tard.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <div class="pc-title">Classer avec un nommage qui tient</div>
+          <div class="pc-desc">Un seul plan de classement, appliqué sans exception : client, affaire, type de pièce, date. Le fichier <em>scan_0043.pdf</em> devient <em>2026-08-17_BL_Dupont_CH1284.pdf</em>, rangé au bon endroit, avec la version qui fait foi identifiée.</div>
+        </div>
+      </li>
+      <li class="process-item">
+        <div class="process-num">5</div>
+        <div class="process-content">
+          <div class="pc-title">Répondre aux questions en langage courant</div>
+          <div class="pc-desc">« Quel est le préavis de résiliation du contrat de maintenance ? », « Envoie-moi tous les bons de livraison Dupont de juin », « Est-ce qu'on a le PV de réception du chantier de Gravelines ? » : l'IA cherche dans le fonds documentaire et répond avec le document en pièce jointe. La recherche passe de vingt minutes à dix secondes.</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="info-box-dark">
+      <strong>Vos données restent chez vous :</strong> l'automatisation se greffe sur vos outils actuels, messagerie, serveur, cloud d'entreprise, logiciel de gestion, sans migration forcée ni nouvel outil imposé aux équipes. Les droits d'accès existants sont respectés : ce qu'un salarié ne pouvait pas ouvrir hier, l'IA ne le lui rendra pas accessible aujourd'hui. Et pour les pièces sensibles, contrats, données de santé, RH, le périmètre de traitement se définit document par document.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3, AVANT / APRÈS -->
+<section class="section-cream2">
+  <div class="section-inner">
+    <span class="eyebrow">Résultats mesurés</span>
+    <h2>Avant et après : la gestion documentaire assistée par IA</h2>
+    <p>
+      Voici les indicateurs observés chez les PME des Hauts-de-France qui ont automatisé leur chaîne documentaire, comparés à leur point de départ, tout en classement manuel.
+    </p>
+    <div class="ba-scroll">
+      <table class="ba-table">
+        <thead>
+          <tr>
+            <th>Indicateur</th>
+            <th>Avant l'IA</th>
+            <th class="th-after">Après l'IA (12 mois)</th>
+            <th class="th-gain">Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-label">Retrouver une pièce justificative</td>
+            <td class="td-before">15 à 30 min</td>
+            <td class="td-after">&lt; 10 secondes</td>
+            <td class="td-gain">quasi instantané</td>
+          </tr>
+          <tr>
+            <td class="td-label">Classement et nommage des scans</td>
+            <td class="td-before">1 à 2 h / semaine</td>
+            <td class="td-after">automatique</td>
+            <td class="td-gain">−95 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Ressaisie de données depuis un PDF</td>
+            <td class="td-before">référence</td>
+            <td class="td-after">extraction automatique</td>
+            <td class="td-gain">−73 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Erreurs de saisie fournisseur</td>
+            <td class="td-before">détectées en compta</td>
+            <td class="td-after">signalées à réception</td>
+            <td class="td-gain">−80 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Traitement d'une facture fournisseur</td>
+            <td class="td-before">8 à 12 min</td>
+            <td class="td-after">2 min de contrôle</td>
+            <td class="td-gain">−75 %</td>
+          </tr>
+          <tr>
+            <td class="td-label">Pièces manquantes en cas de litige</td>
+            <td class="td-before">fréquentes</td>
+            <td class="td-after">dossier complet</td>
+            <td class="td-gain">risque divisé</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px; color:var(--brun); margin-top:8px;">
+      * Moyennes observées sur un panel de PME du Nord-Pas-de-Calais de 6 à 30 salariés, secteurs logistique, industrie, BTP, commerce et santé.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 4, CAS CLIENTS -->
+<section class="section-dark">
+  <div class="section-inner">
+    <span class="eyebrow">Cas clients réels</span>
+    <h2>Quatre entreprises du Nord qui ont repris la main sur leurs documents</h2>
+    <p>Des entreprises proches de chez vous ont déjà automatisé tout ou partie de leur chaîne documentaire. Voici quatre exemples concrets, avec des chiffres réels.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <span class="rc-tag">Logistique · Dunkerque</span>
+        <div class="rc-title">PME logistique, 18 salariés</div>
+        <div class="rc-desc">Prestataire du port de Dunkerque. Bons d'enlèvement photographiés sur le quai, CMR scannés en fin de journée, litiges clients arbitrés à la mémoire. L'IA capte, lit, rattache chaque pièce au dossier transport et alimente le logiciel de gestion.</div>
+        <div class="roi-results">
+          <div class="roi-result-row">
+            <span class="rr-lbl">Temps gagné</span>
+            <span class="rr-val">+28 h/mois</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Économies annuelles</span>
+            <span class="rr-val">11 800 €/an</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Tâches répétitives</span>
+            <span class="rr-val">−73 %</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <span class="rc-tag">BTP · Hauts-de-France</span>
+        <div class="rc-title">Entreprise de BTP, 22 salariés</div>
+        <div class="rc-desc">Photos de chantier, PV de réception et devis signés dormaient sur les téléphones des chefs d'équipe. Chaque pièce est désormais rattachée à son affaire dès la prise de vue, et le chiffrage s'appuie sur les dossiers passés.</div>
+        <div class="roi-results">
+          <div class="roi-result-row">
+            <span class="rr-lbl">Devis envoyés</span>
+            <span class="rr-val">+28 %</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">CA signé</span>
+            <span class="rr-val">+16 %</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Dossiers de chantier</span>
+            <span class="rr-val">complets à 100 %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <span class="rc-tag">Commerce · Hauts-de-France</span>
+        <div class="rc-title">Commerce, 8 salariés</div>
+        <div class="rc-desc">Tarifs fournisseurs éparpillés dans les mails, devis rédigés à la main en cherchant les bonnes références. L'IA lit les catalogues et les conditions reçues, et le devis se construit à partir des documents à jour.</div>
+        <div class="roi-results">
+          <div class="roi-result-row">
+            <span class="rr-lbl">Gain trimestriel</span>
+            <span class="rr-val">+9 800 €</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Devis</span>
+            <span class="rr-val">45 min → 3 min</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">ROI sur 12 mois</span>
+            <span class="rr-val">×3</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-card">
+        <span class="rc-tag">Santé · Hauts-de-France</span>
+        <div class="rc-title">Cabinet de santé, 6 praticiens</div>
+        <div class="rc-desc">Conventions, attestations et courriers à retrouver entre deux consultations, avec un secrétariat sous l'eau. Classement automatique et recherche instantanée ont libéré le temps d'accueil et fiabilisé les rappels patients.</div>
+        <div class="roi-results">
+          <div class="roi-result-row">
+            <span class="rr-lbl">Rendez-vous manqués</span>
+            <span class="rr-val">−62 %</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Chiffre d'affaires</span>
+            <span class="rr-val">+22 %</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="rr-lbl">Mise en place</span>
+            <span class="rr-val">6 semaines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"Avant, quand un client contestait une livraison, on y passait la demi-journée à trois. Maintenant je pose la question, j'ai le bon de livraison signé et la photo du quai en dix secondes. On ne perd plus de litige par manque de preuve."</blockquote>
+      <cite>Responsable exploitation, PME logistique · Dunkerque</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5, PAR OÙ COMMENCER -->
+<section class="section-white">
+  <div class="section-inner">
+    <span class="eyebrow">Par où commencer</span>
+    <h2>3 questions pour automatiser votre gestion documentaire</h2>
+    <p>
+      L'erreur classique consiste à vouloir tout reprendre : numériser les archives, refaire l'arborescence complète, former tout le monde à un nouvel outil. Ce chantier ne finit jamais. La méthode Dunai est l'inverse : on prend le flux documentaire qui vous coûte le plus cher aujourd'hui, souvent les factures fournisseurs ou les bons de livraison, on l'automatise de bout en bout, on prouve le gain, puis on étend au reste. Trois questions pour partir du bon pied.
+    </p>
+
+    <div class="info-box">
+      <strong>1. Quel document vous fait perdre le plus de temps chaque semaine ?</strong><br>
+      Facture fournisseur, bon de livraison, PV de chantier, contrat, ordonnance : identifiez le flux le plus volumineux et le plus ressaisi. C'est votre premier chantier, et celui dont le gain se chiffre le plus vite.
+    </div>
+
+    <div class="info-box">
+      <strong>2. Combien de fois ressaisissez-vous une information déjà écrite ?</strong><br>
+      Chaque champ recopié depuis un PDF vers un logiciel est une automatisation en attente, et une source d'erreur en moins. Comptez ces ressaisies sur une semaine : le total surprend toujours.
+    </div>
+
+    <div class="info-box">
+      <strong>3. Qu'est-ce qui vous manquerait demain en cas de contrôle ou de litige ?</strong><br>
+      Si la réponse est « il faudrait chercher », vous avez un risque non couvert. Structurer les preuves d'exécution est ce qui transforme une automatisation confortable en automatisation rentable.
+    </div>
+
+    <p>
+      Avec ces bases, un <strong>audit IA de 2h</strong> suffit à cartographier vos flux documentaires, à repérer ce qui est automatisable et à définir un plan priorisé. La première automatisation, capture et classement des scans, extraction des factures fournisseurs ou moteur de recherche interne, est opérationnelle en <strong>6 semaines</strong>, et les gains se mesurent dès les premières semaines : moins de recherches, moins de ressaisies, moins de pièces manquantes.
+    </p>
+
+    <p>
+      La majorité de nos clients des Hauts-de-France atteignent un <strong>retour sur investissement ×3 sur 12 mois</strong>, en éliminant jusqu'à <strong>73 % des tâches répétitives</strong> de traitement documentaire et en récupérant plusieurs heures chaque semaine. Le temps regagné repart là où il crée de la valeur : traiter les clients, chiffrer les affaires, contrôler la qualité, plutôt que fouiller un serveur à la recherche d'un PDF qu'on possède déjà.
+    </p>
+
+    <div class="internal-links">
+      <h3>À lire aussi</h3>
+      <ul>
+        <li><a href="https://dunai.fr/Blog/dunai-article-facturation-relances-devis-2026-04-16.html">Automatiser sa facturation, ses relances, ses devis</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-ia-logistique-dunkerque-2026-04-16.html">IA et logistique : cas concrets d'optimisation à Dunkerque</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-2-roi-12-mois.html">ROI de l'IA : comment mesurer les gains réels sur 12 mois</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-audit-ia-pme-2-jours-2026-04-15.html">Audit IA : ce qu'il révèle dans une PME en 2h</a></li>
+        <li><a href="https://dunai.fr/Blog/dunai-article-1-agents-ia.html">Agents IA &amp; automatisation : ce qui change pour une PME</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Combien d'heures par semaine passez-vous à chercher un document ?</h2>
+  <p>En 2h sur site ou en visio, Dunai analyse vos flux documentaires, puis vous remet sous 48h un plan d'automatisation chiffré. Gratuit et sans engagement.</p>
+  <div class="cta-btns">
+    <a class="btn-white" href="https://dunai.fr/contact/">Demander mon audit gratuit</a>
+    <a class="btn-transparent" href="https://dunai.fr/agents/">Voir nos cas clients</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section class="articles-lies" style="max-width:760px;margin:0 auto;padding:0 1.25rem 3rem">
+  <p style="font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;margin-bottom:.5rem">À lire ensuite</p>
+  <ul style="list-style:none;padding:0;margin:0;font-size:14.5px"><li style="margin:.45rem 0"><a href="/Blog/dunai-article-ia-achats-fournisseurs-pme-nord-2026-07-20.html" style="color:#EA580C">Achats et fournisseurs : ce que l'IA fait gagner</a></li><li style="margin:.45rem 0"><a href="/Blog/dunai-article-ia-planning-equipes-terrain-pme-nord-2026-08-10.html" style="color:#EA580C">Planning des équipes terrain : ce que l'IA change</a></li><li style="margin:.45rem 0"><a href="/Blog/dunai-article-automatisation-pme-industri-nord-2026-04-20.html" style="color:#EA580C">Automatiser une PME industrielle du Nord : le guide</a></li></ul>
+</section>
+<footer><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="/images/logo-footer.svg" alt="Dunai"><p class="footer-tagline">IA &amp; Automatisation<br>PME · Hauts-de-France</p></div><ul class="footer-links"><li><a href="/">Accueil</a></li><li><a href="/agents/">Agents IA</a></li><li><a href="/roi/">Résultats</a></li><li><a href="/tarifs/">Tarifs</a></li><li><a href="/contact/">Contact</a></li><li><a href="/formation-ia/">Formation IA</a></li><li><a href="/Blog/">Blog</a></li></ul></div><div class="footer-seo-grid"><div><p class="footer-seo-title">Zones d'intervention</p><ul><li><a href="/agence-ia-dunkerque/">Dunkerque</a></li><li><a href="/agence-ia-lille/">Lille</a></li><li><a href="/agence-ia-calais/">Calais</a></li><li><a href="/agence-ia-boulogne-sur-mer/">Boulogne-sur-Mer</a></li><li><a href="/agence-ia-saint-omer/">Saint-Omer</a></li><li><a href="/agence-ia-hazebrouck/">Hazebrouck</a></li><li><a href="/agence-ia-arras/">Arras</a></li><li><a href="/agence-ia-lens/">Lens</a></li><li><a href="/agence-ia-valenciennes/">Valenciennes</a></li><li><a href="/agence-ia-amiens/">Amiens</a></li><li><a href="/automatisation-ia-hauts-de-france/">Toute la région</a></li></ul></div><div><p class="footer-seo-title">Secteurs</p><ul><li><a href="/ia-industrie/">Industrie</a></li><li><a href="/ia-logistique-transport/">Logistique & transport</a></li><li><a href="/ia-btp-artisans/">BTP & artisans</a></li><li><a href="/ia-commerce/">Commerce</a></li><li><a href="/ia-restauration-traiteurs/">Restauration & traiteurs</a></li><li><a href="/ia-professions-liberales/">Professions libérales</a></li><li><a href="/ia-sante/">Cabinets de santé</a></li><li><a href="/ia-services-b2b/">Services B2B</a></li></ul></div><div><p class="footer-seo-title">Solutions</p><ul><li><a href="/contact/">Audit IA gratuit</a></li><li><a href="/agents/">Agents IA</a></li><li><a href="/formation-ia/">Formation IA</a></li><li><a href="/crm-sur-mesure/">CRM sur mesure</a></li><li><a href="/traiteur/">CRM Traiteur</a></li><li><a href="/accompagnement-ia/">Accompagnement IA</a></li><li><a href="/calculateur/">Calculateur de gains</a></li><li><a href="/tarifs/">Tarifs</a></li></ul></div></div><div class="footer-copy">© 2026 Dunai · IA &amp; Automatisation · Dunkerque · Hauts-de-France · <a href="mailto:contact@dunai.fr" style="color:inherit">contact@dunai.fr</a> · <a href="tel:0646890887" style="color:inherit">06 46 89 08 87</a><br><span class="footer-legal"><a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Confidentialité</a></span></div></div></footer>
+
+</body>
+</html>
