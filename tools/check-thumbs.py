@@ -90,6 +90,12 @@ def check_article(path: Path):
             continue
         if re.search(r"\b" + re.escape(w.strip()) + r"\b", visible):
             errors.append(f"accent manquant : « {w.strip()} » trouvé sans accent")
+    # footer : un article avec le bloc SEO mais sans site.css doit embarquer
+    # les règles structurelles (footer-fix), sinon tout s'empile centré
+    if ('footer-seo-grid' in raw and 'assets/site.css' not in raw
+            and 'footer-fix' not in raw):
+        errors.append("footer sans règles structurelles : ajouter le bloc "
+                      "footer-fix (structure flex du footer standard) dans le <style>")
     # 18 000 € lié au canon 28h/mois (42h → 18k€ reste légitime)
     for m in re.finditer(r"18\s?000\s?€|18\s?k€", plain):
         win = plain[max(0, m.start() - 450):m.start()]
