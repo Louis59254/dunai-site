@@ -185,3 +185,15 @@ location ~* \.html$ {
 Après application : tester `curl -I https://dunai.fr/page-inexistante/` (attendu 404),
 `curl -I https://dunai.fr/blog/ai-act-pme-2026/` (attendu 301 → /Blog/...),
 `curl -sI https://dunai.fr/assets/site.css | grep -i cache` (attendu max-age=31536000).
+
+## Bloc nginx APPLIQUÉ le 2026-09-21 (via UI Coolify) + PIÈGE API
+
+Le bloc de la section précédente est EN PRODUCTION (collé dans l'UI par Louis).
+Vérifié : vraie 404 (page 404.html servie), 301 /blog→/Blog, cache 1 an immutable
+sur les assets, no-cache sur le HTML.
+
+⚠️ PIÈGE Coolify beta-472 : NE JAMAIS modifier `custom_nginx_configuration`
+via l'API. L'API exige du base64 mais l'écrit TEL QUEL (sans décoder) dans
+/etc/nginx/conf.d/default.conf → nginx crash-loop → site down (incident du
+21/09, ~30 min de coupure, résolu en recollant la conf en clair dans l'UI).
+Ce champ ne se modifie QUE par l'interface web (http://IP:8000).
